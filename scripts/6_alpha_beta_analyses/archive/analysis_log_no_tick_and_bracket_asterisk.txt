@@ -1,0 +1,352 @@
+=== INTEGRATED DIVERSITY ANALYSIS - HPC FIXED ===
+
+TEST_MODE: FALSE 
+HALF_PLOTS: TRUE 
+
+Found 41 categorical variables for analysis
+Loading beta diversity...
+  ✓ Loaded beta diversity matrices
+Performing PCoA...
+  Braycurtis: PC1=19.7%, PC2=10.8%
+  Unwunifrac: PC1=17.5%, PC2=7.4%
+  Wunifrac: PC1=32.8%, PC2=25.9%
+  ✓ PCoA complete
+Calculating centroids...
+  Processing Braycurtis ...
+    Variable: CHD 
+    Variable: CVD 
+    Variable: Gender 
+    Variable: AgeGroup 
+    Variable: EducationLevel 
+    Variable: Ethnicity 
+    Variable: Marital_Status 
+    Variable: Household_Size_Factor 
+    Variable: US_Born 
+    Variable: Interview_Language 
+    Variable: Age_group 
+    Variable: Education_level 
+    Variable: US_born 
+    Variable: Household_size 
+    Variable: Marital_status 
+    Variable: Interview_language 
+    Variable: Income_to_poverty_ratio 
+    Variable: Denture 
+    Variable: Gum_disease 
+    Variable: Oral_hygiene 
+    Variable: Tooth_decay 
+    Variable: Oral_all 
+    Variable: Smoking_status 
+    Variable: Hepatitis_C_antibody 
+    Variable: BMI_category 
+    Variable: Blood_pressure 
+    Variable: Pulse_category 
+    Variable: Asthma 
+    Variable: Bronchitis 
+    Variable: Emphysema 
+    Variable: Angina 
+    Variable: Heart_failure 
+    Variable: Heart_attack 
+    Variable: Stroke 
+    Variable: Diabetes 
+    Variable: Breast_cancer 
+    Variable: Colon_cancer 
+    Variable: Lung_cancer 
+    Variable: Esophageal_cancer 
+    Variable: Prostate_cancer 
+    Variable: Mouth_cancer 
+  Processing Unwunifrac ...
+    Variable: CHD 
+    Variable: CVD 
+    Variable: Gender 
+    Variable: AgeGroup 
+    Variable: EducationLevel 
+    Variable: Ethnicity 
+    Variable: Marital_Status 
+    Variable: Household_Size_Factor 
+    Variable: US_Born 
+    Variable: Interview_Language 
+    Variable: Age_group 
+    Variable: Education_level 
+    Variable: US_born 
+    Variable: Household_size 
+    Variable: Marital_status 
+    Variable: Interview_language 
+    Variable: Income_to_poverty_ratio 
+    Variable: Denture 
+    Variable: Gum_disease 
+    Variable: Oral_hygiene 
+    Variable: Tooth_decay 
+    Variable: Oral_all 
+    Variable: Smoking_status 
+    Variable: Hepatitis_C_antibody 
+    Variable: BMI_category 
+    Variable: Blood_pressure 
+    Variable: Pulse_category 
+    Variable: Asthma 
+    Variable: Bronchitis 
+    Variable: Emphysema 
+    Variable: Angina 
+    Variable: Heart_failure 
+    Variable: Heart_attack 
+    Variable: Stroke 
+    Variable: Diabetes 
+    Variable: Breast_cancer 
+    Variable: Colon_cancer 
+    Variable: Lung_cancer 
+    Variable: Esophageal_cancer 
+    Variable: Prostate_cancer 
+    Variable: Mouth_cancer 
+  Processing Wunifrac ...
+    Variable: CHD 
+    Variable: CVD 
+    Variable: Gender 
+    Variable: AgeGroup 
+    Variable: EducationLevel 
+    Variable: Ethnicity 
+    Variable: Marital_Status 
+    Variable: Household_Size_Factor 
+    Variable: US_Born 
+    Variable: Interview_Language 
+    Variable: Age_group 
+    Variable: Education_level 
+    Variable: US_born 
+    Variable: Household_size 
+    Variable: Marital_status 
+    Variable: Interview_language 
+    Variable: Income_to_poverty_ratio 
+    Variable: Denture 
+    Variable: Gum_disease 
+    Variable: Oral_hygiene 
+    Variable: Tooth_decay 
+    Variable: Oral_all 
+    Variable: Smoking_status 
+    Variable: Hepatitis_C_antibody 
+    Variable: BMI_category 
+    Variable: Blood_pressure 
+    Variable: Pulse_category 
+    Variable: Asthma 
+    Variable: Bronchitis 
+    Variable: Emphysema 
+    Variable: Angina 
+    Variable: Heart_failure 
+    Variable: Heart_attack 
+    Variable: Stroke 
+    Variable: Diabetes 
+    Variable: Breast_cancer 
+    Variable: Colon_cancer 
+    Variable: Lung_cancer 
+    Variable: Esophageal_cancer 
+    Variable: Prostate_cancer 
+    Variable: Mouth_cancer 
+  ✓ Done
+Running PERMANOVA...
+  ✓ 123 tests, 0 significant
+
+Creating integrated 4×3 plots...
+    Added 1 pairwise comparison brackets (buffer: 32 %)
+    Added 1 pairwise comparison brackets (buffer: 32 %)
+    Added 1 pairwise comparison brackets (buffer: 32 %)
+    Added 1 beta diversity pairwise brackets (buffer: 32 %)
+    Added 1 beta diversity pairwise brackets (buffer: 32 %)
+    Added 1 beta diversity pairwise brackets (buffer: 32 %)
+  ✓ Integrated_CHD_no_tick_and_bracket_asterisk.pdf (5×3 layout, 80×180mm)
+    Added 1 pairwise comparison brackets (buffer: 32 %)
+    Added 1 pairwise comparison brackets (buffer: 32 %)
+    Added 1 pairwise comparison brackets (buffer: 32 %)
+    Added 1 beta diversity pairwise brackets (buffer: 32 %)
+    Added 1 beta diversity pairwise brackets (buffer: 32 %)
+    Added 1 beta diversity pairwise brackets (buffer: 32 %)
+  ✓ Integrated_CVD_no_tick_and_bracket_asterisk.pdf (5×3 layout, 80×180mm)
+    Added 1 pairwise comparison brackets (buffer: 32 %)
+    Added 1 pairwise comparison brackets (buffer: 32 %)
+    Added 1 pairwise comparison brackets (buffer: 32 %)
+  ✓ Integrated_Gender_no_tick_and_bracket_asterisk.pdf (5×3 layout, 80×180mm)
+    Added 9 pairwise comparison brackets (buffer: 128 %)
+    Added 8 pairwise comparison brackets (buffer: 116 %)
+    Added 7 beta diversity pairwise brackets (buffer: 104 %)
+    Added 8 beta diversity pairwise brackets (buffer: 116 %)
+    Added 4 beta diversity pairwise brackets (buffer: 68 %)
+  ✓ Integrated_AgeGroup_no_tick_and_bracket_asterisk.pdf (5×3 layout, 80×180mm)
+    Added 8 pairwise comparison brackets (buffer: 116 %)
+    Added 7 pairwise comparison brackets (buffer: 104 %)
+    Added 5 pairwise comparison brackets (buffer: 80 %)
+    Added 7 beta diversity pairwise brackets (buffer: 104 %)
+    Added 7 beta diversity pairwise brackets (buffer: 104 %)
+    Added 5 beta diversity pairwise brackets (buffer: 80 %)
+  ✓ Integrated_EducationLevel_no_tick_and_bracket_asterisk.pdf (5×3 layout, 80×180mm)
+    Added 9 pairwise comparison brackets (buffer: 128 %)
+    Added 7 pairwise comparison brackets (buffer: 104 %)
+    Added 5 pairwise comparison brackets (buffer: 80 %)
+    Added 6 beta diversity pairwise brackets (buffer: 92 %)
+    Added 6 beta diversity pairwise brackets (buffer: 92 %)
+    Added 3 beta diversity pairwise brackets (buffer: 56 %)
+  ✓ Integrated_Ethnicity_no_tick_and_bracket_asterisk.pdf (5×3 layout, 80×180mm)
+    Added 12 pairwise comparison brackets (buffer: 164 %)
+    Added 12 pairwise comparison brackets (buffer: 164 %)
+    Added 10 pairwise comparison brackets (buffer: 140 %)
+    Added 7 beta diversity pairwise brackets (buffer: 104 %)
+  ✓ Integrated_Marital_Status_no_tick_and_bracket_asterisk.pdf (5×3 layout, 95×180mm)
+  ✓ Integrated_Household_Size_Factor_no_tick_and_bracket_asterisk.pdf (5×3 layout, 110×180mm)
+  Skipping US_Born - insufficient groups ( 1  levels)
+    Added 1 pairwise comparison brackets (buffer: 32 %)
+    Added 1 pairwise comparison brackets (buffer: 32 %)
+    Added 1 pairwise comparison brackets (buffer: 32 %)
+    Added 1 beta diversity pairwise brackets (buffer: 32 %)
+    Added 1 beta diversity pairwise brackets (buffer: 32 %)
+  ✓ Integrated_Interview_Language_no_tick_and_bracket_asterisk.pdf (5×3 layout, 80×180mm)
+    Added 9 pairwise comparison brackets (buffer: 128 %)
+    Added 8 pairwise comparison brackets (buffer: 116 %)
+    Added 7 beta diversity pairwise brackets (buffer: 104 %)
+    Added 8 beta diversity pairwise brackets (buffer: 116 %)
+    Added 4 beta diversity pairwise brackets (buffer: 68 %)
+  ✓ Integrated_Age_group_no_tick_and_bracket_asterisk.pdf (5×3 layout, 80×180mm)
+    Added 8 pairwise comparison brackets (buffer: 116 %)
+    Added 7 pairwise comparison brackets (buffer: 104 %)
+    Added 5 pairwise comparison brackets (buffer: 80 %)
+    Added 7 beta diversity pairwise brackets (buffer: 104 %)
+    Added 7 beta diversity pairwise brackets (buffer: 104 %)
+    Added 5 beta diversity pairwise brackets (buffer: 80 %)
+  ✓ Integrated_Education_level_no_tick_and_bracket_asterisk.pdf (5×3 layout, 80×180mm)
+  Skipping US_born - insufficient groups ( 1  levels)
+  ✓ Integrated_Household_size_no_tick_and_bracket_asterisk.pdf (5×3 layout, 110×180mm)
+    Added 12 pairwise comparison brackets (buffer: 164 %)
+    Added 12 pairwise comparison brackets (buffer: 164 %)
+    Added 10 pairwise comparison brackets (buffer: 140 %)
+    Added 7 beta diversity pairwise brackets (buffer: 104 %)
+  ✓ Integrated_Marital_status_no_tick_and_bracket_asterisk.pdf (5×3 layout, 95×180mm)
+    Added 1 pairwise comparison brackets (buffer: 32 %)
+    Added 1 pairwise comparison brackets (buffer: 32 %)
+    Added 1 pairwise comparison brackets (buffer: 32 %)
+    Added 1 beta diversity pairwise brackets (buffer: 32 %)
+    Added 1 beta diversity pairwise brackets (buffer: 32 %)
+  ✓ Integrated_Interview_language_no_tick_and_bracket_asterisk.pdf (5×3 layout, 80×180mm)
+  ✓ Integrated_Income_to_poverty_ratio_no_tick_and_bracket_asterisk.pdf (5×3 layout, 110×180mm)
+    Added 1 beta diversity pairwise brackets (buffer: 32 %)
+    Added 1 beta diversity pairwise brackets (buffer: 32 %)
+    Added 1 beta diversity pairwise brackets (buffer: 32 %)
+  ✓ Integrated_Denture_no_tick_and_bracket_asterisk.pdf (5×3 layout, 80×180mm)
+    Added 1 pairwise comparison brackets (buffer: 32 %)
+    Added 1 pairwise comparison brackets (buffer: 32 %)
+    Added 1 pairwise comparison brackets (buffer: 32 %)
+    Added 1 beta diversity pairwise brackets (buffer: 32 %)
+    Added 1 beta diversity pairwise brackets (buffer: 32 %)
+    Added 1 beta diversity pairwise brackets (buffer: 32 %)
+  ✓ Integrated_Gum_disease_no_tick_and_bracket_asterisk.pdf (5×3 layout, 80×180mm)
+    Added 1 pairwise comparison brackets (buffer: 32 %)
+    Added 1 pairwise comparison brackets (buffer: 32 %)
+    Added 1 pairwise comparison brackets (buffer: 32 %)
+    Added 1 beta diversity pairwise brackets (buffer: 32 %)
+    Added 1 beta diversity pairwise brackets (buffer: 32 %)
+    Added 1 beta diversity pairwise brackets (buffer: 32 %)
+  ✓ Integrated_Oral_hygiene_no_tick_and_bracket_asterisk.pdf (5×3 layout, 80×180mm)
+    Added 1 pairwise comparison brackets (buffer: 32 %)
+    Added 1 pairwise comparison brackets (buffer: 32 %)
+    Added 1 pairwise comparison brackets (buffer: 32 %)
+    Added 1 beta diversity pairwise brackets (buffer: 32 %)
+    Added 1 beta diversity pairwise brackets (buffer: 32 %)
+    Added 1 beta diversity pairwise brackets (buffer: 32 %)
+  ✓ Integrated_Tooth_decay_no_tick_and_bracket_asterisk.pdf (5×3 layout, 80×180mm)
+    Added 9 pairwise comparison brackets (buffer: 128 %)
+    Added 8 pairwise comparison brackets (buffer: 116 %)
+    Added 7 pairwise comparison brackets (buffer: 104 %)
+    Added 6 beta diversity pairwise brackets (buffer: 92 %)
+    Added 8 beta diversity pairwise brackets (buffer: 116 %)
+    Added 6 beta diversity pairwise brackets (buffer: 92 %)
+  ✓ Integrated_Oral_all_no_tick_and_bracket_asterisk.pdf (5×3 layout, 80×180mm)
+    Added 3 pairwise comparison brackets (buffer: 56 %)
+    Added 3 pairwise comparison brackets (buffer: 56 %)
+    Added 2 pairwise comparison brackets (buffer: 44 %)
+    Added 3 beta diversity pairwise brackets (buffer: 56 %)
+    Added 3 beta diversity pairwise brackets (buffer: 56 %)
+    Added 3 beta diversity pairwise brackets (buffer: 56 %)
+  ✓ Integrated_Smoking_status_no_tick_and_bracket_asterisk.pdf (5×3 layout, 80×180mm)
+    Added 1 beta diversity pairwise brackets (buffer: 32 %)
+    Added 1 beta diversity pairwise brackets (buffer: 32 %)
+    Added 1 beta diversity pairwise brackets (buffer: 32 %)
+  ✓ Integrated_Hepatitis_C_antibody_no_tick_and_bracket_asterisk.pdf (5×3 layout, 80×180mm)
+    Added 4 pairwise comparison brackets (buffer: 68 %)
+  ✓ Integrated_BMI_category_no_tick_and_bracket_asterisk.pdf (5×3 layout, 80×180mm)
+    Added 1 pairwise comparison brackets (buffer: 32 %)
+    Added 1 beta diversity pairwise brackets (buffer: 32 %)
+    Added 8 beta diversity pairwise brackets (buffer: 116 %)
+  ✓ Integrated_Blood_pressure_no_tick_and_bracket_asterisk.pdf (5×3 layout, 80×180mm)
+    Added 2 pairwise comparison brackets (buffer: 44 %)
+    Added 5 pairwise comparison brackets (buffer: 80 %)
+    Added 4 beta diversity pairwise brackets (buffer: 68 %)
+    Added 4 beta diversity pairwise brackets (buffer: 68 %)
+    Added 3 beta diversity pairwise brackets (buffer: 56 %)
+  ✓ Integrated_Pulse_category_no_tick_and_bracket_asterisk.pdf (5×3 layout, 80×180mm)
+    Added 1 pairwise comparison brackets (buffer: 32 %)
+    Added 1 pairwise comparison brackets (buffer: 32 %)
+    Added 1 pairwise comparison brackets (buffer: 32 %)
+    Added 1 beta diversity pairwise brackets (buffer: 32 %)
+  ✓ Integrated_Asthma_no_tick_and_bracket_asterisk.pdf (5×3 layout, 80×180mm)
+    Added 1 pairwise comparison brackets (buffer: 32 %)
+    Added 1 pairwise comparison brackets (buffer: 32 %)
+    Added 1 pairwise comparison brackets (buffer: 32 %)
+    Added 1 beta diversity pairwise brackets (buffer: 32 %)
+    Added 1 beta diversity pairwise brackets (buffer: 32 %)
+    Added 1 beta diversity pairwise brackets (buffer: 32 %)
+  ✓ Integrated_Bronchitis_no_tick_and_bracket_asterisk.pdf (5×3 layout, 80×180mm)
+    Added 1 pairwise comparison brackets (buffer: 32 %)
+    Added 1 pairwise comparison brackets (buffer: 32 %)
+    Added 1 pairwise comparison brackets (buffer: 32 %)
+    Added 1 beta diversity pairwise brackets (buffer: 32 %)
+    Added 1 beta diversity pairwise brackets (buffer: 32 %)
+    Added 1 beta diversity pairwise brackets (buffer: 32 %)
+  ✓ Integrated_Emphysema_no_tick_and_bracket_asterisk.pdf (5×3 layout, 80×180mm)
+    Added 1 pairwise comparison brackets (buffer: 32 %)
+    Added 1 pairwise comparison brackets (buffer: 32 %)
+    Added 1 pairwise comparison brackets (buffer: 32 %)
+    Added 1 beta diversity pairwise brackets (buffer: 32 %)
+    Added 1 beta diversity pairwise brackets (buffer: 32 %)
+    Added 1 beta diversity pairwise brackets (buffer: 32 %)
+  ✓ Integrated_Angina_no_tick_and_bracket_asterisk.pdf (5×3 layout, 80×180mm)
+    Added 1 pairwise comparison brackets (buffer: 32 %)
+    Added 1 beta diversity pairwise brackets (buffer: 32 %)
+    Added 1 beta diversity pairwise brackets (buffer: 32 %)
+  ✓ Integrated_Heart_failure_no_tick_and_bracket_asterisk.pdf (5×3 layout, 80×180mm)
+    Added 1 pairwise comparison brackets (buffer: 32 %)
+    Added 1 pairwise comparison brackets (buffer: 32 %)
+    Added 1 pairwise comparison brackets (buffer: 32 %)
+    Added 1 beta diversity pairwise brackets (buffer: 32 %)
+    Added 1 beta diversity pairwise brackets (buffer: 32 %)
+    Added 1 beta diversity pairwise brackets (buffer: 32 %)
+  ✓ Integrated_Heart_attack_no_tick_and_bracket_asterisk.pdf (5×3 layout, 80×180mm)
+    Added 1 pairwise comparison brackets (buffer: 32 %)
+    Added 1 pairwise comparison brackets (buffer: 32 %)
+    Added 1 beta diversity pairwise brackets (buffer: 32 %)
+    Added 1 beta diversity pairwise brackets (buffer: 32 %)
+    Added 1 beta diversity pairwise brackets (buffer: 32 %)
+  ✓ Integrated_Stroke_no_tick_and_bracket_asterisk.pdf (5×3 layout, 80×180mm)
+    Added 1 pairwise comparison brackets (buffer: 32 %)
+    Added 1 pairwise comparison brackets (buffer: 32 %)
+    Added 1 pairwise comparison brackets (buffer: 32 %)
+    Added 1 beta diversity pairwise brackets (buffer: 32 %)
+    Added 1 beta diversity pairwise brackets (buffer: 32 %)
+  ✓ Integrated_Diabetes_no_tick_and_bracket_asterisk.pdf (5×3 layout, 80×180mm)
+    Added 1 pairwise comparison brackets (buffer: 32 %)
+  ✓ Integrated_Breast_cancer_no_tick_and_bracket_asterisk.pdf (5×3 layout, 80×180mm)
+    Added 1 pairwise comparison brackets (buffer: 32 %)
+    Added 1 pairwise comparison brackets (buffer: 32 %)
+  ✓ Integrated_Colon_cancer_no_tick_and_bracket_asterisk.pdf (5×3 layout, 80×180mm)
+    Added 1 pairwise comparison brackets (buffer: 32 %)
+  ✓ Integrated_Lung_cancer_no_tick_and_bracket_asterisk.pdf (5×3 layout, 80×180mm)
+    Added 1 pairwise comparison brackets (buffer: 32 %)
+    Added 1 beta diversity pairwise brackets (buffer: 32 %)
+    Added 1 beta diversity pairwise brackets (buffer: 32 %)
+  ✓ Integrated_Esophageal_cancer_no_tick_and_bracket_asterisk.pdf (5×3 layout, 80×180mm)
+    Added 1 pairwise comparison brackets (buffer: 32 %)
+    Added 1 pairwise comparison brackets (buffer: 32 %)
+    Added 1 beta diversity pairwise brackets (buffer: 32 %)
+  ✓ Integrated_Prostate_cancer_no_tick_and_bracket_asterisk.pdf (5×3 layout, 80×180mm)
+  Skipping Mouth_cancer - insufficient groups ( 1  levels)
+There were 50 or more warnings (use warnings() to see the first 50)
+
+Saving pairwise statistical results...
+  ✓ Saved alpha_pairwise_stat_res.csv (361 comparisons)
+    Significant comparisons: 259 
+  ✓ Saved beta_pairwise_stat_res.csv (347 comparisons)
+    Significant comparisons: 202 
+
+✓ Complete!

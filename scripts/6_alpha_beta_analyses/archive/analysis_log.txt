@@ -1,0 +1,13 @@
+=== INTEGRATED DIVERSITY ANALYSIS - SIMPLIFIED ===
+
+TEST_MODE: FALSE 
+
+Found 38 categorical variables for analysis
+Loading beta diversity data...
+  ✓ Loaded beta diversity matrices
+Performing PCoA...
+  Braycurtis: PC1=19.7%, PC2=10.8%
+  Unwunifrac: PC1=17.5%, PC2=7.4%
+  Wunifrac: PC1=32.8%, PC2=25.9%
+  ✓ PCoA complete
+Calculating centroids...

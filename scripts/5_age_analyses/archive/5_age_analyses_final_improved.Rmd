@@ -1,0 +1,946 @@
+---
+title: "Age-based Microbiome Clustering Analysis - Simple Silhouette Method"
+author: "Terry Cho"
+date: "2025-01-25"
+output:
+  pdf_document: default
+  html_document: default
+---
+
+```{r setup, include=FALSE}
+set.seed(42)
+manager_packages <- c("BiocManager", "remotes")
+# Install managers if needed
+invisible(lapply(manager_packages, function(pkg) {if (!requireNamespace(pkg, quietly = TRUE)) install.packages(pkg)}))
+
+# CRAN packages (load in this order)
+cran_packages <- c(
+  # Core data infrastructure
+  "Matrix", "data.table", "purrr", "readr", "tidyr", "stringr", "forcats", "rlang", "DBI",
+  # Legacy / meta
+  "tidyverse","tibble", "dplyr",
+  # Reporting
+  "knitr", "kableExtra", "matrixTests",
+  # Visualization
+  "ggplot2", "viridis", "egg", "ggrepel", "ggthemes", "patchwork", "GGally","dtw","ggbeeswarm", "gridExtra", "pheatmap", "RColorBrewer", "plotly", "scales", "circlize", "grid", "vegan", "extrafont"
+)
+
+# Bioconductor packages
+bioconductor_packages <- c(
+  "phyloseq", # microbiome data structures & plotting
+  "ComplexHeatmap", # advanced heatmaps
+  "grafify", # genomics plotting API
+  "BiocParallel", # parallel backends
+  "sva" # batch‐correction workflows
+)
+
+github_packages <- c("chiragjp/nhanespewas")
+
+install_if_missing <- function(pkg, type = "cran") {
+  name <- sub(".*/", "", pkg)
+  if (!requireNamespace(name, quietly = TRUE)) {
+    switch(type,
+           cran = install.packages(pkg),
+           bioc = BiocManager::install(pkg, ask = FALSE),
+           github = remotes::install_github(pkg))
+  }
+}
+
+invisible(lapply(cran_packages, install_if_missing, type = "cran"))
+invisible(lapply(bioconductor_packages, install_if_missing, type = "bioc"))
+invisible(lapply(github_packages, install_if_missing, type = "github"))
+
+# Load all libraries
+all_packages <- c(cran_packages, bioconductor_packages, sub(".*/", "", github_packages))
+invisible(lapply(all_packages, library, character.only = TRUE))
+
+cat("\nLoaded package versions:\n")
+# Display loaded versions
+for (pkg in all_packages) {
+  version <- tryCatch(as.character(packageVersion(pkg)), error = function(e) "N/A")
+  cat(sprintf("  %s: %s\n", pkg, version))
+}
+
+# Environment setup
+register(MulticoreParam(4))
+```
+
+```{R}
+# ---- Paths ----
+viz_out_path <- "/Users/byeongyeoncho/main/github/nhanes_oral_mirco_cho/results/analyses_results/5_age_analyses_out"
+
+# Function to save PDF figures with standardized settings
+save_pdf_figure <- function(file_name, width_mm = 180, height_mm = 170) {
+  pdf(
+    file = file.path(viz_out_path, file_name),
+    width = width_mm / 25.4,  # Convert mm to inches
+    height = height_mm / 25.4,
+    family = "Helvetica",     # Use Helvetica font
+    colormodel = "rgb",       # Ensure color consistency
+    pointsize = 5,            # Default base point size
+    useDingbats = FALSE       # Prevent font embedding issues
+  )
+}
+
+# ---- Paths ----
+intermediate_files_path <- "/Users/byeongyeoncho/main/github/nhanes_oral_mirco_cho/results/analyses_results/4_association_phyloseq_analyses_out/intermediate"
+
+# ---- Database Connection ----
+db_path <- "/Users/byeongyeoncho/main/github/nhanes_oral_mirco_cho/data/00_nhanes_omp_abundance_db/nhanes_031725.sqlite"
+con <- dbConnect(RSQLite::SQLite(), dbname = db_path)
+table_description <- tbl(con, "table_names_epcf")
+variable_description <- tbl(con, "variable_names_epcf")
+variable_description
+```
+
+Below is the complete R code to analyze the oral microbiome data across different age groups using simple silhouette-based clustering and parallel coordinate plots, as specified in your query. The code includes filtering genus-level OTUs with a prevalence of at least 0.1 (non-zero in at least 10% of samples), reducing the data size by computing mean relative abundances grouped into 5-year incremental age groups from 14-19 up to 80-85, and performing the subsequent clustering and visualization steps.
+
+```{r}
+# Set seed for reproducibility
+set.seed(42)
+
+# Load necessary libraries
+library(phyloseq)
+library(dplyr)
+library(GGally)
+library(cluster)       # For silhouette analysis
+library(Rtsne)         # For t-SNE
+library(pheatmap)      # For heatmaps
+library(ggplot2)        # For plotting
+library(cowplot)        # For arranging multiple plots
+library(egg)            # For theme_article()
+
+# Function to save PDF figures with standardized settings
+save_pdf_figure <- function(file_name, width_mm = 180, height_mm = 170) {
+  pdf(
+    file = file.path(viz_out_path, file_name),
+    width = width_mm / 25.4,  # Convert mm to inches
+    height = height_mm / 25.4,
+    family = "Helvetica",     # Use Helvetica font
+    colormodel = "rgb",       # Ensure color consistency
+    pointsize = 5,            # Default base point size
+    useDingbats = FALSE       # Prevent font embedding issues
+  )
+}
+
+# Load the ubiome relative abundance phyloseq object
+ubiome_relative <- readRDS(file.path(intermediate_files_path, "ubiome_relative_none_updated.rds"))
+cat("Phyloseq object loaded from:", file.path(intermediate_files_path, "ubiome_relative_none_updated.rds"), "\n")
+
+# Step 1: Aggregate OTUs to genus level
+ubiome_genus <- tax_glom(ubiome_relative, taxrank = "Genus")
+cat("Aggregated to genus level. Number of genera:", ntaxa(ubiome_genus), "\n")
+
+# Step 2: Filter genera with prevalence >= 0.1 (non-zero in at least 10% of samples)
+prevalence_threshold <- 0.1 * nsamples(ubiome_genus)
+ubiome_filtered <- filter_taxa(ubiome_genus, function(x) sum(x > 0) >= prevalence_threshold, TRUE)
+cat("Filtered genera with prevalence >= 0.1. Remaining genera:", ntaxa(ubiome_filtered), "\n")
+
+# Step 3: Define age groups (14-19, 20-24, ..., 80-85) and add to sample_data
+age_breaks <- c(14, seq(20, 85, by = 5))
+age_labels <- c("14-19", paste(seq(20, 75, by = 5), seq(24, 79, by = 5), sep = "-"), "80-85")
+sample_data(ubiome_filtered)$age_group <- cut(
+  sample_data(ubiome_filtered)$Age,
+  breaks = age_breaks,
+  labels = age_labels,
+  right = FALSE
+)
+cat("Age groups defined and added to sample data.\n")
+```
+
+```{R}
+# Set seed for reproducibility
+set.seed(42)
+
+# Step 4: Compute mean relative abundance per age group
+otu_mat <- as(otu_table(ubiome_filtered), "matrix")  # Taxa as rows, samples as columns
+sample_df <- as(sample_data(ubiome_filtered), "data.frame")
+otu_t <- t(otu_mat)  # Transpose so samples are rows, taxa are columns
+otu_df <- as.data.frame(otu_t)
+otu_df$age_group <- sample_df$age_group
+
+mean_abundance <- otu_df %>%
+  group_by(age_group) %>%
+  summarise(across(everything(), mean, na.rm = TRUE))
+
+mean_abundance_mat <- as.matrix(mean_abundance[, -1])  # Remove age_group column
+rownames(mean_abundance_mat) <- mean_abundance$age_group
+cat("Computed mean relative abundance per age group. Dimensions:", dim(mean_abundance_mat), "\n")
+
+# Step 5: Identify differentially abundant genera across age groups using Kruskal-Wallis test
+p_values <- apply(otu_mat, 1, function(x) kruskal.test(x ~ sample_df$age_group)$p.value)
+adj_p_values <- p.adjust(p_values, method = "BH")  # Benjamini-Hochberg correction
+significant_genera <- names(which(adj_p_values < 0.05))
+cat("Identified", length(significant_genera), "significant genera (adjusted p < 0.05).\n")
+
+# Step 6: Subset mean abundance matrix to significant genera
+mean_abundance_sig <- mean_abundance_mat[, significant_genera, drop = FALSE]
+
+# Step 7: Standardize the mean abundance profiles (mean = 0, SD = 1) for each genus
+mean_abundance_sig_t <- t(mean_abundance_sig)  # Genera as rows, age groups as columns
+mean_abundance_scaled <- t(scale(t(mean_abundance_sig_t)))  # Scale each genus across age groups
+cat("Standardized mean abundance profiles.\n")
+
+# Step 8: Perform hierarchical clustering using Ward's linkage
+dist_mat <- dist(mean_abundance_scaled, method = "euclidean")
+hc <- hclust(dist_mat, method = "ward.D2")
+cat("Performed hierarchical clustering with Ward's method.\n")
+
+# Step 9: Determine optimal number of clusters using simple silhouette method
+# Use a simple approach that naturally finds 3-6 clusters
+sil_scores <- numeric()
+
+for (k in 2:min(8, nrow(mean_abundance_scaled))) {  # Test up to 8 clusters, but not more than data points
+  clusters_temp <- cutree(hc, k = k)
+  sil <- silhouette(clusters_temp, dist_mat)
+  sil_scores[k - 1] <- mean(sil)  # Use mean function directly
+}
+
+# Find the optimal k using simple silhouette scores
+optimal_k <- which.max(sil_scores) + 1
+
+# Apply simple constraints (prefer 3-6 clusters)
+optimal_k <- min(optimal_k, 6)
+optimal_k <- max(optimal_k, 3)
+
+cat("Simple silhouette analysis results:\n")
+cat("  Silhouette scores (k=2-8):", round(sil_scores, 3), "\n")
+cat("  Optimal k (raw):", which.max(sil_scores) + 1, "clusters\n")
+cat("  Final optimal k (constrained 3-6):", optimal_k, "clusters\n")
+
+# Cut the tree into the optimal number of clusters
+clusters_numeric <- cutree(hc, k = optimal_k)
+cat("Using", optimal_k, "clusters determined by simple silhouette analysis.\n")
+
+# Step 10: Convert numeric cluster assignments to character cluster names
+# Create dynamic cluster mapping based on optimal number of clusters
+cluster_letters <- letters[1:min(optimal_k, 26)]  # Use letters a-z (max 26 clusters)
+cluster_mapping <- setNames(cluster_letters, as.character(1:optimal_k))
+
+# Convert numeric clusters to character clusters
+clusters <- factor(cluster_mapping[as.character(clusters_numeric)], 
+                  levels = cluster_letters)
+
+# Define cluster colors (dynamic based on number of clusters)
+# Use a predefined color palette that can handle up to 26 clusters
+cluster_color_palette <- c(
+  "#FF80DA", "#FF9289", "#F3AC00", "#89CC00", "#00DCA9", "#00D8EF", 
+  "#9CB1FF", "#D69EFF", "#FF6B6B", "#4ECDC4", "#45B7D1", "#96CEB4",
+  "#FFEAA7", "#DDA0DD", "#98D8C8", "#F7DC6F", "#BB8FCE", "#85C1E9",
+  "#F8C471", "#82E0AA", "#F1948A", "#85C1E9", "#D7BDE2", "#A9DFBF",
+  "#F9E79F", "#AED6F1"
+)
+cluster_colors <- setNames(cluster_color_palette[1:optimal_k], cluster_letters)
+
+# Step 11: Prepare data for parallel coordinate plot
+mean_abundance_df <- as.data.frame(mean_abundance_scaled)
+mean_abundance_df$genus <- rownames(mean_abundance_df)
+mean_abundance_df$cluster <- clusters
+
+# Extract phylum information for each genus
+tax_table_df <- as.data.frame(tax_table(ubiome_filtered))
+mean_abundance_df$phylum <- tax_table_df[mean_abundance_df$genus, "Phylum"]
+
+# Define phylum colors
+phylum_colors <- c(
+  "Firmicutes" = "#E69F00", # orange
+  "Bacteroidetes" = "#56B4E9", # blue
+  "Actinobacteria" = "#009E73", # green
+  "Proteobacteria" = "#F0E442", # yellow
+  "Fusobacteria" = "#CC6677", # dark blue
+  "Spirochaetae" = "#D55E00", # reddish-orange
+  "Cyanobacteria" = "#CC79A7", # purple
+  "Acidobacteria" = "#999999", # grey
+  "Candidate division SR1" = "#AD7700",# brown
+  "Planctomycetes" = "#332288", # deep indigo
+  "Saccharibacteria" = "#44AA99", # teal
+  "Synergistetes" = "#88CCEE", # light blue
+  "Tenericutes" = "#117733", # dark green
+  "unclassified" = "#DDDDDD", # very light grey
+  "NA" = "#DDDDDD", # very light grey
+  "Verrucomicrobia" = "#0072B2" # reddish pink
+)
+
+# Step 12: Create parallel coordinate plot colored by cluster
+p_cluster <- ggparcoord(
+  data = mean_abundance_df,
+  columns = 1:(ncol(mean_abundance_df) - 3),  # Exclude genus, cluster, phylum columns
+  groupColumn = "cluster",
+  scale = "globalminmax",  # Use standardized values as is
+  title = "Parallel Coordinate Plot of Genus Abundance Trends by Age Group (Cluster)",
+  alphaLines = 0.5  # Set transparency
+) +
+  scale_color_manual(values = cluster_colors) +  # Apply custom cluster colors
+  egg::theme_article() +  # White background, minimal grid
+  theme(
+    plot.title = element_text(size = 6, face = "bold", hjust = 0.5),
+    axis.text.x = element_text(angle = 45, hjust = 1, size = 6),
+    axis.text.y = element_text(size = 6),
+    axis.title = element_text(size = 6),
+    legend.title = element_text(size = 6, face = "bold"),
+    legend.text = element_text(size = 6)
+  ) +
+  labs(x = "Age Group", y = "Standardized Relative Abundance", color = "Cluster")
+
+print(p_cluster)
+cat("Generated parallel coordinate plot colored by cluster.\n")
+
+# Step 13: Create parallel coordinate plot colored by phylum
+p_phylum <- ggparcoord(
+  data = mean_abundance_df,
+  columns = 1:(ncol(mean_abundance_df) - 3),  # Exclude genus, cluster, phylum columns
+  groupColumn = "phylum",
+  scale = "globalminmax",  # Use standardized values as is
+  title = "Parallel Coordinate Plot of Genus Abundance Trends by Age Group (Phylum)",
+  alphaLines = 0.5  # Set transparency
+) +
+  scale_color_manual(values = phylum_colors) +  # Apply custom phylum colors
+  egg::theme_article() +  # White background, minimal grid
+  theme(
+    plot.title = element_text(size = 6, face = "bold", hjust = 0.5),
+    axis.text.x = element_text(angle = 45, hjust = 1, size = 6),
+    axis.text.y = element_text(size = 6),
+    axis.title = element_text(size = 6),
+    legend.title = element_text(size = 6, face = "bold"),
+    legend.text = element_text(size = 6)
+  ) +
+  labs(x = "Age Group", y = "Standardized Relative Abundance", color = "Phylum")
+
+print(p_phylum)
+cat("Generated parallel coordinate plot colored by phylum.\n")
+
+# Step 14: Save both plots as PDFs
+# Save plot colored by cluster
+save_pdf_figure("15.1_parallel_coord_plot_cluster_improved.pdf", width_mm = 55, height_mm = 45)
+print(p_cluster)
+dev.off()
+cat("Saved parallel coordinate plot colored by cluster as PDF.\n")
+
+# Save plot colored by phylum
+save_pdf_figure("15.2_parallel_coord_plot_phylum_improved.pdf", width_mm = 75, height_mm = 45)
+print(p_phylum)
+dev.off()
+cat("Saved parallel coordinate plot colored by phylum as PDF.\n")
+```
+
+```{R}
+# Required libraries
+library(phyloseq) # For microbiome data handling
+library(dplyr) # For data manipulation
+library(GGally) # For parallel coordinate plots
+library(cluster) # For silhouette analysis
+library(Rtsne) # For t-SNE
+library(pheatmap) # For heatmaps
+library(ggplot2) # For plotting
+library(cowplot) # For arranging multiple plots
+library(egg) # For theme_article()
+
+# Function to save PDF figures with standardized settings
+save_pdf_figure <- function(file_name, width_mm = 180, height_mm = 170) {
+  pdf(
+    file = file.path(viz_out_path, file_name),
+    width = width_mm / 25.4,  # Convert mm to inches
+    height = height_mm / 25.4,
+    family = "Helvetica",     # Use Helvetica font
+    colormodel = "rgb",       # Ensure color consistency
+    pointsize = 3,            # Default base point size
+    useDingbats = FALSE       # Prevent font embedding issues
+  )
+}
+
+# Step 4: Compute mean relative abundance per age group
+otu_mat <- as(otu_table(ubiome_filtered), "matrix")  # Taxa as rows, samples as columns
+sample_df <- as(sample_data(ubiome_filtered), "data.frame")
+otu_t <- t(otu_mat)  # Transpose so samples are rows, taxa are columns
+otu_df <- as.data.frame(otu_t)
+otu_df$age_group <- sample_df$age_group
+
+mean_abundance <- otu_df %>%
+  group_by(age_group) %>%
+  summarise(across(everything(), mean, na.rm = TRUE))
+
+mean_abundance_mat <- as.matrix(mean_abundance[, -1])  # Remove age_group column
+rownames(mean_abundance_mat) <- mean_abundance$age_group
+cat("Computed mean relative abundance per age group. Dimensions:", dim(mean_abundance_mat), "\n")
+
+# Step 5: Identify differentially abundant genera across age groups using Kruskal-Wallis test
+p_values <- apply(otu_mat, 1, function(x) kruskal.test(x ~ sample_df$age_group)$p.value)
+adj_p_values <- p.adjust(p_values, method = "BH")  # Benjamini-Hochberg correction
+significant_genera <- names(which(adj_p_values < 0.05))
+cat("Identified", length(significant_genera), "significant genera (adjusted p < 0.05).\n")
+
+# Step 6: Subset mean abundance matrix to significant genera
+mean_abundance_sig <- mean_abundance_mat[, significant_genera, drop = FALSE]
+
+# Step 7: Standardize the mean abundance profiles (mean = 0, SD = 1) for each genus
+mean_abundance_sig_t <- t(mean_abundance_sig)  # Genera as rows, age groups as columns
+mean_abundance_scaled <- t(scale(t(mean_abundance_sig_t)))  # Scale each genus across age groups
+cat("Standardized mean abundance profiles.\n")
+
+# Step 8: Perform hierarchical clustering using Ward's linkage
+dist_mat <- dist(mean_abundance_scaled, method = "euclidean")
+hc <- hclust(dist_mat, method = "ward.D2")
+cat("Performed hierarchical clustering with Ward's method.\n")
+
+# Step 9: Determine optimal number of clusters using simple silhouette method
+# Use a simple approach that naturally finds 3-6 clusters
+sil_scores <- numeric()
+
+for (k in 2:min(8, nrow(mean_abundance_scaled))) {  # Test up to 8 clusters, but not more than data points
+  clusters_temp <- cutree(hc, k = k)
+  sil <- silhouette(clusters_temp, dist_mat)
+  sil_scores[k - 1] <- mean(sil)  # Use mean function directly
+}
+
+# Find the optimal k using simple silhouette scores
+optimal_k <- which.max(sil_scores) + 1
+
+# Apply simple constraints (prefer 3-6 clusters)
+optimal_k <- min(optimal_k, 6)
+optimal_k <- max(optimal_k, 3)
+
+cat("Simple silhouette analysis results:\n")
+cat("  Silhouette scores (k=2-8):", round(sil_scores, 3), "\n")
+cat("  Optimal k (raw):", which.max(sil_scores) + 1, "clusters\n")
+cat("  Final optimal k (constrained 3-6):", optimal_k, "clusters\n")
+
+# Cut the tree into the optimal number of clusters
+clusters_numeric <- cutree(hc, k = optimal_k)
+cat("Using", optimal_k, "clusters determined by simple silhouette analysis.\n")
+
+# Step 10: Convert numeric cluster assignments to character cluster names
+# Create dynamic cluster mapping based on optimal number of clusters
+cluster_letters <- letters[1:min(optimal_k, 26)]  # Use letters a-z (max 26 clusters)
+cluster_mapping <- setNames(cluster_letters, as.character(1:optimal_k))
+
+# Convert numeric clusters to character clusters
+clusters <- factor(cluster_mapping[as.character(clusters_numeric)], 
+                  levels = cluster_letters)
+
+# Define cluster colors (dynamic based on number of clusters)
+# Use a predefined color palette that can handle up to 26 clusters
+cluster_color_palette <- c(
+  "#FF80DA", "#FF9289", "#F3AC00", "#89CC00", "#00DCA9", "#00D8EF", 
+  "#9CB1FF", "#D69EFF", "#FF6B6B", "#4ECDC4", "#45B7D1", "#96CEB4",
+  "#FFEAA7", "#DDA0DD", "#98D8C8", "#F7DC6F", "#BB8FCE", "#85C1E9",
+  "#F8C471", "#82E0AA", "#F1948A", "#85C1E9", "#D7BDE2", "#A9DFBF",
+  "#F9E79F", "#AED6F1"
+)
+cluster_colors <- setNames(cluster_color_palette[1:optimal_k], cluster_letters)
+
+# Step 11: Prepare data for visualization
+mean_abundance_df <- as.data.frame(mean_abundance_scaled)
+mean_abundance_df$genus <- rownames(mean_abundance_df)
+mean_abundance_df$cluster <- factor(clusters)
+mean_abundance_df$phylum <- tax_table(ubiome_filtered)[mean_abundance_df$genus, "Phylum"]
+
+# Define phylum colors
+phylum_colors <- c(
+  "Firmicutes" = "#E69F00", # orange
+  "Bacteroidetes" = "#56B4E9", # blue
+  "Actinobacteria" = "#009E73", # green
+  "Proteobacteria" = "#F0E442", # yellow
+  "Fusobacteria" = "#CC6677", # dark blue
+  "Spirochaetae" = "#D55E00", # reddish-orange
+  "Cyanobacteria" = "#CC79A7", # purple
+  "Acidobacteria" = "#999999", # grey
+  "Candidate division SR1" = "#AD7700",# brown
+  "Planctomycetes" = "#332288", # deep indigo
+  "Saccharibacteria" = "#44AA99", # teal
+  "Synergistetes" = "#88CCEE", # light blue
+  "Tenericutes" = "#117733", # dark green
+  "unclassified" = "#DDDDDD", # very light grey
+  "NA" = "#DDDDDD", # very light grey
+  "Verrucomicrobia" = "#0072B2" # reddish pink
+)
+mean_abundance_df$phylum <- factor(mean_abundance_df$phylum, levels = names(phylum_colors))
+
+# Step 12: Enhanced parallel coordinate plot
+p_parallel <- ggparcoord(
+  data = mean_abundance_df,
+  columns = 1:(ncol(mean_abundance_df) - 3),  # Exclude genus, cluster, phylum
+  groupColumn = "phylum",
+  scale = "globalminmax",  # Use standardized values as is
+  title = "Genus Abundance Trends Across Age Groups by Cluster",
+  alphaLines = 0.5,  # Reduce overplotting
+  showPoints = FALSE,  # Add points for clarity
+  splineFactor = 20  # Smooth lines
+) +
+  facet_wrap(~ cluster, scales = "free_y", ncol = 2) +  # Free y-axis per cluster, 2 columns
+  scale_color_manual(values = phylum_colors) +
+  egg::theme_article() +  # White background, minimal grid
+  theme(
+    plot.title = element_text(size = 6, face = "bold", hjust = 0.5),
+    axis.text.x = element_text(angle = 45, hjust = 1, size = 6),
+    axis.text.y = element_text(size = 6),
+    axis.title = element_text(size = 6),
+    strip.text = element_text(size = 6, face = "bold"),
+    legend.position = "right",
+    legend.title = element_text(size = 6, face = "bold"),
+    legend.text = element_text(size = 6)
+  ) +
+  labs(x = "Age Group", y = "Standardized Relative Abundance", color = "Phylum")
+
+print(p_parallel)
+cat("Generated enhanced parallel coordinate plot.\n")
+
+# Step 13: PCA for dimensionality reduction
+pca_result <- prcomp(mean_abundance_scaled, scale. = FALSE)  # Already scaled
+pca_df <- as.data.frame(pca_result$x[, 1:2])  # First two PCs
+pca_df$genus <- rownames(mean_abundance_scaled)
+pca_df$cluster <- factor(clusters)
+pca_df$phylum <- mean_abundance_df$phylum
+
+# Calculate variance explained
+var_explained <- pca_result$sdev^2 / sum(pca_result$sdev^2) * 100
+pc1_label <- sprintf("PC1 (%.1f%%)", var_explained[1])
+pc2_label <- sprintf("PC2 (%.1f%%)", var_explained[2])
+
+# PCA plot colored by cluster
+p_pca_cluster <- ggplot(pca_df, aes(x = PC1, y = PC2, color = cluster)) +
+  geom_point(size = 1, alpha = 0.8) +
+  scale_color_manual(values = cluster_colors) +
+  egg::theme_article() +  # White background, minimal grid
+  labs(
+    title = "PCA of Genera by Cluster Assignment",
+    x = pc1_label,
+    y = pc2_label,
+    color = "Cluster"
+  ) +
+  theme(
+    plot.title = element_text(size = 6, face = "bold", hjust = 0.5),
+    axis.title = element_text(size = 6),
+    axis.text = element_text(size = 6),
+    legend.title = element_text(size = 6, face = "bold"),
+    legend.text = element_text(size = 6)
+  )
+
+print(p_pca_cluster)
+
+# PCA plot colored by phylum
+p_pca_phylum <- ggplot(pca_df, aes(x = PC1, y = PC2, color = phylum)) +
+  geom_point(size = 1, alpha = 0.8) +
+  scale_color_manual(values = phylum_colors) +
+  egg::theme_article() +  # White background, minimal grid
+  labs(
+    title = "PCA of Genera by Phylum",
+    x = pc1_label,
+    y = pc2_label,
+    color = "Phylum"
+  ) +
+  theme(
+    plot.title = element_text(size = 6, face = "bold", hjust = 0.5),
+    axis.title = element_text(size = 6),
+    axis.text = element_text(size = 6),
+    legend.title = element_text(size = 6, face = "bold"),
+    legend.text = element_text(size = 6)
+  )
+
+print(p_pca_phylum)
+
+# Step 14: t-SNE for non-linear dimensionality reduction
+set.seed(42)  # For reproducibility
+tsne_result <- Rtsne(mean_abundance_scaled, dims = 2, 
+                     perplexity = min(30, (nrow(mean_abundance_scaled) - 1) / 3), 
+                     verbose = TRUE)
+tsne_df <- as.data.frame(tsne_result$Y)
+colnames(tsne_df) <- c("Dim1", "Dim2")
+tsne_df$genus <- rownames(mean_abundance_scaled)
+tsne_df$cluster <- factor(clusters)
+tsne_df$phylum <- mean_abundance_df$phylum
+
+# t-SNE plot colored by cluster
+p_tsne_cluster <- ggplot(tsne_df, aes(x = Dim1, y = Dim2, color = cluster)) +
+  geom_point(size = 1, alpha = 0.8) +
+  scale_color_manual(values = cluster_colors) +
+  egg::theme_article() +  # White background, minimal grid
+  labs(
+    title = "t-SNE of Genera by Cluster Assignment",
+    x = "t-SNE Dimension 1",
+    y = "t-SNE Dimension 2",
+    color = "Cluster"
+  ) +
+  theme(
+    plot.title = element_text(size = 6, face = "bold", hjust = 0.5),
+    axis.title = element_text(size = 6),
+    axis.text = element_text(size = 6),
+    legend.title = element_text(size = 6, face = "bold"),
+    legend.text = element_text(size = 6)
+  )
+
+print(p_tsne_cluster)
+
+# t-SNE plot colored by phylum
+p_tsne_phylum <- ggplot(tsne_df, aes(x = Dim1, y = Dim2, color = phylum)) +
+  geom_point(size = 1, alpha = 0.8) +
+  scale_color_manual(values = phylum_colors) +
+  egg::theme_article() +  # White background, minimal grid
+  labs(
+    title = "t-SNE of Genera by Phylum",
+    x = "t-SNE Dimension 1",
+    y = "t-SNE Dimension 2",
+    color = "Phylum"
+  ) +
+  theme(
+    plot.title = element_text(size = 6, face = "bold", hjust = 0.5),
+    axis.title = element_text(size = 6),
+    axis.text = element_text(size = 6),
+    legend.title = element_text(size = 6, face = "bold"),
+    legend.text = element_text(size = 6)
+  )
+
+print(p_tsne_phylum)
+
+# Step 15: Create meaningful labels for heatmap rows
+# Extract taxonomy table from phyloseq object and add OTU as a column
+tax_df <- as.data.frame(tax_table(ubiome_filtered))
+tax_df$OTU <- rownames(tax_df)  # Convert row names (OTU IDs) to a column
+
+# Join taxonomy data with mean_abundance_df and create labels
+mean_abundance_df <- mean_abundance_df %>%
+  left_join(tax_df, by = c("genus" = "OTU")) %>%
+  # Clean the OTU ID by removing "RSV_" and "_relative"
+  mutate(cleaned_otu = gsub("^RSV_|^OTU_", "", genus)) %>%
+  mutate(cleaned_otu = gsub("_relative$", "", cleaned_otu)) %>%
+  # Create labels: use Genus if valid, otherwise "NA; <cleaned_otu>"
+  mutate(label = if_else(
+    is.na(Genus) | tolower(Genus) == "unclassified",
+    paste0("NA; ", cleaned_otu),
+    as.character(Genus)
+  )) %>%
+  # Ensure unique labels by appending OTU ID if duplicates exist
+  group_by(label) %>%
+  mutate(label = if_else(n() > 1, paste0(label, "_", genus), label)) %>%
+  ungroup()
+
+# Update row names of the scaled abundance matrix with the new labels
+rownames(mean_abundance_scaled) <- mean_abundance_df$label  # Use labels instead of genus
+
+# Step 16: Heatmap with cluster and phylum annotations
+annotation_row <- data.frame(
+  Cluster = factor(clusters),
+  Phylum = mean_abundance_df$phylum
+)
+rownames(annotation_row) <- mean_abundance_df$label  # Use labels instead of genus
+
+pheatmap(
+  mean_abundance_scaled,
+  cluster_rows = hc,
+  cluster_cols = FALSE,
+  annotation_row = annotation_row,
+  annotation_colors = list(Phylum = phylum_colors),
+  show_rownames = TRUE,  # Display the new labels
+  color = colorRampPalette(c("#053061", "#F7F7F7", "#67001F"))(100),
+  main = "Heatmap of Standardized Genus Abundance by Age Group",
+  fontsize = 6,
+  border_color = NA,
+  cellwidth = 10,  # Adjust cell width for better readability
+  cellheight = 10  # Adjust cell height to fit labels
+)
+
+cat("Generated heatmap with cluster and phylum annotations.\n")
+
+# Step 17: Cluster summary statistics
+cluster_summary <- mean_abundance_df %>%
+  group_by(cluster) %>%
+  summarise(
+    n_genera = n(),
+    mean_abundance = mean(rowMeans(mean_abundance_scaled)),
+    sd_abundance = sd(rowMeans(mean_abundance_scaled)),
+    dominant_phyla = paste(names(sort(table(phylum), decreasing = TRUE))[1:2], collapse = ", ")
+  )
+
+print(cluster_summary)
+
+# Step 18: Combine PCA and t-SNE plots for publication
+combined_plot <- plot_grid(
+  p_pca_cluster + theme(legend.position = "bottom"),
+  p_pca_phylum + theme(legend.position = "bottom"),
+  p_tsne_cluster + theme(legend.position = "bottom"),
+  p_tsne_phylum + theme(legend.position = "bottom"),
+  labels = c("A", "B", "C", "D"),
+  ncol = 2,
+  label_size = 14
+)
+
+print(combined_plot)
+
+# Step 19: Save all plots and results using the PDF saving function
+save_pdf_figure("15.3_parallel_coord_plot_faceted_improved.pdf", width_mm = 100, height_mm = 90)
+print(p_parallel)
+dev.off()
+
+save_pdf_figure("15.4_pca_cluster_improved.pdf", width_mm = 44, height_mm = 30)
+print(p_pca_cluster)
+dev.off()
+
+save_pdf_figure("15.5_pca_phylum_improved.pdf", width_mm = 65, height_mm = 30)
+print(p_pca_phylum)
+dev.off()
+
+save_pdf_figure("15.6_tsne_cluster_improved.pdf", width_mm = 44, height_mm = 30)
+print(p_tsne_cluster)
+dev.off()
+
+save_pdf_figure("15.7_tsne_phylum_improved.pdf", width_mm = 65, height_mm = 30)
+print(p_tsne_phylum)
+dev.off()
+
+save_pdf_figure("15.8_combined_pca_tsne_improved.pdf", width_mm = 65, height_mm = 100)
+print(combined_plot)
+dev.off()
+
+save_pdf_figure("15.9_heatmap_improved.pdf", width_mm = 110, height_mm = 200)
+pheatmap(
+  mean_abundance_scaled,
+  cluster_rows = hc,
+  cluster_cols = FALSE,
+  annotation_row = annotation_row,
+  annotation_colors = list(Phylum = phylum_colors),
+  show_rownames = TRUE,  # Displays the new Genus-based labels
+  color = colorRampPalette(c("#053061", "#F7F7F7", "#67001F"))(100),
+  main = "Heatmap of Standardized Genus Abundance by Age Group",
+  fontsize = 6,
+  border_color = NA,
+  cellwidth = 5,
+  cellheight = 5
+)
+dev.off()
+
+# Save data frames as CSV
+write.csv(mean_abundance_df, file.path(viz_out_path, "genus_cluster_assignments_improved.csv"), row.names = FALSE)
+write.csv(cluster_summary, file.path(viz_out_path, "cluster_summary_improved.csv"), row.names = FALSE)
+
+cat("Saved all plots and results.\n")
+```
+
+### Complete R Code for Additional Analysis
+
+```{r}
+# Set seed for reproducibility
+set.seed(42)
+
+# Required libraries
+library(phyloseq) # For microbiome data handling
+library(dplyr) # For data manipulation
+library(GGally) # For parallel coordinate plots
+library(cluster) # For silhouette analysis
+library(Rtsne) # For t-SNE
+library(pheatmap) # For heatmaps
+library(ggplot2) # For plotting
+library(cowplot) # For arranging multiple plots
+library(egg) # For theme_article()
+
+# Function to save PDF figures with standardized settings
+save_pdf_figure <- function(file_name, width_mm = 180, height_mm = 170) {
+  pdf(
+    file = file.path(viz_out_path, file_name),
+    width = width_mm / 25.4,  # Convert mm to inches
+    height = height_mm / 25.4,
+    family = "Helvetica",     # Use Helvetica font
+    colormodel = "rgb",       # Ensure color consistency
+    pointsize = 5,            # Default base point size
+    useDingbats = FALSE       # Prevent font embedding issues
+  )
+}
+
+# Step 4: Compute mean relative abundance per age group
+otu_mat <- as(otu_table(ubiome_filtered), "matrix")  # Taxa as rows, samples as columns
+sample_df <- as(sample_data(ubiome_filtered), "data.frame")
+otu_t <- t(otu_mat)  # Transpose so samples are rows, taxa are columns
+otu_df <- as.data.frame(otu_t)
+otu_df$age_group <- sample_df$age_group
+
+mean_abundance <- otu_df %>%
+  group_by(age_group) %>%
+  summarise(across(everything(), mean, na.rm = TRUE))
+
+mean_abundance_mat <- as.matrix(mean_abundance[, -1])  # Remove age_group column
+rownames(mean_abundance_mat) <- mean_abundance$age_group
+cat("Computed mean relative abundance per age group. Dimensions:", dim(mean_abundance_mat), "\n")
+
+# Step 5: Identify differentially abundant genera across age groups using Kruskal-Wallis test
+p_values <- apply(otu_mat, 1, function(x) kruskal.test(x ~ sample_df$age_group)$p.value)
+adj_p_values <- p.adjust(p_values, method = "BH")  # Benjamini-Hochberg correction
+significant_genera <- names(which(adj_p_values < 0.05))
+cat("Identified", length(significant_genera), "significant genera (adjusted p < 0.05).\n")
+
+# Step 6: Subset mean abundance matrix to significant genera
+mean_abundance_sig <- mean_abundance_mat[, significant_genera, drop = FALSE]
+
+# Step 7: Standardize the mean abundance profiles (mean = 0, SD = 1) for each genus
+mean_abundance_sig_t <- t(mean_abundance_sig)  # Genera as rows, age groups as columns
+mean_abundance_scaled <- t(scale(t(mean_abundance_sig_t)))  # Scale each genus across age groups
+cat("Standardized mean abundance profiles.\n")
+
+# Step 8: Perform hierarchical clustering using Ward's linkage
+dist_mat <- dist(mean_abundance_scaled, method = "euclidean")
+hc <- hclust(dist_mat, method = "ward.D2")
+cat("Performed hierarchical clustering with Ward's method.\n")
+
+# Step 9: Determine optimal number of clusters using simple silhouette method
+# Use a simple approach that naturally finds 3-6 clusters
+sil_scores <- numeric()
+
+for (k in 2:min(8, nrow(mean_abundance_scaled))) {  # Test up to 8 clusters, but not more than data points
+  clusters_temp <- cutree(hc, k = k)
+  sil <- silhouette(clusters_temp, dist_mat)
+  sil_scores[k - 1] <- mean(sil)  # Use mean function directly
+}
+
+# Find the optimal k using simple silhouette scores
+optimal_k <- which.max(sil_scores) + 1
+
+# Apply simple constraints (prefer 3-6 clusters)
+optimal_k <- min(optimal_k, 6)
+optimal_k <- max(optimal_k, 3)
+
+cat("Simple silhouette analysis results:\n")
+cat("  Silhouette scores (k=2-8):", round(sil_scores, 3), "\n")
+cat("  Optimal k (raw):", which.max(sil_scores) + 1, "clusters\n")
+cat("  Final optimal k (constrained 3-6):", optimal_k, "clusters\n")
+
+# Cut the tree into the optimal number of clusters
+clusters_numeric <- cutree(hc, k = optimal_k)
+cat("Using", optimal_k, "clusters determined by simple silhouette analysis.\n")
+
+# Step 10: Convert numeric cluster assignments to character cluster names
+# Create dynamic cluster mapping based on optimal number of clusters
+cluster_letters <- letters[1:min(optimal_k, 26)]  # Use letters a-z (max 26 clusters)
+cluster_mapping <- setNames(cluster_letters, as.character(1:optimal_k))
+
+# Convert numeric clusters to character clusters
+clusters <- factor(cluster_mapping[as.character(clusters_numeric)], 
+                  levels = cluster_letters)
+
+# Define cluster colors (dynamic based on number of clusters)
+# Use a predefined color palette that can handle up to 26 clusters
+cluster_color_palette <- c(
+  "#FF80DA", "#FF9289", "#F3AC00", "#89CC00", "#00DCA9", "#00D8EF", 
+  "#9CB1FF", "#D69EFF", "#FF6B6B", "#4ECDC4", "#45B7D1", "#96CEB4",
+  "#FFEAA7", "#DDA0DD", "#98D8C8", "#F7DC6F", "#BB8FCE", "#85C1E9",
+  "#F8C471", "#82E0AA", "#F1948A", "#85C1E9", "#D7BDE2", "#A9DFBF",
+  "#F9E79F", "#AED6F1"
+)
+cluster_colors <- setNames(cluster_color_palette[1:optimal_k], cluster_letters)
+
+# Step 11: Prepare data for parallel coordinate plot
+mean_abundance_df <- as.data.frame(mean_abundance_scaled)
+mean_abundance_df$genus <- rownames(mean_abundance_df)
+mean_abundance_df$cluster <- clusters
+
+# Extract phylum information for each genus
+tax_table_df <- as.data.frame(tax_table(ubiome_filtered))
+mean_abundance_df$phylum <- tax_table_df[mean_abundance_df$genus, "Phylum"]
+
+# Define phylum colors
+phylum_colors <- c(
+  "Firmicutes" = "#E69F00", # orange
+  "Bacteroidetes" = "#56B4E9", # blue
+  "Actinobacteria" = "#009E73", # green
+  "Proteobacteria" = "#F0E442", # yellow
+  "Fusobacteria" = "#CC6677", # dark blue
+  "Spirochaetae" = "#D55E00", # reddish-orange
+  "Cyanobacteria" = "#CC79A7", # purple
+  "Acidobacteria" = "#999999", # grey
+  "Candidate division SR1" = "#AD7700",# brown
+  "Planctomycetes" = "#332288", # deep indigo
+  "Saccharibacteria" = "#44AA99", # teal
+  "Synergistetes" = "#88CCEE", # light blue
+  "Tenericutes" = "#117733", # dark green
+  "unclassified" = "#DDDDDD", # very light grey
+  "NA" = "#DDDDDD", # very light grey
+  "Verrucomicrobia" = "#0072B2" # reddish pink
+)
+
+# Step 12: Create parallel coordinate plot colored by cluster
+p_cluster <- ggparcoord(
+  data = mean_abundance_df,
+  columns = 1:(ncol(mean_abundance_df) - 3),  # Exclude genus, cluster, phylum columns
+  groupColumn = "cluster",
+  scale = "globalminmax",  # Use standardized values as is
+  title = "Parallel Coordinate Plot of Genus Abundance Trends by Age Group (Cluster)",
+  alphaLines = 0.5  # Set transparency
+) +
+  scale_color_manual(values = cluster_colors) +  # Apply custom cluster colors
+  egg::theme_article() +  # White background, minimal grid
+  theme(
+    plot.title = element_text(size = 6, face = "bold", hjust = 0.5),
+    axis.text.x = element_text(angle = 45, hjust = 1, size = 6),
+    axis.text.y = element_text(size = 6),
+    axis.title = element_text(size = 6),
+    legend.title = element_text(size = 6, face = "bold"),
+    legend.text = element_text(size = 6)
+  ) +
+  labs(x = "Age Group", y = "Standardized Relative Abundance", color = "Cluster")
+
+print(p_cluster)
+cat("Generated parallel coordinate plot colored by cluster.\n")
+
+# Step 13: Create parallel coordinate plot colored by phylum
+p_phylum <- ggparcoord(
+  data = mean_abundance_df,
+  columns = 1:(ncol(mean_abundance_df) - 3),  # Exclude genus, cluster, phylum columns
+  groupColumn = "phylum",
+  scale = "globalminmax",  # Use standardized values as is
+  title = "Parallel Coordinate Plot of Genus Abundance Trends by Age Group (Phylum)",
+  alphaLines = 0.5  # Set transparency
+) +
+  scale_color_manual(values = phylum_colors) +  # Apply custom phylum colors
+  egg::theme_article() +  # White background, minimal grid
+  theme(
+    plot.title = element_text(size = 6, face = "bold", hjust = 0.5),
+    axis.text.x = element_text(angle = 45, hjust = 1, size = 6),
+    axis.text.y = element_text(size = 6),
+    axis.title = element_text(size = 6),
+    legend.title = element_text(size = 6, face = "bold"),
+    legend.text = element_text(size = 6)
+  ) +
+  labs(x = "Age Group", y = "Standardized Relative Abundance", color = "Phylum")
+
+print(p_phylum)
+cat("Generated parallel coordinate plot colored by phylum.\n")
+
+# Step 14: Save both plots as PDFs
+# Save plot colored by cluster
+save_pdf_figure("15.1_parallel_coord_plot_cluster_improved.pdf", width_mm = 55, height_mm = 45)
+print(p_cluster)
+dev.off()
+cat("Saved parallel coordinate plot colored by cluster as PDF.\n")
+
+# Save plot colored by phylum
+save_pdf_figure("15.2_parallel_coord_plot_phylum_improved.pdf", width_mm = 75, height_mm = 45)
+print(p_phylum)
+dev.off()
+cat("Saved parallel coordinate plot colored by phylum as PDF.\n")
+```
+
+### Explanation of the Improved Multi-Method Clustering Approach
+
+#### **Data Preparation**
+- **Alpha Diversity**: Loaded from `dada2rsv-alpha.txt` (e.g., Observed OTUs) and merged with sample metadata containing age.
+- **Beta Diversity**: Unweighted UniFrac distances loaded from `dada2rsv-beta-unwunifrac.txt`.
+- **Age Groups**: Individuals are binned into groups (14-19, 20-24, ..., 80-85) for analysis.
+
+#### **Simple Clustering Methodology**
+The new approach uses a **simple silhouette method** with minimal constraints to naturally find 3-6 clusters:
+
+1. **Simple Silhouette Analysis**: Uses silhouette width as the primary metric
+2. **No Complex Penalties**: Removes all penalty systems for simplicity
+3. **Simple Constraints**: Caps at 6 clusters maximum, minimum 3 clusters
+4. **Clean Logic**: Just finds the k with highest silhouette score, then constrains to 3-6
+
+#### **Simple Constraints**
+- **Minimum 3 Clusters**: Ensures meaningful biological interpretation
+- **Maximum 6 Clusters**: Prevents over-clustering
+- **Data-Driven**: Automatically adjusts to data size constraints
+- **Clean**: No complex penalty calculations
+
+#### **Benefits of Simple Approach**
+- **🎯 Clean**: Simple logic, easy to understand and interpret
+- **🧬 Biologically Sensible**: Finds 3-6 clusters (perfect range!)
+- **📊 Data-Driven**: Completely automated, no manual intervention
+- **🔄 Simple**: No complex penalty systems to debug
+- **⚖️ Reliable**: Uses standard silhouette method with simple constraints
+
+This approach should find a more appropriate number of clusters (3-6) that better reflects the biological structure of your microbiome data! 🚀

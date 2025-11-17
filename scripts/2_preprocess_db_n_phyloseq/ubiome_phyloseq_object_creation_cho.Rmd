@@ -1,0 +1,773 @@
+---
+title: "NHANES Oral Microbiome phyloseq Object Creation"
+author: "Terry Cho"
+date: "2025-01-19"
+output: html_document
+---
+
+```{r knitr_init, echo=FALSE, warning=FALSE, cache=TRUE}
+library(knitr)
+library(rmdformats)
+library(kableExtra)
+
+# Global options
+options(max.print = 75)
+knitr::opts_chunk$set(
+  fig.width = 8,
+  fig.height = 6,
+  eval = TRUE,
+  cache = FALSE,  # Disable cache for reproducibility with updated database
+  echo = TRUE,
+  prompt = FALSE,
+  tidy = TRUE,
+  comment = NA,
+  message = FALSE,
+  warning = FALSE
+)
+opts_knit$set(width = 85)
+```
+
+# NHANES Oral Microbiome phyloseq Object Creation Pipeline
+
+> ** This pipeline creates phyloseq objects from the processed NHANES oral microbiome database**
+
+Following the phyloseq tutorial: [https://vaulot.github.io/tutorials/Phyloseq_tutorial.html](https://vaulot.github.io/tutorials/Phyloseq_tutorial.html)
+
+
+⚠️ **Prerequisites**
+**Before running this script, ensure you have completed:**
+
+1. **Chapter 0:** Data transformation (creates transformed microbiome tables)
+2. **Chapter 2, Step 1:** Demographic processing (`process_demographics_complete.R`)
+3. **Chapter 2, Step 2:** Database verification (`missing_tables_n_variables_diagnostic.R --processed`)
+
+
+## **Setup & Libraries**
+
+```{r libraries, message=FALSE}
+# Set global chunk options for RMarkdown
+knitr::opts_chunk$set(echo = TRUE)
+
+# List of required packages
+required_packages <- c(
+  "phyloseq", "ape", "dplyr", "readr", "stringr", "data.tree", 
+  "data.table", "tidyr", "readxl", "ggplot2", "tibble", 
+  "tidyverse", "DBI", "RSQLite", "kableExtra", "compositions"
+)
+
+# Ensure CRAN mirror is set globally
+options(repos = c(CRAN = "https://cloud.r-project.org"))
+
+# Install missing packages
+missing_packages <- required_packages[!(required_packages %in% installed.packages()[, "Package"])]
+if (length(missing_packages) > 0) {
+  install.packages(missing_packages, dependencies = TRUE)
+}
+
+# Load all required packages
+invisible(lapply(required_packages, library, character.only = TRUE))
+```
+
+## **Setup Paths and Database Connection**
+
+```{r setup_paths}
+base_path <- "/Users/byeongyeoncho/main/github/nhanes_oral_mirco_cho"
+
+# Output paths
+viz_out_path            <- file.path(base_path, "results/analyses_results/02_preprocess_db_n_phyloseq_out/figures_out")
+intermediate_files_path <- file.path(base_path, "results/analyses_results/02_preprocess_db_n_phyloseq_out/intermediate")
+
+# Create directories if they don't exist
+dir.create(viz_out_path, recursive = TRUE, showWarnings = FALSE)
+dir.create(intermediate_files_path, recursive = TRUE, showWarnings = FALSE)
+
+# Database path - using PROCESSED database with comprehensive demographics
+db_path <- file.path(base_path, "data/00_nhanes_omp_transformed_db/nhanes_oral_transformed_complete_processed.sqlite")
+
+# Verify database exists
+if (!file.exists(db_path)) {
+  stop("❌ Processed database not found. Please run Chapter 2, Step 1 first:\n",
+       "Rscript scripts/2_preprocess_db_n_phyloseq/process_demographics_complete.R")
+}
+
+# Connect to database
+con <- dbConnect(RSQLite::SQLite(), dbname = db_path)
+
+cat("✅ Connected to processed database:", db_path, "\n")
+```
+
+## **Verify Database Status**
+
+```{r verify_database}
+# Check that we have the required transformed tables
+required_tables <- c(
+  # Count tables (for ubiome_counts)
+  "DADA2RSV_GENUS_COUNT_F", "DADA2RSV_GENUS_COUNT_G",
+  # Relative abundance tables (for ubiome_relative) 
+  "DADA2RSV_GENUS_RELATIVE_F", "DADA2RSV_GENUS_RELATIVE_G",
+  # Filtered + transformed relative abundance tables
+  "DADA2RSV_GENUS_RELATIVE_F_none", "DADA2RSV_GENUS_RELATIVE_G_none",
+  "DADA2RSV_GENUS_RELATIVE_F_clr", "DADA2RSV_GENUS_RELATIVE_G_clr", 
+  "DADA2RSV_GENUS_RELATIVE_F_lognorm", "DADA2RSV_GENUS_RELATIVE_G_lognorm",
+  # Processed demographic tables
+  "DEMO_F", "DEMO_G"
+)
+
+available_tables <- dbListTables(con)
+missing_tables <- setdiff(required_tables, available_tables)
+
+if (length(missing_tables) > 0) {
+  stop("❌ Missing required tables: ", paste(missing_tables, collapse = ", "), "\n",
+       "Please ensure Chapter 0 (transformation) and Chapter 2 Step 1 (demographics) are complete.")
+}
+
+cat("✅ All required tables are available\n")
+
+# Check demographic variables
+demo_f_cols <- dbListFields(con, "DEMO_F")
+demographic_indicators <- c("Gender", "AgeGroup", "EducationLevel", "Ethnicity", "PIRQuartile")
+missing_demo_vars <- setdiff(demographic_indicators, demo_f_cols)
+
+if (length(missing_demo_vars) > 0) {
+  warning("⚠️ Missing demographic variables: ", paste(missing_demo_vars, collapse = ", "), "\n",
+          "Consider running Chapter 2 Step 1 again.")
+} else {
+  cat("✅ Comprehensive demographic variables are available\n")
+}
+```
+
+## **1. Create OTU Matrices for All Transformations**
+
+### **1.1 Count Data (Original)**
+
+```{r otu_counts}
+cat("Creating count-based OTU matrix (reference structure)...\n")
+
+# Read count tables
+genus_count_f <- tbl(con, "DADA2RSV_GENUS_COUNT_F") %>% collect()
+genus_count_g <- tbl(con, "DADA2RSV_GENUS_COUNT_G") %>% collect()
+
+# Find overlapping SEQNs
+overlapping_seqns_count <- intersect(genus_count_f$SEQN, genus_count_g$SEQN)
+cat("Number of overlapping SEQNs in count data:", length(overlapping_seqns_count), "\n")
+
+# Verify both count tables have identical column structure
+if (!identical(colnames(genus_count_f), colnames(genus_count_g))) {
+  stop("❌ Count tables F and G must have identical column structure")
+}
+
+# Get reference taxa columns and their base names (for mapping to transformed data)
+reference_taxa_cols <- colnames(genus_count_f)[colnames(genus_count_f) != "SEQN"]
+reference_base_names <- gsub("_count$", "", reference_taxa_cols)
+cat("Reference taxa columns from count tables:", length(reference_taxa_cols), "\n")
+
+# Combine count data
+genus_count_combined <- bind_rows(genus_count_f, genus_count_g)
+
+# Create count OTU matrix (using base names for consistent row names)
+otu_mat_counts <- genus_count_combined %>%
+  mutate(SEQN = as.character(SEQN)) %>%
+  tidyr::pivot_longer(cols = matches("^RSV_genus.*_count$"), names_to = "otu", values_to = "Abundance") %>%
+  # Convert to base names for consistent row naming across all matrices
+  mutate(otu_base = gsub("_count$", "", otu)) %>%
+  select(-otu) %>%
+  tidyr::pivot_wider(names_from = SEQN, values_from = Abundance) %>%
+  column_to_rownames("otu_base")
+
+cat("✅ Count OTU matrix:", nrow(otu_mat_counts), "taxa ×", ncol(otu_mat_counts), "samples\n")
+```
+
+### **1.2 Transformed Relative Abundance Data**
+
+```{r otu_matrices}
+cat("Creating OTU matrices for 5 phyloseq objects...\n\n")
+
+# Function to create OTU matrix from any table pair
+create_otu_matrix_from_tables <- function(table_f_name, table_g_name, matrix_name, use_base_names = TRUE) {
+  cat("Creating", matrix_name, "matrix from", table_f_name, "&", table_g_name, "...\n")
+  
+  # Read tables
+  genus_f <- tbl(con, table_f_name) %>% collect()
+  genus_g <- tbl(con, table_g_name) %>% collect()
+  
+  # Get taxa columns
+  taxa_f <- colnames(genus_f)[colnames(genus_f) != "SEQN"]
+  taxa_g <- colnames(genus_g)[colnames(genus_g) != "SEQN"]
+  
+  cat("  F table:", nrow(genus_f), "samples ×", length(taxa_f), "taxa\n")
+  cat("  G table:", nrow(genus_g), "samples ×", length(taxa_g), "taxa\n")
+  
+  # Check if tables have identical structure
+  if (!identical(colnames(genus_f), colnames(genus_g))) {
+    # Take UNION of all taxa (not intersection) to preserve all data
+    all_taxa <- union(taxa_f, taxa_g)
+    cat("  Tables have different structures - expanding to", length(all_taxa), "total taxa (union)\n")
+    
+    # Add missing taxa to F table (fill with 0)
+    missing_in_f <- setdiff(taxa_g, taxa_f)
+    if (length(missing_in_f) > 0) {
+      cat("  Adding", length(missing_in_f), "missing taxa to F table (filled with 0)\n")
+      for (taxa in missing_in_f) {
+        genus_f[[taxa]] <- 0
+      }
+    }
+    
+    # Add missing taxa to G table (fill with 0)
+    missing_in_g <- setdiff(taxa_f, taxa_g)
+    if (length(missing_in_g) > 0) {
+      cat("  Adding", length(missing_in_g), "missing taxa to G table (filled with 0)\n")
+      for (taxa in missing_in_g) {
+        genus_g[[taxa]] <- 0
+      }
+    }
+    
+    # Reorder columns to match (SEQN first, then all taxa in consistent order)
+    all_cols <- c("SEQN", all_taxa)
+    genus_f <- genus_f %>% select(all_of(all_cols))
+    genus_g <- genus_g %>% select(all_of(all_cols))
+  }
+  
+  # Combine data
+  genus_combined <- bind_rows(genus_f, genus_g)
+  cat("  Combined:", nrow(genus_combined), "samples\n")
+  
+  # Create OTU matrix
+  if (use_base_names) {
+    # Use base names (remove suffix) for consistent row naming
+    otu_mat <- genus_combined %>%
+      mutate(SEQN = as.character(SEQN)) %>%
+      tidyr::pivot_longer(cols = matches("^RSV_genus"), names_to = "otu", values_to = "Abundance") %>%
+      mutate(otu_base = gsub("_(count|relative)$", "", otu)) %>%
+      select(-otu) %>%
+      tidyr::pivot_wider(names_from = SEQN, values_from = Abundance) %>%
+      column_to_rownames("otu_base")
+  } else {
+    # Use original names
+    otu_mat <- genus_combined %>%
+      mutate(SEQN = as.character(SEQN)) %>%
+      tidyr::pivot_longer(cols = matches("^RSV_genus"), names_to = "otu", values_to = "Abundance") %>%
+      tidyr::pivot_wider(names_from = SEQN, values_from = Abundance) %>%
+      column_to_rownames("otu")
+  }
+  
+  cat("  ✅", matrix_name, "matrix:", nrow(otu_mat), "taxa ×", ncol(otu_mat), "samples\n\n")
+  return(otu_mat)
+}
+
+# 1. Create ubiome_counts matrix (raw counts, no filtering)
+otu_mat_counts <- create_otu_matrix_from_tables(
+  "DADA2RSV_GENUS_COUNT_F", 
+  "DADA2RSV_GENUS_COUNT_G", 
+  "ubiome_counts"
+)
+
+# 2. Create ubiome_relative matrix (relative abundance, no filtering)
+otu_mat_relative <- create_otu_matrix_from_tables(
+  "DADA2RSV_GENUS_RELATIVE_F", 
+  "DADA2RSV_GENUS_RELATIVE_G", 
+  "ubiome_relative"
+)
+
+# 3. Create ubiome_relative_none matrix (0.1% prevalence filtered, no transformation)
+otu_mat_relative_none <- create_otu_matrix_from_tables(
+  "DADA2RSV_GENUS_RELATIVE_F_none", 
+  "DADA2RSV_GENUS_RELATIVE_G_none", 
+  "ubiome_relative_none"
+)
+
+# 4. Create ubiome_relative_clr matrix (0.1% prevalence filtered, CLR transformed)
+otu_mat_relative_clr <- create_otu_matrix_from_tables(
+  "DADA2RSV_GENUS_RELATIVE_F_clr", 
+  "DADA2RSV_GENUS_RELATIVE_G_clr", 
+  "ubiome_relative_clr"
+)
+
+# 5. Create ubiome_relative_lognorm matrix (0.1% prevalence filtered, log-normal transformed)
+otu_mat_relative_lognorm <- create_otu_matrix_from_tables(
+  "DADA2RSV_GENUS_RELATIVE_F_lognorm", 
+  "DADA2RSV_GENUS_RELATIVE_G_lognorm", 
+  "ubiome_relative_lognorm"
+)
+
+# Summary of all matrices
+cat("📏 Summary of all OTU matrices:\n")
+matrices <- list(
+  "ubiome_counts" = otu_mat_counts,
+  "ubiome_relative" = otu_mat_relative,
+  "ubiome_relative_none" = otu_mat_relative_none,
+  "ubiome_relative_clr" = otu_mat_relative_clr,
+  "ubiome_relative_lognorm" = otu_mat_relative_lognorm
+)
+
+for (name in names(matrices)) {
+  mat <- matrices[[name]]
+  cat("  ", name, ":", nrow(mat), "taxa ×", ncol(mat), "samples\n")
+}
+```
+
+## **2. Create Taxonomy Table**
+
+```{r taxonomy_table}
+cat("Creating taxonomy table...\n")
+
+# Get taxonomy information from metadata
+# First, let's check what taxa names we need to match
+otu_taxa_names <- rownames(otu_mat_counts)
+cat("Sample OTU names:", head(otu_taxa_names, 3), "\n")
+
+# Get all available variable names to understand the structure
+available_vars <- tbl(con, "variable_names_epcf") %>%
+  collect() %>%
+  filter(Data.File.Name == "DADA2RSV_GENUS_COUNT_G")
+
+cat("Available variables in metadata:", nrow(available_vars), "\n")
+cat("Sample variable names:", head(available_vars$Variable.Name, 3), "\n")
+
+# Create mapping from base names to full variable names with _count suffix
+otu_with_suffix <- paste0(otu_taxa_names, "_count")
+
+tax_mat_nhanes <- available_vars %>%
+  filter(Variable.Name %in% otu_with_suffix) %>%
+  mutate(
+    # Ensure Variable.Description is character and handle NAs
+    desc_clean = as.character(ifelse(is.na(Variable.Description) | Variable.Description == "", "", Variable.Description))
+  ) %>%
+  mutate(
+    # Parse taxonomy description
+    desc_parts = strsplit(desc_clean, ";"),
+    Domain = sapply(desc_parts, function(x) ifelse(length(x) >= 1 && trimws(x[1]) != "", trimws(x[1]), NA_character_)),
+    Phylum = sapply(desc_parts, function(x) ifelse(length(x) >= 2 && trimws(x[2]) != "", trimws(x[2]), NA_character_)),
+    Class  = sapply(desc_parts, function(x) ifelse(length(x) >= 3 && trimws(x[3]) != "", trimws(x[3]), NA_character_)),
+    Order  = sapply(desc_parts, function(x) ifelse(length(x) >= 4 && trimws(x[4]) != "", trimws(x[4]), NA_character_)),
+    Family = sapply(desc_parts, function(x) ifelse(length(x) >= 5 && trimws(x[5]) != "", trimws(x[5]), NA_character_)),
+    Genus  = sapply(desc_parts, function(x) ifelse(length(x) >= 6 && trimws(x[6]) != "", trimws(x[6]), NA_character_))
+  ) %>%
+  # Replace "NA" strings with actual NA values
+  mutate(
+    Domain = ifelse(Domain == "NA" | Domain == "", NA_character_, Domain),
+    Phylum = ifelse(Phylum == "NA" | Phylum == "", NA_character_, Phylum),
+    Class = ifelse(Class == "NA" | Class == "", NA_character_, Class),
+    Order = ifelse(Order == "NA" | Order == "", NA_character_, Order),
+    Family = ifelse(Family == "NA" | Family == "", NA_character_, Family),
+    Genus = ifelse(Genus == "NA" | Genus == "", NA_character_, Genus)
+  ) %>%
+  # Convert back to base names for OTU matrix matching
+  mutate(otu_base = gsub("_count$", "", Variable.Name)) %>%
+  select(otu_base, Domain, Phylum, Class, Order, Family, Genus) %>%
+  column_to_rownames("otu_base") %>%
+  as.matrix()
+
+cat("✅ Taxonomy table created:", nrow(tax_mat_nhanes), "taxa ×", ncol(tax_mat_nhanes), "taxonomic levels\n")
+
+# Display sample of taxonomy table
+cat("\nSample taxonomy entries:\n")
+if (nrow(tax_mat_nhanes) > 0) {
+  print(head(tax_mat_nhanes, 3))
+} else {
+  cat("No taxonomy entries found - check variable name matching\n")
+}
+```
+
+## **3. Create Sample Metadata**
+
+```{r sample_metadata}
+cat("Creating sample metadata...\n")
+
+# Read processed demographic data (already has comprehensive variables)
+demo_f <- tbl(con, "DEMO_F") %>%
+  collect() %>%
+  mutate(SEQN = as.character(SEQN)) %>%
+  filter(SEQN %in% colnames(otu_mat_counts))
+
+demo_g <- tbl(con, "DEMO_G") %>%
+  collect() %>%
+  mutate(SEQN = as.character(SEQN)) %>%
+  filter(SEQN %in% colnames(otu_mat_counts))
+
+cat("DEMO_F variables:", ncol(demo_f), "| DEMO_G variables:", ncol(demo_g), "\n")
+
+# Combine demographic data using common columns
+common_cols <- intersect(names(demo_f), names(demo_g))
+cat("Common variables between F and G:", length(common_cols), "\n")
+
+demo_combined <- bind_rows(
+  demo_f %>% select(all_of(common_cols)),
+  demo_g %>% select(all_of(common_cols))
+)
+
+# Create sample metadata dataframe with ALL variables
+samples_df_nhanes <- demo_combined %>%
+  # Rename SEQN to sample_id for phyloseq
+  rename(sample_id = SEQN) %>%
+  # Keep ALL variables (no selection/filtering)
+  # Set sample_id as rownames for phyloseq
+  column_to_rownames("sample_id")
+
+cat("✅ Sample metadata created:", nrow(samples_df_nhanes), "samples ×", ncol(samples_df_nhanes), "variables\n")
+
+# Display all available variables
+cat("\nAll sample metadata variables:\n")
+all_vars <- colnames(samples_df_nhanes)
+cat("Total variables:", length(all_vars), "\n")
+
+# Group variables by type for better display
+demographic_vars <- all_vars[grepl("(?i)(gender|age|ethnicity|race|education|income|pir|born|citizen)", all_vars)]
+household_vars <- all_vars[grepl("(?i)(household|family|marital)", all_vars)]
+survey_vars <- all_vars[grepl("(?i)(weight|wt|stratum|psu|cycle|interview)", all_vars)]
+other_vars <- setdiff(all_vars, c(demographic_vars, household_vars, survey_vars))
+
+if (length(demographic_vars) > 0) {
+  cat("\nDemographic variables (", length(demographic_vars), "):\n")
+  cat("  ", paste(demographic_vars, collapse = ", "), "\n")
+}
+
+if (length(household_vars) > 0) {
+  cat("\nHousehold variables (", length(household_vars), "):\n")
+  cat("  ", paste(household_vars, collapse = ", "), "\n")
+}
+
+if (length(survey_vars) > 0) {
+  cat("\nSurvey design variables (", length(survey_vars), "):\n")
+  cat("  ", paste(survey_vars, collapse = ", "), "\n")
+}
+
+if (length(other_vars) > 0) {
+  cat("\nOther variables (", length(other_vars), "):\n")
+  cat("  ", paste(other_vars, collapse = ", "), "\n")
+}
+
+# Verify essential NHANES survey variables are present
+essential_survey_vars <- c("WTINT2YR", "WTMEC2YR", "SDMVPSU", "SDMVSTRA")
+missing_essential <- setdiff(essential_survey_vars, all_vars)
+if (length(missing_essential) == 0) {
+  cat("\n✅ All essential NHANES survey design variables are present\n")
+} else {
+  cat("\n⚠️ Missing essential survey variables:", paste(missing_essential, collapse = ", "), "\n")
+}
+```
+
+## **4. Create Phylogenetic Tree**
+
+```{r phylogenetic_tree}
+cat("Creating taxonomy-based phylogenetic tree...\n")
+
+# Create taxonomy dataframe for tree construction
+physeq_tax_df <- tax_mat_nhanes %>%
+  as.data.frame() %>%
+  rownames_to_column("otu") %>%
+  # Clean taxonomic names
+  mutate(across(Domain:Genus, ~str_trim(.))) %>%
+  mutate(across(Domain:Genus, function(x) {
+  x <- gsub("_\\(.*?\\)", "", x)   # Remove annotations like '_(Subgroup_1)'
+  x <- gsub("_", " ", x)           # Replace underscores with spaces
+    x <- str_trim(x)                 # Trim whitespace
+  return(x)
+  })) %>%
+  # Handle missing values
+  mutate(across(c(Domain, Phylum, Class, Order, Family, Genus), ~ {
+    x <- gsub("(?i)(Unknown|Unclassified)", "unclassified", .)
+    ifelse(is.na(x), "unclassified", x)
+  }))
+
+# Create hierarchical path for tree construction
+physeq_tax_df$FullPath <- with(
+  physeq_tax_df,
+  paste(Domain, Phylum, Class, Order, Family, Genus, otu, sep = "/")
+)
+
+# Build the data.tree
+taxonomy_tree <- data.tree::as.Node(
+  physeq_tax_df,
+  pathName = "FullPath",
+  pathDelimiter = "/"
+)
+
+# Sanitize node names
+sanitize_node_names <- function(node) {
+  node$name <- gsub("[^a-zA-Z0-9._-]+", "_", node$name)
+  if (!node$isLeaf) {
+    for (child in node$children) {
+      sanitize_node_names(child)
+    }
+  }
+}
+sanitize_node_names(taxonomy_tree)
+
+# Convert to Newick string
+convert_to_newick <- function(node) {
+  if (node$isLeaf) {
+    return(node$name)
+  } else {
+    children_newick <- sapply(node$children, convert_to_newick)
+    return(paste0("(", paste(children_newick, collapse = ","), ")", node$name))
+  }
+}
+newick_str <- paste0(convert_to_newick(taxonomy_tree), ";")
+
+# Create phylo object
+phylo_obj <- ape::read.tree(text = newick_str)
+phylo_obj <- ape::multi2di(phylo_obj)
+
+# Fix branch lengths
+if (is.null(phylo_obj$edge.length)) {
+  phylo_obj$edge.length <- rep(1, nrow(phylo_obj$edge))
+}
+phylo_obj$edge.length[is.na(phylo_obj$edge.length) | is.infinite(phylo_obj$edge.length)] <- 1
+
+# Prune to match OTU tables
+common_tips <- intersect(phylo_obj$tip.label, rownames(otu_mat_counts))
+if (length(common_tips) == 0) {
+  stop("❌ No overlapping tips found between tree and OTU table")
+}
+phylo_obj <- ape::keep.tip(phylo_obj, common_tips)
+
+cat("✅ Phylogenetic tree created with", length(phylo_obj$tip.label), "tips\n")
+```
+
+## **5. Create phyloseq Objects**
+
+```{r create_phyloseq_objects}
+cat("Creating phyloseq objects...\n")
+
+# Create phyloseq components
+OTU_counts <- otu_table(otu_mat_counts, taxa_are_rows = TRUE)
+OTU_relative <- otu_table(otu_mat_relative, taxa_are_rows = TRUE)
+OTU_relative_none <- otu_table(otu_mat_relative_none, taxa_are_rows = TRUE)
+OTU_relative_clr <- otu_table(otu_mat_relative_clr, taxa_are_rows = TRUE)
+OTU_relative_lognorm <- otu_table(otu_mat_relative_lognorm, taxa_are_rows = TRUE)
+TAX <- tax_table(tax_mat_nhanes)
+SAMPLES <- sample_data(samples_df_nhanes)
+
+# Create phyloseq objects
+cat("Creating ubiome_counts (raw counts, no filtering)...\n")
+ubiome_counts <- phyloseq(OTU_counts, TAX, SAMPLES)
+
+cat("Creating ubiome_relative (relative abundance, no filtering)...\n")
+ubiome_relative <- phyloseq(OTU_relative, TAX, SAMPLES)
+
+cat("Creating ubiome_relative_none (0.1% prevalence filtered, no transformation)...\n")
+ubiome_relative_none <- phyloseq(OTU_relative_none, TAX, SAMPLES)
+
+cat("Creating ubiome_relative_clr (0.1% prevalence filtered, CLR transformed)...\n")
+ubiome_relative_clr <- phyloseq(OTU_relative_clr, TAX, SAMPLES)
+
+cat("Creating ubiome_relative_lognorm (0.1% prevalence filtered, log-normal transformed)...\n")
+ubiome_relative_lognorm <- phyloseq(OTU_relative_lognorm, TAX, SAMPLES)
+
+# Summary of phyloseq objects
+cat("\nSummary of phyloseq objects:\n")
+phyloseq_objects <- list(
+  "ubiome_counts" = ubiome_counts,
+  "ubiome_relative" = ubiome_relative,
+  "ubiome_relative_none" = ubiome_relative_none,
+  "ubiome_relative_clr" = ubiome_relative_clr,
+  "ubiome_relative_lognorm" = ubiome_relative_lognorm
+)
+
+for (name in names(phyloseq_objects)) {
+  ps <- phyloseq_objects[[name]]
+  cat("  ", name, ":\n")
+  cat("    Taxa:", ntaxa(ps), "| Samples:", nsamples(ps), "\n")
+  cat("    Sample variables:", length(sample_variables(ps)), "\n")
+}
+
+cat("\n✅ All 5 phyloseq objects created successfully!\n")
+```
+
+## **6. Save phyloseq Objects**
+
+```{r save_phyloseq_objects}
+cat("💾 Saving phyloseq objects...\n")
+
+# Save all phyloseq objects
+saveRDS(ubiome_counts, file.path(intermediate_files_path, "ubiome_counts.rds"))
+saveRDS(ubiome_relative, file.path(intermediate_files_path, "ubiome_relative.rds"))
+saveRDS(ubiome_relative_none, file.path(intermediate_files_path, "ubiome_relative_none.rds"))
+saveRDS(ubiome_relative_clr, file.path(intermediate_files_path, "ubiome_relative_clr.rds"))
+saveRDS(ubiome_relative_lognorm, file.path(intermediate_files_path, "ubiome_relative_lognorm.rds"))
+
+cat("✅ Phyloseq objects saved:\n")
+cat("  - ubiome_counts:", file.path(intermediate_files_path, "ubiome_counts.rds"), "\n")
+cat("  - ubiome_relative:", file.path(intermediate_files_path, "ubiome_relative.rds"), "\n")
+cat("  - ubiome_relative_none:", file.path(intermediate_files_path, "ubiome_relative_none.rds"), "\n")
+cat("  - ubiome_relative_clr:", file.path(intermediate_files_path, "ubiome_relative_clr.rds"), "\n")
+cat("  - ubiome_relative_lognorm:", file.path(intermediate_files_path, "ubiome_relative_lognorm.rds"), "\n")
+
+# Also save combined list for convenience
+phyloseq_objects <- list(
+  counts = ubiome_counts,
+  relative = ubiome_relative,
+  relative_none = ubiome_relative_none,
+  relative_clr = ubiome_relative_clr,
+  relative_lognorm = ubiome_relative_lognorm
+)
+saveRDS(phyloseq_objects, file.path(intermediate_files_path, "nhanes_phyloseq_objects_all.rds"))
+cat("  - All objects:", file.path(intermediate_files_path, "nhanes_phyloseq_objects_all.rds"), "\n")
+```
+
+## **7. Validation and Summary**
+
+```{r validation}
+cat("Validation and Summary:\n")
+
+# Function to summarize phyloseq object
+summarize_phyloseq <- function(ps, name) {
+  cat("\n", name, ":\n")
+  cat("  Samples:", nsamples(ps), "\n")
+  cat("  Taxa:", ntaxa(ps), "\n")
+  cat("  Sample variables:", length(sample_variables(ps)), "\n")
+  cat("  Taxonomic ranks:", paste(rank_names(ps), collapse = ", "), "\n")
+  
+  # Check for negative values (should only be in CLR)
+  otu_data <- as.matrix(otu_table(ps))
+  has_negative <- any(otu_data < 0, na.rm = TRUE)
+  has_zero <- any(otu_data == 0, na.rm = TRUE)
+  cat("  Has negative values:", has_negative, "\n")
+  cat("  Has zero values:", has_zero, "\n")
+  
+  # Sample data summary
+  cat("  Key sample variables available:\n")
+  key_vars <- c("Gender", "AgeGroup", "Ethnicity", "EducationLevel", "cycle")
+  for (var in key_vars) {
+    if (var %in% sample_variables(ps)) {
+      cat("    ✅", var, "\n")
+} else {
+      cat("    ❌", var, "(missing)\n")
+    }
+  }
+}
+
+# Summarize all objects
+summarize_phyloseq(ubiome_counts, "ubiome_counts")
+summarize_phyloseq(ubiome_relative, "ubiome_relative") 
+summarize_phyloseq(ubiome_relative_none, "ubiome_relative_none")
+summarize_phyloseq(ubiome_relative_clr, "ubiome_relative_clr")
+summarize_phyloseq(ubiome_relative_lognorm, "ubiome_relative_lognorm")
+
+# Verify sample consistency across objects
+sample_consistency <- all(
+  identical(sample_names(ubiome_counts), sample_names(ubiome_relative)),
+  identical(sample_names(ubiome_counts), sample_names(ubiome_relative_none)),
+  identical(sample_names(ubiome_counts), sample_names(ubiome_relative_clr)),
+  identical(sample_names(ubiome_counts), sample_names(ubiome_relative_lognorm))
+)
+cat("\n✅ Sample names consistent across all objects:", sample_consistency, "\n")
+
+# Verify taxa consistency
+taxa_consistency <- all(
+  identical(taxa_names(ubiome_counts), taxa_names(ubiome_relative)),
+  identical(taxa_names(ubiome_counts), taxa_names(ubiome_relative_none)),
+  identical(taxa_names(ubiome_counts), taxa_names(ubiome_relative_clr)),
+  identical(taxa_names(ubiome_counts), taxa_names(ubiome_relative_lognorm))
+)
+cat("✅ Taxa names consistent across all objects:", taxa_consistency, "\n")
+```
+Here is your script converted into clean **Markdown** format with proper section headings, code blocks, and explanatory structure:
+
+---
+
+## **8. Usage Examples**
+
+### 1. **Loading Specific Phyloseq Object**
+
+```{txt}
+ubiome_relative_clr <- readRDS(file.path(intermediate_files_path, "ubiome_relative_clr.rds"))
+```
+
+### 2. **Loading All Phyloseq Objects**
+
+```{txt}
+all_objects <- readRDS(file.path(intermediate_files_path, "nhanes_phyloseq_objects_all.rds"))
+ubiome_relative_clr <- all_objects$relative_clr
+```
+
+### 3. **Basic Analysis Workflow**
+
+```{txt}
+# Alpha diversity (use counts data)
+alpha_div <- estimate_richness(ubiome_counts)
+
+# Beta diversity (use transformed data)
+ordination <- ordinate(ubiome_relative_clr, method = "PCoA", distance = "euclidean")
+
+# Differential abundance (choose appropriate transformation)
+# CLR for compositional models; counts for DESeq2
+```
+
+### 4. **Survey-Weighted Analysis Preparation**
+
+```{txt}
+# Extract survey design variables
+sample_data <- data.frame(sample_data(ubiome_relative_clr))
+weights <- sample_data$Weight_MEC_Exam
+strata <- sample_data$Masked_Variance_Pseudo_Stratum
+clusters <- sample_data$Masked_Variance_Pseudo_PSU
+```
+
+---
+
+## ✅ **9. Completion Summary**
+
+### **Created Objects**
+
+1. `ubiome_counts` – Original count data (for alpha diversity)
+2. `ubiome_relative` – Relative abundance (for beta diversity)
+3. `ubiome_relative_none` – 0.1% prevalence filtered, no transformation
+4. `ubiome_relative_clr` – CLR-transformed (0.1% filtered)
+5. `ubiome_relative_lognorm` – Log-normal transformed (0.1% filtered)
+
+---
+
+### **Output Files**
+
+* **Individual RDS files:** Located in `intermediate_files_path`
+* **Combined object file:** `nhanes_phyloseq_objects_all.rds`
+* **Taxonomy table:** `tax_mat_nhanes.csv`
+* **Sample metadata:** `samples_df_nhanes.csv`
+
+---
+
+### **Integration with Analysis Pipeline**
+
+* Use **`ubiome_counts`** for: Alpha diversity, DESeq2
+* Use **`ubiome_relative`** for: Beta diversity, compositional summaries
+* Use **`ubiome_relative_none`** for: Raw baseline relative abundance
+* Use **`ubiome_relative_clr`** for: CLR-based and distance-based analysis
+* Use **`ubiome_relative_lognorm`** for: statistical tests
+* **All objects** include: survey weights and design variables
+
+---
+
+### **Next Steps**
+
+1. Proceed to **Chapter 3**: GOLD database integration
+2. Perform downstream statistical analyses using the correct transformation
+3. Apply survey weights for population-representative inference
+
+
+## **9. Completion Summary**
+
+```{r Disconnect}
+# Disconnect from database
+dbDisconnect(con)
+cat("\nDatabase connection closed.\n")
+```
+
+## **Data Normalization Guidelines**
+
+### **Should I normalize data before alpha-diversity analysis?**
+
+**No.** Use **original count data (ubiome_counts) for alpha-diversity analyses.** Rarefying data for normalization, as often suggested in pipelines like QIIME, is statistically flawed.
+
+### **Recommended Reading:**
+- Gotelli & Colwell (2001)
+- ["Waste Not, Want Not…"](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4370911/)
+
+### **Transformation Guide:**
+- **ubiome_counts**: Alpha diversity, DESeq2, original statistical tests
+- **ubiome_relative**: Beta diversity, compositional data analysis (recommended)
+- **ubiome_relative_none**: Raw relative abundance baseline
+- **ubiome_relative_clr**: Beta diversity, compositional data analysis (recommended)
+- **ubiome_relative_lognorm**: Standard statistical tests, linear modeling
+
+(Source: [Phyloseq FAQ](https://www.bioconductor.org/packages/release/bioc/vignettes/phyloseq/inst/doc/phyloseq-FAQ.html))

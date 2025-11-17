@@ -1,0 +1,191 @@
+=== INTEGRATED DIVERSITY ANALYSIS - HPC FIXED ===
+
+TEST_MODE: FALSE 
+HALF_PLOTS: TRUE 
+
+Found 41 categorical variables for analysis
+Loading beta diversity...
+  ✓ Loaded beta diversity matrices
+Performing PCoA...
+  Braycurtis: PC1=19.7%, PC2=10.8%
+  Unwunifrac: PC1=17.5%, PC2=7.4%
+  Wunifrac: PC1=32.8%, PC2=25.9%
+  ✓ PCoA complete
+Calculating centroids...
+  Processing Braycurtis ...
+    Variable: CHD 
+    Variable: CVD 
+    Variable: Gender 
+    Variable: AgeGroup 
+    Variable: EducationLevel 
+    Variable: Ethnicity 
+    Variable: Marital_Status 
+    Variable: Household_Size_Factor 
+    Variable: US_Born 
+    Variable: Interview_Language 
+    Variable: Age_group 
+    Variable: Education_level 
+    Variable: US_born 
+    Variable: Household_size 
+    Variable: Marital_status 
+    Variable: Interview_language 
+    Variable: Income_to_poverty_ratio 
+    Variable: Denture 
+    Variable: Gum_disease 
+    Variable: Oral_hygiene 
+    Variable: Tooth_decay 
+    Variable: Oral_all 
+    Variable: Smoking_status 
+    Variable: Hepatitis_C_antibody 
+    Variable: BMI_category 
+    Variable: Blood_pressure 
+    Variable: Pulse_category 
+    Variable: Asthma 
+    Variable: Bronchitis 
+    Variable: Emphysema 
+    Variable: Angina 
+    Variable: Heart_failure 
+    Variable: Heart_attack 
+    Variable: Stroke 
+    Variable: Diabetes 
+    Variable: Breast_cancer 
+    Variable: Colon_cancer 
+    Variable: Lung_cancer 
+    Variable: Esophageal_cancer 
+    Variable: Prostate_cancer 
+    Variable: Mouth_cancer 
+  Processing Unwunifrac ...
+    Variable: CHD 
+    Variable: CVD 
+    Variable: Gender 
+    Variable: AgeGroup 
+    Variable: EducationLevel 
+    Variable: Ethnicity 
+    Variable: Marital_Status 
+    Variable: Household_Size_Factor 
+    Variable: US_Born 
+    Variable: Interview_Language 
+    Variable: Age_group 
+    Variable: Education_level 
+    Variable: US_born 
+    Variable: Household_size 
+    Variable: Marital_status 
+    Variable: Interview_language 
+    Variable: Income_to_poverty_ratio 
+    Variable: Denture 
+    Variable: Gum_disease 
+    Variable: Oral_hygiene 
+    Variable: Tooth_decay 
+    Variable: Oral_all 
+    Variable: Smoking_status 
+    Variable: Hepatitis_C_antibody 
+    Variable: BMI_category 
+    Variable: Blood_pressure 
+    Variable: Pulse_category 
+    Variable: Asthma 
+    Variable: Bronchitis 
+    Variable: Emphysema 
+    Variable: Angina 
+    Variable: Heart_failure 
+    Variable: Heart_attack 
+    Variable: Stroke 
+    Variable: Diabetes 
+    Variable: Breast_cancer 
+    Variable: Colon_cancer 
+    Variable: Lung_cancer 
+    Variable: Esophageal_cancer 
+    Variable: Prostate_cancer 
+    Variable: Mouth_cancer 
+  Processing Wunifrac ...
+    Variable: CHD 
+    Variable: CVD 
+    Variable: Gender 
+    Variable: AgeGroup 
+    Variable: EducationLevel 
+    Variable: Ethnicity 
+    Variable: Marital_Status 
+    Variable: Household_Size_Factor 
+    Variable: US_Born 
+    Variable: Interview_Language 
+    Variable: Age_group 
+    Variable: Education_level 
+    Variable: US_born 
+    Variable: Household_size 
+    Variable: Marital_status 
+    Variable: Interview_language 
+    Variable: Income_to_poverty_ratio 
+    Variable: Denture 
+    Variable: Gum_disease 
+    Variable: Oral_hygiene 
+    Variable: Tooth_decay 
+    Variable: Oral_all 
+    Variable: Smoking_status 
+    Variable: Hepatitis_C_antibody 
+    Variable: BMI_category 
+    Variable: Blood_pressure 
+    Variable: Pulse_category 
+    Variable: Asthma 
+    Variable: Bronchitis 
+    Variable: Emphysema 
+    Variable: Angina 
+    Variable: Heart_failure 
+    Variable: Heart_attack 
+    Variable: Stroke 
+    Variable: Diabetes 
+    Variable: Breast_cancer 
+    Variable: Colon_cancer 
+    Variable: Lung_cancer 
+    Variable: Esophageal_cancer 
+    Variable: Prostate_cancer 
+    Variable: Mouth_cancer 
+  ✓ Done
+Running PERMANOVA...
+  ✓ 123 tests, 0 significant
+
+Creating integrated 4×3 plots...
+  ✓ Integrated_CHD_no_tick_and_bracket.pdf (4×3 layout, 80×121.5mm)
+  ✓ Integrated_CVD_no_tick_and_bracket.pdf (4×3 layout, 80×121.5mm)
+  ✓ Integrated_Gender_no_tick_and_bracket.pdf (4×3 layout, 80×121.5mm)
+  ✓ Integrated_AgeGroup_no_tick_and_bracket.pdf (4×3 layout, 80×121.5mm)
+  ✓ Integrated_EducationLevel_no_tick_and_bracket.pdf (4×3 layout, 80×121.5mm)
+  ✓ Integrated_Ethnicity_no_tick_and_bracket.pdf (4×3 layout, 80×121.5mm)
+  ✓ Integrated_Marital_Status_no_tick_and_bracket.pdf (4×3 layout, 80×121.5mm)
+  ✓ Integrated_Household_Size_Factor_no_tick_and_bracket.pdf (4×3 layout, 80×121.5mm)
+  Skipping US_Born - insufficient groups ( 1  levels)
+  ✓ Integrated_Interview_Language_no_tick_and_bracket.pdf (4×3 layout, 80×121.5mm)
+  ✓ Integrated_Age_group_no_tick_and_bracket.pdf (4×3 layout, 80×121.5mm)
+  ✓ Integrated_Education_level_no_tick_and_bracket.pdf (4×3 layout, 80×121.5mm)
+  Skipping US_born - insufficient groups ( 1  levels)
+  ✓ Integrated_Household_size_no_tick_and_bracket.pdf (4×3 layout, 80×121.5mm)
+  ✓ Integrated_Marital_status_no_tick_and_bracket.pdf (4×3 layout, 80×121.5mm)
+  ✓ Integrated_Interview_language_no_tick_and_bracket.pdf (4×3 layout, 80×121.5mm)
+  ✓ Integrated_Income_to_poverty_ratio_no_tick_and_bracket.pdf (4×3 layout, 80×121.5mm)
+  ✓ Integrated_Denture_no_tick_and_bracket.pdf (4×3 layout, 80×121.5mm)
+  ✓ Integrated_Gum_disease_no_tick_and_bracket.pdf (4×3 layout, 80×121.5mm)
+  ✓ Integrated_Oral_hygiene_no_tick_and_bracket.pdf (4×3 layout, 80×121.5mm)
+  ✓ Integrated_Tooth_decay_no_tick_and_bracket.pdf (4×3 layout, 80×121.5mm)
+  ✓ Integrated_Oral_all_no_tick_and_bracket.pdf (4×3 layout, 80×121.5mm)
+  ✓ Integrated_Smoking_status_no_tick_and_bracket.pdf (4×3 layout, 80×121.5mm)
+  ✓ Integrated_Hepatitis_C_antibody_no_tick_and_bracket.pdf (4×3 layout, 80×121.5mm)
+  ✓ Integrated_BMI_category_no_tick_and_bracket.pdf (4×3 layout, 80×121.5mm)
+  ✓ Integrated_Blood_pressure_no_tick_and_bracket.pdf (4×3 layout, 80×121.5mm)
+  ✓ Integrated_Pulse_category_no_tick_and_bracket.pdf (4×3 layout, 80×121.5mm)
+  ✓ Integrated_Asthma_no_tick_and_bracket.pdf (4×3 layout, 80×121.5mm)
+  ✓ Integrated_Bronchitis_no_tick_and_bracket.pdf (4×3 layout, 80×121.5mm)
+  ✓ Integrated_Emphysema_no_tick_and_bracket.pdf (4×3 layout, 80×121.5mm)
+  ✓ Integrated_Angina_no_tick_and_bracket.pdf (4×3 layout, 80×121.5mm)
+  ✓ Integrated_Heart_failure_no_tick_and_bracket.pdf (4×3 layout, 80×121.5mm)
+  ✓ Integrated_Heart_attack_no_tick_and_bracket.pdf (4×3 layout, 80×121.5mm)
+  ✓ Integrated_Stroke_no_tick_and_bracket.pdf (4×3 layout, 80×121.5mm)
+  ✓ Integrated_Diabetes_no_tick_and_bracket.pdf (4×3 layout, 80×121.5mm)
+  ✓ Integrated_Breast_cancer_no_tick_and_bracket.pdf (4×3 layout, 80×121.5mm)
+  ✓ Integrated_Colon_cancer_no_tick_and_bracket.pdf (4×3 layout, 80×121.5mm)
+  ✓ Integrated_Lung_cancer_no_tick_and_bracket.pdf (4×3 layout, 80×121.5mm)
+  ✓ Integrated_Esophageal_cancer_no_tick_and_bracket.pdf (4×3 layout, 80×121.5mm)
+  ✓ Integrated_Prostate_cancer_no_tick_and_bracket.pdf (4×3 layout, 80×121.5mm)
+  Skipping Mouth_cancer - insufficient groups ( 1  levels)
+There were 50 or more warnings (use warnings() to see the first 50)
+
+Saving pairwise statistical results...
+
+✓ Complete!

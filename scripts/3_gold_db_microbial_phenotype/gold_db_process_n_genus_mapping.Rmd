@@ -1,0 +1,885 @@
+---
+title: "NHANES Oral Microbiome GOLD Database Integration & Genus Mapping"
+author: "Terry Cho"
+date: "2025-01-19"
+output: html_document
+---
+
+```{r knitr_init, echo=FALSE, warning=FALSE, cache=FALSE}
+library(knitr)
+library(rmdformats)
+
+# Global options
+options(max.print = 75)
+knitr::opts_chunk$set(
+  fig.width = 8,
+  fig.height = 6,
+  eval = TRUE,
+  cache = FALSE,  # Disable cache for reproducibility
+  echo = TRUE,
+  prompt = FALSE,
+  tidy = TRUE,
+  comment = NA,
+  message = FALSE,
+  warning = FALSE
+)
+opts_knit$set(width = 85)
+```
+
+# NHANES Oral Microbiome GOLD Database Integration Pipeline
+
+> **This pipeline integrates GOLD database microbial phenotype data with NHANES oral microbiome genus-level data**
+
+## ⚠️ **Prerequisites**
+
+**Before running this script, ensure you have completed:**
+
+1. **Chapter 0:** Data transformation (creates transformed microbiome tables)
+2. **Chapter 1:** Association analysis (optional, but recommended for context)
+3. **Chapter 2:** Database preprocessing and phyloseq object creation
+
+## **Setup & Libraries**
+
+```{r libraries, message=FALSE}
+# Set global chunk options for RMarkdown
+knitr::opts_chunk$set(echo = TRUE)
+
+# List of required packages
+required_packages <- c(
+  "data.table", "dplyr", "dbplyr", "RSQLite", "readr", "tidyr", 
+  "tibble", "purrr", "phyloseq", "kableExtra"
+)
+
+# Ensure CRAN mirror is set globally
+options(repos = c(CRAN = "https://cloud.r-project.org"))
+
+# Install missing packages
+missing_packages <- required_packages[!(required_packages %in% installed.packages()[, "Package"])]
+if (length(missing_packages) > 0) {
+  install.packages(missing_packages, dependencies = TRUE)
+}
+
+# Load all required packages
+invisible(lapply(required_packages, library, character.only = TRUE))
+
+cat("✅ All required packages loaded successfully\n")
+```
+
+## **Setup Paths and Database Connection**
+
+```{r setup_paths}
+base_path <- "/Users/byeongyeoncho/main/github/nhanes_oral_mirco_cho"
+
+# Output paths - corrected directory structure
+viz_out_path <- file.path(base_path, "results/analyses_results/03_gold_db_microbial_phenotype_out/figures_out")
+intermediate_files_path <- file.path(base_path, "results/analyses_results/03_gold_db_microbial_phenotype_out/intermediate")
+
+# Input paths
+phyloseq_obj_files_path <- file.path(base_path, "results/analyses_results/02_preprocess_db_n_phyloseq_out/intermediate")
+db_path <- file.path(base_path, "data/00_nhanes_omp_transformed_db/nhanes_oral_transformed_complete_processed.sqlite")
+gold_db_subset_path <- file.path(base_path, "data/00_GOLDdb/goldData_ubiome_selected.csv")
+
+# Create directories if they don't exist
+dir.create(viz_out_path, recursive = TRUE, showWarnings = FALSE)
+dir.create(intermediate_files_path, recursive = TRUE, showWarnings = FALSE)
+
+# Verify required files exist
+if (!file.exists(db_path)) {
+  stop("❌ Processed database not found. Please run Chapter 2, Step 1 first:\n",
+       "Rscript scripts/2_preprocess_db_n_phyloseq/process_demographics_complete.R")
+}
+
+if (!file.exists(gold_db_subset_path)) {
+  stop("❌ GOLD database file not found at: ", gold_db_subset_path)
+}
+
+if (!file.exists(file.path(phyloseq_obj_files_path, "ubiome_relative.rds"))) {
+  stop("❌ phyloseq objects not found. Please run Chapter 2, Step 3 first:\n",
+       "scripts/2_preprocess_db_n_phyloseq/ubiome_phyloseq_object_creation_cho.Rmd")
+}
+
+# Connect to database
+con <- dbConnect(RSQLite::SQLite(), dbname = db_path)
+
+cat("✅ Connected to processed database:", db_path, "\n")
+cat("✅ GOLD database file found:", gold_db_subset_path, "\n")
+cat("✅ phyloseq objects directory:", phyloseq_obj_files_path, "\n")
+cat("✅ Output directory:", intermediate_files_path, "\n")
+```
+
+## **Database Verification**
+
+```{r verify_database}
+# ---- Global Save PDF Function ----
+save_pdf_figure <- function(file_name, width_mm = 180, height_mm = 170) {
+  pdf(
+    file = file.path(viz_out_path, file_name),
+    width = width_mm / 25.4, height = height_mm / 25.4,
+    family = "Helvetica", colormodel = "rgb",
+    pointsize = 5, useDingbats = FALSE
+  )
+}
+
+# List all tables in the database
+all_tables <- dbListTables(con)
+
+# Identify tables for oral microbiome cycles (F and G)
+years_F_or_G <- all_tables[grepl("_F$|_G$", all_tables)]
+
+cat("Total tables in database:", length(all_tables), "\n",
+    "Tables with F/G cycles:", length(years_F_or_G), "\n")
+
+# Check for specific data tables
+table_names <- tbl(con, "table_names_epcf")
+specific_tables <- table_names %>%
+  filter(`Data.File.Name` %like% '%d_outcome_mcq_f%' | 
+         `Data.File.Name` %like% '%d_outcome_mcq_g%' | 
+         `Data.File.Name` %like% '%d_outcome_oh_f%' | 
+         `Data.File.Name` %like% '%d_outcome_oh_g%') %>%
+  collect()
+
+# Check variable metadata
+varnames <- tbl(con, "variable_names_epcf")
+total_variables <- varnames %>% summarise(count = n()) %>% collect()
+
+cat("Specific outcome tables found:", nrow(specific_tables), "\n",
+    "Total variables in metadata:", total_variables$count, "\n",
+    "✅ Database verification complete\n")
+```
+
+# **Import and Process GOLD Database**
+
+## **Step 1: Load and Clean GOLD Database**
+
+```{r load_gold_db}
+cat("Loading and processing GOLD database...\n")
+
+# Load CSV as character to avoid factor conversion issues
+gold_csv <- fread(gold_db_subset_path,
+  colClasses = "character",
+  encoding = "UTF-8"
+)
+
+cat("Original GOLD database size:", nrow(gold_csv), "rows ×", ncol(gold_csv), "columns\n")
+
+# Clean text encoding and standardize missing values
+gold_csv[] <- lapply(gold_csv, function(x) {
+  x <- iconv(x, from = "", to = "UTF-8", sub = "")
+  x[tolower(x) %in% c("na", "unclassified", "undefined", "unknown", "")] <- NA_character_
+  x
+})
+
+# Fix column names
+names(gold_csv) <- iconv(names(gold_csv), from = "latin1", to = "UTF-8")
+names(gold_csv) <- gsub("<a1>", "°", names(gold_csv))
+names(gold_csv) <- gsub("^ORGANISM ", "", names(gold_csv))
+names(gold_csv) <- gsub(" ", "_", names(gold_csv))
+
+cat("Column names after cleaning:\n")
+print(names(gold_csv))
+
+# Select only the desired columns for analysis
+required_columns <- c("NCBI_KINGDOM", "GOLD_PHYLUM", "GENUS", "SPECIES", "BIOTIC_RELATIONSHIPS",
+                     "OXYGEN_REQUIREMENT", "METABOLISM", "ENERGY_SOURCES", "GRAM_STAIN",
+                     "SAMPLE_COLLECTION_DATE", "SALINITY", "CELL_SHAPE", "MOTILITY", "SPORULATION",
+                     "TEMPERATURE_RANGE")
+
+# Check which columns exist
+existing_columns <- intersect(required_columns, names(gold_csv))
+missing_columns <- setdiff(required_columns, names(gold_csv))
+
+if (length(missing_columns) > 0) {
+  cat("⚠️ Missing columns:", paste(missing_columns, collapse = ", "), "\n")
+}
+
+cat("Selecting", length(existing_columns), "available columns for analysis\n")
+gold_csv <- gold_csv[, ..existing_columns]
+
+cat("✅ GOLD database loaded and cleaned:", nrow(gold_csv), "rows ×", ncol(gold_csv), "columns\n")
+```
+
+## **Step 2: Create Categorical Scores and Clean Data**
+
+```{r clean_gold_data}
+cat("Creating categorical scores and cleaning data...\n")
+
+# Clean up and group values for OXYGEN_REQUIREMENT
+gold_csv[, OXYGEN_REQUIREMENT := fcase(
+  OXYGEN_REQUIREMENT %in% c("Anaerobe", "Obligate anaerobe"), "Anaerobe",
+  OXYGEN_REQUIREMENT %in% c("Aerobe", "Obligate aerobe"), "Aerobe",
+  OXYGEN_REQUIREMENT %in% c("Facultative", "Facultative anaerobe", "Facultative aerobe"), "Facultative",
+  OXYGEN_REQUIREMENT %in% c("Microaerophilic"), "Microaerophilic",
+  default = NA_character_
+)]
+
+# Create OXYGEN_SCORE
+gold_csv[, OXYGEN_SCORE := fcase(
+  OXYGEN_REQUIREMENT == "Anaerobe", 0,
+  OXYGEN_REQUIREMENT == "Facultative", 0.5,
+  OXYGEN_REQUIREMENT == "Microaerophilic", 0.25,
+  OXYGEN_REQUIREMENT == "Aerobe", 1,
+  default = NA_real_
+)]
+
+# Clean up GRAM_STAIN
+gold_csv[, GRAM_STAIN := fcase(
+  GRAM_STAIN == "Gram-", "Gram-",
+  GRAM_STAIN == "Gram+", "Gram+",
+  default = NA_character_
+)]
+
+# Create STAIN_SCORE
+gold_csv[, STAIN_SCORE := fcase(
+  GRAM_STAIN == "Gram-", 0,
+  GRAM_STAIN == "Gram+", 1,
+  default = NA_real_
+)]
+
+# Clean up MOTILITY
+gold_csv[, MOTILITY := fcase(
+  MOTILITY == "Nonmotile", "Nonmotile",
+  MOTILITY %in% c("Motile", "Chemotactic"), "Motile",
+  default = NA_character_
+)]
+
+# Create MOTILITY_SCORE
+gold_csv[, MOTILITY_SCORE := fcase(
+  MOTILITY == "Nonmotile", 0,
+  MOTILITY == "Motile", 1,
+  default = NA_real_
+)]
+
+# Clean up SPORULATION
+gold_csv[, SPORULATION := fcase(
+  SPORULATION == "Nonsporulating", "Nonsporulating",
+  SPORULATION == "Sporulating", "Sporulating",
+  default = NA_character_
+)]
+
+# Create SPORULATION_SCORE
+gold_csv[, SPORULATION_SCORE := fcase(
+  SPORULATION == "Nonsporulating", 0,
+  SPORULATION == "Sporulating", 1,
+  default = NA_real_
+)]
+
+cat("✅ Categorical scores created successfully\n")
+
+# Display summary of scores
+score_summary <- gold_csv[, .(
+  OXYGEN_mean = round(mean(OXYGEN_SCORE, na.rm = TRUE), 3),
+  OXYGEN_na = sum(is.na(OXYGEN_SCORE)),
+  STAIN_mean = round(mean(STAIN_SCORE, na.rm = TRUE), 3),
+  STAIN_na = sum(is.na(STAIN_SCORE)),
+  MOTILITY_mean = round(mean(MOTILITY_SCORE, na.rm = TRUE), 3),
+  MOTILITY_na = sum(is.na(MOTILITY_SCORE)),
+  SPORULATION_mean = round(mean(SPORULATION_SCORE, na.rm = TRUE), 3),
+  SPORULATION_na = sum(is.na(SPORULATION_SCORE))
+)]
+
+cat("Score summary:\n")
+print(score_summary)
+```
+
+## **Step 3: Define Aggregation Functions**
+
+```{r aggregation_functions}
+cat("Defining aggregation functions...\n")
+
+# Define column categories
+skip_cols <- c("OXYGEN_SCORE", "STAIN_SCORE", "MOTILITY_SCORE", "SPORULATION_SCORE")
+text_cols <- c("METABOLISM", "ENERGY_SOURCES")
+char_cols <- names(gold_csv)[sapply(gold_csv, is.character)]
+categorical_cols <- setdiff(char_cols, c(text_cols, skip_cols))
+features <- setdiff(names(gold_csv), c(skip_cols, "GENUS"))
+
+# Assign types to each feature
+feature_types <- sapply(features, function(f) {
+  if (f %in% text_cols) "text"
+  else if (f %in% categorical_cols) "categorical"
+  else "skip"
+})
+
+cat("Feature types:\n")
+print(feature_types)
+
+# Summarization functions
+summarize_categorical <- function(values, threshold = 0.7) {
+  total_count <- length(values)
+  valid_values <- na.omit(values)
+  Non_NA_count <- as.integer(length(valid_values))
+  
+  if (Non_NA_count == 0) {
+    return(list(
+      aggregation_value = "unknown (0%)", 
+      agreement = "none", 
+      Non_NA_count = 0L, 
+      NA_count = total_count
+    ))
+  }
+  
+  freq <- table(valid_values) / Non_NA_count
+  aggregation_value <- paste(names(freq), " (", round(freq * 100, 1), "%)", sep = "", collapse = ", ")
+  
+  if (length(unique(valid_values)) == 1) {
+    agreement <- "high"
+  } else if (max(freq) >= threshold) {
+    agreement <- "medium"
+  } else {
+    agreement <- "low"
+  }
+  
+  NA_count <- total_count - Non_NA_count
+  list(
+    aggregation_value = aggregation_value, 
+    agreement = agreement, 
+    Non_NA_count = Non_NA_count, 
+    NA_count = NA_count
+  )
+}
+
+summarize_text <- function(values, n_top = 3) {
+  total_count <- length(values)
+  valid_values <- na.omit(values)
+  Non_NA_count <- as.integer(length(valid_values))
+  
+  if (Non_NA_count == 0) {
+    return(list(
+      aggregation_value = "unknown (0%)", 
+      Non_NA_count = 0L, 
+      NA_count = total_count
+    ))
+  }
+  
+  tokens <- unlist(strsplit(valid_values, "[|,;]"))
+  tokens <- trimws(tokens)
+  freq <- table(tokens) / length(tokens)
+  top_terms <- head(sort(freq, decreasing = TRUE), n_top)
+  aggregation_value <- paste(names(top_terms), " (", round(top_terms * 100, 1), "%)", sep = "", collapse = ", ")
+  
+  NA_count <- total_count - Non_NA_count
+  list(
+    aggregation_value = aggregation_value, 
+    Non_NA_count = Non_NA_count, 
+    NA_count = NA_count
+  )
+}
+
+summarize_index <- function(scores) {
+  total_count <- length(scores)
+  scores <- na.omit(scores)
+  Non_NA_count <- as.integer(length(scores))
+  
+  if (Non_NA_count == 0) {
+    return(list(
+      aggregation_value = "unknown (0%)", 
+      Non_NA_count = 0L, 
+      NA_count = total_count
+    ))
+  }
+  
+  index <- mean(scores)  # Store raw mean value
+  NA_count <- total_count - Non_NA_count
+  list(
+    aggregation_value = index, 
+    Non_NA_count = Non_NA_count, 
+    NA_count = NA_count
+  )
+}
+
+summarize_feature <- function(data, feature, type) {
+  if (type == "skip") return(NULL)
+  
+  values <- data[[feature]]
+  
+  if (type == "categorical") {
+    summary <- summarize_categorical(values)
+    return(data.table(
+      feature = feature, 
+      aggregation_value = summary$aggregation_value, 
+      agreement = summary$agreement, 
+      Non_NA_count = summary$Non_NA_count, 
+      NA_count = summary$NA_count
+    ))
+  } else if (type == "text") {
+    summary <- summarize_text(values)
+    return(data.table(
+      feature = feature, 
+      aggregation_value = summary$aggregation_value, 
+      agreement = "medium", 
+      Non_NA_count = summary$Non_NA_count, 
+      NA_count = summary$NA_count
+    ))
+  } else {
+    return(NULL)
+  }
+}
+
+cat("✅ Aggregation functions defined successfully\n")
+```
+
+## **Step 4: Aggregate Features by Genus**
+
+```{r aggregate_by_genus}
+cat("Aggregating features by genus...\n")
+
+# Check if GENUS column exists
+if (!"GENUS" %in% names(gold_csv)) {
+  stop("❌ GENUS column not found in GOLD database")
+}
+
+# Count unique genera before aggregation
+unique_genera_count <- gold_csv[, uniqueN(GENUS, na.rm = TRUE)]
+cat("Unique genera in GOLD database:", unique_genera_count, "\n")
+
+# Aggregate all features by genus and calculate indices
+gold_db_genus <- gold_csv[, {
+  feature_summaries <- lapply(features, function(f) {
+    type <- feature_types[f]
+    summarize_feature(.SD, f, type)
+  })
+  
+  # Calculate indices
+  indices <- list(
+    data.table(
+      feature = "STAIN_INDEX", 
+      aggregation_value = summarize_index(.SD$STAIN_SCORE)$aggregation_value, 
+      agreement = "", 
+      Non_NA_count = summarize_index(.SD$STAIN_SCORE)$Non_NA_count, 
+      NA_count = summarize_index(.SD$STAIN_SCORE)$NA_count
+    ),
+    data.table(
+      feature = "OXYGEN_INDEX", 
+      aggregation_value = summarize_index(.SD$OXYGEN_SCORE)$aggregation_value, 
+      agreement = "", 
+      Non_NA_count = summarize_index(.SD$OXYGEN_SCORE)$Non_NA_count, 
+      NA_count = summarize_index(.SD$OXYGEN_SCORE)$NA_count
+    ),
+    data.table(
+      feature = "MOTILITY_INDEX", 
+      aggregation_value = summarize_index(.SD$MOTILITY_SCORE)$aggregation_value, 
+      agreement = "", 
+      Non_NA_count = summarize_index(.SD$MOTILITY_SCORE)$Non_NA_count, 
+      NA_count = summarize_index(.SD$MOTILITY_SCORE)$NA_count
+    ),
+    data.table(
+      feature = "SPORULATION_INDEX", 
+      aggregation_value = summarize_index(.SD$SPORULATION_SCORE)$aggregation_value, 
+      agreement = "", 
+      Non_NA_count = summarize_index(.SD$SPORULATION_SCORE)$Non_NA_count, 
+      NA_count = summarize_index(.SD$SPORULATION_SCORE)$NA_count
+    )
+  )
+  
+  # Combine feature summaries and indices
+  rbind(
+    do.call(rbind, feature_summaries),
+    do.call(rbind, indices),
+    fill = TRUE
+  )
+}, by = "GENUS"]
+
+# Display summary
+cat("✅ GOLD database aggregated by genus:\n",
+    "  Genera:", gold_db_genus[, uniqueN(GENUS)], "\n",
+    "  Features per genus:", gold_db_genus[, .N, by = GENUS][, mean(N)], "\n")
+
+# Save the aggregated GOLD database
+gold_db_genus_file <- file.path(intermediate_files_path, "gold_db_genus.csv")
+fwrite(gold_db_genus, gold_db_genus_file)
+
+cat("✅ Saved aggregated GOLD database to:", gold_db_genus_file, "\n",
+    "\nSample of aggregated GOLD database:\n")
+print(head(gold_db_genus, 10))
+```
+
+# **Load phyloseq Objects and Create Genus Mapping**
+
+## **Step 5: Load phyloseq Object**
+
+```{r load_phyloseq}
+cat("Loading phyloseq objects...\n")
+
+# Load ubiome relative abundance phyloseq object
+ubiome_relative_file <- file.path(phyloseq_obj_files_path, "ubiome_relative.rds")
+
+if (!file.exists(ubiome_relative_file)) {
+  stop("❌ phyloseq object not found at:", ubiome_relative_file)
+}
+
+ubiome_relative <- readRDS(ubiome_relative_file)
+
+cat("✅ phyloseq object loaded successfully:\n",
+    "  Samples:", nsamples(ubiome_relative), "\n",
+    "  Taxa:", ntaxa(ubiome_relative), "\n",
+    "  Sample variables:", length(sample_variables(ubiome_relative)), "\n",
+    "  Taxonomic ranks:", paste(rank_names(ubiome_relative), collapse = ", "), "\n")
+
+# Verify tax_table exists
+if (is.null(tax_table(ubiome_relative))) {
+  stop("❌ Taxonomy table not found in phyloseq object")
+}
+
+cat("✅ Taxonomy table verified\n")
+```
+
+## **Step 6: Create Genus Mapping from phyloseq**
+
+```{r create_genus_mapping}
+cat("Creating genus mapping from phyloseq taxonomy...\n")
+
+# Extract taxonomy table
+tax_data <- tax_table(ubiome_relative)
+
+# Check if Genus column exists
+if (!"Genus" %in% colnames(tax_data)) {
+  stop("❌ Genus column not found in taxonomy table")
+}
+
+# Create genus mapping dataframe
+ubiome_genus_mapping <- data.frame(
+  otu = rownames(tax_data),
+  Genus = tax_data[, "Genus"],
+  stringsAsFactors = FALSE
+)
+
+cat("Original genus mapping created:", nrow(ubiome_genus_mapping), "OTUs\n",
+    "Unique genera:", length(unique(ubiome_genus_mapping$Genus)), "\n",
+    "\nSample of original genus mapping:\n")
+print(head(ubiome_genus_mapping, 10))
+```
+
+## **Step 7: Parse Genus Names for Matching**
+
+```{r parse_genus_names}
+cat("Parsing genus names for better matching...\n")
+
+# Function to parse core genus from various nomenclature patterns
+parse_genus <- function(genus_name) {
+  if (is.na(genus_name)) return("unclassified")
+  
+  # Start with the original name
+  genus <- genus_name
+  
+  # Special case: "Incertae Sedis" -> "unclassified"
+  if (genus_name == "Incertae Sedis") {
+    return("unclassified")
+  }
+  
+  # Special case: "Escherichia/Shigella" -> "unclassified"
+  if (genus_name == "Escherichia/Shigella") {
+    return("unclassified")
+  }
+  
+  # 1. "[<Genus>] <specific_detail> group" or "[<Genus>] <specific_detail>" -> <Genus>
+  if (grepl("^\\[.*\\]", genus_name)) {
+    genus <- sub("^\\[([^]]+)\\].*$", "\\1", genus_name)
+  }
+  
+  # 2. "Candidatus <Genus>" -> <Genus>
+  if (grepl("^Candidatus\\s+", genus)) {
+    genus <- sub("^Candidatus\\s+(\\S+).*$", "\\1", genus)
+  }
+  
+  # 3. "<Genus> sensu stricto <number>" -> <Genus>
+  if (grepl("sensu stricto", genus)) {
+    genus <- sub("^(.*?)\\s+sensu stricto\\s+\\d+.*$", "\\1", genus)
+  }
+  
+  # 4. Handle group patterns
+  if (grepl("\\s+", genus) && !grepl("sensu stricto", genus)) {
+    # Patterns with "group" suffix
+    if (grepl("\\s+.*group$", genus)) {
+      # Handle numeric prefixes like "AEGEAN-169", "CPla-4", "dgA-11", "GKS98"
+      if (grepl("^[A-Z]+\\d+[-]?\\d*", genus)) {
+        genus <- sub("^(.*?\\d+[-]?\\d*)\\s+.*$", "\\1", genus)
+      } else {
+        genus <- sub("^(.*?)\\s+.*group$", "\\1", genus)
+      }
+    } else {
+      # Handle "<Genus> <number>" or "<Genus> <specific_detail>"
+      genus <- sub("^(.*?)\\s+(\\S+)$", "\\1", genus)
+    }
+  }
+  
+  # 5. Special case for "aceae" families with "group" suffix
+  if (grepl("aceae\\s+.*group$", genus)) {
+    genus <- sub("^(.*aceae).*$", "\\1", genus)
+  }
+  
+  # Return the parsed genus, fallback to original if problematic
+  if (genus == "" || (genus == genus_name && !grepl("^[A-Za-z0-9-]+$", genus))) {
+    genus <- genus_name
+  }
+  
+  return(genus)
+}
+
+# Apply parsing function
+ubiome_genus_mapping$parsed_genus <- sapply(ubiome_genus_mapping$Genus, parse_genus)
+
+# Summary of parsing results
+# Handle NA values in comparison properly
+genus_comparison <- !is.na(ubiome_genus_mapping$Genus) & 
+                   !is.na(ubiome_genus_mapping$parsed_genus) & 
+                   ubiome_genus_mapping$Genus != ubiome_genus_mapping$parsed_genus
+
+parsing_summary <- data.frame(
+  original_unique = length(unique(ubiome_genus_mapping$Genus[!is.na(ubiome_genus_mapping$Genus)])),
+  parsed_unique = length(unique(ubiome_genus_mapping$parsed_genus[!is.na(ubiome_genus_mapping$parsed_genus)])),
+  unclassified_count = sum(ubiome_genus_mapping$parsed_genus == "unclassified", na.rm = TRUE),
+  changed_count = sum(genus_comparison, na.rm = TRUE)
+)
+
+cat("✅ Genus parsing completed:\n",
+    "  Original unique genera:", parsing_summary$original_unique, "\n",
+    "  Parsed unique genera:", parsing_summary$parsed_unique, "\n",
+    "  Unclassified genera:", parsing_summary$unclassified_count, "\n",
+    "  Names changed by parsing:", parsing_summary$changed_count, "\n",
+    "\nExamples of genus name parsing:\n")
+
+# Filter for changed names, handling NAs properly
+if (sum(genus_comparison, na.rm = TRUE) > 0) {
+  changed_examples <- ubiome_genus_mapping[genus_comparison, c("Genus", "parsed_genus")]
+  examples <- unique(changed_examples)
+  examples <- head(examples, 10)
+  print(examples)
+} else {
+  cat("No genus names were changed during parsing\n")
+}
+```
+
+# **Merge NHANES and GOLD Database**
+
+## **Step 8: Merge phyloseq Genera with GOLD Database**
+
+```{r merge_databases}
+cat("Merging phyloseq genera with GOLD database...\n")
+
+# Define features to merge from GOLD database
+features_to_merge <- c(
+  "BIOTIC_RELATIONSHIPS", "OXYGEN_REQUIREMENT", "METABOLISM", "ENERGY_SOURCES", 
+                       "GRAM_STAIN", "SAMPLE_COLLECTION_DATE", "SALINITY", "CELL_SHAPE", "MOTILITY", 
+                       "SPORULATION", "TEMPERATURE_RANGE", "STAIN_INDEX", "OXYGEN_INDEX", 
+  "MOTILITY_INDEX", "SPORULATION_INDEX"
+)
+
+# Pivot GOLD database to wide format for merging
+cat("Pivoting GOLD database to wide format...\n")
+gold_db_genus_wide <- dcast(
+  gold_db_genus, 
+  GENUS ~ feature, 
+  value.var = "aggregation_value", 
+  fun.aggregate = function(x) if (length(x) > 0) x[1] else NA_character_
+)
+
+# Check which features are available
+available_features <- intersect(features_to_merge, names(gold_db_genus_wide))
+missing_features <- setdiff(features_to_merge, names(gold_db_genus_wide))
+
+if (length(missing_features) > 0) {
+  cat("⚠️ Missing features in GOLD database:", paste(missing_features, collapse = ", "), "\n")
+}
+
+cat("Available features for merging:", length(available_features), "\n")
+
+# Select available columns for merging
+gold_columns <- c("GENUS", available_features)
+gold_db_genus_subset <- gold_db_genus_wide[, ..gold_columns]
+
+cat("GOLD database subset for merging:", nrow(gold_db_genus_subset), "genera ×", ncol(gold_db_genus_subset), "features\n")
+
+# Merge with ubiome_genus_mapping using parsed_genus
+ubiome_genus_mapping_complete <- merge(
+  ubiome_genus_mapping,
+  gold_db_genus_subset,
+  by.x = "parsed_genus",
+  by.y = "GENUS",
+  all.x = TRUE,  # Keep all rows from ubiome_genus_mapping
+  all.y = FALSE
+)
+
+# Convert to data.table for efficient handling
+setDT(ubiome_genus_mapping_complete)
+
+cat("✅ Merge completed:", nrow(ubiome_genus_mapping_complete), "rows\n")
+
+# Ensure all expected features exist (add NA columns if missing)
+missing_cols <- setdiff(available_features, names(ubiome_genus_mapping_complete))
+if (length(missing_cols) > 0) {
+  ubiome_genus_mapping_complete[, (missing_cols) := NA_character_]
+  cat("Added missing columns:", paste(missing_cols, collapse = ", "), "\n")
+}
+
+# Replace "unknown (0%)" with NA for cleaner data
+ubiome_genus_mapping_complete <- ubiome_genus_mapping_complete[, 
+  lapply(.SD, function(x) fifelse(x == "unknown (0%)", NA_character_, x))
+]
+
+cat("✅ Data cleaning completed\n")
+```
+
+## **Step 9: Analyze Mapping Results**
+
+```{r analyze_mapping}
+cat("Analyzing mapping results...\n")
+
+# Basic statistics
+total_genera <- nrow(ubiome_genus_mapping_complete)
+unique_original_genera <- length(unique(ubiome_genus_mapping_complete$Genus))
+unique_parsed_genera <- length(unique(ubiome_genus_mapping_complete$parsed_genus))
+
+# Count annotations
+if (length(available_features) > 0) {
+  # Check for any non-NA annotations
+  annotated_rows <- ubiome_genus_mapping_complete[, 
+    any(!is.na(.SD)), .SDcols = available_features, by = .(otu, Genus)
+  ]
+  annotated_count <- sum(annotated_rows$V1)
+  
+  # Count unclassified
+  unclassified_count <- sum(ubiome_genus_mapping_complete$parsed_genus == "unclassified")
+  
+  # Count completely unannotated (all features NA)
+  na_counts <- ubiome_genus_mapping_complete[, 
+    lapply(.SD, is.na), .SDcols = available_features
+  ]
+  unannotated_count <- sum(rowSums(na_counts) == length(available_features))
+  
+} else {
+  annotated_count <- 0
+  unclassified_count <- sum(ubiome_genus_mapping_complete$parsed_genus == "unclassified")
+  unannotated_count <- total_genera
+}
+
+# Calculate coverage statistics
+total_excluding_unclassified <- total_genera - unclassified_count
+annotation_coverage <- ifelse(total_genera > 0, round((annotated_count / total_genera) * 100, 2), 0)
+annotation_coverage_excl_unclassified <- ifelse(
+  total_excluding_unclassified > 0, 
+  round((annotated_count / total_excluding_unclassified) * 100, 2), 
+  0
+)
+
+# Report results
+cat("\nMapping Results Summary:\n",
+    "  Total OTUs:", total_genera, "\n",
+    "  Unique original genera:", unique_original_genera, "\n",
+    "  Unique parsed genera:", unique_parsed_genera, "\n",
+    "  OTUs with GOLD annotations:", annotated_count, "\n",
+    "  OTUs parsed as 'unclassified':", unclassified_count, "\n",
+    "  OTUs with no annotations:", unannotated_count, "\n",
+    "  Annotation coverage (%):", annotation_coverage, "%\n",
+    "  Annotation coverage excluding unclassified (%):", annotation_coverage_excl_unclassified, "%\n")
+
+# Identify unmapped genera (excluding unclassified)
+if (length(available_features) > 0) {
+  unmapped_genera <- ubiome_genus_mapping_complete[
+    rowSums(na_counts) == length(available_features) & 
+    parsed_genus != "unclassified", 
+    unique(Genus)
+  ]
+  
+  if (length(unmapped_genera) > 0) {
+    cat("\n⚠️ Genera without GOLD annotations (first 20):\n")
+    cat(paste(head(unmapped_genera, 20), collapse = ", "), "\n")
+    if (length(unmapped_genera) > 20) {
+      cat("... and", length(unmapped_genera) - 20, "more\n")
+    }
+} else {
+    cat("\n✅ All classifiable genera have GOLD annotations\n")
+}
+}
+```
+
+## **Step 10: Save Results**
+
+```{r save_results}
+cat("💾 Saving mapping results...\n")
+
+# Save the complete mapping
+output_file <- file.path(intermediate_files_path, "ubiome_genus_mapping_complete.csv")
+fwrite(ubiome_genus_mapping_complete, output_file)
+
+# Create summary statistics file
+summary_stats <- data.table(
+  metric = c(
+    "total_otus",
+    "unique_original_genera", 
+    "unique_parsed_genera",
+    "annotated_otus",
+    "unclassified_otus",
+    "unannotated_otus",
+    "annotation_coverage_percent",
+    "annotation_coverage_excl_unclassified_percent"
+  ),
+  value = c(
+    total_genera,
+    unique_original_genera,
+    unique_parsed_genera,
+    annotated_count,
+    unclassified_count,
+    unannotated_count,
+    annotation_coverage,
+    annotation_coverage_excl_unclassified
+  )
+)
+
+summary_file <- file.path(intermediate_files_path, "mapping_summary_stats.csv")
+fwrite(summary_stats, summary_file)
+
+cat("✅ Complete genus mapping saved to:", output_file, "\n",
+    "✅ Summary statistics saved to:", summary_file, "\n",
+    "\nFinal mapping structure:\n")
+str(ubiome_genus_mapping_complete)
+
+# Close database connection
+dbDisconnect(con)
+cat("\n🔌 Database connection closed\n")
+```
+
+# ✅ **Completion Summary**
+
+```{r completion_summary}
+cat("✅ NHANES-GOLD Database Integration Complete!\n\n",
+    "Results Created:\n",
+    "  1. Aggregated GOLD database by genus:", file.path(intermediate_files_path, "gold_db_genus.csv"), "\n",
+    "  2. Complete genus mapping:", file.path(intermediate_files_path, "ubiome_genus_mapping_complete.csv"), "\n",
+    "  3. Summary statistics:", file.path(intermediate_files_path, "mapping_summary_stats.csv"), "\n\n",
+    "Key Statistics:\n",
+    "  - Total OTUs processed:", total_genera, "\n",
+    "  - OTUs with GOLD annotations:", annotated_count, "(", annotation_coverage, "%)\n",
+    "  - Available GOLD features:", length(available_features), "\n",
+    "  - Unique genera in GOLD database:", gold_db_genus[, uniqueN(GENUS)], "\n\n",
+    "🔗 Integration with Analysis Pipeline:\n",
+    "  - Use ubiome_genus_mapping_complete for microbial phenotype analysis\n",
+    "  - Combine with phyloseq objects for functional annotation\n",
+    "  - Apply to association results for biological interpretation\n\n",
+    "📖 Next Steps:\n",
+    "  1. Proceed to Chapter 4: Downstream analysis with GOLD annotations\n",
+    "  2. Perform functional enrichment analysis\n",
+    "  3. Interpret association results using microbial phenotypes\n")
+```
+
+## 📚 **Variable Names for Downstream Compatibility**
+
+### **Key Variables Maintained for Pipeline Compatibility:**
+
+- **`ubiome_genus_mapping_complete`** - Main output table with GOLD annotations
+- **`gold_db_genus`** - Aggregated GOLD database by genus
+- **`features_to_merge`** - List of GOLD features integrated
+- **File naming** - Maintained original file names for downstream scripts
+
+### **Available GOLD Features:**
+```{r display_features}
+if (exists("available_features")) {
+  cat("Available GOLD features for analysis:\n")
+  for (i in seq_along(available_features)) {
+    cat("  ", i, ". ", available_features[i], "\n", sep = "")
+  }
+} else {
+  cat("No GOLD features available\n")
+}
+```
+
+**This pipeline successfully integrates NHANES oral microbiome data with GOLD database microbial phenotypes for comprehensive functional analysis!**

@@ -1,0 +1,73 @@
+# R specific files
+.Rproj.user/
+.Rhistory
+.Ruserdata
+.Rapp.history
+.RData
+.rds
+
+# Data files
+**/*.{csv,tsv,xlsx,xls,db,sqlite,sqlite3,zip}
+
+# Output and media files
+**/*.{pdf,png,jpg,jpeg,tiff,bmp}
+
+# Log files
+**/*.{log,out,err}
+
+# Temporary files
+**/*.{tmp,temp}
+*~
+
+# OS specific files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# IDE specific files
+.idea/
+.vscode/
+**/*.{swp,swo}
+
+# R cache and temporary directories
+**/*_cache/
+**/logs/
+
+# Project specific directories - ignore contents but keep directories
+data/*
+!data/.gitkeep
+ignore_legacy_figures/*
+!ignore_legacy_figures/.gitkeep
+ignore_legacy_notebooks/*
+!ignore_legacy_notebooks/.gitkeep
+logs/*
+!logs/.gitkeep
+results/*
+results_backup/*
+!results/.gitkeep
+previous_results/*
+previous_results_backup/*
+previous_release/*
+previous_release_v1/*
+previous_release_v2/*
+previous_release_v3/*
+previous_release_v4/*
+previous_release_v5/*
+previous_release_v6/*
+previous_release_v7/*
+previous_release_v8/*
+previous_release_v9/*
+
+# Legacy project specific directories
+figures/archive_ignore/
+legacy_code/
+results_backup/
+legacy_results/
+nhanespewas/
+notebooks/
+scripts/1_association_pipeline/archive/
+scripts/1_association_pipeline/debug_Dump/

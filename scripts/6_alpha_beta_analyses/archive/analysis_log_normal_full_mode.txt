@@ -1,0 +1,277 @@
+=== INTEGRATED DIVERSITY ANALYSIS - HPC FIXED ===
+
+TEST_MODE: FALSE 
+HALF_PLOTS: TRUE 
+
+Found 40 categorical variables for analysis
+Loading beta diversity...
+  ✓ Loaded beta diversity matrices
+Performing PCoA...
+  Braycurtis: PC1=19.7%, PC2=10.8%
+  Unwunifrac: PC1=17.5%, PC2=7.4%
+  Wunifrac: PC1=32.8%, PC2=25.9%
+  ✓ PCoA complete
+Calculating centroids...
+  Processing Braycurtis ...
+    Variable: CHD 
+    Variable: CVD 
+    Variable: Gender 
+    Variable: AgeGroup 
+    Variable: EducationLevel 
+    Variable: Ethnicity 
+    Variable: Marital_Status 
+    Variable: Household_Size_Factor 
+    Variable: US_Born 
+    Variable: Interview_Language 
+    Variable: Age_group 
+    Variable: Education_level 
+    Variable: US_born 
+    Variable: Household_size 
+    Variable: Marital_status 
+    Variable: Interview_language 
+    Variable: Income_to_poverty_ratio 
+    Variable: Denture 
+    Variable: Gum_disease 
+    Variable: Oral_hygiene 
+    Variable: Tooth_decay 
+    Variable: Smoking_status 
+    Variable: Hepatitis_C_antibody 
+    Variable: BMI_category 
+    Variable: Blood_pressure 
+    Variable: Pulse_category 
+    Variable: Asthma 
+    Variable: Bronchitis 
+    Variable: Emphysema 
+    Variable: Angina 
+    Variable: Heart_failure 
+    Variable: Heart_attack 
+    Variable: Stroke 
+    Variable: Diabetes 
+    Variable: Breast_cancer 
+    Variable: Colon_cancer 
+    Variable: Lung_cancer 
+    Variable: Esophageal_cancer 
+    Variable: Prostate_cancer 
+    Variable: Mouth_cancer 
+  Processing Unwunifrac ...
+    Variable: CHD 
+    Variable: CVD 
+    Variable: Gender 
+    Variable: AgeGroup 
+    Variable: EducationLevel 
+    Variable: Ethnicity 
+    Variable: Marital_Status 
+    Variable: Household_Size_Factor 
+    Variable: US_Born 
+    Variable: Interview_Language 
+    Variable: Age_group 
+    Variable: Education_level 
+    Variable: US_born 
+    Variable: Household_size 
+    Variable: Marital_status 
+    Variable: Interview_language 
+    Variable: Income_to_poverty_ratio 
+    Variable: Denture 
+    Variable: Gum_disease 
+    Variable: Oral_hygiene 
+    Variable: Tooth_decay 
+    Variable: Smoking_status 
+    Variable: Hepatitis_C_antibody 
+    Variable: BMI_category 
+    Variable: Blood_pressure 
+    Variable: Pulse_category 
+    Variable: Asthma 
+    Variable: Bronchitis 
+    Variable: Emphysema 
+    Variable: Angina 
+    Variable: Heart_failure 
+    Variable: Heart_attack 
+    Variable: Stroke 
+    Variable: Diabetes 
+    Variable: Breast_cancer 
+    Variable: Colon_cancer 
+    Variable: Lung_cancer 
+    Variable: Esophageal_cancer 
+    Variable: Prostate_cancer 
+    Variable: Mouth_cancer 
+  Processing Wunifrac ...
+    Variable: CHD 
+    Variable: CVD 
+    Variable: Gender 
+    Variable: AgeGroup 
+    Variable: EducationLevel 
+    Variable: Ethnicity 
+    Variable: Marital_Status 
+    Variable: Household_Size_Factor 
+    Variable: US_Born 
+    Variable: Interview_Language 
+    Variable: Age_group 
+    Variable: Education_level 
+    Variable: US_born 
+    Variable: Household_size 
+    Variable: Marital_status 
+    Variable: Interview_language 
+    Variable: Income_to_poverty_ratio 
+    Variable: Denture 
+    Variable: Gum_disease 
+    Variable: Oral_hygiene 
+    Variable: Tooth_decay 
+    Variable: Smoking_status 
+    Variable: Hepatitis_C_antibody 
+    Variable: BMI_category 
+    Variable: Blood_pressure 
+    Variable: Pulse_category 
+    Variable: Asthma 
+    Variable: Bronchitis 
+    Variable: Emphysema 
+    Variable: Angina 
+    Variable: Heart_failure 
+    Variable: Heart_attack 
+    Variable: Stroke 
+    Variable: Diabetes 
+    Variable: Breast_cancer 
+    Variable: Colon_cancer 
+    Variable: Lung_cancer 
+    Variable: Esophageal_cancer 
+    Variable: Prostate_cancer 
+    Variable: Mouth_cancer 
+  ✓ Done
+Running PERMANOVA...
+  Error for Braycurtis - CHD : variable lengths differ (found for 'CHD') 
+  Error for Braycurtis - CVD : variable lengths differ (found for 'CVD') 
+  Error for Braycurtis - Gender : variable lengths differ (found for 'Gender') 
+  Error for Braycurtis - AgeGroup : variable lengths differ (found for 'AgeGroup') 
+  Error for Braycurtis - EducationLevel : variable lengths differ (found for 'EducationLevel') 
+  Error for Braycurtis - Ethnicity : variable lengths differ (found for 'Ethnicity') 
+  Error for Braycurtis - Marital_Status : variable lengths differ (found for 'Marital_Status') 
+  Error for Braycurtis - Household_Size_Factor : variable lengths differ (found for 'Household_Size_Factor') 
+  Error for Braycurtis - Interview_Language : variable lengths differ (found for 'Interview_Language') 
+  Error for Braycurtis - Age_group : variable lengths differ (found for 'Age_group') 
+  Error for Braycurtis - Education_level : variable lengths differ (found for 'Education_level') 
+  Error for Braycurtis - Household_size : variable lengths differ (found for 'Household_size') 
+  Error for Braycurtis - Marital_status : variable lengths differ (found for 'Marital_status') 
+  Error for Braycurtis - Interview_language : variable lengths differ (found for 'Interview_language') 
+  Error for Braycurtis - Income_to_poverty_ratio : variable lengths differ (found for 'Income_to_poverty_ratio') 
+  Error for Braycurtis - Denture : variable lengths differ (found for 'Denture') 
+  Error for Braycurtis - Gum_disease : variable lengths differ (found for 'Gum_disease') 
+  Error for Braycurtis - Oral_hygiene : variable lengths differ (found for 'Oral_hygiene') 
+  Error for Braycurtis - Tooth_decay : variable lengths differ (found for 'Tooth_decay') 
+  Error for Braycurtis - Smoking_status : variable lengths differ (found for 'Smoking_status') 
+  Error for Braycurtis - Hepatitis_C_antibody : variable lengths differ (found for 'Hepatitis_C_antibody') 
+  Error for Braycurtis - BMI_category : variable lengths differ (found for 'BMI_category') 
+  Error for Braycurtis - Blood_pressure : variable lengths differ (found for 'Blood_pressure') 
+  Error for Braycurtis - Pulse_category : variable lengths differ (found for 'Pulse_category') 
+  Error for Braycurtis - Asthma : variable lengths differ (found for 'Asthma') 
+  Error for Braycurtis - Bronchitis : variable lengths differ (found for 'Bronchitis') 
+  Error for Braycurtis - Emphysema : variable lengths differ (found for 'Emphysema') 
+  Error for Braycurtis - Angina : variable lengths differ (found for 'Angina') 
+  Error for Braycurtis - Heart_failure : variable lengths differ (found for 'Heart_failure') 
+  Error for Braycurtis - Heart_attack : variable lengths differ (found for 'Heart_attack') 
+  Error for Braycurtis - Stroke : variable lengths differ (found for 'Stroke') 
+  Error for Braycurtis - Diabetes : variable lengths differ (found for 'Diabetes') 
+  Error for Braycurtis - Breast_cancer : variable lengths differ (found for 'Breast_cancer') 
+  Error for Braycurtis - Colon_cancer : variable lengths differ (found for 'Colon_cancer') 
+  Error for Braycurtis - Lung_cancer : variable lengths differ (found for 'Lung_cancer') 
+  Error for Braycurtis - Esophageal_cancer : variable lengths differ (found for 'Esophageal_cancer') 
+  Error for Braycurtis - Prostate_cancer : variable lengths differ (found for 'Prostate_cancer') 
+  Error for Unwunifrac - CHD : variable lengths differ (found for 'CHD') 
+  Error for Unwunifrac - CVD : variable lengths differ (found for 'CVD') 
+  Error for Unwunifrac - Gender : variable lengths differ (found for 'Gender') 
+  Error for Unwunifrac - AgeGroup : variable lengths differ (found for 'AgeGroup') 
+  Error for Unwunifrac - EducationLevel : variable lengths differ (found for 'EducationLevel') 
+  Error for Unwunifrac - Ethnicity : variable lengths differ (found for 'Ethnicity') 
+  Error for Unwunifrac - Marital_Status : variable lengths differ (found for 'Marital_Status') 
+  Error for Unwunifrac - Household_Size_Factor : variable lengths differ (found for 'Household_Size_Factor') 
+  Error for Unwunifrac - Interview_Language : variable lengths differ (found for 'Interview_Language') 
+  Error for Unwunifrac - Age_group : variable lengths differ (found for 'Age_group') 
+  Error for Unwunifrac - Education_level : variable lengths differ (found for 'Education_level') 
+  Error for Unwunifrac - Household_size : variable lengths differ (found for 'Household_size') 
+  Error for Unwunifrac - Marital_status : variable lengths differ (found for 'Marital_status') 
+  Error for Unwunifrac - Interview_language : variable lengths differ (found for 'Interview_language') 
+  Error for Unwunifrac - Income_to_poverty_ratio : variable lengths differ (found for 'Income_to_poverty_ratio') 
+  Error for Unwunifrac - Denture : variable lengths differ (found for 'Denture') 
+  Error for Unwunifrac - Gum_disease : variable lengths differ (found for 'Gum_disease') 
+  Error for Unwunifrac - Oral_hygiene : variable lengths differ (found for 'Oral_hygiene') 
+  Error for Unwunifrac - Tooth_decay : variable lengths differ (found for 'Tooth_decay') 
+  Error for Unwunifrac - Smoking_status : variable lengths differ (found for 'Smoking_status') 
+  Error for Unwunifrac - Hepatitis_C_antibody : variable lengths differ (found for 'Hepatitis_C_antibody') 
+  Error for Unwunifrac - BMI_category : variable lengths differ (found for 'BMI_category') 
+  Error for Unwunifrac - Blood_pressure : variable lengths differ (found for 'Blood_pressure') 
+  Error for Unwunifrac - Pulse_category : variable lengths differ (found for 'Pulse_category') 
+  Error for Unwunifrac - Asthma : variable lengths differ (found for 'Asthma') 
+  Error for Unwunifrac - Bronchitis : variable lengths differ (found for 'Bronchitis') 
+  Error for Unwunifrac - Emphysema : variable lengths differ (found for 'Emphysema') 
+  Error for Unwunifrac - Angina : variable lengths differ (found for 'Angina') 
+  Error for Unwunifrac - Heart_failure : variable lengths differ (found for 'Heart_failure') 
+  Error for Unwunifrac - Heart_attack : variable lengths differ (found for 'Heart_attack') 
+  Error for Unwunifrac - Stroke : variable lengths differ (found for 'Stroke') 
+  Error for Unwunifrac - Diabetes : variable lengths differ (found for 'Diabetes') 
+  Error for Unwunifrac - Breast_cancer : variable lengths differ (found for 'Breast_cancer') 
+  Error for Unwunifrac - Colon_cancer : variable lengths differ (found for 'Colon_cancer') 
+  Error for Unwunifrac - Lung_cancer : variable lengths differ (found for 'Lung_cancer') 
+  Error for Unwunifrac - Esophageal_cancer : variable lengths differ (found for 'Esophageal_cancer') 
+  Error for Unwunifrac - Prostate_cancer : variable lengths differ (found for 'Prostate_cancer') 
+  Error for Wunifrac - CHD : variable lengths differ (found for 'CHD') 
+  Error for Wunifrac - CVD : variable lengths differ (found for 'CVD') 
+  Error for Wunifrac - Gender : variable lengths differ (found for 'Gender') 
+  Error for Wunifrac - AgeGroup : variable lengths differ (found for 'AgeGroup') 
+  Error for Wunifrac - EducationLevel : variable lengths differ (found for 'EducationLevel') 
+  Error for Wunifrac - Ethnicity : variable lengths differ (found for 'Ethnicity') 
+  Error for Wunifrac - Marital_Status : variable lengths differ (found for 'Marital_Status') 
+  Error for Wunifrac - Household_Size_Factor : variable lengths differ (found for 'Household_Size_Factor') 
+  Error for Wunifrac - Interview_Language : variable lengths differ (found for 'Interview_Language') 
+  Error for Wunifrac - Age_group : variable lengths differ (found for 'Age_group') 
+  Error for Wunifrac - Education_level : variable lengths differ (found for 'Education_level') 
+  Error for Wunifrac - Household_size : variable lengths differ (found for 'Household_size') 
+  Error for Wunifrac - Marital_status : variable lengths differ (found for 'Marital_status') 
+  Error for Wunifrac - Interview_language : variable lengths differ (found for 'Interview_language') 
+  Error for Wunifrac - Income_to_poverty_ratio : variable lengths differ (found for 'Income_to_poverty_ratio') 
+  Error for Wunifrac - Denture : variable lengths differ (found for 'Denture') 
+  Error for Wunifrac - Gum_disease : variable lengths differ (found for 'Gum_disease') 
+  Error for Wunifrac - Oral_hygiene : variable lengths differ (found for 'Oral_hygiene') 
+  Error for Wunifrac - Tooth_decay : variable lengths differ (found for 'Tooth_decay') 
+  Error for Wunifrac - Smoking_status : variable lengths differ (found for 'Smoking_status') 
+  Error for Wunifrac - Hepatitis_C_antibody : variable lengths differ (found for 'Hepatitis_C_antibody') 
+  Error for Wunifrac - BMI_category : variable lengths differ (found for 'BMI_category') 
+  Error for Wunifrac - Blood_pressure : variable lengths differ (found for 'Blood_pressure') 
+  Error for Wunifrac - Pulse_category : variable lengths differ (found for 'Pulse_category') 
+  Error for Wunifrac - Asthma : variable lengths differ (found for 'Asthma') 
+  Error for Wunifrac - Bronchitis : variable lengths differ (found for 'Bronchitis') 
+  Error for Wunifrac - Emphysema : variable lengths differ (found for 'Emphysema') 
+  Error for Wunifrac - Angina : variable lengths differ (found for 'Angina') 
+  Error for Wunifrac - Heart_failure : variable lengths differ (found for 'Heart_failure') 
+  Error for Wunifrac - Heart_attack : variable lengths differ (found for 'Heart_attack') 
+  Error for Wunifrac - Stroke : variable lengths differ (found for 'Stroke') 
+  Error for Wunifrac - Diabetes : variable lengths differ (found for 'Diabetes') 
+  Error for Wunifrac - Breast_cancer : variable lengths differ (found for 'Breast_cancer') 
+  Error for Wunifrac - Colon_cancer : variable lengths differ (found for 'Colon_cancer') 
+  Error for Wunifrac - Lung_cancer : variable lengths differ (found for 'Lung_cancer') 
+  Error for Wunifrac - Esophageal_cancer : variable lengths differ (found for 'Esophageal_cancer') 
+  Error for Wunifrac - Prostate_cancer : variable lengths differ (found for 'Prostate_cancer') 
+  ✓ 0 tests, 0 significant
+
+Creating integrated 4×3 plots...
+    Added 1 pairwise comparison brackets (buffer: 32 %)
+    Added 1 pairwise comparison brackets (buffer: 32 %)
+    Added 1 pairwise comparison brackets (buffer: 32 %)
+Error in `filter()`:
+ℹ In argument: `Metric == metric_name`.
+Caused by error:
+! object 'Metric' not found
+Backtrace:
+     ▆
+  1. ├─permanova_results %>% ...
+  2. ├─dplyr::filter(., Metric == metric_name, Variable == cat_var)
+  3. ├─dplyr:::filter.data.frame(., Metric == metric_name, Variable == cat_var)
+  4. │ └─dplyr:::filter_rows(.data, dots, by)
+  5. │   └─dplyr:::filter_eval(...)
+  6. │     ├─base::withCallingHandlers(...)
+  7. │     └─mask$eval_all_filter(dots, env_filter)
+  8. │       └─dplyr (local) eval()
+  9. └─base::.handleSimpleError(...)
+ 10.   └─dplyr (local) h(simpleError(msg, call))
+ 11.     └─rlang::abort(message, class = error_class, parent = parent, call = error_call)
+Warning message:
+Using `size` aesthetic for lines was deprecated in ggplot2 3.4.0.
+ℹ Please use `linewidth` instead. 
+Execution halted
