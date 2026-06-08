@@ -231,9 +231,11 @@ for (task in tasks) {
       m_unw$weighting <- "unweighted"
       m_w$weighting   <- "survey_weighted"
       m <- bind_rows(m_unw, m_w)
+      prob_df <- as.data.frame(prob)
+      colnames(prob_df) <- paste0("prob_", colnames(prob_df))
       preds <- tibble(SEQN = d_full$SEQN[split$test], y_true = as.character(y_test),
                       y_pred_class = colnames(prob)[apply(prob, 1, which.max)],
-                      weight = w_test)
+                      weight = w_test) |> bind_cols(prob_df)
     } else {
       fit  <- fit_glmnet_cv(x_train, y_train, family = "gaussian")
       pred <- as.numeric(predict(fit, newx = x_test, s = "lambda.min"))

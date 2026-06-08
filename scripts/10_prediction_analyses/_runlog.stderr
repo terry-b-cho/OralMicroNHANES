@@ -23,8 +23,26 @@ Warning messages:
 4: package ‘readr’ was built under R version 4.5.2 
 5: package ‘ggplot2’ was built under R version 4.5.3 
 Wrote /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/10_prediction_analyses_out/figures/metrics_overview.pdf
+Wrote /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/10_prediction_analyses_out/figures/roc_curves_classification.pdf
+Wrote /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/10_prediction_analyses_out/figures/confusion_matrices.pdf
 `geom_smooth()` using formula = 'y ~ x'
-Wrote /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/10_prediction_analyses_out/figures/age_pred_vs_true.pdf
-Wrote /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/10_prediction_analyses_out/figures/gender_roc.pdf
-Wrote /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/10_prediction_analyses_out/figures/age_group_confusion_matrix.pdf
-Done. Figures written to: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/10_prediction_analyses_out/figures
+Error in `draw_panels()`:
+! `facet_grid()` can't use free scales with `coord_cartesian()` with a
+  fixed `ratio` argument.
+Backtrace:
+     ▆
+  1. └─ggplot2::ggsave(...)
+  2.   └─base::lapply(plot, grid.draw)
+  3.     ├─grid (local) FUN(X[[i]], ...)
+  4.     └─ggplot2 (local) `grid.draw.ggplot2::ggplot`(X[[i]], ...)
+  5.       ├─base::print(x)
+  6.       └─ggplot2 (local) `print.ggplot2::ggplot`(x)
+  7.         ├─ggplot2::ggplot_gtable(data)
+  8.         └─ggplot2 (local) `ggplot_gtable.ggplot2::ggplot_built`(data)
+  9.           └─layout$render(geom_grobs, data, theme, plot@labels)
+ 10.             └─ggplot2 (local) render(..., self = self)
+ 11.               └─self$facet$draw_panels(...)
+ 12.                 └─ggplot2 (local) draw_panels(..., self = self)
+ 13.                   └─cli::cli_abort(paste0(msg, "."))
+ 14.                     └─rlang::abort(...)
+Execution halted

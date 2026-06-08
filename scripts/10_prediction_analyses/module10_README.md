@@ -22,11 +22,14 @@ Each task is fit twice — **microbiome only** (CLR features) and **microbiome +
 - `models/<task>__<feature_set>.rds` — fitted `cv.glmnet` object per task × feature set
 - `predictions/<task>__<feature_set>.rds` — per-test-sample y_true + y_pred (+ survey weight)
 - `metrics_summary.csv` — tidy one-row-per-(task, feature_set, weighting) results table
-- `figures/` — performance metric visualizations
-  - `metrics_overview.pdf` — grouped bar chart of all metrics × task × feature_set × weighting
-  - `age_pred_vs_true.pdf` — age regression: predicted vs observed scatter with 1:1 reference and fitted line
-  - `gender_roc.pdf` — gender binary classification ROC curve (both feature sets overlaid, AUC in legend)
-  - `age_group_confusion_matrix.pdf` — age-group multiclass row-normalized confusion matrix heat-map
+- `figures/` — publication-grade visualizations (7 PDFs, all faceted across tasks)
+  - `metrics_overview.pdf` — per-task tabular heat-map: rows = (feature_set × weighting), columns = the metrics relevant to that task type, cells coloured by per-metric rank (deeper = better)
+  - `roc_curves_classification.pdf` — ROC for every classification task (binary `gender`; multinomial `age_group` one-vs-rest); colour = class (grafify palette), linetype = feature set
+  - `precision_recall_curves.pdf` — PR curves, same faceting; dotted horizontal = class-prevalence baseline (preferred over ROC when classes are imbalanced)
+  - `calibration_curves.pdf` — decile reliability curves: mean predicted probability vs observed positive frequency per bin; point size = bin n
+  - `confusion_matrices.pdf` — row-normalised confusion matrix per (task × feature_set) panel
+  - `feature_importance.pdf` — top-20 features per (task × feature_set) by |glmnet coefficient at λ.min| (max over classes for multinomial)
+  - `regression_diagnostics.pdf` — 3-panel composite for each regression task: (a) observed vs predicted, (b) residuals vs predicted with loess bias trend, (c) residual Q-Q vs normal
 
 ## Scripts
 - `01_prepare_features_and_targets.R` — single data-prep script (features, covariates, survey design)
@@ -34,7 +37,7 @@ Each task is fit twice — **microbiome only** (CLR features) and **microbiome +
 - `03_visualize_results.R` — single visualization script (reads metrics + predictions, writes PDFs)
 
 ## Environment
-R >= 4.5 with: `phyloseq`, `DBI`, `RSQLite`, `dplyr`, `tidyr`, `tibble`, `data.table`, `readr`, `stringr`, `glmnet`, `pROC`, `ggplot2`.
+R >= 4.5 with: `phyloseq`, `DBI`, `RSQLite`, `dplyr`, `tidyr`, `tibble`, `data.table`, `readr`, `stringr`, `glmnet`, `pROC`, `ggplot2`, `patchwork`.
 
 Conda spec: `envs/nhanes-analysis_for_reviewers.yml`.
 
