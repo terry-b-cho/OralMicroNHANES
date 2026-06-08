@@ -1,0 +1,641 @@
+var_name,var_description
+RIDAGEYR,Age at screening
+AGE_SQUARED,Age squared (RIDAGEYR²)
+RIAGENDR,Gender of the sample person
+INDFMPIR,Poverty income ratio
+EDUCATION_LESS9,Edu: <9th grade (DMDEDUC2=1)
+EDUCATION_9_11,Edu: 9–11th grade (DMDEDUC2=2)
+EDUCATION_AA,Edu: AA/some college (DMDEDUC2=4)
+EDUCATION_COLLEGEGRAD,Edu: college grad./above (DMDEDUC2=5)
+ETHNICITY_MEXICAN,Mexican American (RIDRETH1=1)
+ETHNICITY_OTHERHISPANIC,Other Hispanic (RIDRETH1=2)
+ETHNICITY_OTHER,Other race/multi-racial (RIDRETH1=5)
+ETHNICITY_NONHISPANICBLACK,Non-Hispanic Black (RIDRETH1=4)
+BORN_INUSA,Born in USA (DMDBORN4=1)
+TOOTH_DECAY_OHAROCDT,Tooth Decay
+GUM_DISEASE_OHAROCGP,Gum Disease
+ORAL_HYGIENE_OHAROCOH,Oral Hygiene
+DENTURE_OHAROCDE,Denture
+DR1TACAR,Alpha-carotene (mcg)
+DR1TALCO,Alcohol (gm)
+DR1TATOA,"Added α-tocopherol (Vit E, mg)"
+DR1TATOC,Vitamin E as alpha-tocopherol (mg)
+DR1TB12A,Added vitamin B12 (mcg)
+DR1TBCAR,Beta-carotene (mcg)
+DR1TCAFF,Caffeine (mg)
+DR1TCALC,Calcium (mg)
+DR1TCARB,Carbohydrate (gm)
+DR1TCHOL,Cholesterol (mg)
+DR1TCOPP,Copper (mg)
+DR1TCRYP,Beta-cryptoxanthin (mcg)
+DR1TFA,Folic acid (mcg)
+DR1TFDFE,Dietary folate equivalents (mcg)
+DR1TFF,Food folate (mcg)
+DR1TFIBE,Dietary fiber (gm)
+DR1TFOLA,Total folate (mcg)
+DR1TIRON,Iron (mg)
+DR1TKCAL,Energy (kcal)
+DR1TLYCO,Lycopene (mcg)
+DR1TLZ,Lutein + zeaxanthin (mcg)
+DR1TM161,MFA 16:1 (Hexadecenoic) (gm)
+DR1TM181,MFA 18:1 (Octadecenoic) (gm)
+DR1TM201,MFA 20:1 (Eicosenoic) (gm)
+DR1TM221,MFA 22:1 (Docosenoic) (gm)
+DR1TMAGN,Magnesium (mg)
+DR1TMFAT,Total monounsaturated FA (g)
+DR1TMOIS,Moisture (gm)
+DR1TNIAC,Niacin (mg)
+DR1TNUMF,Total foods
+DR1TP182,PFA 18:2 (Octadecadienoic) (gm)
+DR1TP183,PFA 18:3 (Octadecatrienoic) (gm)
+DR1TP184,PFA 18:4 (Octadecatetraenoic) (gm)
+DR1TP204,PFA 20:4 (Eicosatetraenoic) (gm)
+DR1TP205,PFA 20:5 (Eicosapentaenoic) (gm)
+DR1TP225,PFA 22:5 (Docosapentaenoic) (gm)
+DR1TP226,PFA 22:6 (Docosahexaenoic) (gm)
+DR1TPFAT,Total polyunsaturated FA (g)
+DR1TPHOS,Phosphorus (mg)
+DR1TPOTA,Potassium (mg)
+DR1TPROT,Protein (gm)
+DR1TRET,Retinol (mcg)
+DR1TS040,SFA 4:0 (Butanoic) (gm)
+DR1TS060,SFA 6:0 (Hexanoic) (gm)
+DR1TS080,SFA 8:0 (Octanoic) (gm)
+DR1TS100,SFA 10:0 (Decanoic) (gm)
+DR1TS120,SFA 12:0 (Dodecanoic) (gm)
+DR1TS140,SFA 14:0 (Tetradecanoic) (gm)
+DR1TS160,SFA 16:0 (Hexadecanoic) (gm)
+DR1TS180,SFA 18:0 (Octadecanoic) (gm)
+DR1TSELE,Selenium (mcg)
+DR1TSFAT,Total saturated fatty acids (gm)
+DR1TSODI,Sodium (mg)
+DR1TSUGR,Total sugars (gm)
+DR1TTFAT,Total fat (gm)
+DR1TTHEO,Theobromine (mg)
+DR1TVARA,Vitamin A (retinol activity equiv.)
+DR1TVB1,Thiamin (Vitamin B1) (mg)
+DR1TVB12,Vitamin B12 (mcg)
+DR1TVB2,Riboflavin (Vitamin B2) (mg)
+DR1TVB6,Vitamin B6 (mg)
+DR1TVC,Vitamin C (mg)
+DR1TVD,Vitamin D (D2 + D3) (mcg)
+DR1TVK,Vitamin K (mcg)
+DR1TZINC,Zinc (mg)
+DR2TACAR,Alpha-carotene (mcg)
+DR2TALCO,Alcohol (gm)
+DR2TATOA,"Added α-tocopherol (Vit E, mg)"
+DR2TATOC,Vitamin E as alpha-tocopherol (mg)
+DR2TB12A,Added vitamin B12 (mcg)
+DR2TBCAR,Beta-carotene (mcg)
+DR2TCAFF,Caffeine (mg)
+DR2TCALC,Calcium (mg)
+DR2TCARB,Carbohydrate (gm)
+DR2TCHL,Total choline (mg)
+DR2TCHOL,Cholesterol (mg)
+DR2TCOPP,Copper (mg)
+DR2TCRYP,Beta-cryptoxanthin (mcg)
+DR2TFA,Folic acid (mcg)
+DR2TFDFE,Dietary folate equivalents (mcg)
+DR2TFF,Food folate (mcg)
+DR2TFIBE,Dietary fiber (gm)
+DR2TFOLA,Total folate (mcg)
+DR2TIRON,Iron (mg)
+DR2TKCAL,Energy (kcal)
+DR2TLYCO,Lycopene (mcg)
+DR2TLZ,Lutein + zeaxanthin (mcg)
+DR2TM161,MFA 16:1 (Hexadecenoic) (gm)
+DR2TM181,MFA 18:1 (Octadecenoic) (gm)
+DR2TM201,MFA 20:1 (Eicosenoic) (gm)
+DR2TM221,MFA 22:1 (Docosenoic) (gm)
+DR2TMAGN,Magnesium (mg)
+DR2TMFAT,Total monounsaturated FA (g)
+DR2TMOIS,Moisture (gm)
+DR2TNIAC,Niacin (mg)
+DR2TNUMF,Total foods reported (foods file)
+DR2TP182,PFA 18:2 (Octadecadienoic) (gm)
+DR2TP183,PFA 18:3 (Octadecatrienoic) (gm)
+DR2TP184,PFA 18:4 (Octadecatetraenoic) (gm)
+DR2TP204,PFA 20:4 (Eicosatetraenoic) (gm)
+DR2TP205,PFA 20:5 (Eicosapentaenoic) (gm)
+DR2TP225,PFA 22:5 (Docosapentaenoic) (gm)
+DR2TP226,PFA 22:6 (Docosahexaenoic) (gm)
+DR2TPFAT,Total polyunsaturated FA (g)
+DR2TPHOS,Phosphorus (mg)
+DR2TPOTA,Potassium (mg)
+DR2TPROT,Protein (gm)
+DR2TRET,Retinol (mcg)
+DR2TS040,SFA 4:0 (Butanoic) (gm)
+DR2TS060,SFA 6:0 (Hexanoic) (gm)
+DR2TS080,SFA 8:0 (Octanoic) (gm)
+DR2TS100,SFA 10:0 (Decanoic) (gm)
+DR2TS120,SFA 12:0 (Dodecanoic) (gm)
+DR2TS140,SFA 14:0 (Tetradecanoic) (gm)
+DR2TS160,SFA 16:0 (Hexadecanoic) (gm)
+DR2TS180,SFA 18:0 (Octadecanoic) (gm)
+DR2TSELE,Selenium (mcg)
+DR2TSFAT,Total saturated fatty acids (gm)
+DR2TSODI,Sodium (mg)
+DR2TSUGR,Total sugars (gm)
+DR2TTFAT,Total fat (gm)
+DR2TTHEO,Theobromine (mg)
+DR2TVARA,Vitamin A (retinol activity equiv.)
+DR2TVB1,Thiamin (Vitamin B1) (mg)
+DR2TVB12,Vitamin B12 (mcg)
+DR2TVB2,Riboflavin (Vitamin B2) (mg)
+DR2TVB6,Vitamin B6 (mg)
+DR2TVC,Vitamin C (mg)
+DR2TVD,Vitamin D (D2 + D3) (mcg)
+DR2TVK,Vitamin K (mcg)
+DR2TZINC,Zinc (mg)
+DS1DSCNT,Dietary supplements
+DS1TCALC,Calcium (mg)
+DS1TCOPP,Copper (mg)
+DS1TFA,Folic acid (mcg)
+DS1TFDFE,"Folate, DFE (mcg)"
+DS1TIRON,Iron (mg)
+DS1TKCAL,Energy (kcal)
+DS1TMAGN,Magnesium (mg)
+DS1TNIAC,Niacin (mg)
+DS1TPOTA,Potassium (mg)
+DS1TSELE,Selenium (mcg)
+DS1TVB1,Thiamin (Vitamin B1) (mg)
+DS1TVB12,Vitamin B12 (mcg)
+DS1TVB2,Riboflavin (Vitamin B2) (mg)
+DS1TVB6,Vitamin B6 (mg)
+DS1TVC,Vitamin C (mg)
+DS1TVD,Vitamin D (D2 + D3) (mcg)
+DS1TVK,Vitamin K (mcg)
+DS1TZINC,Zinc (mg)
+DS2AN,Any Antacids Taken?
+DS2ANCNT,Total # of Antacids Taken
+DS2DS,Any Dietary Supplements taken in the past 24 hour?
+DS2DSCNT,Dietary supplements
+DS2TCALC,Calcium (mg)
+DS2TCOPP,Copper (mg)
+DS2TFA,Folic acid (mcg)
+DS2TFDFE,"Folate, DFE (mcg)"
+DS2TIRON,Iron (mg)
+DS2TMAGN,Magnesium (mg)
+DS2TNIAC,Niacin (mg)
+DS2TPOTA,Potassium (mg)
+DS2TSELE,Selenium (mcg)
+DS2TVB1,Thiamin (Vitamin B1) (mg)
+DS2TVB12,Vitamin B12 (mcg)
+DS2TVB2,Riboflavin (Vitamin B2) (mg)
+DS2TVB6,Vitamin B6 (mg)
+DS2TVC,Vitamin C (mg)
+DS2TVD,Vitamin D (D2 + D3) (mcg)
+DS2TVK,Vitamin K (mcg)
+DS2TZINC,Zinc (mg)
+DS2TIODI,Iodine (mcg)
+DS2TKCAL,Energy (kcal)
+DSQTCALC,Calcium (mg)
+DSQTCOPP,Copper (mg)
+DSQTFA,Folic acid (mcg)
+DSQTFDFE,"Folate, DFE (mcg)"
+DSQTIRON,Iron (mg)
+DSQTKCAL,Energy (kcal)
+DSQTMAGN,Magnesium (mg)
+DSQTNIAC,Niacin (mg)
+DSQTPHOS,Phosphorus (mg)
+DSQTPOTA,Potassium (mg)
+DSQTSELE,Selenium (mcg)
+DSQTVB1,Thiamin (Vitamin B1) (mg)
+DSQTVB12,Vitamin B12 (mcg)
+DSQTVB2,Riboflavin (Vitamin B2) (mg)
+DSQTVB6,Vitamin B6 (mg)
+DSQTVC,Vitamin C (mg)
+DSQTVD,Vitamin D (D2 + D3) (mcg)
+DSQTVK,Vitamin K (mcg)
+DSQTZINC,Zinc (mg)
+DSQTIODI,Iodine (mcg)
+DSQTSUGR,Total sugars (gm)
+LBDHBG,Hepatitis B surface antigen
+LBDHCV,Hepatitis C antibody (confirmed)
+LBDHD,Hepatitis D (anti-HDV)
+LBDHEG,Hepatitis E IgG (anti-HEV)
+LBDHEM,Hepatitis E IgM (Anti-HEV)
+LBDRPCR,Roche HPV linear array (LA) summary result
+LBDVWCGP,"Varicella antibody, confirmed"
+LBDB12SI,Vitamin B12 (pmol/L)
+LBX06,HPV 06 result
+LBX11,HPV 11 result
+LBX16,HPV 16 result
+LBX18,HPV 18 result
+LBX2DF,"Blood 2,5-Dimethylfuran (ng/mL)"
+LBX4CE,"Blood 1,1,1,2-Tetrachloroethane (ng/mL)"
+LBX4PA,4-pyridoxic acid (nmol/L)
+LBXBCD,Blood cadmium (ug/L)
+LBXBPB,Blood lead (ug/dL)
+LBXCOT,Cotinine (ng/mL)
+LBXEPAH,2-(N-Ethyl-PFOS) acetic acid
+LBXHA,Hepatitis A Antibody
+LBXHBC,Hepatitis B core antibody
+LBXHBS,Hepatitis B surface antibody
+LBXHDT,Trans 9-Hexadecenoic acid concentrt (umol/L)
+LBXHE1,Herpes Simplex Virus I
+LBXHE2,Herpes Simplex Virus II
+LBXIHG,"Mercury, inorganic (ug/L)"
+LBXMEA,Measles antibody (IgG)
+LBXMPAH,2-(N-Methyl-PFOS) acetic acid
+LBXMUM,Mumps antibody (IgG)
+LBXNM,Blood Nitromethane (pg/mL)
+LBXOD1,trans-11-Octadecenoic acid (umol/L)
+LBXOD9,trans-9-Octadecenoic acid (umol/L)
+LBXOTT,"Trans,trans-9,12-Octadecadienoic acid (umol/L)"
+LBXPFBS,Perfluorobutane sulfonic acid
+LBXPFDE,Pefluorodecanoic acid
+LBXPFDO,Perflurododecanoic acid
+LBXPFHP,Perfluoroheptanoic acid
+LBXPFHS,Perfluorohexane sulfonic acid
+LBXPFNA,Perfluorononanoic acid
+LBXPFOA,Perfluorooctanoic acid
+LBXPFOS,Perfluorooctane sulfonic acid
+LBXPFSA,Perfluorooctane sulfonamide
+LBXPFUA,Perfluoroundecanoic acid
+LBXPLP,Pyridoxal 5'-phosphate (nmol/L)
+LBXRUB,Rubella antibody (IgG)
+LBXTHG,"Mercury, total (ug/L)"
+LBXTTG,Tissue transglutaminase(IgA-TTG)
+LBXV06,Blood Hexane (ng/mL)
+LBXV1A,"Blood 1,1-Dichloroethane (ng/mL)"
+LBXV1D,"Blood 1,2-Dichlorobenzene (ng/mL)"
+LBXV1E,"Blood 1,1-Dichloroethene (ng/mL)"
+LBXV2A,"Blood 1,2-Dichloroethane (ng/mL)"
+LBXV2C,"Blood cis-1,2-Dichloroethene (ng/mL)"
+LBXV2E,"Blood 1,1,2-Trichloroethane(ng/mL)"
+LBXV2P,"Blood 1,2-Dibromo-3-Chloropropane (ng/mL)"
+LBXV2T,"Blood trans-1,2-Dichloroethene"
+LBXV3B,"Blood 1,3-Dichlorobenzene (ng/mL)"
+LBXV4C,Blood Tetrachloroethene (ng/mL)
+LBXV4E,"Blood 1,1,2,2-Tetrachloroethane (ng/mL)"
+LBXVBF,Blood Bromoform (pg/mL)
+LBXVBM,Blood Bromodichloromethane (pg/mL)
+LBXVBZ,Blood Benzene (ng/mL)
+LBXVCB,Blood Chlorobenzene (ng/mL)
+LBXVCF,Blood Chloroform (pg/mL)
+LBXVCM,Blood Dibromochloromethane (pg/mL)
+LBXVCT,Blood Carbon Tetrachloride (ng/mL)
+LBXVD2MS,25-hydroxyvitamin D2 (nmol/L)
+LBXVD3MS,25-hydroxyvitamin D3 (nmol/L)
+LBXVDB,"Blood 1,4-Dichlorobenzene (ng/mL)"
+LBXVDE,"Blood 1,2-Dibromoethane (ng/mL)"
+LBXVDM,Blood Dibromomethane (ng/mL)
+LBXVDP,"Blood 1,2-Dichloropropane (ng/mL)"
+LBXVDX,"Blood 1,4-Dioxane (ng/mL)"
+LBXVE3MS,epi-25-hydroxyvitamin D3 (nmol/L)
+LBXVEB,Blood Ethylbenzene (ng/mL)
+LBXVFN,Blood Furan (ng/mL)
+LBXVHE,Blood Hexachloroethane (ng/mL)
+LBXVIDMS,25-hydroxyvitamin D2 + D3
+LBXVIPB,Blood Isopropylbenzene (ng/mL)
+LBXVMC,Blood Methylene Chloride (ng/mL)
+LBXVME,Blood methyl t-butyl ether (MTBE)
+LBXVNB,Blood Nitrobenzene (ng/mL)
+LBXVOX,Blood o-Xylene (ng/mL)
+LBXVST,Blood Styrene Comment Code
+LBXVTC,Blood Trichloroethene (ng/mL)
+LBXVTE,"Blood 1,1,1-Trichloroethane (ng/mL)"
+LBXVTO,Blood Toluene (ng/mL)
+LBXVTP,"Blood 1,2,3-Trichloropropane (ng/mL)"
+LBXVXY,Blood m-/p-Xylene (ng/mL)
+LBXALN,alpha-Linolenic acid (18:3n-3) (umol/L)
+LBXAR1,Arachidic acid (20:0) (umol/L)
+LBXARA,Arachidonic acid (20:4n-6) (umol/L)
+LBXB12,Vitamin B12( pg/mL)
+LBXBGE,"Mercury, ethyl (ug/L)"
+LBXBGM,"Mercury, methyl (ug/L)"
+LBXBMN,Blood manganese (ug/L)
+LBXBSE,Blood selenium(ug/L)
+LBXCAP,Capric acid (C10:0) (umol/L)
+LBXDA1,Docosanoic acid (22:0) (umol/L)
+LBXDHA,Docosahexaenoic acid (22:6n-3) (umol/L)
+LBXDP3,Docosapentaenoic acid (22:5n-3) (umol/L)
+LBXDP6,Docosapentaenoic acid (22:5n-6) (umol/L)
+LBXDTA,Docosatetraenoic acid (22:4n-6) (umol/L)
+LBXED1,Eicosadienoic acid (20:2n-6) (umol/L)
+LBXEN1,Eicosenoic acid (20:1n-9) (umol/L)
+LBXEPA,Eicosapentaenoic acid (20:5n-3) (umol/L)
+LBXET1,Eicosatrienoic acid (C20:3n-9) (umol/L)
+LBXGLA,gamma-Linolenic acid (18:3n-6) (umol/L)
+LBXHGL,homo-gamma-Linolenic acid (20:3n-6) (umol/L)
+LBXLAR,Lauric acid (C12:0) (umol/L)
+LBXLG1,Lignoceric acid (24:0) (umol/L)
+LBXLNA,Linoleic acid (18:2n-6) (umol/L)
+LBXML1,Myristoleic acid (14:1n-5) (umol/L)
+LBXMR1,Myristic acid (14:0) (umol/L)
+LBXMRG,Margaric acid (C17:0) (umol/L)
+LBXNR1,Nervonic acid (24:1n-9) (umol/L)
+LBXOL1,Oleic acid (18:1n-9) (umol/L)
+LBXPEN,Pentadecanoic acid (C15:0) (ï¿½mol/L)
+LBXPL1,Palmitoleic acid (16:1n-7) (umol/L)
+LBXPM1,Palmitic acid (16:0) (umol/L)
+LBXSD1,Stearidonic acid (C18:4n-3) (umol/L)
+LBXST1,Stearic acid (18:0) (umol/L)
+LBXTBN,TB Nil control result
+LBXTSA,Tricosanoic acid (C23:0) (umol/L)
+LBXVC1,cis-Vaccenic acid (18:1n-7) (umol/L)
+URX14D,"2,5-dichlorophenol (ug/L) result"
+URX1TB,"2,4,5-trichlorophenol (ug/L) result"
+URX24D,"2,4-D (ug/L) result"
+URX25T,"2,4,5-Trichlorophenoxyacetic acid (ug/L)"
+URX3TB,"2,4,6-trichlorophenol (ug/L) result"
+URX4FP,4-fluoro-3-phenoxybenzoic acid
+URX4TO,Urinary 4-tert-Octyl phenol
+URXAMU,5-acetylamino-6-amino-3-methyluracil
+URXBP3,Urinary benzophenone-3
+URXBPH,Urinary Bisphenol A (ng/mL)
+URXBUP,Butyl paraben (ng/ml)
+URXCB3,"cis-3-(2,2-dibromovinyl)-2,2-dimethylcyclopropane carboxylic acid"
+URXCNP,Mono(carboxynonyl) phthalate
+URXCOP,Mono(carboxyoctyl) Phthalate (ng/mL)
+URXCPM,"3,5,6-trichloropyridinol (ug/L) result"
+URXDAZ,Daidzein (ng/mL)
+URXDCB,"2,4-dichlorophenol (ug/L) result"
+URXDEA,DEET acid (ug/L)
+URXDEE,DEET (ug/L)
+URXDHD,Desethyl hydroxy DEET (ug/L)
+URXDMA,O-Desmethylangolensin (O-DMA) (ng/mL)
+URXECP,Mono-2-ethyl-5-carboxypentyl phthalate
+URXEPB,Ethyl paraben (ng/ml)
+URXEQU,Equol (ng/mL)
+URXETD,Enterodiol (ng/mL)
+URXETL,Enterolactone (ng/mL)
+URXGNS,Genistein (ng/mL)
+URXMAL,Malathion diacid (ug/L) result
+URXMBP,Mono-n-butyl phthalate (ng/mL)
+URXMC1,Mono-(3-carboxypropyl) phthalate
+URXMCP,Mono-cyclohexyl phthalate (ng/mL)
+URXMEP,Mono-ethyl phthalate (ng/mL)
+URXMHH,Mono-2-ethyl-5-hydroxyhexyl phthalate
+URXMHP,Mono-(2-ethyl)-hexyl phthalate
+URXMIB,Mono-isobutyl phthalate
+URXMNM,Mono-n-methyl phthalate
+URXMNP,Mono-isononyl phthalate (ng/mL)
+URXMOH,Mono-(2-ethyl-5-oxohexyl) phthalate
+URXMOP,Mono-n-octyl phthalate (ng/mL)
+URXMPB,Methyl paraben (ng/ml)
+URXMU1,1-methyluric acid (umol/L)
+URXMU2,3-methyluric acid (umol/L)
+URXMU3,7-methyluric acid (umol/L)
+URXMU4,"1,3-dimethyluric acid (umol/L)"
+URXMU5,"1,7-dimethyluric acid (umol/L)"
+URXMU6,"3,7-dimethyluric acid (umol/L)"
+URXMU7,"1,3,7-trimethyluric acid (umol/L)"
+URXMX1,1-methylxanthine (umol/L)
+URXMX2,3-methylxanthine (umol/L)
+URXMX3,7-methylxanthine (umol/L)
+URXMX4,"1,3-dimethylxanthine (theophylline)"
+URXMX5,"1,7-dimethylxanthine (paraxanthine)"
+URXMX6,"3,7-dimethylxanthine (theobromine)"
+URXMX7,"1,3,7-trimethylxanthine (caffeine)"
+URXMZP,Mono-benzyl phthalate (ng/mL)
+URXNAL,Urinary Total NNAL (ng/mL)
+URXNO3,Urinary nitrate (ng/mL)
+URXOPM,3-phenoxybenzoic (ug/L) acid result
+URXOPP,O-Phenyl phenol (ug/L) result
+URXOXY,Oxypyrimidine (ug/L) result
+URXP01,1-hydroxynaphthalene (ng/L)
+URXP02,2-hydroxynaphthalene (ng/L)
+URXP03,3-hydroxyfluorene (ng/L)
+URXP04,2-hydroxyfluorene (ng/L)
+URXP05,3-hydroxyphenanthrene (ng/L)
+URXP06,1-hydroxyphenanthrene (ng/L)
+URXP07,2-hydroxyphenanthrene (ng/L)
+URXP10,1-hydroxypyrene (ng/L)
+URXP17,9-hydroxyfluorene (ng/L)
+URXPAR,Paranitrophenol (ug/L) result
+URXPPB,Propyl paraben (ng/ml)
+URXSCN,Urinary thiocyanate (ng/mL)
+URXTCC,trans-DCCA
+URXTRS,Urinary triclosan
+URXUAB,Urinary Arsenobetaine (ug/L)
+URXUAC,Urinary Arsenocholine (ug/L)
+URXUAS,Urinary total arsenic (ug/L)
+URXUAS3,Urinary Arsenous acid (ug/L)
+URXUAS5,Urinary Arsenic acid (ug/L)
+URXUBA,"Barium, urine (ug/L)"
+URXUBE,"Beryllium, urine (ug/L)"
+URXUCD,"Cadmium, urine (ug/L)"
+URXUCL,Urinary Chlamydia
+URXUCO,"Cobalt, urine (ug/L)"
+URXUCS,"Cesium, urine (ug/L)"
+URXUDMA,Urinary Dimethylarsinic acid (ug/L)
+URXUHG,"Mercury, urine (ug/L)"
+URXUMMA,Urine monomethylarsonic acid
+URXUMO,"Molybdenum, urine (ug/L)"
+URXUP8,Urinary perchlorate (ng/mL)
+URXUPB,"Lead, urine (ug/L)"
+URXUPT,"Platinum, urine (ug/L)"
+URXUSB,"Antimony, urine (ug/L)"
+URXUTL,"Thallium, urine (ug/L)"
+URXUTM,Urine trimethylarsine oxide
+URXUTU,"Tungsten, urine (ug/L)"
+URX1DC,"N-Acetyl-S-(1,2-dichlorovinyl)-L-Cysteine (ng/mL)"
+URX2DC,"N-Acetyl-S-(2,2-Dichlorovinyl)-L-Cysteine (ng/mL)"
+URX2MH,2-Methylhippuric acid (ng/mL)
+URX34M,3-Methylhippuric acid & 4-Methylhippuric acid(ng/mL)
+URXAAM,N-Acetyl-S-(2-carbamoylethyl)-L-Cysteine(ng/mL)
+URXAMC,N-Acetyl-S-(N-methylcarbamoyl)-L-Cysteine(ng/mL)
+URXATC,2-Aminothiazoline-4-carboxylic acid(ng/mL)
+URXBMA,N-Acetyl-S-(benzyl)-L-Cysteine(ng/mL)
+URXBPM,N-Acetyl-S-(n-propyl)-L-Cysteine(ng/mL)
+URXCEM,N-Acetyl-S- (2-Carboxyethyl)-L-Cysteine(ng/mL)
+URXCYM,N-Acetyl-S-(2-cyanoethyl)-L-Cysteine(ng/mL)
+URXDHB,"N-Acetyl-S- (3,4-Dihidroxybutyl)-L-Cysteine(ng/mL)"
+URXDPM,N-Acetyl-S-(dimethylphenyl)-L-Cysteine(ng/mL)
+URXGAM,N-Acetyl-S-(2-carbamoyl-2-hydroxyethyl)-L-Cysteine(ng/mL)
+URXHEM,N-Acetyl-S- (2-Hydroxyethyl)-L-Cysteine(ng/mL)
+URXHP2,N-Acetyl-S- (2-hydroxypropyl)-L-Cysteine(ng/mL)
+URXHPM,N-Acetyl-S- (3-Hydroxypropyl)-L-Cysteine(ng/mL)
+URXMAD,Mandelic acid(ng/mL)
+URXMB1,N-Acetyl-S-(1-HydroxyMethyl)-2-Propenyl)-L-Cysteine(ng/mL)
+URXMB2,N-Acetyl-S- (2-hydroxy-3-butenyl)-L-Cysteine (ng/mL)
+URXMB3,N-Acetyl-S- (4-hydroxy-2-butenyl)-L-Cysteine (ng/mL)
+URXMHNC,MHNC (ng/mL)
+URXOP1,Dimethylphosphate (ng/mL)
+URXOP2,Diethylphosphate (ng/mL)
+URXOP3,Dimethylthiophosphate (ng/mL)
+URXOP4,Diethylthiophosphate (ng/mL)
+URXOP5,Dimethyldithiophosphate (ng/mL)
+URXOP6,Diethyldithiophosphate (ng/mL)
+URXPHE,N-Acetyl-S-(phenyl-2-hydroxyethyl)-L-Cysteine(ng/mL)
+URXPHG,Phenylglyoxylic acid(ng/mL)
+URXPMA,N-Acetyl-S-(phenyl)-L-Cysteine(ng/mL)
+URXPMM,N-Acetyl-S-(3-hydroxypropyl-1-methyl)-L-Cysteine(ng/mL)
+URXTCV,N-Acetyl-S-(trichlorovinyl)-L-Cysteine(ng/mL)
+URXTTC,2-Thioxothiazolidine-4-carboxylic acid(ng/mL)
+URXUMN,"Manganese, urine (ug/L)"
+URXUSN,"Tin, urine (ug/L)"
+URXUSR,"Strontium, urine (ug/L)"
+PAQ_recreation_moderate_met,MET Moderate Leisure Per Week
+PAQ_recreation_moderate_week,Moderate Leisure Per Week
+PAQ_recreation_vigorous_met,MET Vigorous Leisure Per Week
+PAQ_recreation_vigorous_week,Vigorous Leisure Per Week
+PAQ_total_met,MET Total
+PAQ_walk_met,MET Walk Per Week
+PAQ_walk_week,Walk Activity Per Week
+PAQ_work_moderate_met,MET Moderate Work Per Week
+PAQ_work_moderate_week,Moderate Work Per Week
+PAQ_work_vigorous_met,MET Vigorous Work Per Week
+PAQ_work_vigorous_week,Vigorous Work Per Week
+SMQ710,"During the past 5 days {including today}, on how many days did {you/he/she}"
+SMQ720,Daily cigarettes past 5 days
+SMQ725,When did {you/he/she} smoke {your/his/her} last cigarette? Was it...
+SMQ_current_ever_never,"Smoking: current, ever, never"
+SMQ_how_long_since_quit_years,How long since quit
+SMD415,Total number of smokers inside home.
+SMD415A,Total number of cigarette smokers inside home.
+HOQ065,"Is this {mobile home/house/apartment} owned, being bought, rented, or occup"
+ORXHPV,Oral HPV Result
+PA_sedentary_activity_min_per_day,Sedentary Activity Min Per Day
+BMXARMC,Arm Circumference (cm)
+BMXARML,Upper Arm Length (cm)
+BMXBMI,Body Mass Index (kg/m**2)
+BMXHT,Standing Height (cm)
+BMXLEG,Upper Leg Length (cm)
+BMXSUB,Subscapular Skinfold (mm)
+BMXTRI,Triceps Skinfold (mm)
+BMXWAIST,Waist Circumference (cm)
+BMXWT,Weight (kg)
+BPXPLS,60 sec. pulse
+SPXNFEV1,Spirometry baseline FEV₁ (mL)
+SPXNFVC,Spirometry baseline FVC (mL)
+DXAFMRD0,Calculated DO for femur
+DXAFMRK,Calculated K for femur
+DXASPND0,Calculated DO for Spine
+DXASPNK,Calculated K for spine
+DXXINA,Intertrochanter area (cm^2)
+DXXINBMC,Intertrochanter bone mineral content (gm)
+DXXINBMD,Intertrochanter bone mineral density (gm/cm^2)
+DXXL1A,L1 area (cm^2)
+DXXL1BMC,L1 bone mineral content (gm)
+DXXL1BMD,L1 bone mineral density (gm/cm^2)
+DXXL2A,L2 area (cm^2)
+DXXL2BMC,L2 bone mineral content (gm)
+DXXL2BMD,L2 bone mineral density (gm/cm^2)
+DXXL3A,L3 area (cm^2)
+DXXL3BMC,L3 bone mineral content (gm)
+DXXL4A,L4 area (cm^2)
+DXXL4BMC,L4 bone mineral content (gm)
+DXXL4BMD,L4 bone mineral density (gm/cm^2)
+DXXNKA,Femoral neck area (cm^2)
+DXXNKBMC,Femoral neck bone mineral content (gm)
+DXXNKBMD,Femoral neck bone mineral density (gm/cm^2)
+DXXOFA,Total femur area (cm^2)
+DXXOFBMC,Total femur bone mineral content (gm)
+DXXOFBMD,Total femur bone mineral density (gm/cm^2)
+DXXOSA,Total spine area (cm^2)
+DXXOSBMC,Total spine bone mineral content (gm)
+DXXOSBMD,Total spine bone mineral density (gm/cm^2)
+DXXTRA,Trochanter area (cm^2)
+DXXTRBMC,Trochanter bone mineral content (gm)
+DXXTRBMD,Trochanter bone mineral density (gm/cm^2)
+DXXWDA,Wards triangle area (cm^2)
+DXXWDBMC,Wards triangle bone mineral content (gm)
+DXXWDBMD,Wards triangle bone mineral density (gm/cm^2)
+LBDBANO,Basophils (10³ cells/uL)
+LBDEONO,Eosinophils (10³ cells/uL)
+LBDHDD,Direct HDL-Cholesterol (mg/dL)
+LBDLDL,LDL-cholesterol (mg/dL)
+LBDLYMNO,Lymphocyte (10³ cells/uL)
+LBDMONO,Monocyte (10³ cells/uL)
+LBDNENO,Segmented neutrophils (10³/µL)
+LBDP3,Prostate specific antigen ratio (%)
+LBDFOT,Serum total folate (ng/mL)
+LBDRFO,RBC folate (ng/mL)
+LBXAPB,Apolipoprotein (B) (mg/dL)
+LBXATG,Thyroglobulin antibodies (IU/mL)
+LBXBAPCT,Basophils (%)
+LBXCRP,C-reactive protein(mg/dL)
+LBXEOPCT,Eosinophils (%)
+LBXFER,Ferritin (ng/mL)
+LBXFOLSI,Serum folate (nmol/L)
+LBXGH,Glycohemoglobin (%)
+LBXGLT,Two Hour Glucose(OGTT) (mg/dL)
+LBXGLU,Fasting Glucose (mg/dL)
+LBXHCT,Hematocrit (%)
+LBXHGB,Hemoglobin (g/dL)
+LBXIN,Insulin (uU/mL)
+LBXLYPCT,Lymphocyte (%)
+LBXMC,Mean cell hemoglobin (g/dL)
+LBXMCHSI,Mean cell hemoglobin (pg)
+LBXMCVSI,Mean cell volume (fL)
+LBXMOPCT,Monocyte (%)
+LBXMPSI,Mean platelet volume (fL)
+LBXNEPCT,Segmented neutrophils (%)
+LBXP1,Total prostate specific antigen (ng/mL)
+LBXP2,Free prostate specific antigen (ng/mL)
+LBXPLTSI,Platelet (10³ cells/uL)
+LBXPS4,Complexed prostate specific antigen (ng/mL)
+LBXRBCSI,Red blood cell (10⁶ cells/uL)
+LBXRBFSI,RBC folate (nmol/L)
+LBXRDW,Red cell distribution width (%)
+LBXSAL,Albumin (g/dL)
+LBXSAPSI,Alkaline phosphotase (U/L)
+LBXSASSI,Aspartate aminotransferase (U/L)
+LBXSATSI,Alanine aminotransferase ALT (U/L)
+LBXSBU,Blood urea nitrogen (mg/dL)
+LBXSC3SI,Bicarbonate (mmol/L)
+LBXSCA,Total calcium (mg/dL)
+LBXSCH,Cholesterol (mg/dL)
+LBXSCLSI,Chloride (mmol/L)
+LBXSCR,Creatinine (mg/dL)
+LBXSGB,Globulin (g/dL)
+LBXSGL,"Glucose, serum (mg/dL)"
+LBXSGTSI,Gamma glutamyl transferase (U/L)
+LBXSIR,"Iron, refigerated (ug/dL)"
+LBXSKSI,Potassium (mmol/L)
+LBXSLDSI,Lactate dehydrogenase (U/L)
+LBXSNASI,Sodium (mmol/L)
+LBXSOSSI,Osmolality (mmol/Kg)
+LBXSPH,Phosphorus (mg/dL)
+LBXSTB,Total bilirubin (mg/dL)
+LBXSTP,Total protein (g/dL)
+LBXSTR,Triglycerides (mg/dL)
+LBXSUA,Uric acid (mg/dL)
+LBXT3F,"Triiodothyronine (T3), free (pg/mL)"
+LBXT4F,"Thyroxine, free (ng/dL)"
+LBXTC,Total Cholesterol (mg/dL)
+LBXTFR,Transferrin receptor (mg/L)
+LBXTGN,Thyroglobulin (ng/mL)
+LBXTPO,Thyroid peroxidase Ab (IU/mL)
+LBXTR,Triglyceride (mg/dL)
+LBXTSH1,Thyroid stimulating hormone (µIU/mL)
+LBXTT3,"Total triiodothyronine (T3, ng/dL)"
+LBXTT4,"Thyroxine, total (T4) (ug/dL)"
+LBXWBCSI,White blood cell count:  SI
+LBXMMASI,Methylmalonic Acid (nmol/L)
+LBXSCK,Creatine Phosphokinase(CPK) (IU/L)
+LBXSF1SI,5-Methyl-tetrahydrofolate (nmol/L)
+LBXSF2SI,Folic acid (nmol/L)
+LBXSF3SI,5-Formyl-tetrahydrofolate (nmol/L)
+LBXSF4SI,Tetrahydrofolate (nmol/L)
+LBXSF5SI,"5,10-Methenyl-tetrahydrofolate (nmol/L)"
+LBXSF6SI,Mefox oxidation product (nmol/L)
+LBXTBA,TB Antigen result
+LBXTBM,TB Mitogen control result
+LBXTST,Testosterone total (ng/dL)
+URXUCR,"Creatinine, urine (mg/dL)"
+URXUIO,"Iodine, urine (ug/L)"
+URXUMA,"Albumin, urine (ug/mL)"
+ENXMEAN,Mean reproducible FENO (ppb)
+MDIASTOLIC,Diastolic Mean
+MSYSTOLIC,Systolic Mean
+ASTHMA,ASTHMA (MCQ)
+BRONCHITIS,BRONCHITIS (MCQ)
+EMPHYSEMA,EMPHYSEMA (MCQ)
+ANGINA,ANGINA (MCQ)
+HEART_FAILURE,HEART_FAILURE (MCQ)
+HEART_ATTACK,HEART_ATTACK (MCQ)
+STROKE,STROKE (MCQ)
+CHD,CHD (MCQ)
+CVD,CVD (MCQ)
+CANCER_BREAST,CANCER_BREAST (MCQ)
+CANCER_COLON,CANCER_COLON (MCQ)
+CANCER_LUNG,CANCER_LUNG (MCQ)
+CANCER_ESOPHAGEAL,CANCER_ESOPHAGEAL (MCQ)
+CANCER_PROSTATE,CANCER_PROSTATE (MCQ)
+CANCER_MOUTH,CANCER_MOUTH (MCQ)
+DIABETES,DIABETES (MCQ)
+RIAGENDR_01,Gender (Female)

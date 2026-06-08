@@ -1,0 +1,1147 @@
+"VARNAME","Metric","LEVEL","group_mean","group_N"
+"Gender","Observed_OTUs","Male",135.012914893617,4853
+"Gender","Shannon_Diversity","Male",4.67947681336383,4853
+"Gender","Inverse_Simpson","Male",0.904951089078723,4853
+"Gender","Observed_OTUs","Female",128.064616046462,4809
+"Gender","Shannon_Diversity","Female",4.54694309476016,4809
+"Gender","Inverse_Simpson","Female",0.894573276754141,4809
+"AgeGroup","Observed_OTUs","40-49",133.657993730408,1648
+"AgeGroup","Shannon_Diversity","40-49",4.61402730376803,1648
+"AgeGroup","Inverse_Simpson","40-49",0.899644031623824,1648
+"AgeGroup","Observed_OTUs","20-29",142.498557692308,1711
+"AgeGroup","Shannon_Diversity","20-29",4.72685121322115,1711
+"AgeGroup","Inverse_Simpson","20-29",0.901867894939904,1711
+"AgeGroup","Observed_OTUs","14-19",127.483054003724,1658
+"AgeGroup","Shannon_Diversity","14-19",4.56044319553073,1658
+"AgeGroup","Inverse_Simpson","14-19",0.89302342911856,1658
+"AgeGroup","Observed_OTUs","30-39",140.341767323586,1632
+"AgeGroup","Shannon_Diversity","30-39",4.69792170146217,1632
+"AgeGroup","Inverse_Simpson","30-39",0.902225641207883,1632
+"AgeGroup","Observed_OTUs","60-69",115.939014373717,1517
+"AgeGroup","Shannon_Diversity","60-69",4.48667087901437,1517
+"AgeGroup","Inverse_Simpson","60-69",0.900236191882272,1517
+"AgeGroup","Observed_OTUs","50-59",127.412664359862,1496
+"AgeGroup","Shannon_Diversity","50-59",4.57833531031142,1496
+"AgeGroup","Inverse_Simpson","50-59",0.90200285149481,1496
+"age_group","Observed_OTUs","40–49",133.657993730408,1648
+"age_group","Shannon_Diversity","40–49",4.61402730376803,1648
+"age_group","Inverse_Simpson","40–49",0.899644031623824,1648
+"age_group","Observed_OTUs","20–29",142.498557692308,1711
+"age_group","Shannon_Diversity","20–29",4.72685121322115,1711
+"age_group","Inverse_Simpson","20–29",0.901867894939904,1711
+"age_group","Observed_OTUs","14–19",127.483054003724,1658
+"age_group","Shannon_Diversity","14–19",4.56044319553073,1658
+"age_group","Inverse_Simpson","14–19",0.89302342911856,1658
+"age_group","Observed_OTUs","30–39",140.341767323586,1632
+"age_group","Shannon_Diversity","30–39",4.69792170146217,1632
+"age_group","Inverse_Simpson","30–39",0.902225641207883,1632
+"age_group","Observed_OTUs","60–69",115.939014373717,1517
+"age_group","Shannon_Diversity","60–69",4.48667087901437,1517
+"age_group","Inverse_Simpson","60–69",0.900236191882272,1517
+"age_group","Observed_OTUs","50–59",127.412664359862,1496
+"age_group","Shannon_Diversity","50–59",4.57833531031142,1496
+"age_group","Inverse_Simpson","50–59",0.90200285149481,1496
+"EducationLevel","Observed_OTUs","High School",136.951060358891,1897
+"EducationLevel","Shannon_Diversity","High School",4.66811214371941,1897
+"EducationLevel","Inverse_Simpson","High School",0.90281222074497,1897
+"EducationLevel","Observed_OTUs","9-11th Grade",136.606228543404,2108
+"EducationLevel","Shannon_Diversity","9-11th Grade",4.62798030237371,2108
+"EducationLevel","Inverse_Simpson","9-11th Grade",0.898005093506621,2108
+"EducationLevel","Observed_OTUs","< 9th Grade",133.473357335734,1141
+"EducationLevel","Shannon_Diversity","< 9th Grade",4.63745055418542,1141
+"EducationLevel","Inverse_Simpson","< 9th Grade",0.900260815733573,1141
+"EducationLevel","Observed_OTUs","College/AA",129.559237033862,2414
+"EducationLevel","Shannon_Diversity","College/AA",4.60090750930561,2414
+"EducationLevel","Inverse_Simpson","College/AA",0.90005775323189,2414
+"EducationLevel","Observed_OTUs","College Graduate",121.917605633803,1914
+"EducationLevel","Shannon_Diversity","College Graduate",4.54366172919827,1914
+"EducationLevel","Inverse_Simpson","College Graduate",0.898300953705309,1914
+"Education_Level","Observed_OTUs","High School",136.951060358891,1897
+"Education_Level","Shannon_Diversity","High School",4.66811214371941,1897
+"Education_Level","Inverse_Simpson","High School",0.90281222074497,1897
+"Education_Level","Observed_OTUs","9-11th Grade",136.606228543404,2108
+"Education_Level","Shannon_Diversity","9-11th Grade",4.62798030237371,2108
+"Education_Level","Inverse_Simpson","9-11th Grade",0.898005093506621,2108
+"Education_Level","Observed_OTUs","< 9th Grade",133.473357335734,1141
+"Education_Level","Shannon_Diversity","< 9th Grade",4.63745055418542,1141
+"Education_Level","Inverse_Simpson","< 9th Grade",0.900260815733573,1141
+"Education_Level","Observed_OTUs","College/AA",129.559237033862,2414
+"Education_Level","Shannon_Diversity","College/AA",4.60090750930561,2414
+"Education_Level","Inverse_Simpson","College/AA",0.90005775323189,2414
+"Education_Level","Observed_OTUs","College Graduate",121.917605633803,1914
+"Education_Level","Shannon_Diversity","College Graduate",4.54366172919827,1914
+"Education_Level","Inverse_Simpson","College Graduate",0.898300953705309,1914
+"EducationLevel_Simple","Observed_OTUs","High School",136.951060358891,1897
+"EducationLevel_Simple","Shannon_Diversity","High School",4.66811214371941,1897
+"EducationLevel_Simple","Inverse_Simpson","High School",0.90281222074497,1897
+"EducationLevel_Simple","Observed_OTUs","9-11th Grade",136.606228543404,2108
+"EducationLevel_Simple","Shannon_Diversity","9-11th Grade",4.62798030237371,2108
+"EducationLevel_Simple","Inverse_Simpson","9-11th Grade",0.898005093506621,2108
+"EducationLevel_Simple","Observed_OTUs","< 9th Grade",133.473357335734,1141
+"EducationLevel_Simple","Shannon_Diversity","< 9th Grade",4.63745055418542,1141
+"EducationLevel_Simple","Inverse_Simpson","< 9th Grade",0.900260815733573,1141
+"EducationLevel_Simple","Observed_OTUs","College/AA",129.559237033862,2414
+"EducationLevel_Simple","Shannon_Diversity","College/AA",4.60090750930561,2414
+"EducationLevel_Simple","Inverse_Simpson","College/AA",0.90005775323189,2414
+"EducationLevel_Simple","Observed_OTUs","College Graduate",121.917605633803,1914
+"EducationLevel_Simple","Shannon_Diversity","College Graduate",4.54366172919827,1914
+"EducationLevel_Simple","Inverse_Simpson","College Graduate",0.898300953705309,1914
+"Ethnicity","Observed_OTUs","White",123.047713004484,3472
+"Ethnicity","Shannon_Diversity","White",4.52532062085202,3472
+"Ethnicity","Inverse_Simpson","White",0.896822362152466,3472
+"Ethnicity","Observed_OTUs","Mexican",144.551032806804,1684
+"Ethnicity","Shannon_Diversity","Mexican",4.7485627209599,1684
+"Ethnicity","Inverse_Simpson","Mexican",0.906459924611179,1684
+"Ethnicity","Observed_OTUs","Black",134.683758802817,2344
+"Ethnicity","Shannon_Diversity","Black",4.6400471227993,2344
+"Ethnicity","Inverse_Simpson","Black",0.900363885224472,2344
+"Ethnicity","Observed_OTUs","Other",129.050582959641,1168
+"Ethnicity","Shannon_Diversity","Other",4.62846582573991,1168
+"Ethnicity","Inverse_Simpson","Other",0.899728415130045,1168
+"Ethnicity","Observed_OTUs","Other Hispanic",134.412564366632,994
+"Ethnicity","Shannon_Diversity","Other Hispanic",4.60970267373841,994
+"Ethnicity","Inverse_Simpson","Other Hispanic",0.89743925323378,994
+"BornInUSA","Observed_OTUs","US Born",128.189989572471,6943
+"BornInUSA","Shannon_Diversity","US Born",4.56797919181439,6943
+"BornInUSA","Inverse_Simpson","US Born",0.897288471176821,6943
+"BornInUSA","Observed_OTUs","non-US Born",140.167958950969,2714
+"BornInUSA","Shannon_Diversity","non-US Born",4.72982397525656,2714
+"BornInUSA","Inverse_Simpson","non-US Born",0.906165945267959,2714
+"US_Born","Observed_OTUs","US Born",128.189989572471,6943
+"US_Born","Shannon_Diversity","US Born",4.56797919181439,6943
+"US_Born","Inverse_Simpson","US Born",0.897288471176821,6943
+"US_Born","Observed_OTUs","non-US Born",140.167958950969,2714
+"US_Born","Shannon_Diversity","non-US Born",4.72982397525656,2714
+"US_Born","Inverse_Simpson","non-US Born",0.906165945267959,2714
+"US_Citizen","Observed_OTUs","US Born",128.189989572471,6943
+"US_Citizen","Shannon_Diversity","US Born",4.56797919181439,6943
+"US_Citizen","Inverse_Simpson","US Born",0.897288471176821,6943
+"US_Citizen","Observed_OTUs","non-US Born",140.167958950969,2714
+"US_Citizen","Shannon_Diversity","non-US Born",4.72982397525656,2714
+"US_Citizen","Inverse_Simpson","non-US Born",0.906165945267959,2714
+"PIRcat","Observed_OTUs",">4",122.175994180407,2138
+"PIRcat","Shannon_Diversity",">4",4.53337964083414,2138
+"PIRcat","Inverse_Simpson",">4",0.897154015169738,2138
+"PIRcat","Observed_OTUs","2-4",129.124335378323,2032
+"PIRcat","Shannon_Diversity","2-4",4.58115763563906,2032
+"PIRcat","Inverse_Simpson","2-4",0.896970866753579,2032
+"PIRcat","Observed_OTUs","1-2",135.444005328597,2324
+"PIRcat","Shannon_Diversity","1-2",4.64363710417407,2324
+"PIRcat","Inverse_Simpson","1-2",0.900597925666075,2324
+"PIRcat","Observed_OTUs","<1",137.106339557099,2363
+"PIRcat","Shannon_Diversity","<1",4.67007089393834,2363
+"PIRcat","Inverse_Simpson","<1",0.902590114285714,2363
+"Household_Size_Factor","Observed_OTUs","2",125.728896103896,2224
+"Household_Size_Factor","Shannon_Diversity","2",4.55588778002783,2224
+"Household_Size_Factor","Inverse_Simpson","2",0.898914396071429,2224
+"Household_Size_Factor","Observed_OTUs","3",130.376050662061,1799
+"Household_Size_Factor","Shannon_Diversity","3",4.64165593707542,1799
+"Household_Size_Factor","Inverse_Simpson","3",0.903558397443869,1799
+"Household_Size_Factor","Observed_OTUs","6",140.734674922601,673
+"Household_Size_Factor","Shannon_Diversity","6",4.65251947027864,673
+"Household_Size_Factor","Inverse_Simpson","6",0.897814568003096,673
+"Household_Size_Factor","Observed_OTUs","4",132.41969151671,2009
+"Household_Size_Factor","Shannon_Diversity","4",4.63596389013368,2009
+"Household_Size_Factor","Inverse_Simpson","4",0.899297918802057,2009
+"Household_Size_Factor","Observed_OTUs","1",123.07983490566,882
+"Household_Size_Factor","Shannon_Diversity","1",4.51782067382076,882
+"Household_Size_Factor","Inverse_Simpson","1",0.898367072134434,882
+"Household_Size_Factor","Observed_OTUs","7+",146.226638772664,733
+"Household_Size_Factor","Shannon_Diversity","7+",4.73160216039052,733
+"Household_Size_Factor","Inverse_Simpson","7+",0.903419798479777,733
+"Household_Size_Factor","Observed_OTUs","5",134.393307692308,1342
+"Household_Size_Factor","Shannon_Diversity","5",4.61621617646154,1342
+"Household_Size_Factor","Inverse_Simpson","5",0.8968545941,1342
+"Marital_Status","Observed_OTUs","Married",128.744102296451,3959
+"Marital_Status","Shannon_Diversity","Married",4.5900368035882,3959
+"Marital_Status","Inverse_Simpson","Married",0.899921524924322,3959
+"Marital_Status","Observed_OTUs","Living with Partner",147.919337016575,748
+"Marital_Status","Shannon_Diversity","Living with Partner",4.79293669737569,748
+"Marital_Status","Inverse_Simpson","Living with Partner",0.909881812058011,748
+"Marital_Status","Observed_OTUs","Never Married",136.767628749293,1830
+"Marital_Status","Shannon_Diversity","Never Married",4.67320465336729,1830
+"Marital_Status","Inverse_Simpson","Never Married",0.900793090758347,1830
+"Marital_Status","Observed_OTUs","Widowed",119.215748031496,268
+"Marital_Status","Shannon_Diversity","Widowed",4.51406882125984,268
+"Marital_Status","Inverse_Simpson","Widowed",0.901817357007874,268
+"Marital_Status","Observed_OTUs","Divorced",127.157476635514,885
+"Marital_Status","Shannon_Diversity","Divorced",4.52021911156542,885
+"Marital_Status","Inverse_Simpson","Divorced",0.896803221366822,885
+"Marital_Status","Observed_OTUs","Separated",142.413666666667,309
+"Marital_Status","Shannon_Diversity","Separated",4.762740607,309
+"Marital_Status","Inverse_Simpson","Separated",0.910649381566667,309
+"Interview_Language","Observed_OTUs","English",129.452886521308,8356
+"Interview_Language","Shannon_Diversity","English",4.59011864436942,8356
+"Interview_Language","Inverse_Simpson","English",0.89848210163776,8356
+"Interview_Language","Observed_OTUs","Spanish",144.862490211433,1306
+"Interview_Language","Shannon_Diversity","Spanish",4.76181814643696,1306
+"Interview_Language","Inverse_Simpson","Spanish",0.908060891057165,1306
+"Interview_Proxy","Observed_OTUs","No",132.165864781667,9070
+"Interview_Proxy","Shannon_Diversity","No",4.61965373248774,9070
+"Interview_Proxy","Inverse_Simpson","No",0.900525439825562,9070
+"Interview_Proxy","Observed_OTUs","Yes",122.329238754325,592
+"Interview_Proxy","Shannon_Diversity","Yes",4.52127436453287,592
+"Interview_Proxy","Inverse_Simpson","Yes",0.888637802058823,592
+"Interview_Interpreter","Observed_OTUs","No",131.403299714975,9425
+"Interview_Interpreter","Shannon_Diversity","No",4.61111154226595,9425
+"Interview_Interpreter","Inverse_Simpson","No",0.899623013990353,9425
+"Interview_Interpreter","Observed_OTUs","Yes",137.762995594714,237
+"Interview_Interpreter","Shannon_Diversity","Yes",4.71242282731278,237
+"Interview_Interpreter","Inverse_Simpson","Yes",0.90652047876652,237
+"HH_Reference_Gender","Observed_OTUs","Male",132.41793971924,5019
+"HH_Reference_Gender","Shannon_Diversity","Male",4.62183288953551,5019
+"HH_Reference_Gender","Inverse_Simpson","Male",0.900135486436829,5019
+"HH_Reference_Gender","Observed_OTUs","Female",130.632763596004,4643
+"HH_Reference_Gender","Shannon_Diversity","Female",4.60468833594673,4643
+"HH_Reference_Gender","Inverse_Simpson","Female",0.899419530743618,4643
+"HH_Reference_Education_Level","Observed_OTUs","High School Graduate/GED",135.41582733813,2008
+"HH_Reference_Education_Level","Shannon_Diversity","High School Graduate/GED",4.64947097564234,2008
+"HH_Reference_Education_Level","Inverse_Simpson","High School Graduate/GED",0.901473488252826,2008
+"HH_Reference_Education_Level","Observed_OTUs","9-11th Grade",138.925,1434
+"HH_Reference_Education_Level","Shannon_Diversity","9-11th Grade",4.63741248012931,1434
+"HH_Reference_Education_Level","Inverse_Simpson","9-11th Grade",0.899382300797414,1434
+"HH_Reference_Education_Level","Observed_OTUs","Some College or AA Degree",129.61239072596,2725
+"HH_Reference_Education_Level","Shannon_Diversity","Some College or AA Degree",4.60560833352718,2725
+"HH_Reference_Education_Level","Inverse_Simpson","Some College or AA Degree",0.899791940703155,2725
+"HH_Reference_Education_Level","Observed_OTUs","Less Than 9th Grade",138.392604166667,986
+"HH_Reference_Education_Level","Shannon_Diversity","Less Than 9th Grade",4.70076511614583,986
+"HH_Reference_Education_Level","Inverse_Simpson","Less Than 9th Grade",0.905471649770833,986
+"HH_Reference_Education_Level","Observed_OTUs","College Graduate or Above",121.950597228858,2172
+"HH_Reference_Education_Level","Shannon_Diversity","College Graduate or Above",4.53849501567128,2172
+"HH_Reference_Education_Level","Inverse_Simpson","College Graduate or Above",0.896991598198758,2172
+"HH_Reference_Marital_Status","Observed_OTUs","Married",128.783813747228,5130
+"HH_Reference_Marital_Status","Shannon_Diversity","Married",4.59271949688571,5130
+"HH_Reference_Marital_Status","Inverse_Simpson","Married",0.898861123983068,5130
+"HH_Reference_Marital_Status","Observed_OTUs","Living with Partner",145.036167664671,861
+"HH_Reference_Marital_Status","Shannon_Diversity","Living with Partner",4.74368661173653,861
+"HH_Reference_Marital_Status","Inverse_Simpson","Living with Partner",0.905359690562874,861
+"HH_Reference_Marital_Status","Observed_OTUs","Divorced",128.206412825651,1026
+"HH_Reference_Marital_Status","Shannon_Diversity","Divorced",4.53219876603206,1026
+"HH_Reference_Marital_Status","Inverse_Simpson","Divorced",0.896037684418838,1026
+"HH_Reference_Marital_Status","Observed_OTUs","Widowed",127.218362282878,421
+"HH_Reference_Marital_Status","Shannon_Diversity","Widowed",4.57571399255583,421
+"HH_Reference_Marital_Status","Inverse_Simpson","Widowed",0.901754642307692,421
+"HH_Reference_Marital_Status","Observed_OTUs","Separated",139.591624365482,410
+"HH_Reference_Marital_Status","Shannon_Diversity","Separated",4.7459162571066,410
+"HH_Reference_Marital_Status","Inverse_Simpson","Separated",0.910751317918782,410
+"HH_Reference_Marital_Status","Observed_OTUs","Never Married",134.699102564103,1611
+"HH_Reference_Marital_Status","Shannon_Diversity","Never Married",4.6416515675641,1611
+"HH_Reference_Marital_Status","Inverse_Simpson","Never Married",0.898995981044872,1611
+"Annual_Household_Income","Observed_OTUs","$100,000 and Over",122.503295225286,1544
+"Annual_Household_Income","Shannon_Diversity","$100,000 and Over",4.53476817706792,1544
+"Annual_Household_Income","Inverse_Simpson","$100,000 and Over",0.896739272030935,1544
+"Annual_Household_Income","Observed_OTUs","$75,000 to $99,999",126.109483793517,863
+"Annual_Household_Income","Shannon_Diversity","$75,000 to $99,999",4.55989503770708,863
+"Annual_Household_Income","Inverse_Simpson","$75,000 to $99,999",0.89622494122449,863
+"Annual_Household_Income","Observed_OTUs","$35,000 to $44,999",135.117710843373,849
+"Annual_Household_Income","Shannon_Diversity","$35,000 to $44,999",4.64466610289157,849
+"Annual_Household_Income","Inverse_Simpson","$35,000 to $44,999",0.901110337795181,849
+"Annual_Household_Income","Observed_OTUs","$25,000 to $34,999",137.249181818182,1139
+"Annual_Household_Income","Shannon_Diversity","$25,000 to $34,999",4.676236596,1139
+"Annual_Household_Income","Inverse_Simpson","$25,000 to $34,999",0.902568116836364,1139
+"Annual_Household_Income","Observed_OTUs","$65,000 to $74,999",130.13919239905,436
+"Annual_Household_Income","Shannon_Diversity","$65,000 to $74,999",4.61654306270784,436
+"Annual_Household_Income","Inverse_Simpson","$65,000 to $74,999",0.896283308147268,436
+"Annual_Household_Income","Observed_OTUs","$20,000 to $24,999",135.594786096257,770
+"Annual_Household_Income","Shannon_Diversity","$20,000 to $24,999",4.64191393836898,770
+"Annual_Household_Income","Inverse_Simpson","$20,000 to $24,999",0.900660589451872,770
+"Annual_Household_Income","Observed_OTUs","$5,000 to $9,999",131.339948453608,397
+"Annual_Household_Income","Shannon_Diversity","$5,000 to $9,999",4.62687523737113,397
+"Annual_Household_Income","Inverse_Simpson","$5,000 to $9,999",0.902014765876289,397
+"Annual_Household_Income","Observed_OTUs","$20,000 and Over",132.501842105263,391
+"Annual_Household_Income","Shannon_Diversity","$20,000 and Over",4.61555683526316,391
+"Annual_Household_Income","Inverse_Simpson","$20,000 and Over",0.899495140842105,391
+"Annual_Household_Income","Observed_OTUs","$10,000 to $14,999",131.561163522013,659
+"Annual_Household_Income","Shannon_Diversity","$10,000 to $14,999",4.60432088669811,659
+"Annual_Household_Income","Inverse_Simpson","$10,000 to $14,999",0.901357921886792,659
+"Annual_Household_Income","Observed_OTUs","$0 to $4,999",133.765702479339,247
+"Annual_Household_Income","Shannon_Diversity","$0 to $4,999",4.61520068223141,247
+"Annual_Household_Income","Inverse_Simpson","$0 to $4,999",0.897154647190083,247
+"Annual_Household_Income","Observed_OTUs","$55,000 to $64,999",129.312190082645,503
+"Annual_Household_Income","Shannon_Diversity","$55,000 to $64,999",4.57006693491736,503
+"Annual_Household_Income","Inverse_Simpson","$55,000 to $64,999",0.897468330805785,503
+"Annual_Household_Income","Observed_OTUs","$15,000 to $19,999",137.436102236422,644
+"Annual_Household_Income","Shannon_Diversity","$15,000 to $19,999",4.66734096166134,644
+"Annual_Household_Income","Inverse_Simpson","$15,000 to $19,999",0.902731499616613,644
+"Annual_Household_Income","Observed_OTUs","$45,000 to $54,999",131.913698630137,679
+"Annual_Household_Income","Shannon_Diversity","$45,000 to $54,999",4.59689197138508,679
+"Annual_Household_Income","Inverse_Simpson","$45,000 to $54,999",0.897953895068493,679
+"Annual_Household_Income","Observed_OTUs","Under $20,000",142.125581395349,91
+"Annual_Household_Income","Shannon_Diversity","Under $20,000",4.80558773953488,91
+"Annual_Household_Income","Inverse_Simpson","Under $20,000",0.917550843488372,91
+"Annual_Family_Income","Observed_OTUs","$100,000 and Over",122.363856304985,1416
+"Annual_Family_Income","Shannon_Diversity","$100,000 and Over",4.5284191691349,1416
+"Annual_Family_Income","Inverse_Simpson","$100,000 and Over",0.896308768101173,1416
+"Annual_Family_Income","Observed_OTUs","$75,000 to $99,999",124.83385620915,794
+"Annual_Family_Income","Shannon_Diversity","$75,000 to $99,999",4.54696459739869,794
+"Annual_Family_Income","Inverse_Simpson","$75,000 to $99,999",0.895541609843137,794
+"Annual_Family_Income","Observed_OTUs","$35,000 to $44,999",134.93321385902,857
+"Annual_Family_Income","Shannon_Diversity","$35,000 to $44,999",4.64408093632019,857
+"Annual_Family_Income","Inverse_Simpson","$35,000 to $44,999",0.901298876666667,857
+"Annual_Family_Income","Observed_OTUs","$25,000 to $34,999",135.786334256694,1124
+"Annual_Family_Income","Shannon_Diversity","$25,000 to $34,999",4.65936519575254,1124
+"Annual_Family_Income","Inverse_Simpson","$25,000 to $34,999",0.901069138836565,1124
+"Annual_Family_Income","Observed_OTUs","$65,000 to $74,999",129.539130434783,430
+"Annual_Family_Income","Shannon_Diversity","$65,000 to $74,999",4.61343034637681,430
+"Annual_Family_Income","Inverse_Simpson","$65,000 to $74,999",0.896092232753623,430
+"Annual_Family_Income","Observed_OTUs","$20,000 to $24,999",134.671056062581,789
+"Annual_Family_Income","Shannon_Diversity","$20,000 to $24,999",4.64508418761408,789
+"Annual_Family_Income","Inverse_Simpson","$20,000 to $24,999",0.901257523520209,789
+"Annual_Family_Income","Observed_OTUs","$5,000 to $9,999",131.880497925311,493
+"Annual_Family_Income","Shannon_Diversity","$5,000 to $9,999",4.6368524659751,493
+"Annual_Family_Income","Inverse_Simpson","$5,000 to $9,999",0.902792250394191,493
+"Annual_Family_Income","Observed_OTUs","$20,000 and Over",130.656183745583,290
+"Annual_Family_Income","Shannon_Diversity","$20,000 and Over",4.55572689399293,290
+"Annual_Family_Income","Inverse_Simpson","$20,000 and Over",0.894688274911661,290
+"Annual_Family_Income","Observed_OTUs","$10,000 to $14,999",133.023310344828,750
+"Annual_Family_Income","Shannon_Diversity","$10,000 to $14,999",4.62381868212414,750
+"Annual_Family_Income","Inverse_Simpson","$10,000 to $14,999",0.902547756372414,750
+"Annual_Family_Income","Observed_OTUs","$0 to $4,999",134.6585,410
+"Annual_Family_Income","Shannon_Diversity","$0 to $4,999",4.64316508825,410
+"Annual_Family_Income","Inverse_Simpson","$0 to $4,999",0.90019095545,410
+"Annual_Family_Income","Observed_OTUs","$55,000 to $64,999",128.425053078556,489
+"Annual_Family_Income","Shannon_Diversity","$55,000 to $64,999",4.56097370424628,489
+"Annual_Family_Income","Inverse_Simpson","$55,000 to $64,999",0.897536814458599,489
+"Annual_Family_Income","Observed_OTUs","$15,000 to $19,999",140.022712933754,654
+"Annual_Family_Income","Shannon_Diversity","$15,000 to $19,999",4.6902264807571,654
+"Annual_Family_Income","Inverse_Simpson","$15,000 to $19,999",0.903388872996845,654
+"Annual_Family_Income","Observed_OTUs","$45,000 to $54,999",131.245324881141,651
+"Annual_Family_Income","Shannon_Diversity","$45,000 to $54,999",4.58601879619651,651
+"Annual_Family_Income","Inverse_Simpson","$45,000 to $54,999",0.897011359540412,651
+"Annual_Family_Income","Observed_OTUs","Under $20,000",145.578217821782,106
+"Annual_Family_Income","Shannon_Diversity","Under $20,000",4.83065246336634,106
+"Annual_Family_Income","Inverse_Simpson","Under $20,000",0.917803110792079,106
+"AgeQuartile","Observed_OTUs","Q3: 50–75%",136.475145092102,4102
+"AgeQuartile","Shannon_Diversity","Q3: 50–75%",4.64963376659349,4102
+"AgeQuartile","Inverse_Simpson","Q3: 50–75%",0.900990260345698,4102
+"AgeQuartile","Observed_OTUs","Q2: 25–50%",134.815837696335,3142
+"AgeQuartile","Shannon_Diversity","Q2: 25–50%",4.64259772153141,3142
+"AgeQuartile","Inverse_Simpson","Q2: 25–50%",0.897367965356675,3142
+"AgeQuartile","Observed_OTUs","Q4: 75–100%",118.920557939914,2418
+"AgeQuartile","Shannon_Diversity","Q4: 75–100%",4.51416404134764,2418
+"AgeQuartile","Inverse_Simpson","Q4: 75–100%",0.900927201038627,2418
+"PIRQuartile","Observed_OTUs","Q4: 75–100%",123.061056105611,2516
+"PIRQuartile","Shannon_Diversity","Q4: 75–100%",4.54213566637789,2516
+"PIRQuartile","Inverse_Simpson","Q4: 75–100%",0.897381035457921,2516
+"PIRQuartile","Observed_OTUs","Q3: 50–75%",130.126796763446,2182
+"PIRQuartile","Shannon_Diversity","Q3: 50–75%",4.59547557692051,2182
+"PIRQuartile","Inverse_Simpson","Q3: 50–75%",0.897848772013327,2182
+"PIRQuartile","Observed_OTUs","Q2: 25–50%",135.859326171875,2104
+"PIRQuartile","Shannon_Diversity","Q2: 25–50%",4.63975601198242,2104
+"PIRQuartile","Inverse_Simpson","Q2: 25–50%",0.900234748349609,2104
+"PIRQuartile","Observed_OTUs","Missing",134.875257731959,805
+"PIRQuartile","Shannon_Diversity","Missing",4.65343078389175,805
+"PIRQuartile","Inverse_Simpson","Missing",0.903251450837629,805
+"PIRQuartile","Observed_OTUs","Q1: 0–25%",137.6668,2055
+"PIRQuartile","Shannon_Diversity","Q1: 0–25%",4.67688291355,2055
+"PIRQuartile","Inverse_Simpson","Q1: 0–25%",0.90295274594,2055
+"Age_group","Observed_OTUs","40-49",133.657993730408,1648
+"Age_group","Shannon_Diversity","40-49",4.61402730376803,1648
+"Age_group","Inverse_Simpson","40-49",0.899644031623824,1648
+"Age_group","Observed_OTUs","20-29",142.498557692308,1711
+"Age_group","Shannon_Diversity","20-29",4.72685121322115,1711
+"Age_group","Inverse_Simpson","20-29",0.901867894939904,1711
+"Age_group","Observed_OTUs","14-19",127.483054003724,1658
+"Age_group","Shannon_Diversity","14-19",4.56044319553073,1658
+"Age_group","Inverse_Simpson","14-19",0.89302342911856,1658
+"Age_group","Observed_OTUs","30-39",140.341767323586,1632
+"Age_group","Shannon_Diversity","30-39",4.69792170146217,1632
+"Age_group","Inverse_Simpson","30-39",0.902225641207883,1632
+"Age_group","Observed_OTUs","60-69",115.939014373717,1517
+"Age_group","Shannon_Diversity","60-69",4.48667087901437,1517
+"Age_group","Inverse_Simpson","60-69",0.900236191882272,1517
+"Age_group","Observed_OTUs","50-59",127.412664359862,1496
+"Age_group","Shannon_Diversity","50-59",4.57833531031142,1496
+"Age_group","Inverse_Simpson","50-59",0.90200285149481,1496
+"Education_level","Observed_OTUs","High School",136.951060358891,1897
+"Education_level","Shannon_Diversity","High School",4.66811214371941,1897
+"Education_level","Inverse_Simpson","High School",0.90281222074497,1897
+"Education_level","Observed_OTUs","9-11th Grade",136.606228543404,2108
+"Education_level","Shannon_Diversity","9-11th Grade",4.62798030237371,2108
+"Education_level","Inverse_Simpson","9-11th Grade",0.898005093506621,2108
+"Education_level","Observed_OTUs","< 9th Grade",133.473357335734,1141
+"Education_level","Shannon_Diversity","< 9th Grade",4.63745055418542,1141
+"Education_level","Inverse_Simpson","< 9th Grade",0.900260815733573,1141
+"Education_level","Observed_OTUs","College/AA",129.559237033862,2414
+"Education_level","Shannon_Diversity","College/AA",4.60090750930561,2414
+"Education_level","Inverse_Simpson","College/AA",0.90005775323189,2414
+"Education_level","Observed_OTUs","College Graduate",121.917605633803,1914
+"Education_level","Shannon_Diversity","College Graduate",4.54366172919827,1914
+"Education_level","Inverse_Simpson","College Graduate",0.898300953705309,1914
+"US_born","Observed_OTUs","US Born",128.189989572471,6943
+"US_born","Shannon_Diversity","US Born",4.56797919181439,6943
+"US_born","Inverse_Simpson","US Born",0.897288471176821,6943
+"US_born","Observed_OTUs","non-US Born",140.167958950969,2714
+"US_born","Shannon_Diversity","non-US Born",4.72982397525656,2714
+"US_born","Inverse_Simpson","non-US Born",0.906165945267959,2714
+"Household_size","Observed_OTUs","2",125.728896103896,2224
+"Household_size","Shannon_Diversity","2",4.55588778002783,2224
+"Household_size","Inverse_Simpson","2",0.898914396071429,2224
+"Household_size","Observed_OTUs","3",130.376050662061,1799
+"Household_size","Shannon_Diversity","3",4.64165593707542,1799
+"Household_size","Inverse_Simpson","3",0.903558397443869,1799
+"Household_size","Observed_OTUs","6",140.734674922601,673
+"Household_size","Shannon_Diversity","6",4.65251947027864,673
+"Household_size","Inverse_Simpson","6",0.897814568003096,673
+"Household_size","Observed_OTUs","4",132.41969151671,2009
+"Household_size","Shannon_Diversity","4",4.63596389013368,2009
+"Household_size","Inverse_Simpson","4",0.899297918802057,2009
+"Household_size","Observed_OTUs","1",123.07983490566,882
+"Household_size","Shannon_Diversity","1",4.51782067382076,882
+"Household_size","Inverse_Simpson","1",0.898367072134434,882
+"Household_size","Observed_OTUs","7+",146.226638772664,733
+"Household_size","Shannon_Diversity","7+",4.73160216039052,733
+"Household_size","Inverse_Simpson","7+",0.903419798479777,733
+"Household_size","Observed_OTUs","5",134.393307692308,1342
+"Household_size","Shannon_Diversity","5",4.61621617646154,1342
+"Household_size","Inverse_Simpson","5",0.8968545941,1342
+"Marital_status","Observed_OTUs","Married",128.744102296451,3959
+"Marital_status","Shannon_Diversity","Married",4.5900368035882,3959
+"Marital_status","Inverse_Simpson","Married",0.899921524924322,3959
+"Marital_status","Observed_OTUs","Living with Partner",147.919337016575,748
+"Marital_status","Shannon_Diversity","Living with Partner",4.79293669737569,748
+"Marital_status","Inverse_Simpson","Living with Partner",0.909881812058011,748
+"Marital_status","Observed_OTUs","Never Married",136.767628749293,1830
+"Marital_status","Shannon_Diversity","Never Married",4.67320465336729,1830
+"Marital_status","Inverse_Simpson","Never Married",0.900793090758347,1830
+"Marital_status","Observed_OTUs","Widowed",119.215748031496,268
+"Marital_status","Shannon_Diversity","Widowed",4.51406882125984,268
+"Marital_status","Inverse_Simpson","Widowed",0.901817357007874,268
+"Marital_status","Observed_OTUs","Divorced",127.157476635514,885
+"Marital_status","Shannon_Diversity","Divorced",4.52021911156542,885
+"Marital_status","Inverse_Simpson","Divorced",0.896803221366822,885
+"Marital_status","Observed_OTUs","Separated",142.413666666667,309
+"Marital_status","Shannon_Diversity","Separated",4.762740607,309
+"Marital_status","Inverse_Simpson","Separated",0.910649381566667,309
+"Interview_language","Observed_OTUs","English",129.452886521308,8356
+"Interview_language","Shannon_Diversity","English",4.59011864436942,8356
+"Interview_language","Inverse_Simpson","English",0.89848210163776,8356
+"Interview_language","Observed_OTUs","Spanish",144.862490211433,1306
+"Interview_language","Shannon_Diversity","Spanish",4.76181814643696,1306
+"Interview_language","Inverse_Simpson","Spanish",0.908060891057165,1306
+"Income_to_poverty_ratio","Observed_OTUs","200% and Over",125.558511697362,4170
+"Income_to_poverty_ratio","Shannon_Diversity","200% and Over",4.55663841580637,4170
+"Income_to_poverty_ratio","Inverse_Simpson","200% and Over",0.897064856806869,4170
+"Income_to_poverty_ratio","Observed_OTUs","100-124%",137.311001236094,830
+"Income_to_poverty_ratio","Shannon_Diversity","100-124%",4.63958803263288,830
+"Income_to_poverty_ratio","Inverse_Simpson","100-124%",0.899693991953028,830
+"Income_to_poverty_ratio","Observed_OTUs","Below 50%",137.996149068323,828
+"Income_to_poverty_ratio","Shannon_Diversity","Below 50%",4.67287571440994,828
+"Income_to_poverty_ratio","Inverse_Simpson","Below 50%",0.901349987167702,828
+"Income_to_poverty_ratio","Observed_OTUs","50-99%",136.628170894526,1535
+"Income_to_poverty_ratio","Shannon_Diversity","50-99%",4.6685636306008,1535
+"Income_to_poverty_ratio","Inverse_Simpson","50-99%",0.903256537736983,1535
+"Income_to_poverty_ratio","Observed_OTUs","185-199%",127.057674418605,222
+"Income_to_poverty_ratio","Shannon_Diversity","185-199%",4.58583897906977,222
+"Income_to_poverty_ratio","Inverse_Simpson","185-199%",0.901147866325581,222
+"Income_to_poverty_ratio","Observed_OTUs","125-149%",133.47859375,660
+"Income_to_poverty_ratio","Shannon_Diversity","125-149%",4.61330060703125,660
+"Income_to_poverty_ratio","Inverse_Simpson","125-149%",0.898397610953125,660
+"Income_to_poverty_ratio","Observed_OTUs","150-184%",138.080952380952,612
+"Income_to_poverty_ratio","Shannon_Diversity","150-184%",4.70336100544218,612
+"Income_to_poverty_ratio","Inverse_Simpson","150-184%",0.904035419795918,612
+"Denture","Observed_OTUs","control",119.341220159151,3917
+"Denture","Shannon_Diversity","control",4.4779034601061,3917
+"Denture","Inverse_Simpson","control",0.893253446551724,3917
+"Denture","Observed_OTUs","Denture",119.495394736842,486
+"Denture","Shannon_Diversity","Denture",4.44275769175439,486
+"Denture","Inverse_Simpson","Denture",0.893419830416667,486
+"Gum_disease","Observed_OTUs","control",119.341220159151,3917
+"Gum_disease","Shannon_Diversity","control",4.4779034601061,3917
+"Gum_disease","Inverse_Simpson","control",0.893253446551724,3917
+"Gum_disease","Observed_OTUs","Gum disease",147.729070691025,2603
+"Gum_disease","Shannon_Diversity","Gum disease",4.81401568177125,2603
+"Gum_disease","Inverse_Simpson","Gum disease",0.910938538534551,2603
+"Oral_hygiene","Observed_OTUs","control",119.341220159151,3917
+"Oral_hygiene","Shannon_Diversity","control",4.4779034601061,3917
+"Oral_hygiene","Inverse_Simpson","control",0.893253446551724,3917
+"Oral_hygiene","Observed_OTUs","Poor oral hygiene",145.878015988372,2824
+"Oral_hygiene","Shannon_Diversity","Poor oral hygiene",4.77575275076672,2824
+"Oral_hygiene","Inverse_Simpson","Poor oral hygiene",0.908045361856831,2824
+"Tooth_decay","Observed_OTUs","control",119.341220159151,3917
+"Tooth_decay","Shannon_Diversity","control",4.4779034601061,3917
+"Tooth_decay","Inverse_Simpson","control",0.893253446551724,3917
+"Tooth_decay","Observed_OTUs","Tooth decay",142.225571366969,2401
+"Tooth_decay","Shannon_Diversity","Tooth decay",4.71737523333333,2401
+"Tooth_decay","Inverse_Simpson","Tooth decay",0.903033049077188,2401
+"Smoking_status","Observed_OTUs","Current smoker",124.85790513834,1587
+"Smoking_status","Shannon_Diversity","Current smoker",4.5545493814888,1587
+"Smoking_status","Inverse_Simpson","Current smoker",0.900958148596838,1587
+"Smoking_status","Observed_OTUs","Never smoker",132.557185218978,4523
+"Smoking_status","Shannon_Diversity","Never smoker",4.63263098342838,4523
+"Smoking_status","Inverse_Simpson","Never smoker",0.899848372084854,4523
+"Smoking_status","Observed_OTUs","Former smoker",138.319323144105,1890
+"Smoking_status","Shannon_Diversity","Former smoker",4.66297058504367,1890
+"Smoking_status","Inverse_Simpson","Former smoker",0.904557190616812,1890
+"Hepatitis_C_antibody","Observed_OTUs","Negative",131.768143435512,8936
+"Hepatitis_C_antibody","Shannon_Diversity","Negative",4.61772830216888,8936
+"Hepatitis_C_antibody","Inverse_Simpson","Negative",0.900007531804511,8936
+"Hepatitis_C_antibody","Observed_OTUs","Positive",127.504402515723,162
+"Hepatitis_C_antibody","Shannon_Diversity","Positive",4.51077183018868,162
+"Hepatitis_C_antibody","Inverse_Simpson","Positive",0.898324616352201,162
+"BMI_category","Observed_OTUs","Class 1 Obesity",132.388353413655,1798
+"BMI_category","Shannon_Diversity","Class 1 Obesity",4.62426321629948,1798
+"BMI_category","Inverse_Simpson","Class 1 Obesity",0.90140907390132,1798
+"BMI_category","Observed_OTUs","Class 2-3 Obesity",131.985164450665,1474
+"BMI_category","Shannon_Diversity","Class 2-3 Obesity",4.61749846515045,1474
+"BMI_category","Inverse_Simpson","Class 2-3 Obesity",0.901704120090973,1474
+"BMI_category","Observed_OTUs","Healthy weight",130.88093346574,3119
+"BMI_category","Shannon_Diversity","Healthy weight",4.6070087298378,3119
+"BMI_category","Inverse_Simpson","Healthy weight",0.897948490370738,3119
+"BMI_category","Observed_OTUs","Overweight",132.134646787362,2913
+"BMI_category","Shannon_Diversity","Overweight",4.62558132360667,2913
+"BMI_category","Inverse_Simpson","Overweight",0.901240547344693,2913
+"BMI_category","Observed_OTUs","Underweight",127.590298507463,283
+"BMI_category","Shannon_Diversity","Underweight",4.51295417238806,283
+"BMI_category","Inverse_Simpson","Underweight",0.887334028992537,283
+"Blood_pressure","Observed_OTUs","Elevated",131.637234042553,1460
+"Blood_pressure","Shannon_Diversity","Elevated",4.60670088364539,1460
+"Blood_pressure","Inverse_Simpson","Elevated",0.898473258524823,1460
+"Blood_pressure","Observed_OTUs","Normal",132.937469782434,5126
+"Blood_pressure","Shannon_Diversity","Normal",4.62586253039887,5126
+"Blood_pressure","Inverse_Simpson","Normal",0.899312888223207,5126
+"Blood_pressure","Observed_OTUs","Hypertension Stage 1",127.259696778269,1638
+"Blood_pressure","Shannon_Diversity","Hypertension Stage 1",4.57939638680354,1638
+"Blood_pressure","Inverse_Simpson","Hypertension Stage 1",0.89990304469362,1638
+"Blood_pressure","Observed_OTUs","Hypertension Stage 2",130.608733205374,1073
+"Blood_pressure","Shannon_Diversity","Hypertension Stage 2",4.61767999049904,1073
+"Blood_pressure","Inverse_Simpson","Hypertension Stage 2",0.904324350652591,1073
+"Blood_pressure","Observed_OTUs","Hypertensive Crisis",119.568181818182,45
+"Blood_pressure","Shannon_Diversity","Hypertensive Crisis",4.32804209318182,45
+"Blood_pressure","Inverse_Simpson","Hypertensive Crisis",0.873791737727273,45
+"Pulse_category","Observed_OTUs","75-85 bpm",130.806511427339,2374
+"Pulse_category","Shannon_Diversity","75-85 bpm",4.59239913592497,2374
+"Pulse_category","Inverse_Simpson","75-85 bpm",0.897899574855541,2374
+"Pulse_category","Observed_OTUs","85+ bpm",129.235581061693,1441
+"Pulse_category","Shannon_Diversity","85+ bpm",4.57204705505022,1441
+"Pulse_category","Inverse_Simpson","85+ bpm",0.896799729655667,1441
+"Pulse_category","Observed_OTUs","60-70 bpm",132.652336081665,2635
+"Pulse_category","Shannon_Diversity","60-70 bpm",4.64256502442089,2635
+"Pulse_category","Inverse_Simpson","60-70 bpm",0.90221017560267,2635
+"Pulse_category","Observed_OTUs","70-75 bpm",132.491867785939,1975
+"Pulse_category","Shannon_Diversity","70-75 bpm",4.61057809428122,1975
+"Pulse_category","Inverse_Simpson","70-75 bpm",0.89868799273872,1975
+"Pulse_category","Observed_OTUs","<60 bpm",130.711797752809,930
+"Pulse_category","Shannon_Diversity","<60 bpm",4.64949857966292,930
+"Pulse_category","Inverse_Simpson","<60 bpm",0.904722079325843,930
+"Asthma","Observed_OTUs","control",136.252375412061,5333
+"Asthma","Shannon_Diversity","control",4.66303143336242,5333
+"Asthma","Inverse_Simpson","control",0.902383012592593,5333
+"Asthma","Observed_OTUs","Asthma",126.326589986468,1531
+"Asthma","Shannon_Diversity","Asthma",4.55950672598106,1531
+"Asthma","Inverse_Simpson","Asthma",0.897054723037889,1531
+"Bronchitis","Observed_OTUs","control",136.252375412061,5333
+"Bronchitis","Shannon_Diversity","control",4.66303143336242,5333
+"Bronchitis","Inverse_Simpson","control",0.902383012592593,5333
+"Bronchitis","Observed_OTUs","Bronchitis",120.262182741117,404
+"Bronchitis","Shannon_Diversity","Bronchitis",4.48160069695431,404
+"Bronchitis","Inverse_Simpson","Bronchitis",0.897250570406091,404
+"Emphysema","Observed_OTUs","control",136.252375412061,5333
+"Emphysema","Shannon_Diversity","control",4.66303143336242,5333
+"Emphysema","Inverse_Simpson","control",0.902383012592593,5333
+"Emphysema","Observed_OTUs","Emphysema",103.704504504504,114
+"Emphysema","Shannon_Diversity","Emphysema",4.18752907927928,114
+"Emphysema","Inverse_Simpson","Emphysema",0.880499414144144,114
+"Angina","Observed_OTUs","control",136.252375412061,5333
+"Angina","Shannon_Diversity","control",4.66303143336242,5333
+"Angina","Inverse_Simpson","control",0.902383012592593,5333
+"Angina","Observed_OTUs","Angina",115.724590163934,126
+"Angina","Shannon_Diversity","Angina",4.37916362622951,126
+"Angina","Inverse_Simpson","Angina",0.890623782213115,126
+"Heart_failure","Observed_OTUs","control",136.252375412061,5333
+"Heart_failure","Shannon_Diversity","control",4.66303143336242,5333
+"Heart_failure","Inverse_Simpson","control",0.902383012592593,5333
+"Heart_failure","Observed_OTUs","Heart failure",125.115254237288,180
+"Heart_failure","Shannon_Diversity","Heart failure",4.56199094067797,180
+"Heart_failure","Inverse_Simpson","Heart failure",0.903848009378531,180
+"Heart_attack","Observed_OTUs","control",136.252375412061,5333
+"Heart_attack","Shannon_Diversity","control",4.66303143336242,5333
+"Heart_attack","Inverse_Simpson","control",0.902383012592593,5333
+"Heart_attack","Observed_OTUs","Heart attack",117.198469387755,205
+"Heart_attack","Shannon_Diversity","Heart attack",4.4290342755102,205
+"Heart_attack","Inverse_Simpson","Heart attack",0.894607357244898,205
+"Stroke","Observed_OTUs","control",136.252375412061,5333
+"Stroke","Shannon_Diversity","control",4.66303143336242,5333
+"Stroke","Inverse_Simpson","control",0.902383012592593,5333
+"Stroke","Observed_OTUs","Stroke",116.317469879518,171
+"Stroke","Shannon_Diversity","Stroke",4.4468190439759,171
+"Stroke","Inverse_Simpson","Stroke",0.894989608253012,171
+"Diabetes","Observed_OTUs","control",136.252375412061,5333
+"Diabetes","Shannon_Diversity","control",4.66303143336242,5333
+"Diabetes","Inverse_Simpson","control",0.902383012592593,5333
+"Diabetes","Observed_OTUs","Diabetes",123.751431601273,977
+"Diabetes","Shannon_Diversity","Diabetes",4.55440836108165,977
+"Diabetes","Inverse_Simpson","Diabetes",0.900036079703075,977
+"Gender","Beta Diversity ( Braycurtis )","Male",0.537139750186776,4700
+"Gender","Beta Diversity ( Braycurtis )","Female",0.534749984071122,4649
+"Gender","Beta Diversity ( Unwunifrac )","Male",0.442044912339432,4700
+"Gender","Beta Diversity ( Unwunifrac )","Female",0.447909488407692,4649
+"Gender","Beta Diversity ( Wunifrac )","Male",0.281792169413287,4700
+"Gender","Beta Diversity ( Wunifrac )","Female",0.282355736278676,4649
+"AgeGroup","Beta Diversity ( Braycurtis )","40-49",0.550403250040316,1595
+"AgeGroup","Beta Diversity ( Braycurtis )","20-29",0.521657901469772,1664
+"AgeGroup","Beta Diversity ( Braycurtis )","14-19",0.492370802981058,1611
+"AgeGroup","Beta Diversity ( Braycurtis )","30-39",0.535493551486681,1573
+"AgeGroup","Beta Diversity ( Braycurtis )","60-69",0.552741168555971,1461
+"AgeGroup","Beta Diversity ( Braycurtis )","50-59",0.540548662021106,1445
+"AgeGroup","Beta Diversity ( Unwunifrac )","40-49",0.452727494156859,1595
+"AgeGroup","Beta Diversity ( Unwunifrac )","20-29",0.427253889401958,1664
+"AgeGroup","Beta Diversity ( Unwunifrac )","14-19",0.407689352659239,1611
+"AgeGroup","Beta Diversity ( Unwunifrac )","30-39",0.437681227215948,1573
+"AgeGroup","Beta Diversity ( Unwunifrac )","60-69",0.462876787832033,1461
+"AgeGroup","Beta Diversity ( Unwunifrac )","50-59",0.456390917405118,1445
+"AgeGroup","Beta Diversity ( Wunifrac )","40-49",0.291297574962097,1595
+"AgeGroup","Beta Diversity ( Wunifrac )","20-29",0.275323384290021,1664
+"AgeGroup","Beta Diversity ( Wunifrac )","14-19",0.263098991069068,1611
+"AgeGroup","Beta Diversity ( Wunifrac )","30-39",0.283253983104146,1573
+"AgeGroup","Beta Diversity ( Wunifrac )","60-69",0.286248497875239,1461
+"AgeGroup","Beta Diversity ( Wunifrac )","50-59",0.282653193701414,1445
+"age_group","Beta Diversity ( Braycurtis )","40–49",0.550403250040316,1595
+"age_group","Beta Diversity ( Braycurtis )","20–29",0.521657901469772,1664
+"age_group","Beta Diversity ( Braycurtis )","14–19",0.492370802981058,1611
+"age_group","Beta Diversity ( Braycurtis )","30–39",0.535493551486681,1573
+"age_group","Beta Diversity ( Braycurtis )","60–69",0.552741168555971,1461
+"age_group","Beta Diversity ( Braycurtis )","50–59",0.540548662021106,1445
+"age_group","Beta Diversity ( Unwunifrac )","40–49",0.452727494156859,1595
+"age_group","Beta Diversity ( Unwunifrac )","20–29",0.427253889401958,1664
+"age_group","Beta Diversity ( Unwunifrac )","14–19",0.407689352659239,1611
+"age_group","Beta Diversity ( Unwunifrac )","30–39",0.437681227215948,1573
+"age_group","Beta Diversity ( Unwunifrac )","60–69",0.462876787832033,1461
+"age_group","Beta Diversity ( Unwunifrac )","50–59",0.456390917405118,1445
+"age_group","Beta Diversity ( Wunifrac )","40–49",0.291297574962097,1595
+"age_group","Beta Diversity ( Wunifrac )","20–29",0.275323384290021,1664
+"age_group","Beta Diversity ( Wunifrac )","14–19",0.263098991069068,1611
+"age_group","Beta Diversity ( Wunifrac )","30–39",0.283253983104146,1573
+"age_group","Beta Diversity ( Wunifrac )","60–69",0.286248497875239,1461
+"age_group","Beta Diversity ( Wunifrac )","50–59",0.282653193701414,1445
+"EducationLevel","Beta Diversity ( Braycurtis )","High School",0.543102880936025,1839
+"EducationLevel","Beta Diversity ( Braycurtis )","9-11th Grade",0.535213479591537,2039
+"EducationLevel","Beta Diversity ( Braycurtis )","< 9th Grade",0.529327939604771,1111
+"EducationLevel","Beta Diversity ( Braycurtis )","College/AA",0.54464521876073,2333
+"EducationLevel","Beta Diversity ( Braycurtis )","College Graduate",0.520568442835458,1846
+"EducationLevel","Beta Diversity ( Unwunifrac )","High School",0.450175255050307,1839
+"EducationLevel","Beta Diversity ( Unwunifrac )","9-11th Grade",0.446948276731077,2039
+"EducationLevel","Beta Diversity ( Unwunifrac )","< 9th Grade",0.442814095171019,1111
+"EducationLevel","Beta Diversity ( Unwunifrac )","College/AA",0.449472441841217,2333
+"EducationLevel","Beta Diversity ( Unwunifrac )","College Graduate",0.42972922774833,1846
+"EducationLevel","Beta Diversity ( Wunifrac )","High School",0.284773785791165,1839
+"EducationLevel","Beta Diversity ( Wunifrac )","9-11th Grade",0.282988603434339,2039
+"EducationLevel","Beta Diversity ( Wunifrac )","< 9th Grade",0.281343481071318,1111
+"EducationLevel","Beta Diversity ( Wunifrac )","College/AA",0.286628313870068,2333
+"EducationLevel","Beta Diversity ( Wunifrac )","College Graduate",0.272681100298049,1846
+"Education_Level","Beta Diversity ( Braycurtis )","High School",0.543102880936025,1839
+"Education_Level","Beta Diversity ( Braycurtis )","9-11th Grade",0.535213479591537,2039
+"Education_Level","Beta Diversity ( Braycurtis )","< 9th Grade",0.529327939604771,1111
+"Education_Level","Beta Diversity ( Braycurtis )","College/AA",0.54464521876073,2333
+"Education_Level","Beta Diversity ( Braycurtis )","College Graduate",0.520568442835458,1846
+"Education_Level","Beta Diversity ( Unwunifrac )","High School",0.450175255050307,1839
+"Education_Level","Beta Diversity ( Unwunifrac )","9-11th Grade",0.446948276731077,2039
+"Education_Level","Beta Diversity ( Unwunifrac )","< 9th Grade",0.442814095171019,1111
+"Education_Level","Beta Diversity ( Unwunifrac )","College/AA",0.449472441841217,2333
+"Education_Level","Beta Diversity ( Unwunifrac )","College Graduate",0.42972922774833,1846
+"Education_Level","Beta Diversity ( Wunifrac )","High School",0.284773785791165,1839
+"Education_Level","Beta Diversity ( Wunifrac )","9-11th Grade",0.282988603434339,2039
+"Education_Level","Beta Diversity ( Wunifrac )","< 9th Grade",0.281343481071318,1111
+"Education_Level","Beta Diversity ( Wunifrac )","College/AA",0.286628313870068,2333
+"Education_Level","Beta Diversity ( Wunifrac )","College Graduate",0.272681100298049,1846
+"EducationLevel_Simple","Beta Diversity ( Braycurtis )","High School",0.543102880936025,1839
+"EducationLevel_Simple","Beta Diversity ( Braycurtis )","9-11th Grade",0.535213479591537,2039
+"EducationLevel_Simple","Beta Diversity ( Braycurtis )","< 9th Grade",0.529327939604771,1111
+"EducationLevel_Simple","Beta Diversity ( Braycurtis )","College/AA",0.54464521876073,2333
+"EducationLevel_Simple","Beta Diversity ( Braycurtis )","College Graduate",0.520568442835458,1846
+"EducationLevel_Simple","Beta Diversity ( Unwunifrac )","High School",0.450175255050307,1839
+"EducationLevel_Simple","Beta Diversity ( Unwunifrac )","9-11th Grade",0.446948276731077,2039
+"EducationLevel_Simple","Beta Diversity ( Unwunifrac )","< 9th Grade",0.442814095171019,1111
+"EducationLevel_Simple","Beta Diversity ( Unwunifrac )","College/AA",0.449472441841217,2333
+"EducationLevel_Simple","Beta Diversity ( Unwunifrac )","College Graduate",0.42972922774833,1846
+"EducationLevel_Simple","Beta Diversity ( Wunifrac )","High School",0.284773785791165,1839
+"EducationLevel_Simple","Beta Diversity ( Wunifrac )","9-11th Grade",0.282988603434339,2039
+"EducationLevel_Simple","Beta Diversity ( Wunifrac )","< 9th Grade",0.281343481071318,1111
+"EducationLevel_Simple","Beta Diversity ( Wunifrac )","College/AA",0.286628313870068,2333
+"EducationLevel_Simple","Beta Diversity ( Wunifrac )","College Graduate",0.272681100298049,1846
+"Ethnicity","Beta Diversity ( Braycurtis )","White",0.548169786512756,3345
+"Ethnicity","Beta Diversity ( Braycurtis )","Mexican",0.524631674022314,1646
+"Ethnicity","Beta Diversity ( Braycurtis )","Black",0.535750076399613,2272
+"Ethnicity","Beta Diversity ( Braycurtis )","Other",0.510727888351273,1115
+"Ethnicity","Beta Diversity ( Braycurtis )","Other Hispanic",0.515349094036332,971
+"Ethnicity","Beta Diversity ( Unwunifrac )","White",0.454047398875808,3345
+"Ethnicity","Beta Diversity ( Unwunifrac )","Mexican",0.431512223493118,1646
+"Ethnicity","Beta Diversity ( Unwunifrac )","Black",0.446884125110448,2272
+"Ethnicity","Beta Diversity ( Unwunifrac )","Other",0.429722105392057,1115
+"Ethnicity","Beta Diversity ( Unwunifrac )","Other Hispanic",0.422812234281353,971
+"Ethnicity","Beta Diversity ( Wunifrac )","White",0.285308898467545,3345
+"Ethnicity","Beta Diversity ( Wunifrac )","Mexican",0.279849501301153,1646
+"Ethnicity","Beta Diversity ( Wunifrac )","Black",0.280871583462408,2272
+"Ethnicity","Beta Diversity ( Wunifrac )","Other",0.262700825502089,1115
+"Ethnicity","Beta Diversity ( Wunifrac )","Other Hispanic",0.275872709613002,971
+"BornInUSA","Beta Diversity ( Braycurtis )","US Born",0.540916938901571,6713
+"BornInUSA","Beta Diversity ( Braycurtis )","non-US Born",0.518528755652479,2631
+"BornInUSA","Beta Diversity ( Unwunifrac )","US Born",0.449926053247382,6713
+"BornInUSA","Beta Diversity ( Unwunifrac )","non-US Born",0.427384231784401,2631
+"BornInUSA","Beta Diversity ( Wunifrac )","US Born",0.282775040173429,6713
+"BornInUSA","Beta Diversity ( Wunifrac )","non-US Born",0.275495203752416,2631
+"US_Born","Beta Diversity ( Braycurtis )","US Born",0.540916938901571,6713
+"US_Born","Beta Diversity ( Braycurtis )","non-US Born",0.518528755652479,2631
+"US_Born","Beta Diversity ( Unwunifrac )","US Born",0.449926053247382,6713
+"US_Born","Beta Diversity ( Unwunifrac )","non-US Born",0.427384231784401,2631
+"US_Born","Beta Diversity ( Wunifrac )","US Born",0.282775040173429,6713
+"US_Born","Beta Diversity ( Wunifrac )","non-US Born",0.275495203752416,2631
+"US_Citizen","Beta Diversity ( Braycurtis )","US Born",0.540916938901571,6713
+"US_Citizen","Beta Diversity ( Braycurtis )","non-US Born",0.518528755652479,2631
+"US_Citizen","Beta Diversity ( Unwunifrac )","US Born",0.449926053247382,6713
+"US_Citizen","Beta Diversity ( Unwunifrac )","non-US Born",0.427384231784401,2631
+"US_Citizen","Beta Diversity ( Wunifrac )","US Born",0.282775040173429,6713
+"US_Citizen","Beta Diversity ( Wunifrac )","non-US Born",0.275495203752416,2631
+"PIRcat","Beta Diversity ( Braycurtis )",">4",0.525009086677858,2062
+"PIRcat","Beta Diversity ( Braycurtis )","2-4",0.535870454081873,1956
+"PIRcat","Beta Diversity ( Braycurtis )","1-2",0.541702405246376,2252
+"PIRcat","Beta Diversity ( Braycurtis )","<1",0.541448502255774,2303
+"PIRcat","Beta Diversity ( Unwunifrac )",">4",0.435751713037261,2062
+"PIRcat","Beta Diversity ( Unwunifrac )","2-4",0.441055476401303,1956
+"PIRcat","Beta Diversity ( Unwunifrac )","1-2",0.450275480901942,2252
+"PIRcat","Beta Diversity ( Unwunifrac )","<1",0.448765048172216,2303
+"PIRcat","Beta Diversity ( Wunifrac )",">4",0.272649253941409,2062
+"PIRcat","Beta Diversity ( Wunifrac )","2-4",0.283086000349323,1956
+"PIRcat","Beta Diversity ( Wunifrac )","1-2",0.288027023081332,2252
+"PIRcat","Beta Diversity ( Wunifrac )","<1",0.28628026782867,2303
+"Household_Size_Factor","Beta Diversity ( Braycurtis )","2",0.53980918078938,2156
+"Household_Size_Factor","Beta Diversity ( Braycurtis )","3",0.539387266501118,1737
+"Household_Size_Factor","Beta Diversity ( Braycurtis )","6",0.527127899776802,646
+"Household_Size_Factor","Beta Diversity ( Braycurtis )","4",0.528764593343701,1945
+"Household_Size_Factor","Beta Diversity ( Braycurtis )","1",0.551549186640975,848
+"Household_Size_Factor","Beta Diversity ( Braycurtis )","7+",0.5203627404689,717
+"Household_Size_Factor","Beta Diversity ( Braycurtis )","5",0.530410624859359,1300
+"Household_Size_Factor","Beta Diversity ( Unwunifrac )","2",0.452090585785796,2156
+"Household_Size_Factor","Beta Diversity ( Unwunifrac )","3",0.442526037754295,1737
+"Household_Size_Factor","Beta Diversity ( Unwunifrac )","6",0.430731607155677,646
+"Household_Size_Factor","Beta Diversity ( Unwunifrac )","4",0.437776955579503,1945
+"Household_Size_Factor","Beta Diversity ( Unwunifrac )","1",0.471739616629194,848
+"Household_Size_Factor","Beta Diversity ( Unwunifrac )","7+",0.430413434361438,717
+"Household_Size_Factor","Beta Diversity ( Unwunifrac )","5",0.437436906117245,1300
+"Household_Size_Factor","Beta Diversity ( Wunifrac )","2",0.280623021447877,2156
+"Household_Size_Factor","Beta Diversity ( Wunifrac )","3",0.283995674987809,1737
+"Household_Size_Factor","Beta Diversity ( Wunifrac )","6",0.279405264569419,646
+"Household_Size_Factor","Beta Diversity ( Wunifrac )","4",0.276613707865541,1945
+"Household_Size_Factor","Beta Diversity ( Wunifrac )","1",0.283954127071924,848
+"Household_Size_Factor","Beta Diversity ( Wunifrac )","7+",0.279651081362926,717
+"Household_Size_Factor","Beta Diversity ( Wunifrac )","5",0.285681838016505,1300
+"Marital_Status","Beta Diversity ( Braycurtis )","Married",0.539551813521056,3832
+"Marital_Status","Beta Diversity ( Braycurtis )","Living with Partner",0.542408868052849,724
+"Marital_Status","Beta Diversity ( Braycurtis )","Never Married",0.53778480561906,1767
+"Marital_Status","Beta Diversity ( Braycurtis )","Widowed",0.556660741962591,254
+"Marital_Status","Beta Diversity ( Braycurtis )","Divorced",0.550319694212166,856
+"Marital_Status","Beta Diversity ( Braycurtis )","Separated",0.540836530657748,300
+"Marital_Status","Beta Diversity ( Unwunifrac )","Married",0.444694757343257,3832
+"Marital_Status","Beta Diversity ( Unwunifrac )","Living with Partner",0.442592886816736,724
+"Marital_Status","Beta Diversity ( Unwunifrac )","Never Married",0.446114796300047,1767
+"Marital_Status","Beta Diversity ( Unwunifrac )","Widowed",0.478435428272541,254
+"Marital_Status","Beta Diversity ( Unwunifrac )","Divorced",0.4659252472273,856
+"Marital_Status","Beta Diversity ( Unwunifrac )","Separated",0.449249087869654,300
+"Marital_Status","Beta Diversity ( Wunifrac )","Married",0.283528512311466,3832
+"Marital_Status","Beta Diversity ( Wunifrac )","Living with Partner",0.286891663716134,724
+"Marital_Status","Beta Diversity ( Wunifrac )","Never Married",0.283206366767356,1767
+"Marital_Status","Beta Diversity ( Wunifrac )","Widowed",0.28834755032355,254
+"Marital_Status","Beta Diversity ( Wunifrac )","Divorced",0.287111029071908,856
+"Marital_Status","Beta Diversity ( Wunifrac )","Separated",0.282148468164147,300
+"Interview_Language","Beta Diversity ( Braycurtis )","English",0.538230621283065,8072
+"Interview_Language","Beta Diversity ( Braycurtis )","Spanish",0.517682548243213,1277
+"Interview_Language","Beta Diversity ( Unwunifrac )","English",0.446874073149421,8072
+"Interview_Language","Beta Diversity ( Unwunifrac )","Spanish",0.426342875786234,1277
+"Interview_Language","Beta Diversity ( Wunifrac )","English",0.281582724910478,8072
+"Interview_Language","Beta Diversity ( Wunifrac )","Spanish",0.277994178003103,1277
+"Interview_Proxy","Beta Diversity ( Braycurtis )","No",0.538103544143022,8771
+"Interview_Proxy","Beta Diversity ( Braycurtis )","Yes",0.489850289949806,578
+"Interview_Proxy","Beta Diversity ( Unwunifrac )","No",0.446590872474636,8771
+"Interview_Proxy","Beta Diversity ( Unwunifrac )","Yes",0.404562372382722,578
+"Interview_Proxy","Beta Diversity ( Wunifrac )","No",0.283137658803819,8771
+"Interview_Proxy","Beta Diversity ( Wunifrac )","Yes",0.261129443118703,578
+"Interview_Interpreter","Beta Diversity ( Braycurtis )","No",0.536578878423272,9122
+"Interview_Interpreter","Beta Diversity ( Braycurtis )","Yes",0.516268796538147,227
+"Interview_Interpreter","Beta Diversity ( Unwunifrac )","No",0.445517095729756,9122
+"Interview_Interpreter","Beta Diversity ( Unwunifrac )","Yes",0.431877555310943,227
+"Interview_Interpreter","Beta Diversity ( Wunifrac )","No",0.282398998256827,9122
+"Interview_Interpreter","Beta Diversity ( Wunifrac )","Yes",0.271543681809364,227
+"HH_Reference_Gender","Beta Diversity ( Braycurtis )","Male",0.536874126745796,4844
+"HH_Reference_Gender","Beta Diversity ( Braycurtis )","Female",0.535811123716888,4505
+"HH_Reference_Gender","Beta Diversity ( Unwunifrac )","Male",0.444184637706329,4844
+"HH_Reference_Gender","Beta Diversity ( Unwunifrac )","Female",0.446571614341023,4505
+"HH_Reference_Gender","Beta Diversity ( Wunifrac )","Male",0.282182274464578,4844
+"HH_Reference_Gender","Beta Diversity ( Wunifrac )","Female",0.282419233018474,4505
+"HH_Reference_Education_Level","Beta Diversity ( Braycurtis )","High School Graduate/GED",0.545687135485882,1946
+"HH_Reference_Education_Level","Beta Diversity ( Braycurtis )","9-11th Grade",0.547842497025211,1392
+"HH_Reference_Education_Level","Beta Diversity ( Braycurtis )","Some College or AA Degree",0.536540884482039,2631
+"HH_Reference_Education_Level","Beta Diversity ( Braycurtis )","Less Than 9th Grade",0.523386054701077,960
+"HH_Reference_Education_Level","Beta Diversity ( Braycurtis )","College Graduate or Above",0.519608549530941,2093
+"HH_Reference_Education_Level","Beta Diversity ( Unwunifrac )","High School Graduate/GED",0.449582999693458,1946
+"HH_Reference_Education_Level","Beta Diversity ( Unwunifrac )","9-11th Grade",0.454483646071451,1392
+"HH_Reference_Education_Level","Beta Diversity ( Unwunifrac )","Some College or AA Degree",0.445459422648465,2631
+"HH_Reference_Education_Level","Beta Diversity ( Unwunifrac )","Less Than 9th Grade",0.437716070241843,960
+"HH_Reference_Education_Level","Beta Diversity ( Unwunifrac )","College Graduate or Above",0.429116031932413,2093
+"HH_Reference_Education_Level","Beta Diversity ( Wunifrac )","High School Graduate/GED",0.287430611118601,1946
+"HH_Reference_Education_Level","Beta Diversity ( Wunifrac )","9-11th Grade",0.290043504807645,1392
+"HH_Reference_Education_Level","Beta Diversity ( Wunifrac )","Some College or AA Degree",0.281203685271168,2631
+"HH_Reference_Education_Level","Beta Diversity ( Wunifrac )","Less Than 9th Grade",0.278784618315185,960
+"HH_Reference_Education_Level","Beta Diversity ( Wunifrac )","College Graduate or Above",0.271447636680705,2093
+"HH_Reference_Marital_Status","Beta Diversity ( Braycurtis )","Married",0.534532002677335,4961
+"HH_Reference_Marital_Status","Beta Diversity ( Braycurtis )","Living with Partner",0.539953174801476,835
+"HH_Reference_Marital_Status","Beta Diversity ( Braycurtis )","Divorced",0.547032564627751,998
+"HH_Reference_Marital_Status","Beta Diversity ( Braycurtis )","Widowed",0.544160552078318,403
+"HH_Reference_Marital_Status","Beta Diversity ( Braycurtis )","Separated",0.534914574856951,394
+"HH_Reference_Marital_Status","Beta Diversity ( Braycurtis )","Never Married",0.530528570747192,1560
+"HH_Reference_Marital_Status","Beta Diversity ( Unwunifrac )","Married",0.440883830128156,4961
+"HH_Reference_Marital_Status","Beta Diversity ( Unwunifrac )","Living with Partner",0.443209006196129,835
+"HH_Reference_Marital_Status","Beta Diversity ( Unwunifrac )","Divorced",0.46050801629919,998
+"HH_Reference_Marital_Status","Beta Diversity ( Unwunifrac )","Widowed",0.461382383182512,403
+"HH_Reference_Marital_Status","Beta Diversity ( Unwunifrac )","Separated",0.442058995942432,394
+"HH_Reference_Marital_Status","Beta Diversity ( Unwunifrac )","Never Married",0.442743456811182,1560
+"HH_Reference_Marital_Status","Beta Diversity ( Wunifrac )","Married",0.281991953935994,4961
+"HH_Reference_Marital_Status","Beta Diversity ( Wunifrac )","Living with Partner",0.286219011748299,835
+"HH_Reference_Marital_Status","Beta Diversity ( Wunifrac )","Divorced",0.2854595861742,998
+"HH_Reference_Marital_Status","Beta Diversity ( Wunifrac )","Widowed",0.282841813136526,403
+"HH_Reference_Marital_Status","Beta Diversity ( Wunifrac )","Separated",0.283960849795689,394
+"HH_Reference_Marital_Status","Beta Diversity ( Wunifrac )","Never Married",0.277008712592741,1560
+"Annual_Household_Income","Beta Diversity ( Braycurtis )","$100,000 and Over",0.517268551673951,1487
+"Annual_Household_Income","Beta Diversity ( Braycurtis )","$75,000 to $99,999",0.534318373118478,833
+"Annual_Household_Income","Beta Diversity ( Braycurtis )","$35,000 to $44,999",0.534450780589184,830
+"Annual_Household_Income","Beta Diversity ( Braycurtis )","$25,000 to $34,999",0.540232921995202,1100
+"Annual_Household_Income","Beta Diversity ( Braycurtis )","$65,000 to $74,999",0.521979707046714,421
+"Annual_Household_Income","Beta Diversity ( Braycurtis )","$20,000 to $24,999",0.551298188833766,748
+"Annual_Household_Income","Beta Diversity ( Braycurtis )","$5,000 to $9,999",0.547905809957644,388
+"Annual_Household_Income","Beta Diversity ( Braycurtis )","$20,000 and Over",0.531324771559506,380
+"Annual_Household_Income","Beta Diversity ( Braycurtis )","$10,000 to $14,999",0.555981435646016,636
+"Annual_Household_Income","Beta Diversity ( Braycurtis )","$0 to $4,999",0.539397774424745,242
+"Annual_Household_Income","Beta Diversity ( Braycurtis )","$55,000 to $64,999",0.54017715124138,484
+"Annual_Household_Income","Beta Diversity ( Braycurtis )","$15,000 to $19,999",0.537035446900959,626
+"Annual_Household_Income","Beta Diversity ( Braycurtis )","$45,000 to $54,999",0.536999012974719,657
+"Annual_Household_Income","Beta Diversity ( Braycurtis )","Under $20,000",0.520951025991792,86
+"Annual_Household_Income","Beta Diversity ( Unwunifrac )","$100,000 and Over",0.426662925119654,1487
+"Annual_Household_Income","Beta Diversity ( Unwunifrac )","$75,000 to $99,999",0.438982871947837,833
+"Annual_Household_Income","Beta Diversity ( Unwunifrac )","$35,000 to $44,999",0.445334079412167,830
+"Annual_Household_Income","Beta Diversity ( Unwunifrac )","$25,000 to $34,999",0.445528500155202,1100
+"Annual_Household_Income","Beta Diversity ( Unwunifrac )","$65,000 to $74,999",0.435107744076598,421
+"Annual_Household_Income","Beta Diversity ( Unwunifrac )","$20,000 to $24,999",0.456977818463061,748
+"Annual_Household_Income","Beta Diversity ( Unwunifrac )","$5,000 to $9,999",0.456490623317696,388
+"Annual_Household_Income","Beta Diversity ( Unwunifrac )","$20,000 and Over",0.432006718625483,380
+"Annual_Household_Income","Beta Diversity ( Unwunifrac )","$10,000 to $14,999",0.4658041091223,636
+"Annual_Household_Income","Beta Diversity ( Unwunifrac )","$0 to $4,999",0.459944208401221,242
+"Annual_Household_Income","Beta Diversity ( Unwunifrac )","$55,000 to $64,999",0.444441635966292,484
+"Annual_Household_Income","Beta Diversity ( Unwunifrac )","$15,000 to $19,999",0.45081459442813,626
+"Annual_Household_Income","Beta Diversity ( Unwunifrac )","$45,000 to $54,999",0.441907958187006,657
+"Annual_Household_Income","Beta Diversity ( Unwunifrac )","Under $20,000",0.434136521870862,86
+"Annual_Household_Income","Beta Diversity ( Wunifrac )","$100,000 and Over",0.270598404588621,1487
+"Annual_Household_Income","Beta Diversity ( Wunifrac )","$75,000 to $99,999",0.282136177801116,833
+"Annual_Household_Income","Beta Diversity ( Wunifrac )","$35,000 to $44,999",0.283939929413013,830
+"Annual_Household_Income","Beta Diversity ( Wunifrac )","$25,000 to $34,999",0.286685828054451,1100
+"Annual_Household_Income","Beta Diversity ( Wunifrac )","$65,000 to $74,999",0.270626236099909,421
+"Annual_Household_Income","Beta Diversity ( Wunifrac )","$20,000 to $24,999",0.295239204071645,748
+"Annual_Household_Income","Beta Diversity ( Wunifrac )","$5,000 to $9,999",0.282654162191827,388
+"Annual_Household_Income","Beta Diversity ( Wunifrac )","$20,000 and Over",0.280143739914887,380
+"Annual_Household_Income","Beta Diversity ( Wunifrac )","$10,000 to $14,999",0.293439725837964,636
+"Annual_Household_Income","Beta Diversity ( Wunifrac )","$0 to $4,999",0.2833116540131,242
+"Annual_Household_Income","Beta Diversity ( Wunifrac )","$55,000 to $64,999",0.283634710302046,484
+"Annual_Household_Income","Beta Diversity ( Wunifrac )","$15,000 to $19,999",0.28211117604456,626
+"Annual_Household_Income","Beta Diversity ( Wunifrac )","$45,000 to $54,999",0.283460750480311,657
+"Annual_Household_Income","Beta Diversity ( Wunifrac )","Under $20,000",0.256250339525581,86
+"Annual_Family_Income","Beta Diversity ( Braycurtis )","$100,000 and Over",0.516876498925305,1364
+"Annual_Family_Income","Beta Diversity ( Braycurtis )","$75,000 to $99,999",0.537349685863874,765
+"Annual_Family_Income","Beta Diversity ( Braycurtis )","$35,000 to $44,999",0.535016880176982,837
+"Annual_Family_Income","Beta Diversity ( Braycurtis )","$25,000 to $34,999",0.539110132735282,1083
+"Annual_Family_Income","Beta Diversity ( Braycurtis )","$65,000 to $74,999",0.522920561228667,414
+"Annual_Family_Income","Beta Diversity ( Braycurtis )","$20,000 to $24,999",0.549157803792879,767
+"Annual_Family_Income","Beta Diversity ( Braycurtis )","$5,000 to $9,999",0.548951848241475,482
+"Annual_Family_Income","Beta Diversity ( Braycurtis )","$20,000 and Over",0.526884131518933,283
+"Annual_Family_Income","Beta Diversity ( Braycurtis )","$10,000 to $14,999",0.555634249571347,725
+"Annual_Family_Income","Beta Diversity ( Braycurtis )","$0 to $4,999",0.53775530952381,400
+"Annual_Family_Income","Beta Diversity ( Braycurtis )","$55,000 to $64,999",0.534539738898676,471
+"Annual_Family_Income","Beta Diversity ( Braycurtis )","$15,000 to $19,999",0.53587466523141,634
+"Annual_Family_Income","Beta Diversity ( Braycurtis )","$45,000 to $54,999",0.533875179734863,631
+"Annual_Family_Income","Beta Diversity ( Braycurtis )","Under $20,000",0.524533603960396,101
+"Annual_Family_Income","Beta Diversity ( Unwunifrac )","$100,000 and Over",0.424786756780116,1364
+"Annual_Family_Income","Beta Diversity ( Unwunifrac )","$75,000 to $99,999",0.440120811585587,765
+"Annual_Family_Income","Beta Diversity ( Unwunifrac )","$35,000 to $44,999",0.444381229549985,837
+"Annual_Family_Income","Beta Diversity ( Unwunifrac )","$25,000 to $34,999",0.445761986525976,1083
+"Annual_Family_Income","Beta Diversity ( Unwunifrac )","$65,000 to $74,999",0.437498531048064,414
+"Annual_Family_Income","Beta Diversity ( Unwunifrac )","$20,000 to $24,999",0.452918353207451,767
+"Annual_Family_Income","Beta Diversity ( Unwunifrac )","$5,000 to $9,999",0.456680559875596,482
+"Annual_Family_Income","Beta Diversity ( Unwunifrac )","$20,000 and Over",0.430224662802897,283
+"Annual_Family_Income","Beta Diversity ( Unwunifrac )","$10,000 to $14,999",0.464887182851842,725
+"Annual_Family_Income","Beta Diversity ( Unwunifrac )","$0 to $4,999",0.449254142665965,400
+"Annual_Family_Income","Beta Diversity ( Unwunifrac )","$55,000 to $64,999",0.443268683811411,471
+"Annual_Family_Income","Beta Diversity ( Unwunifrac )","$15,000 to $19,999",0.44807028806501,634
+"Annual_Family_Income","Beta Diversity ( Unwunifrac )","$45,000 to $54,999",0.441424853544789,631
+"Annual_Family_Income","Beta Diversity ( Unwunifrac )","Under $20,000",0.43526971045802,101
+"Annual_Family_Income","Beta Diversity ( Wunifrac )","$100,000 and Over",0.270989066586491,1364
+"Annual_Family_Income","Beta Diversity ( Wunifrac )","$75,000 to $99,999",0.282438042716685,765
+"Annual_Family_Income","Beta Diversity ( Wunifrac )","$35,000 to $44,999",0.285127776274179,837
+"Annual_Family_Income","Beta Diversity ( Wunifrac )","$25,000 to $34,999",0.285856032152477,1083
+"Annual_Family_Income","Beta Diversity ( Wunifrac )","$65,000 to $74,999",0.270875525245149,414
+"Annual_Family_Income","Beta Diversity ( Wunifrac )","$20,000 to $24,999",0.293267938066901,767
+"Annual_Family_Income","Beta Diversity ( Wunifrac )","$5,000 to $9,999",0.284715219421261,482
+"Annual_Family_Income","Beta Diversity ( Wunifrac )","$20,000 and Over",0.277848072661955,283
+"Annual_Family_Income","Beta Diversity ( Wunifrac )","$10,000 to $14,999",0.294913607357912,725
+"Annual_Family_Income","Beta Diversity ( Wunifrac )","$0 to $4,999",0.282068502246466,400
+"Annual_Family_Income","Beta Diversity ( Wunifrac )","$55,000 to $64,999",0.279979372236419,471
+"Annual_Family_Income","Beta Diversity ( Wunifrac )","$15,000 to $19,999",0.281663804559426,634
+"Annual_Family_Income","Beta Diversity ( Wunifrac )","$45,000 to $54,999",0.282303568600282,631
+"Annual_Family_Income","Beta Diversity ( Wunifrac )","Under $20,000",0.259315979973069,101
+"AgeQuartile","Beta Diversity ( Braycurtis )","Q3: 50–75%",0.541605536357699,3963
+"AgeQuartile","Beta Diversity ( Braycurtis )","Q2: 25–50%",0.508355633713507,3056
+"AgeQuartile","Beta Diversity ( Braycurtis )","Q4: 75–100%",0.548446989792816,2330
+"AgeQuartile","Beta Diversity ( Unwunifrac )","Q3: 50–75%",0.446745095384107,3963
+"AgeQuartile","Beta Diversity ( Unwunifrac )","Q2: 25–50%",0.420954162195963,3056
+"AgeQuartile","Beta Diversity ( Unwunifrac )","Q4: 75–100%",0.460359152914277,2330
+"AgeQuartile","Beta Diversity ( Wunifrac )","Q3: 50–75%",0.286218751494033,3963
+"AgeQuartile","Beta Diversity ( Wunifrac )","Q2: 25–50%",0.269872229643948,3056
+"AgeQuartile","Beta Diversity ( Wunifrac )","Q4: 75–100%",0.284999633549106,2330
+"PIRQuartile","Beta Diversity ( Braycurtis )","Q4: 75–100%",0.527784886552006,2424
+"PIRQuartile","Beta Diversity ( Braycurtis )","Q3: 50–75%",0.53548567158496,2101
+"PIRQuartile","Beta Diversity ( Braycurtis )","Q2: 25–50%",0.541185706741191,2048
+"PIRQuartile","Beta Diversity ( Braycurtis )","Missing",0.52777134220153,776
+"PIRQuartile","Beta Diversity ( Braycurtis )","Q1: 0–25%",0.542649917058529,2000
+"PIRQuartile","Beta Diversity ( Unwunifrac )","Q4: 75–100%",0.437416797495825,2424
+"PIRQuartile","Beta Diversity ( Unwunifrac )","Q3: 50–75%",0.441101711262305,2101
+"PIRQuartile","Beta Diversity ( Unwunifrac )","Q2: 25–50%",0.451598906070299,2048
+"PIRQuartile","Beta Diversity ( Unwunifrac )","Missing",0.434421417495929,776
+"PIRQuartile","Beta Diversity ( Unwunifrac )","Q1: 0–25%",0.448920817463232,2000
+"PIRQuartile","Beta Diversity ( Wunifrac )","Q4: 75–100%",0.274266557398476,2424
+"PIRQuartile","Beta Diversity ( Wunifrac )","Q3: 50–75%",0.283445143560235,2101
+"PIRQuartile","Beta Diversity ( Wunifrac )","Q2: 25–50%",0.288645795721337,2048
+"PIRQuartile","Beta Diversity ( Wunifrac )","Missing",0.273072786888467,776
+"PIRQuartile","Beta Diversity ( Wunifrac )","Q1: 0–25%",0.286303538639682,2000
+"Age_group","Beta Diversity ( Braycurtis )","40-49",0.550403250040316,1595
+"Age_group","Beta Diversity ( Braycurtis )","20-29",0.521657901469772,1664
+"Age_group","Beta Diversity ( Braycurtis )","14-19",0.492370802981058,1611
+"Age_group","Beta Diversity ( Braycurtis )","30-39",0.535493551486681,1573
+"Age_group","Beta Diversity ( Braycurtis )","60-69",0.552741168555971,1461
+"Age_group","Beta Diversity ( Braycurtis )","50-59",0.540548662021106,1445
+"Age_group","Beta Diversity ( Unwunifrac )","40-49",0.452727494156859,1595
+"Age_group","Beta Diversity ( Unwunifrac )","20-29",0.427253889401958,1664
+"Age_group","Beta Diversity ( Unwunifrac )","14-19",0.407689352659239,1611
+"Age_group","Beta Diversity ( Unwunifrac )","30-39",0.437681227215948,1573
+"Age_group","Beta Diversity ( Unwunifrac )","60-69",0.462876787832033,1461
+"Age_group","Beta Diversity ( Unwunifrac )","50-59",0.456390917405118,1445
+"Age_group","Beta Diversity ( Wunifrac )","40-49",0.291297574962097,1595
+"Age_group","Beta Diversity ( Wunifrac )","20-29",0.275323384290021,1664
+"Age_group","Beta Diversity ( Wunifrac )","14-19",0.263098991069068,1611
+"Age_group","Beta Diversity ( Wunifrac )","30-39",0.283253983104146,1573
+"Age_group","Beta Diversity ( Wunifrac )","60-69",0.286248497875239,1461
+"Age_group","Beta Diversity ( Wunifrac )","50-59",0.282653193701414,1445
+"Education_level","Beta Diversity ( Braycurtis )","High School",0.543102880936025,1839
+"Education_level","Beta Diversity ( Braycurtis )","9-11th Grade",0.535213479591537,2039
+"Education_level","Beta Diversity ( Braycurtis )","< 9th Grade",0.529327939604771,1111
+"Education_level","Beta Diversity ( Braycurtis )","College/AA",0.54464521876073,2333
+"Education_level","Beta Diversity ( Braycurtis )","College Graduate",0.520568442835458,1846
+"Education_level","Beta Diversity ( Unwunifrac )","High School",0.450175255050307,1839
+"Education_level","Beta Diversity ( Unwunifrac )","9-11th Grade",0.446948276731077,2039
+"Education_level","Beta Diversity ( Unwunifrac )","< 9th Grade",0.442814095171019,1111
+"Education_level","Beta Diversity ( Unwunifrac )","College/AA",0.449472441841217,2333
+"Education_level","Beta Diversity ( Unwunifrac )","College Graduate",0.42972922774833,1846
+"Education_level","Beta Diversity ( Wunifrac )","High School",0.284773785791165,1839
+"Education_level","Beta Diversity ( Wunifrac )","9-11th Grade",0.282988603434339,2039
+"Education_level","Beta Diversity ( Wunifrac )","< 9th Grade",0.281343481071318,1111
+"Education_level","Beta Diversity ( Wunifrac )","College/AA",0.286628313870068,2333
+"Education_level","Beta Diversity ( Wunifrac )","College Graduate",0.272681100298049,1846
+"US_born","Beta Diversity ( Braycurtis )","US Born",0.540916938901571,6713
+"US_born","Beta Diversity ( Braycurtis )","non-US Born",0.518528755652479,2631
+"US_born","Beta Diversity ( Unwunifrac )","US Born",0.449926053247382,6713
+"US_born","Beta Diversity ( Unwunifrac )","non-US Born",0.427384231784401,2631
+"US_born","Beta Diversity ( Wunifrac )","US Born",0.282775040173429,6713
+"US_born","Beta Diversity ( Wunifrac )","non-US Born",0.275495203752416,2631
+"Household_size","Beta Diversity ( Braycurtis )","2",0.53980918078938,2156
+"Household_size","Beta Diversity ( Braycurtis )","3",0.539387266501118,1737
+"Household_size","Beta Diversity ( Braycurtis )","6",0.527127899776802,646
+"Household_size","Beta Diversity ( Braycurtis )","4",0.528764593343701,1945
+"Household_size","Beta Diversity ( Braycurtis )","1",0.551549186640975,848
+"Household_size","Beta Diversity ( Braycurtis )","7+",0.5203627404689,717
+"Household_size","Beta Diversity ( Braycurtis )","5",0.530410624859359,1300
+"Household_size","Beta Diversity ( Unwunifrac )","2",0.452090585785796,2156
+"Household_size","Beta Diversity ( Unwunifrac )","3",0.442526037754295,1737
+"Household_size","Beta Diversity ( Unwunifrac )","6",0.430731607155677,646
+"Household_size","Beta Diversity ( Unwunifrac )","4",0.437776955579503,1945
+"Household_size","Beta Diversity ( Unwunifrac )","1",0.471739616629194,848
+"Household_size","Beta Diversity ( Unwunifrac )","7+",0.430413434361438,717
+"Household_size","Beta Diversity ( Unwunifrac )","5",0.437436906117245,1300
+"Household_size","Beta Diversity ( Wunifrac )","2",0.280623021447877,2156
+"Household_size","Beta Diversity ( Wunifrac )","3",0.283995674987809,1737
+"Household_size","Beta Diversity ( Wunifrac )","6",0.279405264569419,646
+"Household_size","Beta Diversity ( Wunifrac )","4",0.276613707865541,1945
+"Household_size","Beta Diversity ( Wunifrac )","1",0.283954127071924,848
+"Household_size","Beta Diversity ( Wunifrac )","7+",0.279651081362926,717
+"Household_size","Beta Diversity ( Wunifrac )","5",0.285681838016505,1300
+"Marital_status","Beta Diversity ( Braycurtis )","Married",0.539551813521056,3832
+"Marital_status","Beta Diversity ( Braycurtis )","Living with Partner",0.542408868052849,724
+"Marital_status","Beta Diversity ( Braycurtis )","Never Married",0.53778480561906,1767
+"Marital_status","Beta Diversity ( Braycurtis )","Widowed",0.556660741962591,254
+"Marital_status","Beta Diversity ( Braycurtis )","Divorced",0.550319694212166,856
+"Marital_status","Beta Diversity ( Braycurtis )","Separated",0.540836530657748,300
+"Marital_status","Beta Diversity ( Unwunifrac )","Married",0.444694757343257,3832
+"Marital_status","Beta Diversity ( Unwunifrac )","Living with Partner",0.442592886816736,724
+"Marital_status","Beta Diversity ( Unwunifrac )","Never Married",0.446114796300047,1767
+"Marital_status","Beta Diversity ( Unwunifrac )","Widowed",0.478435428272541,254
+"Marital_status","Beta Diversity ( Unwunifrac )","Divorced",0.4659252472273,856
+"Marital_status","Beta Diversity ( Unwunifrac )","Separated",0.449249087869654,300
+"Marital_status","Beta Diversity ( Wunifrac )","Married",0.283528512311466,3832
+"Marital_status","Beta Diversity ( Wunifrac )","Living with Partner",0.286891663716134,724
+"Marital_status","Beta Diversity ( Wunifrac )","Never Married",0.283206366767356,1767
+"Marital_status","Beta Diversity ( Wunifrac )","Widowed",0.28834755032355,254
+"Marital_status","Beta Diversity ( Wunifrac )","Divorced",0.287111029071908,856
+"Marital_status","Beta Diversity ( Wunifrac )","Separated",0.282148468164147,300
+"Interview_language","Beta Diversity ( Braycurtis )","English",0.538230621283065,8072
+"Interview_language","Beta Diversity ( Braycurtis )","Spanish",0.517682548243213,1277
+"Interview_language","Beta Diversity ( Unwunifrac )","English",0.446874073149421,8072
+"Interview_language","Beta Diversity ( Unwunifrac )","Spanish",0.426342875786234,1277
+"Interview_language","Beta Diversity ( Wunifrac )","English",0.281582724910478,8072
+"Interview_language","Beta Diversity ( Wunifrac )","Spanish",0.277994178003103,1277
+"Income_to_poverty_ratio","Beta Diversity ( Braycurtis )","200% and Over",0.530544817105698,4018
+"Income_to_poverty_ratio","Beta Diversity ( Braycurtis )","100-124%",0.540263563989279,809
+"Income_to_poverty_ratio","Beta Diversity ( Braycurtis )","Below 50%",0.537477512128797,805
+"Income_to_poverty_ratio","Beta Diversity ( Braycurtis )","50-99%",0.543491265218465,1498
+"Income_to_poverty_ratio","Beta Diversity ( Braycurtis )","185-199%",0.535458743751358,215
+"Income_to_poverty_ratio","Beta Diversity ( Braycurtis )","125-149%",0.548316890160407,640
+"Income_to_poverty_ratio","Beta Diversity ( Braycurtis )","150-184%",0.538124445178412,588
+"Income_to_poverty_ratio","Beta Diversity ( Unwunifrac )","200% and Over",0.439085494649063,4018
+"Income_to_poverty_ratio","Beta Diversity ( Unwunifrac )","100-124%",0.453538844522724,809
+"Income_to_poverty_ratio","Beta Diversity ( Unwunifrac )","Below 50%",0.443525102482599,805
+"Income_to_poverty_ratio","Beta Diversity ( Unwunifrac )","50-99%",0.451451694208099,1498
+"Income_to_poverty_ratio","Beta Diversity ( Unwunifrac )","185-199%",0.443454355353358,215
+"Income_to_poverty_ratio","Beta Diversity ( Unwunifrac )","125-149%",0.454999358490742,640
+"Income_to_poverty_ratio","Beta Diversity ( Unwunifrac )","150-184%",0.442188683743345,588
+"Income_to_poverty_ratio","Beta Diversity ( Wunifrac )","200% and Over",0.277885802790533,4018
+"Income_to_poverty_ratio","Beta Diversity ( Wunifrac )","100-124%",0.288122959148083,809
+"Income_to_poverty_ratio","Beta Diversity ( Wunifrac )","Below 50%",0.283697870788214,805
+"Income_to_poverty_ratio","Beta Diversity ( Wunifrac )","50-99%",0.287696364867257,1498
+"Income_to_poverty_ratio","Beta Diversity ( Wunifrac )","185-199%",0.285411205925581,215
+"Income_to_poverty_ratio","Beta Diversity ( Wunifrac )","125-149%",0.293475417238278,640
+"Income_to_poverty_ratio","Beta Diversity ( Wunifrac )","150-184%",0.28287999814824,588
+"Denture","Beta Diversity ( Braycurtis )","control",0.520087318491702,3770
+"Denture","Beta Diversity ( Braycurtis )","Denture",0.558162495662233,456
+"Denture","Beta Diversity ( Unwunifrac )","control",0.43440424559726,3770
+"Denture","Beta Diversity ( Unwunifrac )","Denture",0.481965224825458,456
+"Denture","Beta Diversity ( Wunifrac )","control",0.276581456265061,3770
+"Denture","Beta Diversity ( Wunifrac )","Denture",0.289483202412435,456
+"Gum_disease","Beta Diversity ( Braycurtis )","control",0.520087318491702,3770
+"Gum_disease","Beta Diversity ( Braycurtis )","Gum disease",0.542393561841432,2518
+"Gum_disease","Beta Diversity ( Unwunifrac )","control",0.43440424559726,3770
+"Gum_disease","Beta Diversity ( Unwunifrac )","Gum disease",0.43443306404393,2518
+"Gum_disease","Beta Diversity ( Wunifrac )","control",0.276581456265061,3770
+"Gum_disease","Beta Diversity ( Wunifrac )","Gum disease",0.280418627248832,2518
+"Oral_hygiene","Beta Diversity ( Braycurtis )","control",0.520087318491702,3770
+"Oral_hygiene","Beta Diversity ( Braycurtis )","Poor oral hygiene",0.542947726593078,2752
+"Oral_hygiene","Beta Diversity ( Unwunifrac )","control",0.43440424559726,3770
+"Oral_hygiene","Beta Diversity ( Unwunifrac )","Poor oral hygiene",0.436797236409817,2752
+"Oral_hygiene","Beta Diversity ( Wunifrac )","control",0.276581456265061,3770
+"Oral_hygiene","Beta Diversity ( Wunifrac )","Poor oral hygiene",0.282466455884149,2752
+"Tooth_decay","Beta Diversity ( Braycurtis )","control",0.520087318491702,3770
+"Tooth_decay","Beta Diversity ( Braycurtis )","Tooth decay",0.542096309884843,2319
+"Tooth_decay","Beta Diversity ( Unwunifrac )","control",0.43440424559726,3770
+"Tooth_decay","Beta Diversity ( Unwunifrac )","Tooth decay",0.439482850357661,2319
+"Tooth_decay","Beta Diversity ( Wunifrac )","control",0.276581456265061,3770
+"Tooth_decay","Beta Diversity ( Wunifrac )","Tooth decay",0.280641188471609,2319
+"Smoking_status","Beta Diversity ( Braycurtis )","Current smoker",0.54566397421233,1518
+"Smoking_status","Beta Diversity ( Braycurtis )","Never smoker",0.523735634870377,4384
+"Smoking_status","Beta Diversity ( Braycurtis )","Former smoker",0.556288054824839,1832
+"Smoking_status","Beta Diversity ( Unwunifrac )","Current smoker",0.456650507128782,1518
+"Smoking_status","Beta Diversity ( Unwunifrac )","Never smoker",0.432807184602607,4384
+"Smoking_status","Beta Diversity ( Unwunifrac )","Former smoker",0.470481258990902,1832
+"Smoking_status","Beta Diversity ( Wunifrac )","Current smoker",0.286780890407711,1518
+"Smoking_status","Beta Diversity ( Wunifrac )","Never smoker",0.276497265245123,4384
+"Smoking_status","Beta Diversity ( Wunifrac )","Former smoker",0.287441634876848,1832
+"Hepatitis_C_antibody","Beta Diversity ( Braycurtis )","Negative",0.534941147119035,8645
+"Hepatitis_C_antibody","Beta Diversity ( Braycurtis )","Positive",0.561391187007404,159
+"Hepatitis_C_antibody","Beta Diversity ( Unwunifrac )","Negative",0.443365656667099,8645
+"Hepatitis_C_antibody","Beta Diversity ( Unwunifrac )","Positive",0.492838792095295,159
+"Hepatitis_C_antibody","Beta Diversity ( Wunifrac )","Negative",0.281554158607699,8645
+"Hepatitis_C_antibody","Beta Diversity ( Wunifrac )","Positive",0.294473453504339,159
+"BMI_category","Beta Diversity ( Braycurtis )","Class 1 Obesity",0.536083638803204,1743
+"BMI_category","Beta Diversity ( Braycurtis )","Class 2-3 Obesity",0.535787877852331,1429
+"BMI_category","Beta Diversity ( Braycurtis )","Healthy weight",0.533460722536066,3021
+"BMI_category","Beta Diversity ( Braycurtis )","Overweight",0.538579315368138,2817
+"BMI_category","Beta Diversity ( Braycurtis )","Underweight",0.536634093577058,268
+"BMI_category","Beta Diversity ( Unwunifrac )","Class 1 Obesity",0.442368191733798,1743
+"BMI_category","Beta Diversity ( Unwunifrac )","Class 2-3 Obesity",0.445656514473801,1429
+"BMI_category","Beta Diversity ( Unwunifrac )","Healthy weight",0.44491454678012,3021
+"BMI_category","Beta Diversity ( Unwunifrac )","Overweight",0.445247159439322,2817
+"BMI_category","Beta Diversity ( Unwunifrac )","Underweight",0.448712623961513,268
+"BMI_category","Beta Diversity ( Wunifrac )","Class 1 Obesity",0.280505478777234,1743
+"BMI_category","Beta Diversity ( Wunifrac )","Class 2-3 Obesity",0.281619259559351,1429
+"BMI_category","Beta Diversity ( Wunifrac )","Healthy weight",0.279389728080321,3021
+"BMI_category","Beta Diversity ( Wunifrac )","Overweight",0.286172179631832,2817
+"BMI_category","Beta Diversity ( Wunifrac )","Underweight",0.285759431245682,268
+"Blood_pressure","Beta Diversity ( Braycurtis )","Elevated",0.54038624415485,1410
+"Blood_pressure","Beta Diversity ( Braycurtis )","Normal",0.529139215537443,4964
+"Blood_pressure","Beta Diversity ( Braycurtis )","Hypertension Stage 1",0.542788061442971,1583
+"Blood_pressure","Beta Diversity ( Braycurtis )","Hypertension Stage 2",0.545687604012825,1042
+"Blood_pressure","Beta Diversity ( Braycurtis )","Hypertensive Crisis",0.57979355179704,44
+"Blood_pressure","Beta Diversity ( Unwunifrac )","Elevated",0.44897445823532,1410
+"Blood_pressure","Beta Diversity ( Unwunifrac )","Normal",0.438573763669534,4964
+"Blood_pressure","Beta Diversity ( Unwunifrac )","Hypertension Stage 1",0.447088166286404,1583
+"Blood_pressure","Beta Diversity ( Unwunifrac )","Hypertension Stage 2",0.46148782782099,1042
+"Blood_pressure","Beta Diversity ( Unwunifrac )","Hypertensive Crisis",0.503085393995772,44
+"Blood_pressure","Beta Diversity ( Wunifrac )","Elevated",0.283985032624616,1410
+"Blood_pressure","Beta Diversity ( Wunifrac )","Normal",0.279088117515206,4964
+"Blood_pressure","Beta Diversity ( Wunifrac )","Hypertension Stage 1",0.285851392799542,1583
+"Blood_pressure","Beta Diversity ( Wunifrac )","Hypertension Stage 2",0.285294990271869,1042
+"Blood_pressure","Beta Diversity ( Wunifrac )","Hypertensive Crisis",0.307529516610994,44
+"Pulse_category","Beta Diversity ( Braycurtis )","75-85 bpm",0.531302126485599,2319
+"Pulse_category","Beta Diversity ( Braycurtis )","85+ bpm",0.555615579022392,1394
+"Pulse_category","Beta Diversity ( Braycurtis )","60-70 bpm",0.530618780408293,2547
+"Pulse_category","Beta Diversity ( Braycurtis )","70-75 bpm",0.535651224341973,1906
+"Pulse_category","Beta Diversity ( Braycurtis )","<60 bpm",0.533034178283894,890
+"Pulse_category","Beta Diversity ( Unwunifrac )","75-85 bpm",0.44376070073882,2319
+"Pulse_category","Beta Diversity ( Unwunifrac )","85+ bpm",0.463944134952624,1394
+"Pulse_category","Beta Diversity ( Unwunifrac )","60-70 bpm",0.439715873314513,2547
+"Pulse_category","Beta Diversity ( Unwunifrac )","70-75 bpm",0.442290249889299,1906
+"Pulse_category","Beta Diversity ( Unwunifrac )","<60 bpm",0.442929092791954,890
+"Pulse_category","Beta Diversity ( Wunifrac )","75-85 bpm",0.278682467484872,2319
+"Pulse_category","Beta Diversity ( Wunifrac )","85+ bpm",0.291527423884757,1394
+"Pulse_category","Beta Diversity ( Wunifrac )","60-70 bpm",0.278723703415781,2547
+"Pulse_category","Beta Diversity ( Wunifrac )","70-75 bpm",0.285038141436583,1906
+"Pulse_category","Beta Diversity ( Wunifrac )","<60 bpm",0.278399374252302,890
+"Asthma","Beta Diversity ( Braycurtis )","control",0.536050449846879,5157
+"Asthma","Beta Diversity ( Braycurtis )","Asthma",0.539372959029888,1478
+"Asthma","Beta Diversity ( Unwunifrac )","control",0.441844069902749,5157
+"Asthma","Beta Diversity ( Unwunifrac )","Asthma",0.453443514758718,1478
+"Asthma","Beta Diversity ( Wunifrac )","control",0.282007968330298,5157
+"Asthma","Beta Diversity ( Wunifrac )","Asthma",0.283910385710548,1478
+"Bronchitis","Beta Diversity ( Braycurtis )","control",0.536050449846879,5157
+"Bronchitis","Beta Diversity ( Braycurtis )","Bronchitis",0.56981523875951,394
+"Bronchitis","Beta Diversity ( Unwunifrac )","control",0.441844069902749,5157
+"Bronchitis","Beta Diversity ( Unwunifrac )","Bronchitis",0.478300889054468,394
+"Bronchitis","Beta Diversity ( Wunifrac )","control",0.282007968330298,5157
+"Bronchitis","Beta Diversity ( Wunifrac )","Bronchitis",0.296665095900776,394
+"Emphysema","Beta Diversity ( Braycurtis )","control",0.536050449846879,5157
+"Emphysema","Beta Diversity ( Braycurtis )","Emphysema",0.621240786240786,111
+"Emphysema","Beta Diversity ( Unwunifrac )","control",0.441844069902749,5157
+"Emphysema","Beta Diversity ( Unwunifrac )","Emphysema",0.54914759854136,111
+"Emphysema","Beta Diversity ( Wunifrac )","control",0.282007968330298,5157
+"Emphysema","Beta Diversity ( Wunifrac )","Emphysema",0.314418789054873,111
+"Angina","Beta Diversity ( Braycurtis )","control",0.536050449846879,5157
+"Angina","Beta Diversity ( Braycurtis )","Angina",0.57199825226934,122
+"Angina","Beta Diversity ( Unwunifrac )","control",0.441844069902749,5157
+"Angina","Beta Diversity ( Unwunifrac )","Angina",0.493562425435984,122
+"Angina","Beta Diversity ( Wunifrac )","control",0.282007968330298,5157
+"Angina","Beta Diversity ( Wunifrac )","Angina",0.295674893157702,122
+"Heart_failure","Beta Diversity ( Braycurtis )","control",0.536050449846879,5157
+"Heart_failure","Beta Diversity ( Braycurtis )","Heart failure",0.556617539804828,177
+"Heart_failure","Beta Diversity ( Unwunifrac )","control",0.441844069902749,5157
+"Heart_failure","Beta Diversity ( Unwunifrac )","Heart failure",0.487587500624743,177
+"Heart_failure","Beta Diversity ( Wunifrac )","control",0.282007968330298,5157
+"Heart_failure","Beta Diversity ( Wunifrac )","Heart failure",0.290517291852658,177
+"Heart_attack","Beta Diversity ( Braycurtis )","control",0.536050449846879,5157
+"Heart_attack","Beta Diversity ( Braycurtis )","Heart attack",0.593361051805337,196
+"Heart_attack","Beta Diversity ( Unwunifrac )","control",0.441844069902749,5157
+"Heart_attack","Beta Diversity ( Unwunifrac )","Heart attack",0.505368469014024,196
+"Heart_attack","Beta Diversity ( Wunifrac )","control",0.282007968330298,5157
+"Heart_attack","Beta Diversity ( Wunifrac )","Heart attack",0.311091371653532,196
+"Stroke","Beta Diversity ( Braycurtis )","control",0.536050449846879,5157
+"Stroke","Beta Diversity ( Braycurtis )","Stroke",0.587811836436656,166
+"Stroke","Beta Diversity ( Unwunifrac )","control",0.441844069902749,5157
+"Stroke","Beta Diversity ( Unwunifrac )","Stroke",0.495906935568018,166
+"Stroke","Beta Diversity ( Wunifrac )","control",0.282007968330298,5157
+"Stroke","Beta Diversity ( Wunifrac )","Stroke",0.305438903844615,166
+"Diabetes","Beta Diversity ( Braycurtis )","control",0.536050449846879,5157
+"Diabetes","Beta Diversity ( Braycurtis )","Diabetes",0.550495642717712,943
+"Diabetes","Beta Diversity ( Unwunifrac )","control",0.441844069902749,5157
+"Diabetes","Beta Diversity ( Unwunifrac )","Diabetes",0.460316645511965,943
+"Diabetes","Beta Diversity ( Wunifrac )","control",0.282007968330298,5157
+"Diabetes","Beta Diversity ( Wunifrac )","Diabetes",0.285697341862248,943

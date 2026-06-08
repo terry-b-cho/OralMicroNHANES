@@ -1,0 +1,49 @@
+Warning messages:
+1: package ‘dplyr’ was built under R version 4.5.3 
+2: package ‘tidyr’ was built under R version 4.5.2 
+3: package ‘DBI’ was built under R version 4.5.2 
+4: package ‘RSQLite’ was built under R version 4.5.2 
+5: package ‘dbplyr’ was built under R version 4.5.2 
+6: package ‘purrr’ was built under R version 4.5.3 
+7: package ‘stringr’ was built under R version 4.5.2 
+=== PHASE 1: full variable distribution table ===
+Phase 1 done. 639 variables written.
+=== PHASE 2/3: alpha + beta diversity group means and ref comparisons ===
+Warning messages:
+1: In apply(m, 2, as.numeric) : NAs introduced by coercion
+2: In apply(m, 2, as.numeric) : NAs introduced by coercion
+3: In apply(m, 2, as.numeric) : NAs introduced by coercion
+4: In apply(m, 2, as.numeric) : NAs introduced by coercion
+5: In apply(m, 2, as.numeric) : NAs introduced by coercion
+6: In apply(m, 2, as.numeric) : NAs introduced by coercion
+7: In apply(m, 2, as.numeric) : NAs introduced by coercion
+8: In apply(m, 2, as.numeric) : NAs introduced by coercion
+9: In apply(m, 2, as.numeric) : NAs introduced by coercion
+10: In apply(m, 2, as.numeric) : NAs introduced by coercion
+Warning messages:
+1: In apply(m, 2, as.numeric) : NAs introduced by coercion
+2: In apply(m, 2, as.numeric) : NAs introduced by coercion
+3: In apply(m, 2, as.numeric) : NAs introduced by coercion
+4: In apply(m, 2, as.numeric) : NAs introduced by coercion
+5: In apply(m, 2, as.numeric) : NAs introduced by coercion
+6: In apply(m, 2, as.numeric) : NAs introduced by coercion
+7: In apply(m, 2, as.numeric) : NAs introduced by coercion
+8: In apply(m, 2, as.numeric) : NAs introduced by coercion
+9: In apply(m, 2, as.numeric) : NAs introduced by coercion
+10: In apply(m, 2, as.numeric) : NAs introduced by coercion
+Warning messages:
+1: In apply(m, 2, as.numeric) : NAs introduced by coercion
+2: In apply(m, 2, as.numeric) : NAs introduced by coercion
+3: In apply(m, 2, as.numeric) : NAs introduced by coercion
+4: In apply(m, 2, as.numeric) : NAs introduced by coercion
+5: In apply(m, 2, as.numeric) : NAs introduced by coercion
+6: In apply(m, 2, as.numeric) : NAs introduced by coercion
+7: In apply(m, 2, as.numeric) : NAs introduced by coercion
+8: In apply(m, 2, as.numeric) : NAs introduced by coercion
+9: In apply(m, 2, as.numeric) : NAs introduced by coercion
+10: In apply(m, 2, as.numeric) : NAs introduced by coercion
+Phase 2 done. 1146 rows written.
+Phase 3 done. 1146 rows written.
+=== PHASE 4: host x OTU regression results table ===
+Phase 4 done. Full table: 2566627 rows. CLR subset: 866058 rows.
+All outputs under: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/2.5_general_summary_generation/supplementary

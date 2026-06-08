@@ -1,0 +1,6 @@
+variable_type,Count,Percentage,Mean Availability (%),Variables >=90% Available
+continuous,564,86.8,54.5,156
+categorical,40,6.2,46.1,5
+binary,28,4.3,81.7,16
+unknown,16,2.5,0,0
+ordinal,2,0.3,90,1

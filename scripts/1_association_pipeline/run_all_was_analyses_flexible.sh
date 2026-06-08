@@ -1,23 +1,20 @@
 #!/bin/bash
 
 # =============================================================================
-# FLEXIBLE WAS Analysis Suite with FLEXIBLE RESUME - PRODUCTION
-# run_all_was_analyses_flexible.sh
-# =============================================================================
-# This script submits WAS analyses with FLEXIBLE RESUME functionality:
-# - NEVER resubmits completed jobs (checks for existing .rds files)
-# - Uses CORRECTED time limits based on computational analysis
-# - Preserves all existing successful results
-# - Only submits missing dependent variables per analysis type
+# WAS analysis batch submitter (SLURM, O2). Submits 24 analyses
+# (6 WAS types x 4 transformations) with resume — never resubmits
+# dependent variables that already have an .rds file in result_<trans>/.
 #
-# Key Features:
-# - FLEXIBLE resume: Only resubmits jobs that haven't produced output files
-# - Corrected resource allocation based on actual computational requirements
-# - File completeness verification (non-empty .rds files)
-# - Detailed progress reporting
+# Environment: O2 with conda env at envs/.conda/envs/nhanes-analysis.
+# Conda spec: envs/nhanes-analysis_for_reviewers.yml.
 #
 # Usage: ./run_all_was_analyses_flexible.sh [test_mode] [resource_level]
 # =============================================================================
+
+# === USER CONFIG ============================================================
+# Update PROJECT_ROOT to the absolute path of your local clone of this repo.
+PROJECT_ROOT="/n/groups/patel/terry/nhanes_oral_mirco_cho"
+# ============================================================================
 
 # Parse command line arguments
 TEST_MODE=${1:-""}
@@ -34,7 +31,7 @@ if [[ "$1" == "-h" || "$1" == "--help" ]]; then
   echo "  - Only submits missing dependent variables"
   echo ""
   echo "CORRECTED RESOURCE ALLOCATION:"
-  echo "  2_oradWAS, 4_pheWAS, 5_outWAS, 6_zimWAS: 12G memory, 4 hours (1,349 regressions/dep_var)"
+  echo "  2_oradWAS, 4_pheWAS, 5_outWAS: 12G memory, 4 hours (1,349 regressions/dep_var)"
   echo "  3_exWAS: 8G memory, 3 hours (473 regressions/dep_var)"
   echo "  1_demoWAS: 1G memory, 1 hour (26 regressions/dep_var)"
   echo ""
@@ -52,13 +49,13 @@ if [[ "$1" == "-h" || "$1" == "--help" ]]; then
 fi
 
 # Set paths
-BASE_DIR="/n/groups/patel/terry/nhanes_oral_mirco_cho"
+BASE_DIR="${PROJECT_ROOT}"
 SCRIPT_DIR="${BASE_DIR}/scripts/1_association_pipeline"
 ANALYSIS_R_SCRIPT="${SCRIPT_DIR}/universal_was_analysis.R"
 LOG_FILE="${BASE_DIR}/logs/1_association_pipeline_flexible/flexible_was_analyses_$(date +%Y%m%d_%H%M%S).log"
 
 # Analysis types and normalizations
-ANALYSIS_TYPES=("1_demoWAS" "2_oradWAS" "3_exWAS" "4_pheWAS" "5_outWAS" "6_zimWAS")
+ANALYSIS_TYPES=("1_demoWAS" "2_oradWAS" "3_exWAS" "4_pheWAS" "5_outWAS")
 NORMALIZATIONS=("clr" "lognorm" "none" "hellinger")
 
 # CORRECTED Resource allocation function based on computational analysis
@@ -80,7 +77,7 @@ get_resources() {
             ;;
         auto|*)
             case $analysis_type in
-                2_oradWAS|4_pheWAS|5_outWAS|6_zimWAS) echo "12G 0-04:00" ;;  # 4 hours for 1349 regressions/dep_var
+                2_oradWAS|4_pheWAS|5_outWAS) echo "12G 0-04:00" ;;  # 4 hours for 1349 regressions/dep_var
                 3_exWAS) echo "8G 0-03:00" ;;                                # 3 hours for 473 regressions/dep_var
                 1_demoWAS) echo "1G 0-01:00" ;;                              # 1 hour for 26 regressions/dep_var
             esac
@@ -125,14 +122,14 @@ get_missing_dependent_variables() {
     
     # TEST MODE: Limit to first dependent variable only
     if [[ "$test_mode" == "test" ]]; then
-        echo "   🧪 TEST MODE: Limiting to first dependent variable only" >&2
+        echo "    TEST MODE: Limiting to first dependent variable only" >&2
         head -n 1 "$expected_vars_file" > "${expected_vars_file}.test"
         mv "${expected_vars_file}.test" "$expected_vars_file"
         total_expected=1
     fi
     
     # EFFICIENCY: Get existing files using simple operations  
-    echo "   📁 Finding existing result files..." >&2
+    echo "    Finding existing result files..." >&2
     local existing_vars_file=$(mktemp)
     if [[ -d "$output_dir" ]]; then
         find "$output_dir" -maxdepth 1 -name "*.rds" -type f -exec basename {} .rds \; | sort > "$existing_vars_file"
@@ -149,9 +146,9 @@ get_missing_dependent_variables() {
     local missing_count=$(wc -l < "$missing_vars_file")
     
     if [[ "$test_mode" == "test" ]]; then
-        echo "   🧪 TEST MODE: Analysis complete: $missing_count missing files identified (max 1)" >&2
+        echo "    TEST MODE: Analysis complete: $missing_count missing files identified (max 1)" >&2
     else
-        echo "   ✅ Analysis complete: $missing_count missing files identified" >&2
+        echo "    Analysis complete: $missing_count missing files identified" >&2
     fi
     
     # Log the results
@@ -180,7 +177,7 @@ submit_analysis_type() {
     local exit_code=$?
     
     if [[ $exit_code -ne 0 ]]; then
-        echo "❌ Failed to check missing variables for $analysis_type $normalization"
+        echo " Failed to check missing variables for $analysis_type $normalization"
         return 1
     fi
     
@@ -191,7 +188,7 @@ submit_analysis_type() {
     fi
     
     if [[ $missing_count -eq 0 ]]; then
-        echo "✅ $analysis_type $normalization: ALL JOBS COMPLETED - SKIPPING"
+        echo " $analysis_type $normalization: ALL JOBS COMPLETED - SKIPPING"
         return 0
     fi
     
@@ -202,8 +199,8 @@ submit_analysis_type() {
     local memory=$(echo $resources | cut -d' ' -f1)
     local time=$(echo $resources | cut -d' ' -f2)
     
-    echo "💾 Resources: $memory memory, $time time"
-    echo "📝 Missing variables:"
+    echo " Resources: $memory memory, $time time"
+    echo " Missing variables:"
     
     # Show first few missing variables as preview
     local preview_count=5
@@ -222,11 +219,11 @@ submit_analysis_type() {
     echo "SUBMITTING JOBS..."
     
     if ! submit_missing_variables_only "$analysis_type" "$normalization" "$missing_vars" "$test_mode" "$memory" "$time"; then
-        echo "❌ Failed to submit jobs for $analysis_type $normalization"
+        echo " Failed to submit jobs for $analysis_type $normalization"
         return 1
     fi
     
-    echo "✅ Successfully submitted $missing_count jobs for $analysis_type $normalization"
+    echo " Successfully submitted $missing_count jobs for $analysis_type $normalization"
     return 0
 }
 
@@ -280,7 +277,7 @@ submit_missing_variables_only() {
         # CRITICAL SAFETY: Double-check the file doesn't exist just before submission
         local result_file="${output_dir}/${dep_var}.rds"
         if check_result_file_exists "$result_file"; then
-            echo "   ⚠️  SAFETY: File $result_file appeared since last check - SKIPPING submission"
+            echo "     SAFETY: File $result_file appeared since last check - SKIPPING submission"
             continue
         fi
         
@@ -308,10 +305,12 @@ submit_missing_variables_only() {
 #SBATCH --mem=$memory
 #SBATCH --cpus-per-task=2
 
-# Load environment
+# Load environment (updated for O2 - corrected module loading order)
+module purge
+module load gcc/14.2.0            # if your R build really needs this
 module load conda/miniforge3/24.11.3-0
-eval "\$(conda shell.bash hook)"
-conda activate /n/groups/patel/terry/nhanes_oral_mirco_cho/envs/.conda/envs/nhanes-analysis
+eval "$(conda shell.bash hook)"
+conda activate $base/envs/.conda/envs/nhanes-analysis
 
 # Change to working directory
 cd $base
@@ -351,9 +350,9 @@ fi
 
 # SAFETY: Verify the output file was created and is valid
 if [[ -f "\$RESULT_FILE" ]]; then
-    echo "✅ SAFETY: Output file \$RESULT_FILE created successfully"
+    echo " SAFETY: Output file \$RESULT_FILE created successfully"
 else
-    echo "❌ SAFETY: Expected output file \$RESULT_FILE was not created"
+    echo " SAFETY: Expected output file \$RESULT_FILE was not created"
 fi
 
 echo "FLEXIBLE RESUME analysis for $dep_var completed at \$(date)"
@@ -370,8 +369,8 @@ echo "==========================================================================
 echo "FLEXIBLE WAS Analysis Suite with FLEXIBLE RESUME - PRODUCTION"
 echo "============================================================================="
 echo "FLEXIBLE RESUME: Only submitting jobs for missing .rds files"
-echo "💾 CORRECTED RESOURCES: Based on computational analysis"
-echo "🛡️  PRESERVATION: Never overwrites existing successful results"
+echo " CORRECTED RESOURCES: Based on computational analysis"
+echo "  PRESERVATION: Never overwrites existing successful results"
 echo ""
 echo "  - Analysis types: ${ANALYSIS_TYPES[*]}"
 echo "  - Normalizations (4): ${NORMALIZATIONS[*]}"
@@ -429,10 +428,10 @@ for analysis_type in "${ANALYSIS_TYPES[@]}"; do
             if [[ -n "$missing_vars" ]]; then
                 missing_count=$(echo "$missing_vars" | wc -l)
                 total_submitted=$((total_submitted + missing_count))
-                echo "✓ $(date): SUCCESS - $analysis_type $normalization ($missing_count jobs)" >> "$LOG_FILE"
+                echo " $(date): SUCCESS - $analysis_type $normalization ($missing_count jobs)" >> "$LOG_FILE"
             else
                 total_skipped=$((total_skipped + 1))
-                echo "✓ $(date): SKIPPED - $analysis_type $normalization (complete)" >> "$LOG_FILE"
+                echo " $(date): SKIPPED - $analysis_type $normalization (complete)" >> "$LOG_FILE"
             fi
         else
             failed_submissions=$((failed_submissions + 1))
@@ -471,18 +470,18 @@ if [[ $failed_submissions -eq 0 ]]; then
     echo ""
     echo "RESULTS:"
     if [[ $total_submitted -gt 0 ]]; then
-        echo "  ✅ Submitted $total_submitted missing jobs with corrected time limits"
+        echo "   Submitted $total_submitted missing jobs with corrected time limits"
     fi
     if [[ $total_skipped -gt 0 ]]; then
-        echo "  ⏭️  Skipped $total_skipped complete analyses (preserving existing results)"
+        echo "    Skipped $total_skipped complete analyses (preserving existing results)"
     fi
     echo ""
-    echo "💡 MONITORING:"
+    echo " MONITORING:"
     echo "  Check job status: squeue -u \$USER | grep flexible"
     echo "  View individual logs: ls $BASE_DIR/logs/flexible_*.out"
     echo "  Check for errors: find $BASE_DIR/logs -name 'flexible_*.err' -size +0"
     echo ""
-    echo "🔄 RESUME AGAIN:"
+    echo " RESUME AGAIN:"
     echo "  Run this script again to check for any remaining failures"
     echo "  $0 $TEST_MODE $RESOURCE_LEVEL"
     echo ""
@@ -490,7 +489,7 @@ if [[ $failed_submissions -eq 0 ]]; then
     echo "  After ALL 24 analyses complete (6 types × 4 normalizations), run aggregation:"
     echo "  ./scripts/1_association_pipeline/run_aggregation_only.sh"
     echo ""
-    echo "⏱️  ESTIMATED COMPLETION TIMES (with corrected limits):"
+    echo "  ESTIMATED COMPLETION TIMES (with corrected limits):"
     if [[ "$TEST_MODE" == "test" ]]; then
         echo "  Test mode: ~15-30 minutes"
     else
@@ -507,10 +506,10 @@ if [[ $failed_submissions -eq 0 ]]; then
     exit 0
 else
     echo ""
-    echo "⚠️  Some submissions failed. Check the log file for details:"
+    echo "  Some submissions failed. Check the log file for details:"
     echo "  cat $LOG_FILE"
     echo ""
-    echo "🔄 You can run this script again to retry failed submissions:"
+    echo " You can run this script again to retry failed submissions:"
     echo "  $0 $TEST_MODE $RESOURCE_LEVEL"
     
     exit 1

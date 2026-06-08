@@ -1,0 +1,13 @@
+task,feature_set,model,weighting,n,rmse,mae,r2,cor_pearson,accuracy,macro_auc,n_classes,auc,brier
+age,microbiome_only,glmnet_enet,unweighted,1872,12.739425950295143,10.41010666472065,0.40739584396471074,0.6382911162999757,NA,NA,NA,NA,NA
+age,microbiome_only,glmnet_enet,survey_weighted,1872,12.1621952204256,9.875026903711111,0.384778405307601,0.6382911162999757,NA,NA,NA,NA,NA
+age,microbiome_plus_basic_demo,glmnet_enet,unweighted,1424,11.04075928557015,8.967868373489662,0.4058765945240208,0.6377834249073806,NA,NA,NA,NA,NA
+age,microbiome_plus_basic_demo,glmnet_enet,survey_weighted,1424,10.88020420718972,8.756738469826088,0.3764011624406979,0.6377834249073806,NA,NA,NA,NA,NA
+age_group,microbiome_only,glmnet_enet,unweighted,1872,NA,NA,NA,NA,0.37286324786324787,0.7465084281147917,6,NA,NA
+age_group,microbiome_only,glmnet_enet,survey_weighted,1872,NA,NA,NA,NA,0.3330622508991381,0.7465084281147917,6,NA,NA
+age_group,microbiome_plus_basic_demo,glmnet_enet,unweighted,1422,NA,NA,NA,NA,0.4057665260196906,0.7312254850508884,5,NA,NA
+age_group,microbiome_plus_basic_demo,glmnet_enet,survey_weighted,1422,NA,NA,NA,NA,0.3781112519521533,0.7312254850508884,5,NA,NA
+gender,microbiome_only,glmnet_enet,unweighted,1870,NA,NA,NA,NA,0.6090909090909091,NA,NA,0.6468554106611759,0.2340241399703055
+gender,microbiome_only,glmnet_enet,survey_weighted,1870,NA,NA,NA,NA,0.6053361910809951,NA,NA,0.6468554106611759,0.2357906519736162
+gender,microbiome_plus_basic_demo,glmnet_enet,unweighted,1421,NA,NA,NA,NA,0.6319493314567206,NA,NA,0.6834833121342162,0.22582410653932958
+gender,microbiome_plus_basic_demo,glmnet_enet,survey_weighted,1421,NA,NA,NA,NA,0.623736131857653,NA,NA,0.6834833121342162,0.23215841884955632

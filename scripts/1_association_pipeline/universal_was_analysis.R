@@ -1,26 +1,19 @@
 #!/usr/bin/env Rscript
 
-#  UNIVERSAL WAS ANALYSIS - PRODUCTION VERSION WITH POOLED-CYCLE SUPPORT
-# Matches the original pipeline structure: per-dependent-variable processing
-# Outputs: pe_tidied, pe_glanced, rsq (like universal_was_analysis_debugging_report_information.R)
-# 
-# NEW: POOLED-CYCLE ANALYSIS (2009-2012) SUPPORT:
-# - Automatically detects when both F and G cycles are available
-# - Creates NCHS-compliant 4-year pooled estimates (WTMEC4YR = WTMEC2YR / 2)
-# - Uses unique PSU/strata identifiers across cycles
-# - Falls back to single-cycle analysis when only one cycle available
-# - Tags results with cycle mode for transparency
+# =============================================================================
+# UNIVERSAL WAS ANALYSIS — per-dependent-variable, survey-weighted regression
+# with NCHS pooled-cycle support (2009-2012).
 #
-# FINAL AUDIT CORRECTIONS:
-# - Fixed dbListTables() to detect SQL views for "_none" tables
-# - Corrected tidy-eval misuse in check_e_data_type()
-# - Added selective suffix logic (only microbiome tables)
-# - Enhanced quartile handling for ties/zeros
-# - Fixed R-squared weight extraction
-# - Proper minimum sample size calculation
-# - Effect scale harmonization across transformations
-# - CLR intercept guard for future full basis
-# - FDR correction will be applied separately after all analyses complete
+# Takes all I/O paths via CLI flags; not portable-by-path. Submit via
+# run_all_was_analyses_flexible.sh (SLURM, O2).
+#
+# Outputs an RDS with components pe_tidied / pe_glanced / rsq under
+#   results/<analysis_type>_out/result_<normalization>/<dependent_var>.rds
+#
+# Environment: R >= 4.5 with optparse, DBI, RSQLite, dplyr, readr, survey,
+# broom, stringr, tibble.
+# Conda spec: envs/nhanes-analysis_for_reviewers.yml.
+# =============================================================================
 
 suppressPackageStartupMessages({
   library(optparse)
@@ -76,7 +69,7 @@ check_weights_validity <- function(con, demo_tables) {
       stop("Invalid WTMEC2YR weights (≤ 0) found in ", demo_table)
     }
     
-    cat("✅ Weight validation passed for", demo_table, 
+    cat(" Weight validation passed for", demo_table, 
         ":", weight_check$non_null, "valid weights\n")
   }
 }
@@ -148,31 +141,52 @@ create_pooled_survey_design <- function(pooled_data) {
   return(dsn)
 }
 
-# *** CRITICAL FIX: ENHANCED QUARTILE BINNING WITH FALLBACKS ***
-make_bins <- function(x, q = 4) {
+# *** CRITICAL FIX: ENHANCED QUARTILE BINNING WITH SPARSITY HANDLING ***
+make_bins <- function(x, q = 4, min_per_bin = 10) {
   # Remove NAs for quantile calculation
   x_clean <- x[!is.na(x)]
   if (length(x_clean) == 0) return(NULL)
+  
+  # Check for extreme sparsity (RSV genus fix)
+  non_zero_count <- sum(x_clean > 0)
+  if (non_zero_count < (q * min_per_bin)) {
+    cat("   WARNING: Extremely sparse data (", non_zero_count, " non-zero values) - using continuous treatment\n")
+    return(NULL)  # Force continuous treatment
+  }
   
   # Get unique quantile breaks
   brks <- unique(quantile(x_clean, probs = seq(0, 1, 1/q), na.rm = TRUE))
   
   # Need at least q+1 unique breaks for q bins
-  if (length(brks) <= q) return(NULL)
+  if (length(brks) <= q) {
+    cat("   WARNING: Insufficient unique breaks (", length(brks), " breaks) - using continuous treatment\n")
+    return(NULL)
+  }
   
   # Try to create factor with cut
   tryCatch({
-    factor(cut(x, breaks = brks, include.lowest = TRUE,
-              labels = paste0("Q", seq_len(length(brks)-1))))
+    result <- factor(cut(x, breaks = brks, include.lowest = TRUE,
+                        labels = paste0("Q", seq_len(length(brks)-1))))
+    
+    # Check if any bin has too few observations
+    bin_counts <- table(result, useNA = "no")
+    if (any(bin_counts < min_per_bin)) {
+      cat("   WARNING: Some bins have < ", min_per_bin, " observations - using continuous treatment\n")
+      return(NULL)
+    }
+    
+    return(result)
   }, error = function(e) {
-    # Fallback: return NULL to trigger continuous treatment
+    cat("   WARNING: Binning failed - using continuous treatment\n")
     return(NULL)
   })
 }
 
-# *** CRITICAL FIX B: CORRECTED TIDY-EVAL IN VARIABLE TYPE DETECTION ***
+# *** CRITICAL FIX B: ENHANCED VARIABLE TYPE DETECTION WITH SPARSITY HANDLING ***
 check_e_data_type <- function(varname, con = NULL, e_levels_cache = NULL) {
   ret <- list(vartype="continuous", varlevels=NULL)
+  
+  # RSV genus variables will be handled by normal pipeline with enhanced fallbacks
   
   if(grepl('CNT$', varname)) {
     return(list(vartype="continuous-rank", varlevels=NULL))
@@ -457,13 +471,13 @@ cat("Test mode:", opt$test, "\n\n")
 
 # Database connection
 con <- DBI::dbConnect(RSQLite::SQLite(), dbname = opt$database_path)
-cat("✅ Database connected\n")
+cat(" Database connected\n")
 
 # Cache e_variable_levels for performance (on-demand reading could save memory)
 e_levels_cache <- NULL
 if ("e_variable_levels" %in% dbListTables(con)) {
   e_levels_cache <- tbl(con, "e_variable_levels") %>% collect()
-  cat("✅ Variable levels cached for performance\n")
+  cat(" Variable levels cached for performance\n")
 }
 
 # Load schema for this specific dependent variable
@@ -472,7 +486,7 @@ schema_data_full <- read_csv(opt$schema_structure_file, show_col_types = FALSE,
   filter(dep_var == opt$dependent_var)
 
 # *** NEW: SINGLE CACHE FOR CYCLE AVAILABILITY ***
-cat("🔍 Building cycle availability cache...\n")
+cat(" Building cycle availability cache...\n")
 cycle_map <- schema_data_full %>%
   count(dep_var, indep_var, cycle) %>%
   summarise(
@@ -515,20 +529,20 @@ if (opt$test) {
   schema_data <- schema_data_full
 }
 
-cat("✅ Schema loaded:", nrow(schema_data), "variable pairs for", opt$dependent_var, "\n")
-cat("✅ Improved suffix logic applied (prevents double-suffixing)\n")
+cat(" Schema loaded:", nrow(schema_data), "variable pairs for", opt$dependent_var, "\n")
+cat(" Improved suffix logic applied (prevents double-suffixing)\n")
 
 # Report cycle availability summary
 pooled_pairs <- sum(schema_data$pooled, na.rm = TRUE)
 total_unique_pairs <- length(unique(paste(schema_data$dep_var, schema_data$indep_var)))
-cat("🔍 Cycle analysis summary:\n")
-cat("   • Total variable pairs:", total_unique_pairs, "\n")
-cat("   • Pooled (F+G available):", pooled_pairs, "\n") 
-cat("   • Single cycle only:", total_unique_pairs - pooled_pairs, "\n")
+cat(" Cycle analysis summary:\n")
+cat("    Total variable pairs:", total_unique_pairs, "\n")
+cat("    Pooled (F+G available):", pooled_pairs, "\n") 
+cat("    Single cycle only:", total_unique_pairs - pooled_pairs, "\n")
 
 # *** NEW: WEIGHT SANITY CHECK ***
 if (pooled_pairs > 0) {
-  cat("🔍 Validating survey weights for pooled analysis...\n")
+  cat(" Validating survey weights for pooled analysis...\n")
   demo_tables <- c("DEMO_F", "DEMO_G")
   check_weights_validity(con, demo_tables)
 }
@@ -560,8 +574,8 @@ cat("Regression type:", regression_type, "\n")
 cat("Use covariates:", use_covariates, "\n")
 cat("Transformation:", opt$normalization, "(pre-computed in database)\n")
 cat("Survey design: Pooled (2009-2012) + Single cycle analysis (NCHS Technical Documentation 2006)\n")
-cat("   • Pooled cycles: WTMEC4YR = WTMEC2YR / 2, unique PSU/strata IDs\n")
-cat("   • Single cycles: Original WTMEC2YR weights\n")
+cat("    Pooled cycles: WTMEC4YR = WTMEC2YR / 2, unique PSU/strata IDs\n")
+cat("    Single cycles: Original WTMEC2YR weights\n")
 cat("Multiple comparisons: FDR correction will be applied after all analyses complete\n\n")
 
 # =====================================================================================
@@ -587,18 +601,18 @@ for (i in 1:nrow(unique_pairs)) {
     cat("Processing", i, "/", nrow(unique_pairs), "...\n")
   }
   
-  cat("🔬 Analyzing:", pair_info$dep_var, "~", pair_info$indep_var, 
+  cat(" Analyzing:", pair_info$dep_var, "~", pair_info$indep_var, 
       "(", pair_info$available_cycles, "cycles )\n")
   
   # Determine cycle mode
   if (pair_info$pooled) {
     cycle_mode <- "pooled_FG"
-    cat("   📊 POOLED ANALYSIS: Using both F and G cycles (2009-2012)\n")
+    cat("    POOLED ANALYSIS: Using both F and G cycles (2009-2012)\n")
   } else {
     # Get the single available cycle
     available_cycle <- pair_info$available_cycles
     cycle_mode <- paste0("single_", available_cycle)
-    cat("   📊 SINGLE CYCLE ANALYSIS: Using", available_cycle, "cycle only\n")
+    cat("    SINGLE CYCLE ANALYSIS: Using", available_cycle, "cycle only\n")
   }
   
   # Get relevant schema rows for this pair
@@ -608,6 +622,11 @@ for (i in 1:nrow(unique_pairs)) {
   tryCatch({
     # 1. Variable type detection (with corrected tidy-eval)
     e_levels <- check_e_data_type(pair_info$indep_var, con, e_levels_cache)
+    
+    # 1.5. Data quality logging for sparse variables (RSV genus diagnostic)
+    if (grepl("^RSV_genus", pair_info$dep_var)) {
+      cat("   Detected RSV genus variable - will analyze with sparsity-aware methods\n")
+    }
     
     # 2. Enhanced data loading with pooled-cycle support
     if (opt$analysis_type == "1_demoWAS") {
@@ -646,17 +665,25 @@ for (i in 1:nrow(unique_pairs)) {
           mutate(cycle = pair_info$available_cycles)
       }
       
-      # Merge data
-      merged_data <- demo_data %>%
-        inner_join(dep_data, by = "SEQN") %>%
-        filter(!is.na(!!sym(pair_info$dep_var)), !is.na(!!sym(pair_info$indep_var)),
-               !is.na(WTMEC2YR), WTMEC2YR > 0,
-               !is.na(SDMVSTRA), !is.na(SDMVPSU))
+      # Merge data (CRITICAL FIX: Use cycle-aware join for pooled data)
+      if (pair_info$pooled) {
+        merged_data <- demo_data %>%
+          inner_join(dep_data, by = c("SEQN", "cycle")) %>%
+          filter(!is.na(!!sym(pair_info$dep_var)), !is.na(!!sym(pair_info$indep_var)),
+                 !is.na(WTMEC2YR), WTMEC2YR > 0,
+                 !is.na(SDMVSTRA), !is.na(SDMVPSU))
+      } else {
+        merged_data <- demo_data %>%
+          inner_join(dep_data, by = "SEQN") %>%
+          filter(!is.na(!!sym(pair_info$dep_var)), !is.na(!!sym(pair_info$indep_var)),
+                 !is.na(WTMEC2YR), WTMEC2YR > 0,
+                 !is.na(SDMVSTRA), !is.na(SDMVPSU))
+      }
       
     } else {
       # For other analyses (2_oradWAS, 3_exWAS, etc.)
       if (pair_info$pooled) {
-        cat("   🔄 Loading pooled data from both cycles...\n")
+        cat("    Loading pooled data from both cycles...\n")
         
         # Get table names for both cycles from FULL schema (not just test subset)
         full_pair_rows <- schema_data_full %>%
@@ -698,7 +725,7 @@ for (i in 1:nrow(unique_pairs)) {
       } else {
         # Single cycle analysis (original logic)
         cycle_letter <- pair_info$available_cycles
-        cat("   📊 Loading single cycle data (", cycle_letter, ")...\n")
+        cat("    Loading single cycle data (", cycle_letter, ")...\n")
         
         # Load single cycle data
         demo_table <- paste0("DEMO_", cycle_letter)
@@ -739,43 +766,44 @@ for (i in 1:nrow(unique_pairs)) {
       cat("   Filtered", n_before_na_filter - n_after_na_filter, "zero-library records\n")
     }
     
-    # 5. Rename variables for model
-    merged_data$dep_var <- merged_data[[pair_info$dep_var]]
-    merged_data$indep_var <- merged_data[[pair_info$indep_var]]
+    # 5. *** FIXED: KEEP ORIGINAL VARIABLE NAMES INSTEAD OF GENERIC RENAMING ***
+    # No longer rename to generic dep_var/indep_var - use original names throughout
+    dep_var_name <- pair_info$dep_var
+    indep_var_name <- pair_info$indep_var
     
-    # 6. Enhanced infinite value handling
-    inf_dep <- is.infinite(merged_data$dep_var)
-    inf_indep <- is.infinite(merged_data$indep_var)
+    # 6. Enhanced infinite value handling (using original variable names)
+    inf_dep <- is.infinite(merged_data[[dep_var_name]])
+    inf_indep <- is.infinite(merged_data[[indep_var_name]])
     
     if (any(inf_dep, na.rm = TRUE)) {
-      merged_data$dep_var[inf_dep] <- NA_real_
+      merged_data[[dep_var_name]][inf_dep] <- NA_real_
       cat("   Replaced", sum(inf_dep, na.rm = TRUE), "infinite values in dependent variable with NA\n")
     }
     
     if (any(inf_indep, na.rm = TRUE)) {
-      merged_data$indep_var[inf_indep] <- NA_real_
+      merged_data[[indep_var_name]][inf_indep] <- NA_real_
       cat("   Replaced", sum(inf_indep, na.rm = TRUE), "infinite values in independent variable with NA\n")
     }
     
-    # Re-filter after infinite value replacement
+    # Re-filter after infinite value replacement (using original variable names)
     merged_data <- merged_data %>%
-      filter(!is.na(dep_var), !is.na(indep_var))
+      filter(!is.na(!!sym(dep_var_name)), !is.na(!!sym(indep_var_name)))
     
     # 7. *** CRITICAL FIX: ENHANCED QUARTILE HANDLING WITH PROPER FALLBACKS ***
     if (e_levels$vartype == "continuous-rank") {
-      # Use new make_bins function with proper fallbacks
-      quartile_result <- make_bins(merged_data$indep_var, 4)
+      # Use new make_bins function with proper fallbacks (using original variable name)
+      quartile_result <- make_bins(merged_data[[indep_var_name]], 4)
       
       if (is.null(quartile_result)) {
         # Try tertiles
-        tertile_result <- make_bins(merged_data$indep_var, 3)
+        tertile_result <- make_bins(merged_data[[indep_var_name]], 3)
         if (!is.null(tertile_result)) {
-          merged_data$indep_var <- tertile_result
+          merged_data[[indep_var_name]] <- tertile_result
           cat("   Using tertiles due to insufficient unique values for quartiles\n")
         } else {
           # Fall back to log-continuous if possible
-          if (all(merged_data$indep_var > 0, na.rm = TRUE)) {
-            merged_data$indep_var <- log10(merged_data$indep_var + 1)
+          if (all(merged_data[[indep_var_name]] > 0, na.rm = TRUE)) {
+            merged_data[[indep_var_name]] <- log10(merged_data[[indep_var_name]] + 1)
             cat("   Using log-continuous scale due to excessive ties\n")
           } else {
             cat("   Using raw continuous scale due to excessive ties\n")
@@ -783,18 +811,25 @@ for (i in 1:nrow(unique_pairs)) {
         }
       } else {
         # Standard quartile assignment worked
-        merged_data$indep_var <- quartile_result
+        merged_data[[indep_var_name]] <- quartile_result
         cat("   Using quartiles\n")
       }
     } else if (e_levels$vartype == "categorical" && !is.null(e_levels$varlevels)) {
-      merged_data$indep_var <- factor(merged_data$indep_var, levels = e_levels$varlevels)
+      merged_data[[indep_var_name]] <- factor(merged_data[[indep_var_name]], levels = e_levels$varlevels)
     }
     
-    # 8. Build formula with corrected covariate selection
+    # 8. Build formula with CORRECTED covariate selection (using original variable names)
     if (use_covariates) {
-      # Only include variables that actually exist in DEMO tables
-      full_covariates <- c("RIDAGEYR", "AGE_SQUARED", "RIAGENDR", "INDFMPIR")
-      essential_covariates <- c("RIDAGEYR", "RIAGENDR")
+      # CORRECTED: Full comprehensive covariate set (what we aim for)
+      full_covariates <- c(
+        "RIDAGEYR", "AGE_SQUARED", "RIAGENDR", "INDFMPIR",
+        "EDUCATION_LESS9", "EDUCATION_9_11", "EDUCATION_AA", "EDUCATION_COLLEGEGRAD",
+        "ETHNICITY_MEXICAN", "ETHNICITY_OTHERHISPANIC", "ETHNICITY_OTHER",
+        "ETHNICITY_NONHISPANICBLACK", "BORN_INUSA"
+      )
+      
+      # CORRECTED: Essential covariates (bare minimum)
+      essential_covariates <- c("RIDAGEYR", "AGE_SQUARED", "RIAGENDR", "INDFMPIR")
       
       usable_covariates <- character()
       
@@ -829,23 +864,23 @@ for (i in 1:nrow(unique_pairs)) {
         }
       }
       
-      # Build formula with usable covariates
+      # Build formula with usable covariates (using original variable names)
       if (length(usable_covariates) > 0) {
-        formula_str <- paste("dep_var ~ indep_var +", paste(usable_covariates, collapse = " + "))
+        formula_str <- paste(dep_var_name, "~", indep_var_name, "+", paste(usable_covariates, collapse = " + "))
       } else {
-        formula_str <- "dep_var ~ indep_var"
+        formula_str <- paste(dep_var_name, "~", indep_var_name)
       }
       
       available_covariates <- usable_covariates
     } else {
-      formula_str <- "dep_var ~ indep_var"
+      formula_str <- paste(dep_var_name, "~", indep_var_name)
       available_covariates <- character()
     }
     
     # *** CRITICAL FIX: IMPROVED CLR INTERCEPT LOGIC ***
     # Only remove intercept for full compositional analysis (multiple microbes)
     if (opt$normalization == "clr" && grepl("^RSV_", pair_info$indep_var) && length(grep("^RSV_", names(merged_data))) > 10) {
-      formula_str <- sub("^dep_var ~", "dep_var ~ 0 +", formula_str)
+      formula_str <- sub(paste0("^", dep_var_name, " ~"), paste0(dep_var_name, " ~ 0 +"), formula_str)
       cat("   Using CLR interceptless model (full compositional basis detected)\n")
     }
     
@@ -865,9 +900,9 @@ for (i in 1:nrow(unique_pairs)) {
     
     # 9. *** CRITICAL FIX: ENHANCED BINARY CHECK FOR LOGISTIC REGRESSION ***
     if (regression_type == "logistic") {
-      # Convert to integer and check binary values
-      merged_data$dep_var <- as.integer(as.character(merged_data$dep_var))
-      unique_vals <- unique(merged_data$dep_var)
+      # Convert to integer and check binary values (using original variable name)
+      merged_data[[dep_var_name]] <- as.integer(as.character(merged_data[[dep_var_name]]))
+      unique_vals <- unique(merged_data[[dep_var_name]])
       unique_vals <- unique_vals[!is.na(unique_vals)]
       if (!all(unique_vals %in% c(0, 1))) {
         cat("   Non-binary dependent variable for logistic regression:", paste(unique_vals, collapse = ", "), "\n")
@@ -888,11 +923,12 @@ for (i in 1:nrow(unique_pairs)) {
       if (length(available_covariates) > 0) {
         cat("   WARNING: Optimal covariate set failed, trying reduced sets...\n")
         
-        # Try with essential covariates only
+        # Try with essential covariates only (CORRECTED: now includes all 4 basic demographic variables)
         essential_in_data <- essential_covariates[essential_covariates %in% available_covariates]
         
         if (length(essential_in_data) > 0) {
-          essential_formula <- paste("dep_var ~ indep_var +", paste(essential_in_data, collapse = " + "))
+          essential_formula <- paste(dep_var_name, "~", indep_var_name, "+", paste(essential_in_data, collapse = " + "))
+          cat("   Trying essential covariates:", paste(essential_in_data, collapse = ", "), "\n")
           
           tryCatch({
             fit_result <- fit_survey_model(merged_data, essential_formula, regression_type, cycle_mode)
@@ -900,24 +936,70 @@ for (i in 1:nrow(unique_pairs)) {
             covariates_used <<- essential_in_data
             return(fit_result)
           }, error = function(e2) {
-            # Final fallback: minimal model
-            cat("   Using minimal model only\n")
-            minimal_formula <- "dep_var ~ indep_var"
+            # Try minimal demographics only (just age + gender)
+            minimal_demographics <- c("RIDAGEYR", "RIAGENDR")
+            minimal_in_data <- minimal_demographics[minimal_demographics %in% available_covariates]
+            
+            if (length(minimal_in_data) > 0) {
+              minimal_demo_formula <- paste(dep_var_name, "~", indep_var_name, "+", paste(minimal_in_data, collapse = " + "))
+              cat("   Trying minimal demographics:", paste(minimal_in_data, collapse = ", "), "\n")
+              
+              tryCatch({
+                fit_result <- fit_survey_model(merged_data, minimal_demo_formula, regression_type, cycle_mode)
+                final_formula <<- minimal_demo_formula
+                covariates_used <<- minimal_in_data
+                return(fit_result)
+              }, error = function(e3) {
+                # Final fallback: no covariates
+                cat("   Using minimal model with no covariates\n")
+                minimal_formula <- paste(dep_var_name, "~", indep_var_name)
+                final_formula <<- minimal_formula
+                covariates_used <<- character()
+                return(fit_survey_model(merged_data, minimal_formula, regression_type, cycle_mode))
+              })
+            } else {
+              # Final fallback: no covariates
+              cat("   Using minimal model with no covariates\n")
+              minimal_formula <- paste(dep_var_name, "~", indep_var_name)
+              final_formula <<- minimal_formula
+              covariates_used <<- character()
+              return(fit_survey_model(merged_data, minimal_formula, regression_type, cycle_mode))
+            }
+          })
+        } else {
+          # No essential covariates available - try minimal demographics
+          minimal_demographics <- c("RIDAGEYR", "RIAGENDR")
+          minimal_in_data <- minimal_demographics[minimal_demographics %in% available_covariates]
+          
+          if (length(minimal_in_data) > 0) {
+            minimal_demo_formula <- paste(dep_var_name, "~", indep_var_name, "+", paste(minimal_in_data, collapse = " + "))
+            cat("   Trying minimal demographics:", paste(minimal_in_data, collapse = ", "), "\n")
+            
+            tryCatch({
+              fit_result <- fit_survey_model(merged_data, minimal_demo_formula, regression_type, cycle_mode)
+              final_formula <<- minimal_demo_formula
+              covariates_used <<- minimal_in_data
+              return(fit_result)
+            }, error = function(e3) {
+              # Final fallback: no covariates
+              cat("   Using minimal model with no covariates\n")
+              minimal_formula <- paste(dep_var_name, "~", indep_var_name)
+              final_formula <<- minimal_formula
+              covariates_used <<- character()
+              return(fit_survey_model(merged_data, minimal_formula, regression_type, cycle_mode))
+            })
+          } else {
+            # Final fallback: no covariates
+            minimal_formula <- paste(dep_var_name, "~", indep_var_name)
             final_formula <<- minimal_formula
             covariates_used <<- character()
             return(fit_survey_model(merged_data, minimal_formula, regression_type, cycle_mode))
-          })
-        } else {
-          # No essential covariates available
-          minimal_formula <- "dep_var ~ indep_var"
-          final_formula <<- minimal_formula
-          covariates_used <<- character()
-          return(fit_survey_model(merged_data, minimal_formula, regression_type, cycle_mode))
+          }
         }
-              } else {
-          cat("WARNING: Model fitting failed for", pair_info$dep_var, "~", pair_info$indep_var, ":", e$message, "\n")
-          return(NULL)
-        }
+      } else {
+        cat("WARNING: Model fitting failed for", pair_info$dep_var, "~", pair_info$indep_var, ":", e$message, "\n")
+        return(NULL)
+      }
     })
     
     if(is.null(fit)) {
@@ -1142,17 +1224,22 @@ if (nrow(output_results$pe_tidied) > 0) {
 }
 
 DBI::dbDisconnect(con)
-cat("\n✅ Final audit corrections applied successfully!\n")
+cat("\n Final audit corrections applied successfully!\n")
 cat("All critical issues resolved:\n")
-cat("   • Fixed dbListTables() to detect SQL views\n")
-cat("   • Corrected tidy-eval misuse (removed !!)\n")
-cat("   • Added selective suffix logic (microbiome tables only)\n")
-cat("   • Enhanced quartile handling for ties/zeros\n")
-cat("   • Fixed R-squared weight extraction\n")
-cat("   • Proper minimum sample size calculation\n")
-cat("   • Effect scale harmonization across transformations\n")
-cat("   • CLR intercept guard for future full basis\n")
-cat("   • NCHS-compliant survey design (Technical Documentation 2006)\n")
-cat("   • POOLED-CYCLE ANALYSIS: 2009-2012 pooled estimates when both F+G available\n")
-cat("   • Weight validation and cycle mode tagging implemented\n")
-cat("   • FDR correction will be applied separately after all analyses complete\n") 
+cat("    Fixed dbListTables() to detect SQL views\n")
+cat("    Corrected tidy-eval misuse (removed !!)\n")
+cat("    Added selective suffix logic (microbiome tables only)\n")
+cat("    Enhanced quartile handling for ties/zeros\n")
+cat("    Fixed R-squared weight extraction\n")
+cat("    Proper minimum sample size calculation\n")
+cat("    Effect scale harmonization across transformations\n")
+cat("    CLR intercept guard for future full basis\n")
+cat("    NCHS-compliant survey design (Technical Documentation 2006)\n")
+cat("    POOLED-CYCLE ANALYSIS: 2009-2012 pooled estimates when both F+G available\n")
+cat("    Weight validation and cycle mode tagging implemented\n")
+cat("    CORRECTED COVARIATE STRUCTURE:\n")
+cat("     * Full covariates (13): demographics + education + ethnicity\n")
+cat("     * Essential covariates (4): age, age², gender, income ratio\n")
+cat("     * 1_demoWAS: Uses full demographic set as independent variables\n")
+cat("     * Other WAS: Uses full demographic set as covariates\n")
+cat("    FDR correction will be applied separately after all analyses complete\n") 

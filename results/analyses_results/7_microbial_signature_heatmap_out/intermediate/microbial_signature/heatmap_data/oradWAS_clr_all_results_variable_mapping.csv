@@ -1,0 +1,5 @@
+"var_name","var_description"
+"DENTURE_OHAROCDE","Denture"
+"GUM_DISEASE_OHAROCGP","Gum Disease"
+"ORAL_HYGIENE_OHAROCOH","Oral Hygiene"
+"TOOTH_DECAY_OHAROCDT","Tooth Decay"

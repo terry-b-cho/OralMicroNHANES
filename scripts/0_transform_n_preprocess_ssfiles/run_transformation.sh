@@ -1,26 +1,26 @@
 #!/bin/bash
-#SBATCH -p short      # jobs < 12 h
-#SBATCH -t 0-02:00    # extended time for full data
-#SBATCH --mem=64G     # more memory for larger datasets
+#SBATCH -p short
+#SBATCH -t 0-02:00
+#SBATCH --mem=64G
 #SBATCH -c 8
 #SBATCH -o logs/trans_%j.out
 #SBATCH -e logs/trans_%j.err
+#
+# Step 1: submit the microbiome transformation job to SLURM.
+#
+# Environment: SLURM module `gcc/14.2.0 R/4.4.2`. The job loads these modules
+# itself, so callers do not need to pre-load anything.
+
+# === USER SETTING =============================================================
+# Set PROJECT_ROOT to the absolute path of your local clone of this repository.
+PROJECT_ROOT=/n/groups/patel/terry/nhanes_oral_mirco_cho
+# ==============================================================================
 
 module purge
 module load gcc/14.2.0 R/4.4.2
 
-BASE=/n/groups/patel/terry/nhanes_oral_mirco_cho
+mkdir -p "$PROJECT_ROOT/logs"
 
-mkdir -p $BASE/logs
-
-echo " Pipeline Transformation Starting at $(date)"
-echo "   • NO prevalence pre-filtering"
-echo "   • Four transformations: none, hellinger, clr, lognorm"
-echo "   • Universal pseudocount ε = 0.001 for COUNT matrices only"
-
-Rscript $BASE/scripts/0_transform_n_preprocess_ssfiles/nhanes_omp_transformation.R \
-  --in_db  $BASE/data/00_nhanes_omp_abundance_db/nhanes_031725.sqlite \
-  --out_db $BASE/data/00_nhanes_omp_transformed_db/nhanes_oral_transformed.sqlite
-
-echo " transformation completed at $(date)"
-echo "Next step: Run missing data filling script" 
+Rscript "$PROJECT_ROOT/scripts/0_transform_n_preprocess_ssfiles/nhanes_omp_transformation.R" \
+  --in_db  "$PROJECT_ROOT/data/00_nhanes_omp_abundance_db/nhanes_031725.sqlite" \
+  --out_db "$PROJECT_ROOT/data/00_nhanes_omp_transformed_db/nhanes_oral_transformed.sqlite"
