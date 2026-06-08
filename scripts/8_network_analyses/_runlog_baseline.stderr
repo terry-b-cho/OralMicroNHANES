@@ -1,0 +1,423 @@
+Warning message:
+package ‘DBI’ was built under R version 4.5.2 
+Warning message:
+package ‘RSQLite’ was built under R version 4.5.2 
+
+Attaching package: ‘dplyr’
+
+The following objects are masked from ‘package:stats’:
+
+    filter, lag
+
+The following objects are masked from ‘package:base’:
+
+    intersect, setdiff, setequal, union
+
+Warning message:
+package ‘dplyr’ was built under R version 4.5.3 
+Warning message:
+package ‘tidyr’ was built under R version 4.5.2 
+Warning message:
+package ‘stringr’ was built under R version 4.5.2 
+Warning message:
+package ‘purrr’ was built under R version 4.5.3 
+Warning message:
+package ‘tibble’ was built under R version 4.5.2 
+Warning message:
+package ‘readr’ was built under R version 4.5.2 
+
+Attaching package: ‘igraph’
+
+The following objects are masked from ‘package:stats’:
+
+    decompose, spectrum
+
+The following object is masked from ‘package:base’:
+
+    union
+
+Loading required package: ggplot2
+Warning messages:
+1: package ‘ggraph’ was built under R version 4.5.2 
+2: package ‘ggplot2’ was built under R version 4.5.3 
+
+Attaching package: ‘dplyr’
+
+The following objects are masked from ‘package:igraph’:
+
+    as_data_frame, groups, union
+
+The following objects are masked from ‘package:stats’:
+
+    filter, lag
+
+The following objects are masked from ‘package:base’:
+
+    intersect, setdiff, setequal, union
+
+Warning message:
+package ‘dplyr’ was built under R version 4.5.3 
+
+Attaching package: ‘tidyr’
+
+The following object is masked from ‘package:igraph’:
+
+    crossing
+
+Warning message:
+package ‘tidyr’ was built under R version 4.5.2 
+Warning message:
+package ‘stringr’ was built under R version 4.5.2 
+
+Attaching package: ‘purrr’
+
+The following objects are masked from ‘package:igraph’:
+
+    compose, simplify
+
+Warning message:
+package ‘purrr’ was built under R version 4.5.3 
+
+Attaching package: ‘gridExtra’
+
+The following object is masked from ‘package:dplyr’:
+
+    combine
+
+Registering fonts with R
+Warning message:
+package ‘ggrepel’ was built under R version 4.5.3 
+
+Attaching package: ‘scales’
+
+The following object is masked from ‘package:purrr’:
+
+    discard
+
+
+Attaching package: ‘rlang’
+
+The following objects are masked from ‘package:purrr’:
+
+    flatten, flatten_chr, flatten_dbl, flatten_int, flatten_lgl,
+    flatten_raw, invoke, splice
+
+The following object is masked from ‘package:igraph’:
+
+    is_named
+
+Warning message:
+package ‘rlang’ was built under R version 4.5.3 
+== Network analysis: Demowas (none)
+== Network analysis: Oradwas (none)
+== Network analysis: Exwas (none)
+== Network analysis: Phewas (none)
+== Network analysis: Outwas (none)
+== Network analysis: Demowas (clr)
+== Network analysis: Oradwas (clr)
+== Network analysis: Exwas (clr)
+== Network analysis: Phewas (clr)
+== Network analysis: Outwas (clr)
+There were 50 or more warnings (use warnings() to see the first 50)
+
+════════ FINAL NETWORK SUMMARY ════════
+Total network plots created: 188
+Output directory: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/8_network_analyses_out/network_plots_final
+Transformations processed: none, clr
+Variable groups processed: 5
+
+Files created:
+  /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/8_network_analyses_out/network_plots_final/clr/ALL_clr_network_booklet.pdf
+  /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/8_network_analyses_out/network_plots_final/clr/demoWAS_AGE_SQUARED_Age_squared_RIDAGEYR_clr_network.pdf
+  /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/8_network_analyses_out/network_plots_final/clr/demoWAS_BORN_INUSA_Born_in_USA_DMDBORN4_1_clr_network.pdf
+  /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/8_network_analyses_out/network_plots_final/clr/demoWAS_EDUCATION_9_11_Edu_9_11th_grade_DMDEDUC2_2_clr_network.pdf
+  /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/8_network_analyses_out/network_plots_final/clr/demoWAS_EDUCATION_AA_Edu_AA_some_college_DMDEDUC2_4_clr_network.pdf
+  /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/8_network_analyses_out/network_plots_final/clr/demoWAS_EDUCATION_COLLEGEGRAD_Edu_college_grad_above_DMDEDUC2_5_clr_network.pdf
+  /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/8_network_analyses_out/network_plots_final/clr/demoWAS_EDUCATION_LESS9_Edu_9th_grade_DMDEDUC2_1_clr_network.pdf
+  /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/8_network_analyses_out/network_plots_final/clr/demoWAS_ETHNICITY_MEXICAN_Mexican_American_RIDRETH1_1_clr_network.pdf
+  /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/8_network_analyses_out/network_plots_final/clr/demoWAS_ETHNICITY_NONHISPANICBLACK_Non_Hispanic_Black_RIDRETH1_4_clr_network.pdf
+  /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/8_network_analyses_out/network_plots_final/clr/demoWAS_ETHNICITY_OTHER_Other_race_multi_racial_RIDRETH1_5_clr_network.pdf
+  /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/8_network_analyses_out/network_plots_final/clr/demoWAS_ETHNICITY_OTHERHISPANIC_Other_Hispanic_RIDRETH1_2_clr_network.pdf
+  /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/8_network_analyses_out/network_plots_final/clr/demoWAS_INDFMPIR_A_ratio_of_family_income_to_poverty_threshold_clr_network.pdf
+  /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/8_network_analyses_out/network_plots_final/clr/demoWAS_RIAGENDR_Gender_of_the_sample_person_clr_network.pdf
+  /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/8_network_analyses_out/network_plots_final/clr/demoWAS_RIDAGEYR_Best_age_in_years_of_the_sample_person_at_time_of_HH_screening_Individual_clr_network.pdf
+  /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/8_network_analyses_out/network_plots_final/clr/exWAS_DR1TALCO_Alcohol_gm_clr_network.pdf
+  /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/8_network_analyses_out/network_plots_final/clr/exWAS_DR1TCAFF_Caffeine_mg_clr_network.pdf
+  /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/8_network_analyses_out/network_plots_final/clr/exWAS_DR1TCARB_Carbohydrate_gm_clr_network.pdf
+  /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/8_network_analyses_out/network_plots_final/clr/exWAS_DR1TNUMF_Total_number_of_foods_reported_in_the_individual_foods_file_clr_network.pdf
+  /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/8_network_analyses_out/network_plots_final/clr/exWAS_DR1TSUGR_Total_sugars_gm_clr_network.pdf
+  /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/8_network_analyses_out/network_plots_final/clr/exWAS_DR1TTHEO_Theobromine_mg_clr_network.pdf
+  /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/8_network_analyses_out/network_plots_final/clr/exWAS_DR1TVK_Vitamin_K_mcg_clr_network.pdf
+  /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/8_network_analyses_out/network_plots_final/clr/exWAS_DR2TSUGR_Total_sugars_gm_clr_network.pdf
+  /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/8_network_analyses_out/network_plots_final/clr/exWAS_DR2TVK_Vitamin_K_mcg_clr_network.pdf
+  /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/8_network_analyses_out/network_plots_final/clr/exWAS_DS1DSCNT_Total_of_Dietary_Supplements_Taken_clr_network.pdf
+  /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/8_network_analyses_out/network_plots_final/clr/exWAS_DS1TSELE_Selenium_mcg_clr_network.pdf
+  /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/8_network_analyses_out/network_plots_final/clr/exWAS_DS2DSCNT_Total_of_Dietary_Supplements_Taken_clr_network.pdf
+  /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/8_network_analyses_out/network_plots_final/clr/exWAS_DS2TIODI_Iodine_mcg_clr_network.pdf
+  /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/8_network_analyses_out/network_plots_final/clr/exWAS_DS2TSELE_Selenium_mcg_clr_network.pdf
+  /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/8_network_analyses_out/network_plots_final/clr/exWAS_DSQTSELE_Selenium_mcg_clr_network.pdf
+  /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/8_network_analyses_out/network_plots_final/clr/exWAS_DSQTVD_Vitamin_D_D2_D3_mcg_clr_network.pdf
+  /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/8_network_analyses_out/network_plots_final/clr/exWAS_HOQ065_Is_this_mobile_home_house_apartment_owned_being_bought_rented_or_occup_clr_network.pdf
+  /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/8_network_analyses_out/network_plots_final/clr/exWAS_LBDHBG_Hepatitis_B_surface_antigen_clr_network.pdf
+  /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/8_network_analyses_out/network_plots_final/clr/exWAS_LBDHD_Hepatitis_D_anti_HDV_clr_network.pdf
+  /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/8_network_analyses_out/network_plots_final/clr/exWAS_LBDRPCR_Roche_HPV_linear_array_LA_summary_result_clr_network.pdf
+  /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/8_network_analyses_out/network_plots_final/clr/exWAS_LBX2DF_Blood_2_5_Dimethylfuran_ng_mL_clr_network.pdf
+  /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/8_network_analyses_out/network_plots_final/clr/exWAS_LBXBCD_Blood_cadmium_ug_L_clr_network.pdf
+  /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/8_network_analyses_out/network_plots_final/clr/exWAS_LBXBPB_Blood_lead_ug_dL_clr_network.pdf
+  /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/8_network_analyses_out/network_plots_final/clr/exWAS_LBXCOT_Cotinine_ng_mL_clr_network.pdf
+  /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/8_network_analyses_out/network_plots_final/clr/exWAS_LBXEPAH_2_N_Ethyl_perfluorooctane_sulfonamido_acetic_acid_clr_network.pdf
+  /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/8_network_analyses_out/network_plots_final/clr/exWAS_LBXHA_Hepatitis_A_Antibody_clr_network.pdf
+  /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/8_network_analyses_out/network_plots_final/clr/exWAS_LBXHE1_Herpes_Simplex_Virus_I_clr_network.pdf
+  /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/8_network_analyses_out/network_plots_final/clr/exWAS_LBXHE2_Herpes_Simplex_Virus_II_clr_network.pdf
+  /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/8_network_analyses_out/network_plots_final/clr/exWAS_LBXPFSA_Perfluorooctane_sulfonamide_clr_network.pdf
+  /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/8_network_analyses_out/network_plots_final/clr/exWAS_LBXTTG_Tissue_transglutaminase_IgA_TTG_clr_network.pdf
+  /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/8_network_analyses_out/network_plots_final/clr/exWAS_LBXV06_Blood_Hexane_ng_mL_clr_network.pdf
+  /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/8_network_analyses_out/network_plots_final/clr/exWAS_LBXV1D_Blood_1_2_Dichlorobenzene_ng_mL_clr_network.pdf
+  /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/8_network_analyses_out/network_plots_final/clr/exWAS_LBXV2A_Blood_1_2_Dichloroethane_ng_mL_clr_network.pdf
+  /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/8_network_analyses_out/network_plots_final/clr/exWAS_LBXV2T_Blood_trans_1_2_Dichloroethene_ng_mL_clr_network.pdf
+  /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/8_network_analyses_out/network_plots_final/clr/exWAS_LBXV3B_Blood_1_3_Dichlorobenzene_ng_mL_clr_network.pdf
+  /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/8_network_analyses_out/network_plots_final/clr/exWAS_LBXV4E_Blood_1_1_2_2_Tetrachloroethane_ng_mL_clr_network.pdf
+  /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/8_network_analyses_out/network_plots_final/clr/exWAS_LBXVBZ_Blood_Benzene_ng_mL_clr_network.pdf
+  /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/8_network_analyses_out/network_plots_final/clr/exWAS_LBXVCB_Blood_Chlorobenzene_ng_mL_clr_network.pdf
+  /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/8_network_analyses_out/network_plots_final/clr/exWAS_LBXVCT_Blood_Carbon_Tetrachloride_ng_mL_clr_network.pdf
+  /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/8_network_analyses_out/network_plots_final/clr/exWAS_LBXVDM_Blood_Dibromomethane_ng_mL_clr_network.pdf
+  /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/8_network_analyses_out/network_plots_final/clr/exWAS_LBXVEB_Blood_Ethylbenzene_ng_mL_clr_network.pdf
+  /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/8_network_analyses_out/network_plots_final/clr/exWAS_LBXVFN_Blood_Furan_ng_mL_clr_network.pdf
+  /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/8_network_analyses_out/network_plots_final/clr/exWAS_LBXVHE_Blood_Hexachloroethane_ng_mL_clr_network.pdf
+  /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/8_network_analyses_out/network_plots_final/clr/exWAS_LBXVMC_Blood_Methylene_Chloride_ng_mL_clr_network.pdf
+  /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/8_network_analyses_out/network_plots_final/clr/exWAS_LBXVTC_Blood_Trichloroethene_ng_mL_clr_network.pdf
+  /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/8_network_analyses_out/network_plots_final/clr/exWAS_LBXVXY_Blood_m_p_Xylene_ng_mL_clr_network.pdf
+  /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/8_network_analyses_out/network_plots_final/clr/exWAS_ORXHPV_Oral_HPV_Result_clr_network.pdf
+  /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/8_network_analyses_out/network_plots_final/clr/exWAS_SMQ_current_ever_never_Smoking_current_ever_never_clr_network.pdf
+  /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/8_network_analyses_out/network_plots_final/clr/exWAS_SMQ710_During_the_past_5_days_including_today_on_how_many_days_did_you_he_she_clr_network.pdf
+  /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/8_network_analyses_out/network_plots_final/clr/exWAS_SMQ725_When_did_you_he_she_smoke_your_his_her_last_cigarette_Was_it_clr_network.pdf
+  /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/8_network_analyses_out/network_plots_final/clr/exWAS_URX1DC_N_Acetyl_S_1_2_dichlorovinyl_L_Cysteine_ng_mL_clr_network.pdf
+  /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/8_network_analyses_out/network_plots_final/clr/exWAS_URXCOP_Mono_carboxyoctyl_Phthalate_ng_mL_clr_network.pdf
+  /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/8_network_analyses_out/network_plots_final/clr/exWAS_URXDCB_2_4_dichlorophenol_ug_L_result_clr_network.pdf
+  /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/8_network_analyses_out/network_plots_final/clr/exWAS_URXMIB_Mono_isobutyl_phthalate_clr_network.pdf
+  /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/8_network_analyses_out/network_plots_final/clr/exWAS_URXMNM_Mono_n_methyl_phthalate_clr_network.pdf
+  /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/8_network_analyses_out/network_plots_final/clr/exWAS_URXMU4_1_3_dimethyluric_acid_umol_L_clr_network.pdf
+  /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/8_network_analyses_out/network_plots_final/clr/exWAS_URXMX4_1_3_dimethylxanthine_theophylline_umol_L_clr_network.pdf
+  /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/8_network_analyses_out/network_plots_final/clr/exWAS_URXP01_1_hydroxynaphthalene_ng_L_clr_network.pdf
+  /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/8_network_analyses_out/network_plots_final/clr/exWAS_URXP02_2_hydroxynaphthalene_ng_L_clr_network.pdf
+  /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/8_network_analyses_out/network_plots_final/clr/exWAS_URXP03_3_hydroxyfluorene_ng_L_clr_network.pdf
+  /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/8_network_analyses_out/network_plots_final/clr/exWAS_URXP04_2_hydroxyfluorene_ng_L_clr_network.pdf
+  /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/8_network_analyses_out/network_plots_final/clr/exWAS_URXP05_3_hydroxyphenanthrene_ng_L_clr_network.pdf
+  /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/8_network_analyses_out/network_plots_final/clr/exWAS_URXP07_2_hydroxyphenanthrene_ng_L_clr_network.pdf
+  /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/8_network_analyses_out/network_plots_final/clr/exWAS_URXP10_1_hydroxypyrene_ng_L_clr_network.pdf
+  /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/8_network_analyses_out/network_plots_final/clr/exWAS_URXUAC_Urinary_Arsenocholine_ug_L_clr_network.pdf
+  /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/8_network_analyses_out/network_plots_final/clr/exWAS_URXUBA_Barium_urine_ug_L_clr_network.pdf
+  /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/8_network_analyses_out/network_plots_final/clr/exWAS_URXUCL_Urinary_Chlamydia_clr_network.pdf
+  /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/8_network_analyses_out/network_plots_final/clr/oradWAS_DENTURE_OHAROCDE_Denture_clr_network.pdf
+  /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/8_network_analyses_out/network_plots_final/clr/oradWAS_GUM_DISEASE_OHAROCGP_Gum_Disease_clr_network.pdf
+  /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/8_network_analyses_out/network_plots_final/clr/oradWAS_ORAL_HYGIENE_OHAROCOH_Oral_Hygiene_clr_network.pdf
+  /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/8_network_analyses_out/network_plots_final/clr/oradWAS_TOOTH_DECAY_OHAROCDT_Tooth_Decay_clr_network.pdf
+  /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/8_network_analyses_out/network_plots_final/clr/outWAS_EMPHYSEMA_EMPHYSEMA_MCQ_clr_network.pdf
+  /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/8_network_analyses_out/network_plots_final/none/ALL_none_network_booklet.pdf
+  /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/8_network_analyses_out/network_plots_final/none/demoWAS_AGE_SQUARED_Age_squared_RIDAGEYR_none_network.pdf
+  /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/8_network_analyses_out/network_plots_final/none/demoWAS_BORN_INUSA_Born_in_USA_DMDBORN4_1_none_network.pdf
+  /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/8_network_analyses_out/network_plots_final/none/demoWAS_EDUCATION_9_11_Edu_9_11th_grade_DMDEDUC2_2_none_network.pdf
+  /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/8_network_analyses_out/network_plots_final/none/demoWAS_EDUCATION_COLLEGEGRAD_Edu_college_grad_above_DMDEDUC2_5_none_network.pdf
+  /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/8_network_analyses_out/network_plots_final/none/demoWAS_EDUCATION_LESS9_Edu_9th_grade_DMDEDUC2_1_none_network.pdf
+  /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/8_network_analyses_out/network_plots_final/none/demoWAS_ETHNICITY_MEXICAN_Mexican_American_RIDRETH1_1_none_network.pdf
+  /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/8_network_analyses_out/network_plots_final/none/demoWAS_ETHNICITY_NONHISPANICBLACK_Non_Hispanic_Black_RIDRETH1_4_none_network.pdf
+  /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/8_network_analyses_out/network_plots_final/none/demoWAS_ETHNICITY_OTHER_Other_race_multi_racial_RIDRETH1_5_none_network.pdf
+  /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/8_network_analyses_out/network_plots_final/none/demoWAS_ETHNICITY_OTHERHISPANIC_Other_Hispanic_RIDRETH1_2_none_network.pdf
+  /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/8_network_analyses_out/network_plots_final/none/demoWAS_INDFMPIR_A_ratio_of_family_income_to_poverty_threshold_none_network.pdf
+  /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/8_network_analyses_out/network_plots_final/none/demoWAS_RIAGENDR_Gender_of_the_sample_person_none_network.pdf
+  /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/8_network_analyses_out/network_plots_final/none/demoWAS_RIDAGEYR_Best_age_in_years_of_the_sample_person_at_time_of_HH_screening_Individual_none_network.pdf
+  /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/8_network_analyses_out/network_plots_final/none/exWAS_DR1TSUGR_Total_sugars_gm_none_network.pdf
+  /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/8_network_analyses_out/network_plots_final/none/exWAS_DS1DSCNT_Total_of_Dietary_Supplements_Taken_none_network.pdf
+  /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/8_network_analyses_out/network_plots_final/none/exWAS_DSQTSELE_Selenium_mcg_none_network.pdf
+  /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/8_network_analyses_out/network_plots_final/none/exWAS_LBDHD_Hepatitis_D_anti_HDV_none_network.pdf
+  /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/8_network_analyses_out/network_plots_final/none/exWAS_LBX2DF_Blood_2_5_Dimethylfuran_ng_mL_none_network.pdf
+  /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/8_network_analyses_out/network_plots_final/none/exWAS_LBXBCD_Blood_cadmium_ug_L_none_network.pdf
+  /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/8_network_analyses_out/network_plots_final/none/exWAS_LBXCOT_Cotinine_ng_mL_none_network.pdf
+  /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/8_network_analyses_out/network_plots_final/none/exWAS_LBXHA_Hepatitis_A_Antibody_none_network.pdf
+  /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/8_network_analyses_out/network_plots_final/none/exWAS_LBXV1D_Blood_1_2_Dichlorobenzene_ng_mL_none_network.pdf
+  /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/8_network_analyses_out/network_plots_final/none/exWAS_LBXV4E_Blood_1_1_2_2_Tetrachloroethane_ng_mL_none_network.pdf
+  /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/8_network_analyses_out/network_plots_final/none/exWAS_LBXVBZ_Blood_Benzene_ng_mL_none_network.pdf
+  /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/8_network_analyses_out/network_plots_final/none/exWAS_LBXVCT_Blood_Carbon_Tetrachloride_ng_mL_none_network.pdf
+  /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/8_network_analyses_out/network_plots_final/none/exWAS_LBXVFN_Blood_Furan_ng_mL_none_network.pdf
+  /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/8_network_analyses_out/network_plots_final/none/exWAS_LBXVHE_Blood_Hexachloroethane_ng_mL_none_network.pdf
+  /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/8_network_analyses_out/network_plots_final/none/exWAS_SMQ_current_ever_never_Smoking_current_ever_never_none_network.pdf
+  /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/8_network_analyses_out/network_plots_final/none/exWAS_URXDHD_Desethyl_hydroxy_DEET_ug_L_none_network.pdf
+  /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/8_network_analyses_out/network_plots_final/none/exWAS_URXMNM_Mono_n_methyl_phthalate_none_network.pdf
+  /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/8_network_analyses_out/network_plots_final/none/exWAS_URXMX4_1_3_dimethylxanthine_theophylline_umol_L_none_network.pdf
+  /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/8_network_analyses_out/network_plots_final/none/exWAS_URXP01_1_hydroxynaphthalene_ng_L_none_network.pdf
+  /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/8_network_analyses_out/network_plots_final/none/exWAS_URXP03_3_hydroxyfluorene_ng_L_none_network.pdf
+  /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/8_network_analyses_out/network_plots_final/none/exWAS_URXP04_2_hydroxyfluorene_ng_L_none_network.pdf
+  /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/8_network_analyses_out/network_plots_final/none/oradWAS_DENTURE_OHAROCDE_Denture_none_network.pdf
+  /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/8_network_analyses_out/network_plots_final/none/oradWAS_GUM_DISEASE_OHAROCGP_Gum_Disease_none_network.pdf
+  /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/8_network_analyses_out/network_plots_final/none/oradWAS_ORAL_HYGIENE_OHAROCOH_Oral_Hygiene_none_network.pdf
+  /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/8_network_analyses_out/network_plots_final/none/oradWAS_TOOTH_DECAY_OHAROCDT_Tooth_Decay_none_network.pdf
+  /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/8_network_analyses_out/network_plots_final/none/outWAS_ANGINA_ANGINA_MCQ_none_network.pdf
+  /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/8_network_analyses_out/network_plots_final/none/outWAS_BRONCHITIS_BRONCHITIS_MCQ_none_network.pdf
+  /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/8_network_analyses_out/network_plots_final/none/outWAS_CANCER_BREAST_CANCER_BREAST_MCQ_none_network.pdf
+  /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/8_network_analyses_out/network_plots_final/none/outWAS_CHD_CHD_MCQ_none_network.pdf
+  /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/8_network_analyses_out/network_plots_final/none/outWAS_CVD_CVD_MCQ_none_network.pdf
+  /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/8_network_analyses_out/network_plots_final/none/outWAS_EMPHYSEMA_EMPHYSEMA_MCQ_none_network.pdf
+  /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/8_network_analyses_out/network_plots_final/none/outWAS_HEART_ATTACK_HEART_ATTACK_MCQ_none_network.pdf
+  /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/8_network_analyses_out/network_plots_final/none/outWAS_STROKE_STROKE_MCQ_none_network.pdf
+  /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/8_network_analyses_out/network_plots_final/none/pheWAS_BMXARMC_Arm_Circumference_cm_none_network.pdf
+  /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/8_network_analyses_out/network_plots_final/none/pheWAS_BMXARML_Upper_Arm_Length_cm_none_network.pdf
+  /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/8_network_analyses_out/network_plots_final/none/pheWAS_BMXBMI_Body_Mass_Index_kg_m_2_none_network.pdf
+  /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/8_network_analyses_out/network_plots_final/none/pheWAS_BMXHT_Standing_Height_cm_none_network.pdf
+  /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/8_network_analyses_out/network_plots_final/none/pheWAS_BMXWAIST_Waist_Circumference_cm_none_network.pdf
+  /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/8_network_analyses_out/network_plots_final/none/pheWAS_BMXWT_Weight_kg_none_network.pdf
+  /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/8_network_analyses_out/network_plots_final/none/pheWAS_BPXPLS_60_sec_pulse_30_sec_pulse_2_none_network.pdf
+  /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/8_network_analyses_out/network_plots_final/none/pheWAS_ENXMEAN_Mean_of_two_reproducible_FENO_measurements_in_parts_per_billion_none_network.pdf
+  /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/8_network_analyses_out/network_plots_final/none/pheWAS_LBDBANO_Basophils_number_1000_cells_uL_none_network.pdf
+  /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/8_network_analyses_out/network_plots_final/none/pheWAS_LBDEONO_Eosinophils_number_1000_cells_uL_none_network.pdf
+  /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/8_network_analyses_out/network_plots_final/none/pheWAS_LBDLYMNO_Lymphocyte_number_1000_cells_uL_none_network.pdf
+  /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/8_network_analyses_out/network_plots_final/none/pheWAS_LBDNENO_Segmented_neutrophils_num_1000_cell_uL_none_network.pdf
+  /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/8_network_analyses_out/network_plots_final/none/pheWAS_LBXGH_Glycohemoglobin_none_network.pdf
+  /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/8_network_analyses_out/network_plots_final/none/pheWAS_LBXGLT_Two_Hour_Glucose_OGTT_mg_dL_none_network.pdf
+  /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/8_network_analyses_out/network_plots_final/none/pheWAS_LBXHCT_Hematocrit_none_network.pdf
+  /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/8_network_analyses_out/network_plots_final/none/pheWAS_LBXHGB_Hemoglobin_g_dL_none_network.pdf
+  /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/8_network_analyses_out/network_plots_final/none/pheWAS_LBXIN_Insulin_uU_mL_none_network.pdf
+  /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/8_network_analyses_out/network_plots_final/none/pheWAS_LBXLYPCT_Lymphocyte_percent_none_network.pdf
+  /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/8_network_analyses_out/network_plots_final/none/pheWAS_LBXMCHSI_Mean_cell_hemoglobin_pg_none_network.pdf
+  /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/8_network_analyses_out/network_plots_final/none/pheWAS_LBXMCVSI_Mean_cell_volume_fL_none_network.pdf
+  /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/8_network_analyses_out/network_plots_final/none/pheWAS_LBXMOPCT_Monocyte_percent_none_network.pdf
+  /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/8_network_analyses_out/network_plots_final/none/pheWAS_LBXMPSI_Mean_platelet_volume_fL_none_network.pdf
+  /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/8_network_analyses_out/network_plots_final/none/pheWAS_LBXNEPCT_Segmented_neutrophils_percent_none_network.pdf
+  /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/8_network_analyses_out/network_plots_final/none/pheWAS_LBXPLTSI_Platelet_count_1000_cells_uL_none_network.pdf
+  /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/8_network_analyses_out/network_plots_final/none/pheWAS_LBXRBCSI_Red_blood_cell_count_million_cells_uL_none_network.pdf
+  /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/8_network_analyses_out/network_plots_final/none/pheWAS_LBXRDW_Red_cell_distribution_width_none_network.pdf
+  /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/8_network_analyses_out/network_plots_final/none/pheWAS_LBXSAL_Albumin_g_dL_none_network.pdf
+  /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/8_network_analyses_out/network_plots_final/none/pheWAS_LBXSAPSI_Alkaline_phosphotase_U_L_none_network.pdf
+  /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/8_network_analyses_out/network_plots_final/none/pheWAS_LBXSATSI_Alanine_aminotransferase_ALT_U_L_none_network.pdf
+  /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/8_network_analyses_out/network_plots_final/none/pheWAS_LBXSBU_Blood_urea_nitrogen_mg_dL_none_network.pdf
+  /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/8_network_analyses_out/network_plots_final/none/pheWAS_LBXSC3SI_Bicarbonate_mmol_L_none_network.pdf
+  /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/8_network_analyses_out/network_plots_final/none/pheWAS_LBXSCA_Total_calcium_mg_dL_none_network.pdf
+  /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/8_network_analyses_out/network_plots_final/none/pheWAS_LBXSCLSI_Chloride_mmol_L_none_network.pdf
+  /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/8_network_analyses_out/network_plots_final/none/pheWAS_LBXSCR_Creatinine_mg_dL_none_network.pdf
+  /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/8_network_analyses_out/network_plots_final/none/pheWAS_LBXSGB_Globulin_g_dL_none_network.pdf
+  /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/8_network_analyses_out/network_plots_final/none/pheWAS_LBXSGL_Glucose_serum_mg_dL_none_network.pdf
+  /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/8_network_analyses_out/network_plots_final/none/pheWAS_LBXSGTSI_Gamma_glutamyl_transferase_U_L_none_network.pdf
+  /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/8_network_analyses_out/network_plots_final/none/pheWAS_LBXSIR_Iron_refigerated_ug_dL_none_network.pdf
+  /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/8_network_analyses_out/network_plots_final/none/pheWAS_LBXSKSI_Potassium_mmol_L_none_network.pdf
+  /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/8_network_analyses_out/network_plots_final/none/pheWAS_LBXSLDSI_Lactate_dehydrogenase_U_L_none_network.pdf
+  /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/8_network_analyses_out/network_plots_final/none/pheWAS_LBXSNASI_Sodium_mmol_L_none_network.pdf
+  /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/8_network_analyses_out/network_plots_final/none/pheWAS_LBXSOSSI_Osmolality_mmol_Kg_none_network.pdf
+  /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/8_network_analyses_out/network_plots_final/none/pheWAS_LBXSPH_Phosphorus_mg_dL_none_network.pdf
+  /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/8_network_analyses_out/network_plots_final/none/pheWAS_LBXSTB_Total_bilirubin_mg_dL_none_network.pdf
+  /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/8_network_analyses_out/network_plots_final/none/pheWAS_LBXSTP_Total_protein_g_dL_none_network.pdf
+  /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/8_network_analyses_out/network_plots_final/none/pheWAS_LBXSTR_Triglycerides_mg_dL_none_network.pdf
+  /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/8_network_analyses_out/network_plots_final/none/pheWAS_LBXSUA_Uric_acid_mg_dL_none_network.pdf
+  /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/8_network_analyses_out/network_plots_final/none/pheWAS_LBXT3F_Triiodothyronine_T3_free_pg_mL_none_network.pdf
+  /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/8_network_analyses_out/network_plots_final/none/pheWAS_LBXTGN_Thyroglobulin_ng_mL_none_network.pdf
+  /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/8_network_analyses_out/network_plots_final/none/pheWAS_LBXTR_Triglyceride_mg_dL_none_network.pdf
+  /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/8_network_analyses_out/network_plots_final/none/pheWAS_LBXTSH1_Thyroid_stimulating_hormone_uIU_mL_none_network.pdf
+  /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/8_network_analyses_out/network_plots_final/none/pheWAS_LBXTT3_Triiodothyronine_T3_total_ng_dL_none_network.pdf
+  /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/8_network_analyses_out/network_plots_final/none/pheWAS_LBXTT4_Thyroxine_total_T4_ug_dL_none_network.pdf
+  /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/8_network_analyses_out/network_plots_final/none/pheWAS_LBXWBCSI_White_blood_cell_count_SI_none_network.pdf
+  /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/8_network_analyses_out/network_plots_final/none/pheWAS_SPXNFVC_Baseline_1st_Test_Spirometry_Forced_Vital_Capacity_in_mL_none_network.pdf
+  /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/8_network_analyses_out/network_plots_final/none/pheWAS_URXUCR_Creatinine_urine_mg_dL_none_network.pdf
+  /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/8_network_analyses_out/network_plots_final/none/pheWAS_URXUIO_Iodine_urine_ug_L_none_network.pdf
+  /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/8_network_analyses_out/network_plots_final/none/pheWAS_URXUMA_Albumin_urine_ug_mL_none_network.pdf
+════════════════════════════════════════
+
+Attaching package: ‘igraph’
+
+The following objects are masked from ‘package:stats’:
+
+    decompose, spectrum
+
+The following object is masked from ‘package:base’:
+
+    union
+
+Loading required package: ggplot2
+Warning messages:
+1: package ‘ggraph’ was built under R version 4.5.2 
+2: package ‘ggplot2’ was built under R version 4.5.3 
+Warning message:
+package ‘ggrepel’ was built under R version 4.5.3 
+
+Attaching package: ‘dplyr’
+
+The following objects are masked from ‘package:igraph’:
+
+    as_data_frame, groups, union
+
+The following objects are masked from ‘package:stats’:
+
+    filter, lag
+
+The following objects are masked from ‘package:base’:
+
+    intersect, setdiff, setequal, union
+
+Warning message:
+package ‘dplyr’ was built under R version 4.5.3 
+
+Attaching package: ‘tidyr’
+
+The following object is masked from ‘package:igraph’:
+
+    crossing
+
+Warning message:
+package ‘tidyr’ was built under R version 4.5.2 
+Warning message:
+package ‘stringr’ was built under R version 4.5.2 
+
+Attaching package: ‘purrr’
+
+The following objects are masked from ‘package:igraph’:
+
+    compose, simplify
+
+Warning message:
+package ‘purrr’ was built under R version 4.5.3 
+
+Attaching package: ‘gridExtra’
+
+The following object is masked from ‘package:dplyr’:
+
+    combine
+
+Registering fonts with R
+
+Attaching package: ‘scales’
+
+The following object is masked from ‘package:purrr’:
+
+    discard
+
+
+Attaching package: ‘rlang’
+
+The following objects are masked from ‘package:purrr’:
+
+    flatten, flatten_chr, flatten_dbl, flatten_int, flatten_lgl,
+    flatten_raw, invoke, splice
+
+The following object is masked from ‘package:igraph’:
+
+    is_named
+
+Warning message:
+package ‘rlang’ was built under R version 4.5.3 
+Processing group: Respiratory_diseases (none)
+  [done] Saved /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/8_network_analyses_out/group_networks/none/Respiratory_diseases_none_network.pdf
+Processing group: Respiratory_diseases (clr)
+  [warn] Host variables not found for Respiratory_diseases (clr): BRONCHITIS_BRONCHITIS_MCQ
+  [done] Saved /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/8_network_analyses_out/group_networks/clr/Respiratory_diseases_clr_network.pdf
+Warning messages:
+1: Use of .data in tidyselect expressions was deprecated in tidyselect 1.2.0.
+ℹ Please use `"host_var_orig"` instead of `.data$host_var_orig` 
+2: In grid.Call.graphics(C_text, as.graphicsAnnot(x$label), x$x, x$y,  :
+  for '13 OTUs • 78 edges cases≈2,096' in 'mbcsToSbcs': . substituted for • (U+2022)
+3: In grid.Call.graphics(C_text, as.graphicsAnnot(x$label), x$x, x$y,  :
+  conversion failure on '13 OTUs • 78 edges cases≈2,096' in 'mbcsToSbcs': for ≈ (U+2248)
+4: In grid.Call.graphics(C_text, as.graphicsAnnot(x$label), x$x, x$y,  :
+  for 'Respiratory diseases — outWAS (none)' in 'mbcsToSbcs': - substituted for — (U+2014)
+5: In grid.Call.graphics(C_text, as.graphicsAnnot(x$label), x$x, x$y,  :
+  for '6 OTUs • 15 edges cases≈1,680' in 'mbcsToSbcs': . substituted for • (U+2022)
+6: In grid.Call.graphics(C_text, as.graphicsAnnot(x$label), x$x, x$y,  :
+  conversion failure on '6 OTUs • 15 edges cases≈1,680' in 'mbcsToSbcs': for ≈ (U+2248)
+7: In grid.Call.graphics(C_text, as.graphicsAnnot(x$label), x$x, x$y,  :
+  for 'Respiratory diseases — outWAS (clr)' in 'mbcsToSbcs': - substituted for — (U+2014)

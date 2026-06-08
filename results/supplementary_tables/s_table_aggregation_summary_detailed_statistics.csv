@@ -1,0 +1,21 @@
+analysis_type,normalization,total_files,successful_files,tidied_rows,glanced_rows,rsq_rows,total_tests,dependent_vars,avg_tests_per_depvar,fdr_level,correction_method
+1_demoWAS,clr,1349,1349,35074,17537,17537,17537,1349,13,NA,Storey's q-value
+1_demoWAS,hellinger,1349,1349,35074,17537,17537,16479,1269,13,NA,Storey's q-value
+1_demoWAS,lognorm,1349,1349,35074,17537,17537,17537,1349,13,NA,Storey's q-value
+1_demoWAS,none,1349,1349,35074,17537,17537,16479,1269,13,NA,Storey's q-value
+2_oradWAS,clr,4,4,80940,5396,5396,5396,4,1349,NA,Storey's q-value
+2_oradWAS,hellinger,4,4,80186,5396,5396,4642,4,1160.5,NA,Storey's q-value
+2_oradWAS,lognorm,4,4,80940,5396,5396,5396,4,1349,NA,Storey's q-value
+2_oradWAS,none,4,4,80186,5396,5396,4642,4,1160.5,NA,Storey's q-value
+3_exWAS,clr,1349,1349,9541477,636728,636728,638077,1349,473,NA,Storey's q-value
+3_exWAS,hellinger,1349,1349,9541477,636728,636728,468080,1251,374.2,NA,Storey's q-value
+3_exWAS,lognorm,1349,1349,9541477,636728,636728,638077,1349,473,NA,Storey's q-value
+3_exWAS,none,1349,1349,9541477,636728,636728,468080,1251,374.2,NA,Storey's q-value
+4_pheWAS,clr,133,133,2683161,179417,179417,179417,133,1349,NA,Storey's q-value
+4_pheWAS,hellinger,133,133,2650337,179417,179417,146593,133,1102.2,NA,Storey's q-value
+4_pheWAS,lognorm,133,133,2683161,179417,179417,179417,133,1349,NA,Storey's q-value
+4_pheWAS,none,133,133,2650337,179417,179417,146593,133,1102.2,NA,Storey's q-value
+5_outWAS,clr,16,16,323760,21584,21584,21584,16,1349,NA,Storey's q-value
+5_outWAS,hellinger,16,16,321364,21584,21584,19188,16,1199.2,NA,Storey's q-value
+5_outWAS,lognorm,16,16,323760,21584,21584,21584,16,1349,NA,Storey's q-value
+5_outWAS,none,16,16,321364,21584,21584,19188,16,1199.2,NA,Storey's q-value

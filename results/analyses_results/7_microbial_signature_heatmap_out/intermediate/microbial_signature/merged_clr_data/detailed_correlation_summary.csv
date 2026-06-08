@@ -1,0 +1,2 @@
+"Dataset","Analysis_Type","Transformation","Total_Variables","Total_Signature_Rows","Unique_Microbes","N_Valid_Correlations","N_Significant_005","N_Significant_001","Max_Abs_Correlation","Min_Correlation","Max_Correlation","Median_N_Shared","Median_N_Effective"
+"allWAS_clr_all_results","merged","clr",613,137751,219,187578,75972,56884,1,-0.993,1,219,219

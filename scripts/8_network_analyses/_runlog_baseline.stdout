@@ -1,0 +1,1814 @@
+=== STEP 1: 1_load_all_categories.R ===
+=== NETWORK ANALYSIS - DATA LOADING ===
+Paths configured:
+  Database: /n/groups/patel/terry/nhanes_oral_mirco_cho/data/00_nhanes_omp_transformed_db/nhanes_oral_transformed_complete_processed.sqlite 
+  Phyloseq objects: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/02_preprocess_db_n_phyloseq_out/intermediate 
+  Config files: /n/groups/patel/terry/nhanes_oral_mirco_cho/configs 
+  Association results: /n/groups/patel/terry/nhanes_oral_mirco_cho/results 
+  Output data: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/8_network_analyses_out/intermediate 
+
+[done] All required files found
+
+Database connected. Available tables: 1470 
+Loading variable configuration files...
+Variables loaded:
+   demoWAS : 13 variables
+   oradWAS : 4 variables
+   exWAS : 473 variables
+   pheWAS : 133 variables
+   outWAS : 16 variables
+
+Loading database tables...
+  Table descriptions: 231 tables
+  Variable descriptions: 44077 variables
+
+Loading phyloseq objects...
+  [done] Loaded ubiome_counts - Samples: 9847 Taxa: 1349 
+  [done] Loaded ubiome_relative - Samples: 9847 Taxa: 1349 
+  [done] Loaded ubiome_relative_none - Samples: 9847 Taxa: 1349 
+  [done] Loaded ubiome_relative_clr - Samples: 9847 Taxa: 1349 
+  [done] Loaded ubiome_relative_hellinger - Samples: 9847 Taxa: 1349 
+  [done] Loaded ubiome_relative_lognorm - Samples: 9847 Taxa: 1349 
+
+Rebuilding sample metadata...
+  Retrieving variables for 639 fields...
+  [done] Retrieved 639 variables
+
+Loading association results...
+Association results loaded:
+  demoWAS none: 35074 rows
+  demoWAS clr: 35074 rows
+  oradWAS none: 80186 rows
+  oradWAS clr: 80940 rows
+  exWAS none: 9541477 rows
+  exWAS clr: 9541477 rows
+  pheWAS none: 2650337 rows
+  pheWAS clr: 2683161 rows
+  outWAS none: 321364 rows
+  outWAS clr: 323760 rows
+
+Computing binary case-balance filters...
+  oradWAS variables passing case threshold: 4 
+  outWAS variables passing case threshold: 12 
+
+Processing prevalence threshold...
+  Total samples: 9847 
+  Prevalence threshold: 0.01 
+  OTUs passing threshold: 219 
+
+Processing significant results...
+   demoWAS_none_sig_res : 358 significant associations
+   demoWAS_clr_sig_res : 895 significant associations
+   oradWAS_none_sig_res : 118 significant associations
+   oradWAS_clr_sig_res : 229 significant associations
+   exWAS_none_sig_res : 249 significant associations
+   exWAS_clr_sig_res : 1569 significant associations
+   pheWAS_none_sig_res : 1576 significant associations
+   pheWAS_clr_sig_res : 5 significant associations
+   outWAS_none_sig_res : 213 significant associations
+   outWAS_clr_sig_res : 10 significant associations
+
+Saving processed data...
+[done] Data saved to: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/8_network_analyses_out/intermediate 
+
+=== DATA LOADING COMPLETE ===
+Ready for network analysis!
+
+=== STEP 2: 2_network.R ===
+=== MICROBIAL ASSOCIATION NETWORK ANALYSIS ===
+ [1] "dependent_var"     "independent_var"   "feature_id"       
+ [4] "phenotype"         "otu_clean"         "estimate"         
+ [7] "otu"               "otu1"              "otu2"             
+[10] "est1"              "est2"              "pct_positive"     
+[13] "same_direction"    "both_positive"     "both_negative"    
+[16] "agreement_score"   "Phylum"            "Genus"            
+[19] "parsed_genus"      "layout_weight"     "visual_weight"    
+[22] "edge_color"        "edge_colour_value" "edge_width_value" 
+[25] "final_phylum"      "final_genus"       "node_size"        
+[28] "genus_label"       "node_phylum"       "node_size_value"  
+[31] "node_label_value" 
+Configuration:
+  Transformations: none, clr 
+  Alpha threshold: 0.05 
+  Min shared traits: 2 
+  Min prevalence: 0.1 
+  Output path: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/8_network_analyses_out 
+
+Loading data...
+  [done] Loaded phyloseq objects: 6 
+  [done] Loaded significant results: 10 
+  [done] Loaded variable descriptions: 44077 
+  [done] Loaded prevalence list: 219 OTUs
+  [done] Loaded variable groups: 5 groups
+  [done] Loaded sample-data subsets: 5 datasets
+  [done] Loaded genus mapping rows: 1349 
+
+Color schemes defined:
+  Phylum colors: 17 colors
+  Edge colors: 11 colors
+
+Helper functions defined
+Network analysis functions defined
+=== STARTING NETWORK ANALYSIS ===
+
+Processing none transformation...
+  Variables to analyze: RIDAGEYR, AGE_SQUARED, RIAGENDR, INDFMPIR, EDUCATION_LESS9, EDUCATION_9_11, EDUCATION_AA, EDUCATION_COLLEGEGRAD, ETHNICITY_MEXICAN, ETHNICITY_OTHERHISPANIC, ETHNICITY_OTHER, ETHNICITY_NONHISPANICBLACK, BORN_INUSA 
+    Analyzing: RIDAGEYR ... 29 associations, 29 unique OTUs, 406 potential pairs, 406 valid edges [done] network created
+       -> Plot stored for RIDAGEYR 
+    Analyzing: AGE_SQUARED ... 27 associations, 27 unique OTUs, 351 potential pairs, 351 valid edges [done] network created
+       -> Plot stored for AGE_SQUARED 
+    Analyzing: RIAGENDR ... 15 associations, 15 unique OTUs, 105 potential pairs, 105 valid edges [done] network created
+       -> Plot stored for RIAGENDR 
+    Analyzing: INDFMPIR ... 32 associations, 32 unique OTUs, 496 potential pairs, 496 valid edges [done] network created
+       -> Plot stored for INDFMPIR 
+    Analyzing: EDUCATION_LESS9 ... 10 associations, 10 unique OTUs, 45 potential pairs, 45 valid edges [done] network created
+       -> Plot stored for EDUCATION_LESS9 
+    Analyzing: EDUCATION_9_11 ... 5 associations, 5 unique OTUs, 10 potential pairs, 10 valid edges [done] network created
+       -> Plot stored for EDUCATION_9_11 
+    Analyzing: EDUCATION_AA ... 0 associations - insufficient associations
+    Analyzing: EDUCATION_COLLEGEGRAD ... 29 associations, 29 unique OTUs, 406 potential pairs, 406 valid edges [done] network created
+       -> Plot stored for EDUCATION_COLLEGEGRAD 
+    Analyzing: ETHNICITY_MEXICAN ... 30 associations, 30 unique OTUs, 435 potential pairs, 435 valid edges [done] network created
+       -> Plot stored for ETHNICITY_MEXICAN 
+    Analyzing: ETHNICITY_OTHERHISPANIC ... 10 associations, 10 unique OTUs, 45 potential pairs, 45 valid edges [done] network created
+       -> Plot stored for ETHNICITY_OTHERHISPANIC 
+    Analyzing: ETHNICITY_OTHER ... 9 associations, 9 unique OTUs, 36 potential pairs, 36 valid edges [done] network created
+       -> Plot stored for ETHNICITY_OTHER 
+    Analyzing: ETHNICITY_NONHISPANICBLACK ... 21 associations, 21 unique OTUs, 210 potential pairs, 210 valid edges [done] network created
+       -> Plot stored for ETHNICITY_NONHISPANICBLACK 
+    Analyzing: BORN_INUSA ... 31 associations, 31 unique OTUs, 465 potential pairs, 465 valid edges [done] network created
+       -> Plot stored for BORN_INUSA 
+  -> Total plots created: 12 
+  Saving 12 plots for demoWAS 
+    Saving: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/8_network_analyses_out/network_plots_final/none/demoWAS_RIDAGEYR_Best_age_in_years_of_the_sample_person_at_time_of_HH_screening_Individual_none_network.pdf 
+    Saving: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/8_network_analyses_out/network_plots_final/none/demoWAS_AGE_SQUARED_Age_squared_RIDAGEYR_none_network.pdf 
+    Saving: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/8_network_analyses_out/network_plots_final/none/demoWAS_RIAGENDR_Gender_of_the_sample_person_none_network.pdf 
+    Saving: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/8_network_analyses_out/network_plots_final/none/demoWAS_INDFMPIR_A_ratio_of_family_income_to_poverty_threshold_none_network.pdf 
+    Saving: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/8_network_analyses_out/network_plots_final/none/demoWAS_EDUCATION_LESS9_Edu_9th_grade_DMDEDUC2_1_none_network.pdf 
+    Saving: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/8_network_analyses_out/network_plots_final/none/demoWAS_EDUCATION_9_11_Edu_9_11th_grade_DMDEDUC2_2_none_network.pdf 
+    Saving: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/8_network_analyses_out/network_plots_final/none/demoWAS_EDUCATION_COLLEGEGRAD_Edu_college_grad_above_DMDEDUC2_5_none_network.pdf 
+    Saving: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/8_network_analyses_out/network_plots_final/none/demoWAS_ETHNICITY_MEXICAN_Mexican_American_RIDRETH1_1_none_network.pdf 
+    Saving: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/8_network_analyses_out/network_plots_final/none/demoWAS_ETHNICITY_OTHERHISPANIC_Other_Hispanic_RIDRETH1_2_none_network.pdf 
+    Saving: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/8_network_analyses_out/network_plots_final/none/demoWAS_ETHNICITY_OTHER_Other_race_multi_racial_RIDRETH1_5_none_network.pdf 
+    Saving: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/8_network_analyses_out/network_plots_final/none/demoWAS_ETHNICITY_NONHISPANICBLACK_Non_Hispanic_Black_RIDRETH1_4_none_network.pdf 
+    Saving: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/8_network_analyses_out/network_plots_final/none/demoWAS_BORN_INUSA_Born_in_USA_DMDBORN4_1_none_network.pdf 
+  Variables to analyze: TOOTH_DECAY_OHAROCDT, GUM_DISEASE_OHAROCGP, ORAL_HYGIENE_OHAROCOH, DENTURE_OHAROCDE 
+    Analyzing: TOOTH_DECAY_OHAROCDT ... 16 associations, 16 unique OTUs, 120 potential pairs, 120 valid edges [done] network created
+       -> Plot stored for TOOTH_DECAY_OHAROCDT 
+    Analyzing: GUM_DISEASE_OHAROCGP ... 31 associations, 31 unique OTUs, 465 potential pairs, 465 valid edges [done] network created
+       -> Plot stored for GUM_DISEASE_OHAROCGP 
+    Analyzing: ORAL_HYGIENE_OHAROCOH ... 22 associations, 22 unique OTUs, 231 potential pairs, 231 valid edges [done] network created
+       -> Plot stored for ORAL_HYGIENE_OHAROCOH 
+    Analyzing: DENTURE_OHAROCDE ... 4 associations, 4 unique OTUs, 6 potential pairs, 6 valid edges [done] network created
+       -> Plot stored for DENTURE_OHAROCDE 
+  -> Total plots created: 4 
+  Saving 4 plots for oradWAS 
+    Saving: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/8_network_analyses_out/network_plots_final/none/oradWAS_TOOTH_DECAY_OHAROCDT_Tooth_Decay_none_network.pdf 
+    Saving: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/8_network_analyses_out/network_plots_final/none/oradWAS_GUM_DISEASE_OHAROCGP_Gum_Disease_none_network.pdf 
+    Saving: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/8_network_analyses_out/network_plots_final/none/oradWAS_ORAL_HYGIENE_OHAROCOH_Oral_Hygiene_none_network.pdf 
+    Saving: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/8_network_analyses_out/network_plots_final/none/oradWAS_DENTURE_OHAROCDE_Denture_none_network.pdf 
+  Variables to analyze: DR1TACAR, DR1TALCO, DR1TATOA, DR1TATOC, DR1TB12A, DR1TBCAR, DR1TCAFF, DR1TCALC, DR1TCARB, DR1TCHOL, DR1TCOPP, DR1TCRYP, DR1TFA, DR1TFDFE, DR1TFF, DR1TFIBE, DR1TFOLA, DR1TIRON, DR1TKCAL, DR1TLYCO, DR1TLZ, DR1TM161, DR1TM181, DR1TM201, DR1TM221, DR1TMAGN, DR1TMFAT, DR1TMOIS, DR1TNIAC, DR1TNUMF, DR1TP182, DR1TP183, DR1TP184, DR1TP204, DR1TP205, DR1TP225, DR1TP226, DR1TPFAT, DR1TPHOS, DR1TPOTA, DR1TPROT, DR1TRET, DR1TS040, DR1TS060, DR1TS080, DR1TS100, DR1TS120, DR1TS140, DR1TS160, DR1TS180, DR1TSELE, DR1TSFAT, DR1TSODI, DR1TSUGR, DR1TTFAT, DR1TTHEO, DR1TVARA, DR1TVB1, DR1TVB12, DR1TVB2, DR1TVB6, DR1TVC, DR1TVD, DR1TVK, DR1TZINC, DR2TACAR, DR2TALCO, DR2TATOA, DR2TATOC, DR2TB12A, DR2TBCAR, DR2TCAFF, DR2TCALC, DR2TCARB, DR2TCHL, DR2TCHOL, DR2TCOPP, DR2TCRYP, DR2TFA, DR2TFDFE, DR2TFF, DR2TFIBE, DR2TFOLA, DR2TIRON, DR2TKCAL, DR2TLYCO, DR2TLZ, DR2TM161, DR2TM181, DR2TM201, DR2TM221, DR2TMAGN, DR2TMFAT, DR2TMOIS, DR2TNIAC, DR2TNUMF, DR2TP182, DR2TP183, DR2TP184, DR2TP204, DR2TP205, DR2TP225, DR2TP226, DR2TPFAT, DR2TPHOS, DR2TPOTA, DR2TPROT, DR2TRET, DR2TS040, DR2TS060, DR2TS080, DR2TS100, DR2TS120, DR2TS140, DR2TS160, DR2TS180, DR2TSELE, DR2TSFAT, DR2TSODI, DR2TSUGR, DR2TTFAT, DR2TTHEO, DR2TVARA, DR2TVB1, DR2TVB12, DR2TVB2, DR2TVB6, DR2TVC, DR2TVD, DR2TVK, DR2TZINC, DS1DSCNT, DS1TCALC, DS1TCOPP, DS1TFA, DS1TFDFE, DS1TIRON, DS1TKCAL, DS1TMAGN, DS1TNIAC, DS1TPOTA, DS1TSELE, DS1TVB1, DS1TVB12, DS1TVB2, DS1TVB6, DS1TVC, DS1TVD, DS1TVK, DS1TZINC, DS2AN, DS2ANCNT, DS2DS, DS2DSCNT, DS2TCALC, DS2TCOPP, DS2TFA, DS2TFDFE, DS2TIRON, DS2TMAGN, DS2TNIAC, DS2TPOTA, DS2TSELE, DS2TVB1, DS2TVB12, DS2TVB2, DS2TVB6, DS2TVC, DS2TVD, DS2TVK, DS2TZINC, DS2TIODI, DS2TKCAL, DSQTCALC, DSQTCOPP, DSQTFA, DSQTFDFE, DSQTIRON, DSQTKCAL, DSQTMAGN, DSQTNIAC, DSQTPHOS, DSQTPOTA, DSQTSELE, DSQTVB1, DSQTVB12, DSQTVB2, DSQTVB6, DSQTVC, DSQTVD, DSQTVK, DSQTZINC, DSQTIODI, DSQTSUGR, LBDHBG, LBDHCV, LBDHD, LBDHEG, LBDHEM, LBDRPCR, LBDVWCGP, LBDB12SI, LBX06, LBX11, LBX16, LBX18, LBX2DF, LBX4CE, LBX4PA, LBXBCD, LBXBPB, LBXCOT, LBXEPAH, LBXHA, LBXHBC, LBXHBS, LBXHDT, LBXHE1, LBXHE2, LBXIHG, LBXMEA, LBXMPAH, LBXMUM, LBXNM, LBXOD1, LBXOD9, LBXOTT, LBXPFBS, LBXPFDE, LBXPFDO, LBXPFHP, LBXPFHS, LBXPFNA, LBXPFOA, LBXPFOS, LBXPFSA, LBXPFUA, LBXPLP, LBXRUB, LBXTHG, LBXTTG, LBXV06, LBXV1A, LBXV1D, LBXV1E, LBXV2A, LBXV2C, LBXV2E, LBXV2P, LBXV2T, LBXV3B, LBXV4C, LBXV4E, LBXVBF, LBXVBM, LBXVBZ, LBXVCB, LBXVCF, LBXVCM, LBXVCT, LBXVD2MS, LBXVD3MS, LBXVDB, LBXVDE, LBXVDM, LBXVDP, LBXVDX, LBXVE3MS, LBXVEB, LBXVFN, LBXVHE, LBXVIDMS, LBXVIPB, LBXVMC, LBXVME, LBXVNB, LBXVOX, LBXVST, LBXVTC, LBXVTE, LBXVTO, LBXVTP, LBXVXY, LBXALN, LBXAR1, LBXARA, LBXB12, LBXBGE, LBXBGM, LBXBMN, LBXBSE, LBXCAP, LBXDA1, LBXDHA, LBXDP3, LBXDP6, LBXDTA, LBXED1, LBXEN1, LBXEPA, LBXET1, LBXGLA, LBXHGL, LBXLAR, LBXLG1, LBXLNA, LBXML1, LBXMR1, LBXMRG, LBXNR1, LBXOL1, LBXPEN, LBXPL1, LBXPM1, LBXSD1, LBXST1, LBXTBN, LBXTSA, LBXVC1, URX14D, URX1TB, URX24D, URX25T, URX3TB, URX4FP, URX4TO, URXAMU, URXBP3, URXBPH, URXBUP, URXCB3, URXCNP, URXCOP, URXCPM, URXDAZ, URXDCB, URXDEA, URXDEE, URXDHD, URXDMA, URXECP, URXEPB, URXEQU, URXETD, URXETL, URXGNS, URXMAL, URXMBP, URXMC1, URXMCP, URXMEP, URXMHH, URXMHP, URXMIB, URXMNM, URXMNP, URXMOH, URXMOP, URXMPB, URXMU1, URXMU2, URXMU3, URXMU4, URXMU5, URXMU6, URXMU7, URXMX1, URXMX2, URXMX3, URXMX4, URXMX5, URXMX6, URXMX7, URXMZP, URXNAL, URXNO3, URXOPM, URXOPP, URXOXY, URXP01, URXP02, URXP03, URXP04, URXP05, URXP06, URXP07, URXP10, URXP17, URXPAR, URXPPB, URXSCN, URXTCC, URXTRS, URXUAB, URXUAC, URXUAS, URXUAS3, URXUAS5, URXUBA, URXUBE, URXUCD, URXUCL, URXUCO, URXUCS, URXUDMA, URXUHG, URXUMMA, URXUMO, URXUP8, URXUPB, URXUPT, URXUSB, URXUTL, URXUTM, URXUTU, URX1DC, URX2DC, URX2MH, URX34M, URXAAM, URXAMC, URXATC, URXBMA, URXBPM, URXCEM, URXCYM, URXDHB, URXDPM, URXGAM, URXHEM, URXHP2, URXHPM, URXMAD, URXMB1, URXMB2, URXMB3, URXMHNC, URXOP1, URXOP2, URXOP3, URXOP4, URXOP5, URXOP6, URXPHE, URXPHG, URXPMA, URXPMM, URXTCV, URXTTC, URXUMN, URXUSN, URXUSR, PAQ_recreation_moderate_met, PAQ_recreation_moderate_week, PAQ_recreation_vigorous_met, PAQ_recreation_vigorous_week, PAQ_total_met, PAQ_walk_met, PAQ_walk_week, PAQ_work_moderate_met, PAQ_work_moderate_week, PAQ_work_vigorous_met, PAQ_work_vigorous_week, SMQ710, SMQ720, SMQ725, SMQ_current_ever_never, SMQ_how_long_since_quit_years, SMD415, SMD415A, HOQ065, ORXHPV, PA_sedentary_activity_min_per_day 
+    Analyzing: DR1TACAR ... 0 associations - insufficient associations
+    Analyzing: DR1TALCO ... 0 associations - insufficient associations
+    Analyzing: DR1TATOA ... 0 associations - insufficient associations
+    Analyzing: DR1TATOC ... 0 associations - insufficient associations
+    Analyzing: DR1TB12A ... 0 associations - insufficient associations
+    Analyzing: DR1TBCAR ... 0 associations - insufficient associations
+    Analyzing: DR1TCAFF ... 0 associations - insufficient associations
+    Analyzing: DR1TCALC ... 0 associations - insufficient associations
+    Analyzing: DR1TCARB ... 2 associations, 2 unique OTUs, 1 potential pairs, 1 valid edges - insufficient edges
+    Analyzing: DR1TCHOL ... 0 associations - insufficient associations
+    Analyzing: DR1TCOPP ... 0 associations - insufficient associations
+    Analyzing: DR1TCRYP ... 0 associations - insufficient associations
+    Analyzing: DR1TFA ... 0 associations - insufficient associations
+    Analyzing: DR1TFDFE ... 0 associations - insufficient associations
+    Analyzing: DR1TFF ... 0 associations - insufficient associations
+    Analyzing: DR1TFIBE ... 0 associations - insufficient associations
+    Analyzing: DR1TFOLA ... 0 associations - insufficient associations
+    Analyzing: DR1TIRON ... 0 associations - insufficient associations
+    Analyzing: DR1TKCAL ... 0 associations - insufficient associations
+    Analyzing: DR1TLYCO ... 0 associations - insufficient associations
+    Analyzing: DR1TLZ ... 0 associations - insufficient associations
+    Analyzing: DR1TM161 ... 0 associations - insufficient associations
+    Analyzing: DR1TM181 ... 0 associations - insufficient associations
+    Analyzing: DR1TM201 ... 0 associations - insufficient associations
+    Analyzing: DR1TM221 ... 0 associations - insufficient associations
+    Analyzing: DR1TMAGN ... 0 associations - insufficient associations
+    Analyzing: DR1TMFAT ... 0 associations - insufficient associations
+    Analyzing: DR1TMOIS ... 0 associations - insufficient associations
+    Analyzing: DR1TNIAC ... 0 associations - insufficient associations
+    Analyzing: DR1TNUMF ... 0 associations - insufficient associations
+    Analyzing: DR1TP182 ... 0 associations - insufficient associations
+    Analyzing: DR1TP183 ... 0 associations - insufficient associations
+    Analyzing: DR1TP184 ... 0 associations - insufficient associations
+    Analyzing: DR1TP204 ... 0 associations - insufficient associations
+    Analyzing: DR1TP205 ... 0 associations - insufficient associations
+    Analyzing: DR1TP225 ... 0 associations - insufficient associations
+    Analyzing: DR1TP226 ... 0 associations - insufficient associations
+    Analyzing: DR1TPFAT ... 0 associations - insufficient associations
+    Analyzing: DR1TPHOS ... 0 associations - insufficient associations
+    Analyzing: DR1TPOTA ... 0 associations - insufficient associations
+    Analyzing: DR1TPROT ... 0 associations - insufficient associations
+    Analyzing: DR1TRET ... 0 associations - insufficient associations
+    Analyzing: DR1TS040 ... 0 associations - insufficient associations
+    Analyzing: DR1TS060 ... 0 associations - insufficient associations
+    Analyzing: DR1TS080 ... 0 associations - insufficient associations
+    Analyzing: DR1TS100 ... 0 associations - insufficient associations
+    Analyzing: DR1TS120 ... 0 associations - insufficient associations
+    Analyzing: DR1TS140 ... 0 associations - insufficient associations
+    Analyzing: DR1TS160 ... 0 associations - insufficient associations
+    Analyzing: DR1TS180 ... 0 associations - insufficient associations
+    Analyzing: DR1TSELE ... 0 associations - insufficient associations
+    Analyzing: DR1TSFAT ... 0 associations - insufficient associations
+    Analyzing: DR1TSODI ... 0 associations - insufficient associations
+    Analyzing: DR1TSUGR ... 3 associations, 3 unique OTUs, 3 potential pairs, 3 valid edges [done] network created
+       -> Plot stored for DR1TSUGR 
+    Analyzing: DR1TTFAT ... 0 associations - insufficient associations
+    Analyzing: DR1TTHEO ... 0 associations - insufficient associations
+    Analyzing: DR1TVARA ... 0 associations - insufficient associations
+    Analyzing: DR1TVB1 ... 0 associations - insufficient associations
+    Analyzing: DR1TVB12 ... 0 associations - insufficient associations
+    Analyzing: DR1TVB2 ... 0 associations - insufficient associations
+    Analyzing: DR1TVB6 ... 0 associations - insufficient associations
+    Analyzing: DR1TVC ... 0 associations - insufficient associations
+    Analyzing: DR1TVD ... 0 associations - insufficient associations
+    Analyzing: DR1TVK ... 0 associations - insufficient associations
+    Analyzing: DR1TZINC ... 0 associations - insufficient associations
+    Analyzing: DR2TACAR ... 0 associations - insufficient associations
+    Analyzing: DR2TALCO ... 0 associations - insufficient associations
+    Analyzing: DR2TATOA ... 0 associations - insufficient associations
+    Analyzing: DR2TATOC ... 0 associations - insufficient associations
+    Analyzing: DR2TB12A ... 0 associations - insufficient associations
+    Analyzing: DR2TBCAR ... 0 associations - insufficient associations
+    Analyzing: DR2TCAFF ... 0 associations - insufficient associations
+    Analyzing: DR2TCALC ... 0 associations - insufficient associations
+    Analyzing: DR2TCARB ... 0 associations - insufficient associations
+    Analyzing: DR2TCHL ... 0 associations - insufficient associations
+    Analyzing: DR2TCHOL ... 0 associations - insufficient associations
+    Analyzing: DR2TCOPP ... 0 associations - insufficient associations
+    Analyzing: DR2TCRYP ... 0 associations - insufficient associations
+    Analyzing: DR2TFA ... 0 associations - insufficient associations
+    Analyzing: DR2TFDFE ... 0 associations - insufficient associations
+    Analyzing: DR2TFF ... 0 associations - insufficient associations
+    Analyzing: DR2TFIBE ... 0 associations - insufficient associations
+    Analyzing: DR2TFOLA ... 0 associations - insufficient associations
+    Analyzing: DR2TIRON ... 0 associations - insufficient associations
+    Analyzing: DR2TKCAL ... 0 associations - insufficient associations
+    Analyzing: DR2TLYCO ... 0 associations - insufficient associations
+    Analyzing: DR2TLZ ... 0 associations - insufficient associations
+    Analyzing: DR2TM161 ... 0 associations - insufficient associations
+    Analyzing: DR2TM181 ... 0 associations - insufficient associations
+    Analyzing: DR2TM201 ... 0 associations - insufficient associations
+    Analyzing: DR2TM221 ... 0 associations - insufficient associations
+    Analyzing: DR2TMAGN ... 0 associations - insufficient associations
+    Analyzing: DR2TMFAT ... 0 associations - insufficient associations
+    Analyzing: DR2TMOIS ... 0 associations - insufficient associations
+    Analyzing: DR2TNIAC ... 0 associations - insufficient associations
+    Analyzing: DR2TNUMF ... 0 associations - insufficient associations
+    Analyzing: DR2TP182 ... 0 associations - insufficient associations
+    Analyzing: DR2TP183 ... 0 associations - insufficient associations
+    Analyzing: DR2TP184 ... 0 associations - insufficient associations
+    Analyzing: DR2TP204 ... 0 associations - insufficient associations
+    Analyzing: DR2TP205 ... 0 associations - insufficient associations
+    Analyzing: DR2TP225 ... 0 associations - insufficient associations
+    Analyzing: DR2TP226 ... 0 associations - insufficient associations
+    Analyzing: DR2TPFAT ... 0 associations - insufficient associations
+    Analyzing: DR2TPHOS ... 0 associations - insufficient associations
+    Analyzing: DR2TPOTA ... 0 associations - insufficient associations
+    Analyzing: DR2TPROT ... 0 associations - insufficient associations
+    Analyzing: DR2TRET ... 0 associations - insufficient associations
+    Analyzing: DR2TS040 ... 0 associations - insufficient associations
+    Analyzing: DR2TS060 ... 0 associations - insufficient associations
+    Analyzing: DR2TS080 ... 0 associations - insufficient associations
+    Analyzing: DR2TS100 ... 0 associations - insufficient associations
+    Analyzing: DR2TS120 ... 0 associations - insufficient associations
+    Analyzing: DR2TS140 ... 0 associations - insufficient associations
+    Analyzing: DR2TS160 ... 0 associations - insufficient associations
+    Analyzing: DR2TS180 ... 0 associations - insufficient associations
+    Analyzing: DR2TSELE ... 0 associations - insufficient associations
+    Analyzing: DR2TSFAT ... 0 associations - insufficient associations
+    Analyzing: DR2TSODI ... 0 associations - insufficient associations
+    Analyzing: DR2TSUGR ... 0 associations - insufficient associations
+    Analyzing: DR2TTFAT ... 0 associations - insufficient associations
+    Analyzing: DR2TTHEO ... 0 associations - insufficient associations
+    Analyzing: DR2TVARA ... 0 associations - insufficient associations
+    Analyzing: DR2TVB1 ... 0 associations - insufficient associations
+    Analyzing: DR2TVB12 ... 0 associations - insufficient associations
+    Analyzing: DR2TVB2 ... 0 associations - insufficient associations
+    Analyzing: DR2TVB6 ... 0 associations - insufficient associations
+    Analyzing: DR2TVC ... 0 associations - insufficient associations
+    Analyzing: DR2TVD ... 0 associations - insufficient associations
+    Analyzing: DR2TVK ... 2 associations, 2 unique OTUs, 1 potential pairs, 1 valid edges - insufficient edges
+    Analyzing: DR2TZINC ... 0 associations - insufficient associations
+    Analyzing: DS1DSCNT ... 5 associations, 5 unique OTUs, 10 potential pairs, 10 valid edges [done] network created
+       -> Plot stored for DS1DSCNT 
+    Analyzing: DS1TCALC ... 0 associations - insufficient associations
+    Analyzing: DS1TCOPP ... 0 associations - insufficient associations
+    Analyzing: DS1TFA ... 0 associations - insufficient associations
+    Analyzing: DS1TFDFE ... 0 associations - insufficient associations
+    Analyzing: DS1TIRON ... 0 associations - insufficient associations
+    Analyzing: DS1TKCAL ... 0 associations - insufficient associations
+    Analyzing: DS1TMAGN ... 0 associations - insufficient associations
+    Analyzing: DS1TNIAC ... 0 associations - insufficient associations
+    Analyzing: DS1TPOTA ... 0 associations - insufficient associations
+    Analyzing: DS1TSELE ... 1 associations - insufficient associations
+    Analyzing: DS1TVB1 ... 0 associations - insufficient associations
+    Analyzing: DS1TVB12 ... 0 associations - insufficient associations
+    Analyzing: DS1TVB2 ... 0 associations - insufficient associations
+    Analyzing: DS1TVB6 ... 0 associations - insufficient associations
+    Analyzing: DS1TVC ... 0 associations - insufficient associations
+    Analyzing: DS1TVD ... 0 associations - insufficient associations
+    Analyzing: DS1TVK ... 0 associations - insufficient associations
+    Analyzing: DS1TZINC ... 0 associations - insufficient associations
+    Analyzing: DS2AN ... 0 associations - insufficient associations
+    Analyzing: DS2ANCNT ... 0 associations - insufficient associations
+    Analyzing: DS2DS ... 0 associations - insufficient associations
+    Analyzing: DS2DSCNT ... 0 associations - insufficient associations
+    Analyzing: DS2TCALC ... 0 associations - insufficient associations
+    Analyzing: DS2TCOPP ... 0 associations - insufficient associations
+    Analyzing: DS2TFA ... 0 associations - insufficient associations
+    Analyzing: DS2TFDFE ... 0 associations - insufficient associations
+    Analyzing: DS2TIRON ... 0 associations - insufficient associations
+    Analyzing: DS2TMAGN ... 0 associations - insufficient associations
+    Analyzing: DS2TNIAC ... 0 associations - insufficient associations
+    Analyzing: DS2TPOTA ... 0 associations - insufficient associations
+    Analyzing: DS2TSELE ... 1 associations - insufficient associations
+    Analyzing: DS2TVB1 ... 0 associations - insufficient associations
+    Analyzing: DS2TVB12 ... 0 associations - insufficient associations
+    Analyzing: DS2TVB2 ... 0 associations - insufficient associations
+    Analyzing: DS2TVB6 ... 0 associations - insufficient associations
+    Analyzing: DS2TVC ... 0 associations - insufficient associations
+    Analyzing: DS2TVD ... 0 associations - insufficient associations
+    Analyzing: DS2TVK ... 0 associations - insufficient associations
+    Analyzing: DS2TZINC ... 0 associations - insufficient associations
+    Analyzing: DS2TIODI ... 0 associations - insufficient associations
+    Analyzing: DS2TKCAL ... 0 associations - insufficient associations
+    Analyzing: DSQTCALC ... 0 associations - insufficient associations
+    Analyzing: DSQTCOPP ... 0 associations - insufficient associations
+    Analyzing: DSQTFA ... 0 associations - insufficient associations
+    Analyzing: DSQTFDFE ... 0 associations - insufficient associations
+    Analyzing: DSQTIRON ... 0 associations - insufficient associations
+    Analyzing: DSQTKCAL ... 0 associations - insufficient associations
+    Analyzing: DSQTMAGN ... 0 associations - insufficient associations
+    Analyzing: DSQTNIAC ... 0 associations - insufficient associations
+    Analyzing: DSQTPHOS ... 0 associations - insufficient associations
+    Analyzing: DSQTPOTA ... 0 associations - insufficient associations
+    Analyzing: DSQTSELE ... 3 associations, 3 unique OTUs, 3 potential pairs, 3 valid edges [done] network created
+       -> Plot stored for DSQTSELE 
+    Analyzing: DSQTVB1 ... 0 associations - insufficient associations
+    Analyzing: DSQTVB12 ... 0 associations - insufficient associations
+    Analyzing: DSQTVB2 ... 0 associations - insufficient associations
+    Analyzing: DSQTVB6 ... 0 associations - insufficient associations
+    Analyzing: DSQTVC ... 0 associations - insufficient associations
+    Analyzing: DSQTVD ... 0 associations - insufficient associations
+    Analyzing: DSQTVK ... 0 associations - insufficient associations
+    Analyzing: DSQTZINC ... 0 associations - insufficient associations
+    Analyzing: DSQTIODI ... 0 associations - insufficient associations
+    Analyzing: DSQTSUGR ... 0 associations - insufficient associations
+    Analyzing: LBDHBG ... 0 associations - insufficient associations
+    Analyzing: LBDHCV ... 0 associations - insufficient associations
+    Analyzing: LBDHD ... 7 associations, 7 unique OTUs, 21 potential pairs, 21 valid edges [done] network created
+       -> Plot stored for LBDHD 
+    Analyzing: LBDHEG ... 0 associations - insufficient associations
+    Analyzing: LBDHEM ... 1 associations - insufficient associations
+    Analyzing: LBDRPCR ... 0 associations - insufficient associations
+    Analyzing: LBDVWCGP ... 0 associations - insufficient associations
+    Analyzing: LBDB12SI ... 0 associations - insufficient associations
+    Analyzing: LBX06 ... 0 associations - insufficient associations
+    Analyzing: LBX11 ... 0 associations - insufficient associations
+    Analyzing: LBX16 ... 0 associations - insufficient associations
+    Analyzing: LBX18 ... 0 associations - insufficient associations
+    Analyzing: LBX2DF ... 8 associations, 8 unique OTUs, 28 potential pairs, 28 valid edges [done] network created
+       -> Plot stored for LBX2DF 
+    Analyzing: LBX4CE ... 0 associations - insufficient associations
+    Analyzing: LBX4PA ... 0 associations - insufficient associations
+    Analyzing: LBXBCD ... 5 associations, 5 unique OTUs, 10 potential pairs, 10 valid edges [done] network created
+       -> Plot stored for LBXBCD 
+    Analyzing: LBXBPB ... 0 associations - insufficient associations
+    Analyzing: LBXCOT ... 12 associations, 12 unique OTUs, 66 potential pairs, 66 valid edges [done] network created
+       -> Plot stored for LBXCOT 
+    Analyzing: LBXEPAH ... 0 associations - insufficient associations
+    Analyzing: LBXHA ... 6 associations, 6 unique OTUs, 15 potential pairs, 15 valid edges [done] network created
+       -> Plot stored for LBXHA 
+    Analyzing: LBXHBC ... 0 associations - insufficient associations
+    Analyzing: LBXHBS ... 0 associations - insufficient associations
+    Analyzing: LBXHDT ... 0 associations - insufficient associations
+    Analyzing: LBXHE1 ... 2 associations, 2 unique OTUs, 1 potential pairs, 1 valid edges - insufficient edges
+    Analyzing: LBXHE2 ... 1 associations - insufficient associations
+    Analyzing: LBXIHG ... 0 associations - insufficient associations
+    Analyzing: LBXMEA ... 0 associations - insufficient associations
+    Analyzing: LBXMPAH ... 0 associations - insufficient associations
+    Analyzing: LBXMUM ... 0 associations - insufficient associations
+    Analyzing: LBXNM ... 0 associations - insufficient associations
+    Analyzing: LBXOD1 ... 0 associations - insufficient associations
+    Analyzing: LBXOD9 ... 0 associations - insufficient associations
+    Analyzing: LBXOTT ... 0 associations - insufficient associations
+    Analyzing: LBXPFBS ... 1 associations - insufficient associations
+    Analyzing: LBXPFDE ... 0 associations - insufficient associations
+    Analyzing: LBXPFDO ... 0 associations - insufficient associations
+    Analyzing: LBXPFHP ... 0 associations - insufficient associations
+    Analyzing: LBXPFHS ... 0 associations - insufficient associations
+    Analyzing: LBXPFNA ... 0 associations - insufficient associations
+    Analyzing: LBXPFOA ... 0 associations - insufficient associations
+    Analyzing: LBXPFOS ... 0 associations - insufficient associations
+    Analyzing: LBXPFSA ... 0 associations - insufficient associations
+    Analyzing: LBXPFUA ... 0 associations - insufficient associations
+    Analyzing: LBXPLP ... 0 associations - insufficient associations
+    Analyzing: LBXRUB ... 0 associations - insufficient associations
+    Analyzing: LBXTHG ... 0 associations - insufficient associations
+    Analyzing: LBXTTG ... 0 associations - insufficient associations
+    Analyzing: LBXV06 ... 1 associations - insufficient associations
+    Analyzing: LBXV1A ... 0 associations - insufficient associations
+    Analyzing: LBXV1D ... 3 associations, 3 unique OTUs, 3 potential pairs, 3 valid edges [done] network created
+       -> Plot stored for LBXV1D 
+    Analyzing: LBXV1E ... 0 associations - insufficient associations
+    Analyzing: LBXV2A ... 0 associations - insufficient associations
+    Analyzing: LBXV2C ... 0 associations - insufficient associations
+    Analyzing: LBXV2E ... 0 associations - insufficient associations
+    Analyzing: LBXV2P ... 0 associations - insufficient associations
+    Analyzing: LBXV2T ... 2 associations, 2 unique OTUs, 1 potential pairs, 1 valid edges - insufficient edges
+    Analyzing: LBXV3B ... 2 associations, 2 unique OTUs, 1 potential pairs, 1 valid edges - insufficient edges
+    Analyzing: LBXV4C ... 0 associations - insufficient associations
+    Analyzing: LBXV4E ... 45 associations, 45 unique OTUs, 990 potential pairs, 990 valid edges [done] network created
+       -> Plot stored for LBXV4E 
+    Analyzing: LBXVBF ... 0 associations - insufficient associations
+    Analyzing: LBXVBM ... 0 associations - insufficient associations
+    Analyzing: LBXVBZ ... 6 associations, 6 unique OTUs, 15 potential pairs, 15 valid edges [done] network created
+       -> Plot stored for LBXVBZ 
+    Analyzing: LBXVCB ... 1 associations - insufficient associations
+    Analyzing: LBXVCF ... 0 associations - insufficient associations
+    Analyzing: LBXVCM ... 0 associations - insufficient associations
+    Analyzing: LBXVCT ... 8 associations, 8 unique OTUs, 28 potential pairs, 28 valid edges [done] network created
+       -> Plot stored for LBXVCT 
+    Analyzing: LBXVD2MS ... 0 associations - insufficient associations
+    Analyzing: LBXVD3MS ... 0 associations - insufficient associations
+    Analyzing: LBXVDB ... 0 associations - insufficient associations
+    Analyzing: LBXVDE ... 0 associations - insufficient associations
+    Analyzing: LBXVDM ... 1 associations - insufficient associations
+    Analyzing: LBXVDP ... 0 associations - insufficient associations
+    Analyzing: LBXVDX ... 0 associations - insufficient associations
+    Analyzing: LBXVE3MS ... 0 associations - insufficient associations
+    Analyzing: LBXVEB ... 0 associations - insufficient associations
+    Analyzing: LBXVFN ... 9 associations, 9 unique OTUs, 36 potential pairs, 36 valid edges [done] network created
+       -> Plot stored for LBXVFN 
+    Analyzing: LBXVHE ... 25 associations, 25 unique OTUs, 300 potential pairs, 300 valid edges [done] network created
+       -> Plot stored for LBXVHE 
+    Analyzing: LBXVIDMS ... 0 associations - insufficient associations
+    Analyzing: LBXVIPB ... 1 associations - insufficient associations
+    Analyzing: LBXVMC ... 1 associations - insufficient associations
+    Analyzing: LBXVME ... 0 associations - insufficient associations
+    Analyzing: LBXVNB ... 0 associations - insufficient associations
+    Analyzing: LBXVOX ... 0 associations - insufficient associations
+    Analyzing: LBXVST ... 0 associations - insufficient associations
+    Analyzing: LBXVTC ... 1 associations - insufficient associations
+    Analyzing: LBXVTE ... 0 associations - insufficient associations
+    Analyzing: LBXVTO ... 0 associations - insufficient associations
+    Analyzing: LBXVTP ... 0 associations - insufficient associations
+    Analyzing: LBXVXY ... 0 associations - insufficient associations
+    Analyzing: LBXALN ... 0 associations - insufficient associations
+    Analyzing: LBXAR1 ... 0 associations - insufficient associations
+    Analyzing: LBXARA ... 0 associations - insufficient associations
+    Analyzing: LBXB12 ... 0 associations - insufficient associations
+    Analyzing: LBXBGE ... 0 associations - insufficient associations
+    Analyzing: LBXBGM ... 0 associations - insufficient associations
+    Analyzing: LBXBMN ... 0 associations - insufficient associations
+    Analyzing: LBXBSE ... 0 associations - insufficient associations
+    Analyzing: LBXCAP ... 0 associations - insufficient associations
+    Analyzing: LBXDA1 ... 0 associations - insufficient associations
+    Analyzing: LBXDHA ... 0 associations - insufficient associations
+    Analyzing: LBXDP3 ... 0 associations - insufficient associations
+    Analyzing: LBXDP6 ... 0 associations - insufficient associations
+    Analyzing: LBXDTA ... 0 associations - insufficient associations
+    Analyzing: LBXED1 ... 0 associations - insufficient associations
+    Analyzing: LBXEN1 ... 0 associations - insufficient associations
+    Analyzing: LBXEPA ... 0 associations - insufficient associations
+    Analyzing: LBXET1 ... 0 associations - insufficient associations
+    Analyzing: LBXGLA ... 0 associations - insufficient associations
+    Analyzing: LBXHGL ... 0 associations - insufficient associations
+    Analyzing: LBXLAR ... 0 associations - insufficient associations
+    Analyzing: LBXLG1 ... 0 associations - insufficient associations
+    Analyzing: LBXLNA ... 0 associations - insufficient associations
+    Analyzing: LBXML1 ... 0 associations - insufficient associations
+    Analyzing: LBXMR1 ... 0 associations - insufficient associations
+    Analyzing: LBXMRG ... 0 associations - insufficient associations
+    Analyzing: LBXNR1 ... 0 associations - insufficient associations
+    Analyzing: LBXOL1 ... 0 associations - insufficient associations
+    Analyzing: LBXPEN ... 0 associations - insufficient associations
+    Analyzing: LBXPL1 ... 0 associations - insufficient associations
+    Analyzing: LBXPM1 ... 0 associations - insufficient associations
+    Analyzing: LBXSD1 ... 0 associations - insufficient associations
+    Analyzing: LBXST1 ... 0 associations - insufficient associations
+    Analyzing: LBXTBN ... 0 associations - insufficient associations
+    Analyzing: LBXTSA ... 0 associations - insufficient associations
+    Analyzing: LBXVC1 ... 0 associations - insufficient associations
+    Analyzing: URX14D ... 0 associations - insufficient associations
+    Analyzing: URX1TB ... 0 associations - insufficient associations
+    Analyzing: URX24D ... 0 associations - insufficient associations
+    Analyzing: URX25T ... 0 associations - insufficient associations
+    Analyzing: URX3TB ... 0 associations - insufficient associations
+    Analyzing: URX4FP ... 0 associations - insufficient associations
+    Analyzing: URX4TO ... 0 associations - insufficient associations
+    Analyzing: URXAMU ... 0 associations - insufficient associations
+    Analyzing: URXBP3 ... 0 associations - insufficient associations
+    Analyzing: URXBPH ... 0 associations - insufficient associations
+    Analyzing: URXBUP ... 0 associations - insufficient associations
+    Analyzing: URXCB3 ... 0 associations - insufficient associations
+    Analyzing: URXCNP ... 0 associations - insufficient associations
+    Analyzing: URXCOP ... 0 associations - insufficient associations
+    Analyzing: URXCPM ... 0 associations - insufficient associations
+    Analyzing: URXDAZ ... 0 associations - insufficient associations
+    Analyzing: URXDCB ... 0 associations - insufficient associations
+    Analyzing: URXDEA ... 0 associations - insufficient associations
+    Analyzing: URXDEE ... 0 associations - insufficient associations
+    Analyzing: URXDHD ... 3 associations, 3 unique OTUs, 3 potential pairs, 3 valid edges [done] network created
+       -> Plot stored for URXDHD 
+    Analyzing: URXDMA ... 0 associations - insufficient associations
+    Analyzing: URXECP ... 0 associations - insufficient associations
+    Analyzing: URXEPB ... 0 associations - insufficient associations
+    Analyzing: URXEQU ... 0 associations - insufficient associations
+    Analyzing: URXETD ... 0 associations - insufficient associations
+    Analyzing: URXETL ... 0 associations - insufficient associations
+    Analyzing: URXGNS ... 0 associations - insufficient associations
+    Analyzing: URXMAL ... 0 associations - insufficient associations
+    Analyzing: URXMBP ... 0 associations - insufficient associations
+    Analyzing: URXMC1 ... 0 associations - insufficient associations
+    Analyzing: URXMCP ... 0 associations - insufficient associations
+    Analyzing: URXMEP ... 0 associations - insufficient associations
+    Analyzing: URXMHH ... 0 associations - insufficient associations
+    Analyzing: URXMHP ... 0 associations - insufficient associations
+    Analyzing: URXMIB ... 0 associations - insufficient associations
+    Analyzing: URXMNM ... 3 associations, 3 unique OTUs, 3 potential pairs, 3 valid edges [done] network created
+       -> Plot stored for URXMNM 
+    Analyzing: URXMNP ... 0 associations - insufficient associations
+    Analyzing: URXMOH ... 0 associations - insufficient associations
+    Analyzing: URXMOP ... 0 associations - insufficient associations
+    Analyzing: URXMPB ... 0 associations - insufficient associations
+    Analyzing: URXMU1 ... 0 associations - insufficient associations
+    Analyzing: URXMU2 ... 0 associations - insufficient associations
+    Analyzing: URXMU3 ... 0 associations - insufficient associations
+    Analyzing: URXMU4 ... 2 associations, 2 unique OTUs, 1 potential pairs, 1 valid edges - insufficient edges
+    Analyzing: URXMU5 ... 0 associations - insufficient associations
+    Analyzing: URXMU6 ... 0 associations - insufficient associations
+    Analyzing: URXMU7 ... 0 associations - insufficient associations
+    Analyzing: URXMX1 ... 0 associations - insufficient associations
+    Analyzing: URXMX2 ... 0 associations - insufficient associations
+    Analyzing: URXMX3 ... 0 associations - insufficient associations
+    Analyzing: URXMX4 ... 6 associations, 6 unique OTUs, 15 potential pairs, 15 valid edges [done] network created
+       -> Plot stored for URXMX4 
+    Analyzing: URXMX5 ... 0 associations - insufficient associations
+    Analyzing: URXMX6 ... 0 associations - insufficient associations
+    Analyzing: URXMX7 ... 0 associations - insufficient associations
+    Analyzing: URXMZP ... 0 associations - insufficient associations
+    Analyzing: URXNAL ... 2 associations, 2 unique OTUs, 1 potential pairs, 1 valid edges - insufficient edges
+    Analyzing: URXNO3 ... 0 associations - insufficient associations
+    Analyzing: URXOPM ... 0 associations - insufficient associations
+    Analyzing: URXOPP ... 0 associations - insufficient associations
+    Analyzing: URXOXY ... 0 associations - insufficient associations
+    Analyzing: URXP01 ... 4 associations, 4 unique OTUs, 6 potential pairs, 6 valid edges [done] network created
+       -> Plot stored for URXP01 
+    Analyzing: URXP02 ... 0 associations - insufficient associations
+    Analyzing: URXP03 ... 4 associations, 4 unique OTUs, 6 potential pairs, 6 valid edges [done] network created
+       -> Plot stored for URXP03 
+    Analyzing: URXP04 ... 4 associations, 4 unique OTUs, 6 potential pairs, 6 valid edges [done] network created
+       -> Plot stored for URXP04 
+    Analyzing: URXP05 ... 0 associations - insufficient associations
+    Analyzing: URXP06 ... 0 associations - insufficient associations
+    Analyzing: URXP07 ... 0 associations - insufficient associations
+    Analyzing: URXP10 ... 0 associations - insufficient associations
+    Analyzing: URXP17 ... 0 associations - insufficient associations
+    Analyzing: URXPAR ... 0 associations - insufficient associations
+    Analyzing: URXPPB ... 0 associations - insufficient associations
+    Analyzing: URXSCN ... 0 associations - insufficient associations
+    Analyzing: URXTCC ... 0 associations - insufficient associations
+    Analyzing: URXTRS ... 0 associations - insufficient associations
+    Analyzing: URXUAB ... 0 associations - insufficient associations
+    Analyzing: URXUAC ... 0 associations - insufficient associations
+    Analyzing: URXUAS ... 0 associations - insufficient associations
+    Analyzing: URXUAS3 ... 0 associations - insufficient associations
+    Analyzing: URXUAS5 ... 0 associations - insufficient associations
+    Analyzing: URXUBA ... 1 associations - insufficient associations
+    Analyzing: URXUBE ... 0 associations - insufficient associations
+    Analyzing: URXUCD ... 0 associations - insufficient associations
+    Analyzing: URXUCL ... 0 associations - insufficient associations
+    Analyzing: URXUCO ... 1 associations - insufficient associations
+    Analyzing: URXUCS ... 0 associations - insufficient associations
+    Analyzing: URXUDMA ... 0 associations - insufficient associations
+    Analyzing: URXUHG ... 0 associations - insufficient associations
+    Analyzing: URXUMMA ... 0 associations - insufficient associations
+    Analyzing: URXUMO ... 0 associations - insufficient associations
+    Analyzing: URXUP8 ... 0 associations - insufficient associations
+    Analyzing: URXUPB ... 0 associations - insufficient associations
+    Analyzing: URXUPT ... 0 associations - insufficient associations
+    Analyzing: URXUSB ... 0 associations - insufficient associations
+    Analyzing: URXUTL ... 0 associations - insufficient associations
+    Analyzing: URXUTM ... 0 associations - insufficient associations
+    Analyzing: URXUTU ... 0 associations - insufficient associations
+    Analyzing: URX1DC ... 0 associations - insufficient associations
+    Analyzing: URX2DC ... 0 associations - insufficient associations
+    Analyzing: URX2MH ... 0 associations - insufficient associations
+    Analyzing: URX34M ... 0 associations - insufficient associations
+    Analyzing: URXAAM ... 0 associations - insufficient associations
+    Analyzing: URXAMC ... 0 associations - insufficient associations
+    Analyzing: URXATC ... 0 associations - insufficient associations
+    Analyzing: URXBMA ... 0 associations - insufficient associations
+    Analyzing: URXBPM ... 0 associations - insufficient associations
+    Analyzing: URXCEM ... 0 associations - insufficient associations
+    Analyzing: URXCYM ... 0 associations - insufficient associations
+    Analyzing: URXDHB ... 0 associations - insufficient associations
+    Analyzing: URXDPM ... 0 associations - insufficient associations
+    Analyzing: URXGAM ... 0 associations - insufficient associations
+    Analyzing: URXHEM ... 0 associations - insufficient associations
+    Analyzing: URXHP2 ... 0 associations - insufficient associations
+    Analyzing: URXHPM ... 0 associations - insufficient associations
+    Analyzing: URXMAD ... 0 associations - insufficient associations
+    Analyzing: URXMB1 ... 0 associations - insufficient associations
+    Analyzing: URXMB2 ... 0 associations - insufficient associations
+    Analyzing: URXMB3 ... 0 associations - insufficient associations
+    Analyzing: URXMHNC ... 0 associations - insufficient associations
+    Analyzing: URXOP1 ... 0 associations - insufficient associations
+    Analyzing: URXOP2 ... 0 associations - insufficient associations
+    Analyzing: URXOP3 ... 0 associations - insufficient associations
+    Analyzing: URXOP4 ... 0 associations - insufficient associations
+    Analyzing: URXOP5 ... 0 associations - insufficient associations
+    Analyzing: URXOP6 ... 0 associations - insufficient associations
+    Analyzing: URXPHE ... 0 associations - insufficient associations
+    Analyzing: URXPHG ... 0 associations - insufficient associations
+    Analyzing: URXPMA ... 0 associations - insufficient associations
+    Analyzing: URXPMM ... 0 associations - insufficient associations
+    Analyzing: URXTCV ... 0 associations - insufficient associations
+    Analyzing: URXTTC ... 0 associations - insufficient associations
+    Analyzing: URXUMN ... 0 associations - insufficient associations
+    Analyzing: URXUSN ... 0 associations - insufficient associations
+    Analyzing: URXUSR ... 0 associations - insufficient associations
+    Analyzing: PAQ_recreation_moderate_met ... 0 associations - insufficient associations
+    Analyzing: PAQ_recreation_moderate_week ... 0 associations - insufficient associations
+    Analyzing: PAQ_recreation_vigorous_met ... 0 associations - insufficient associations
+    Analyzing: PAQ_recreation_vigorous_week ... 0 associations - insufficient associations
+    Analyzing: PAQ_total_met ... 0 associations - insufficient associations
+    Analyzing: PAQ_walk_met ... 0 associations - insufficient associations
+    Analyzing: PAQ_walk_week ... 0 associations - insufficient associations
+    Analyzing: PAQ_work_moderate_met ... 0 associations - insufficient associations
+    Analyzing: PAQ_work_moderate_week ... 0 associations - insufficient associations
+    Analyzing: PAQ_work_vigorous_met ... 0 associations - insufficient associations
+    Analyzing: PAQ_work_vigorous_week ... 0 associations - insufficient associations
+    Analyzing: SMQ710 ... 0 associations - insufficient associations
+    Analyzing: SMQ720 ... 0 associations - insufficient associations
+    Analyzing: SMQ725 ... 1 associations - insufficient associations
+    Analyzing: SMQ_current_ever_never ... 16 associations, 16 unique OTUs, 120 potential pairs, 120 valid edges [done] network created
+       -> Plot stored for SMQ_current_ever_never 
+    Analyzing: SMQ_how_long_since_quit_years ... 0 associations - insufficient associations
+    Analyzing: SMD415 ... 0 associations - insufficient associations
+    Analyzing: SMD415A ... 0 associations - insufficient associations
+    Analyzing: HOQ065 ... 1 associations - insufficient associations
+    Analyzing: ORXHPV ... 0 associations - insufficient associations
+    Analyzing: PA_sedentary_activity_min_per_day ... 0 associations - insufficient associations
+  -> Total plots created: 21 
+  Saving 21 plots for exWAS 
+    Saving: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/8_network_analyses_out/network_plots_final/none/exWAS_DR1TSUGR_Total_sugars_gm_none_network.pdf 
+    Saving: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/8_network_analyses_out/network_plots_final/none/exWAS_DS1DSCNT_Total_of_Dietary_Supplements_Taken_none_network.pdf 
+    Saving: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/8_network_analyses_out/network_plots_final/none/exWAS_DSQTSELE_Selenium_mcg_none_network.pdf 
+    Saving: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/8_network_analyses_out/network_plots_final/none/exWAS_LBDHD_Hepatitis_D_anti_HDV_none_network.pdf 
+    Saving: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/8_network_analyses_out/network_plots_final/none/exWAS_LBX2DF_Blood_2_5_Dimethylfuran_ng_mL_none_network.pdf 
+    Saving: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/8_network_analyses_out/network_plots_final/none/exWAS_LBXBCD_Blood_cadmium_ug_L_none_network.pdf 
+    Saving: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/8_network_analyses_out/network_plots_final/none/exWAS_LBXCOT_Cotinine_ng_mL_none_network.pdf 
+    Saving: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/8_network_analyses_out/network_plots_final/none/exWAS_LBXHA_Hepatitis_A_Antibody_none_network.pdf 
+    Saving: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/8_network_analyses_out/network_plots_final/none/exWAS_LBXV1D_Blood_1_2_Dichlorobenzene_ng_mL_none_network.pdf 
+    Saving: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/8_network_analyses_out/network_plots_final/none/exWAS_LBXV4E_Blood_1_1_2_2_Tetrachloroethane_ng_mL_none_network.pdf 
+    Saving: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/8_network_analyses_out/network_plots_final/none/exWAS_LBXVBZ_Blood_Benzene_ng_mL_none_network.pdf 
+    Saving: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/8_network_analyses_out/network_plots_final/none/exWAS_LBXVCT_Blood_Carbon_Tetrachloride_ng_mL_none_network.pdf 
+    Saving: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/8_network_analyses_out/network_plots_final/none/exWAS_LBXVFN_Blood_Furan_ng_mL_none_network.pdf 
+    Saving: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/8_network_analyses_out/network_plots_final/none/exWAS_LBXVHE_Blood_Hexachloroethane_ng_mL_none_network.pdf 
+    Saving: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/8_network_analyses_out/network_plots_final/none/exWAS_URXDHD_Desethyl_hydroxy_DEET_ug_L_none_network.pdf 
+    Saving: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/8_network_analyses_out/network_plots_final/none/exWAS_URXMNM_Mono_n_methyl_phthalate_none_network.pdf 
+    Saving: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/8_network_analyses_out/network_plots_final/none/exWAS_URXMX4_1_3_dimethylxanthine_theophylline_umol_L_none_network.pdf 
+    Saving: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/8_network_analyses_out/network_plots_final/none/exWAS_URXP01_1_hydroxynaphthalene_ng_L_none_network.pdf 
+    Saving: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/8_network_analyses_out/network_plots_final/none/exWAS_URXP03_3_hydroxyfluorene_ng_L_none_network.pdf 
+    Saving: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/8_network_analyses_out/network_plots_final/none/exWAS_URXP04_2_hydroxyfluorene_ng_L_none_network.pdf 
+    Saving: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/8_network_analyses_out/network_plots_final/none/exWAS_SMQ_current_ever_never_Smoking_current_ever_never_none_network.pdf 
+  Variables to analyze: BMXARMC, BMXARML, BMXBMI, BMXHT, BMXLEG, BMXSUB, BMXTRI, BMXWAIST, BMXWT, BPXPLS, SPXNFEV1, SPXNFVC, DXAFMRD0, DXAFMRK, DXASPND0, DXASPNK, DXXINA, DXXINBMC, DXXINBMD, DXXL1A, DXXL1BMC, DXXL1BMD, DXXL2A, DXXL2BMC, DXXL2BMD, DXXL3A, DXXL3BMC, DXXL4A, DXXL4BMC, DXXL4BMD, DXXNKA, DXXNKBMC, DXXNKBMD, DXXOFA, DXXOFBMC, DXXOFBMD, DXXOSA, DXXOSBMC, DXXOSBMD, DXXTRA, DXXTRBMC, DXXTRBMD, DXXWDA, DXXWDBMC, DXXWDBMD, LBDBANO, LBDEONO, LBDHDD, LBDLDL, LBDLYMNO, LBDMONO, LBDNENO, LBDP3, LBDFOT, LBDRFO, LBXAPB, LBXATG, LBXBAPCT, LBXCRP, LBXEOPCT, LBXFER, LBXFOLSI, LBXGH, LBXGLT, LBXGLU, LBXHCT, LBXHGB, LBXIN, LBXLYPCT, LBXMC, LBXMCHSI, LBXMCVSI, LBXMOPCT, LBXMPSI, LBXNEPCT, LBXP1, LBXP2, LBXPLTSI, LBXPS4, LBXRBCSI, LBXRBFSI, LBXRDW, LBXSAL, LBXSAPSI, LBXSASSI, LBXSATSI, LBXSBU, LBXSC3SI, LBXSCA, LBXSCH, LBXSCLSI, LBXSCR, LBXSGB, LBXSGL, LBXSGTSI, LBXSIR, LBXSKSI, LBXSLDSI, LBXSNASI, LBXSOSSI, LBXSPH, LBXSTB, LBXSTP, LBXSTR, LBXSUA, LBXT3F, LBXT4F, LBXTC, LBXTFR, LBXTGN, LBXTPO, LBXTR, LBXTSH1, LBXTT3, LBXTT4, LBXWBCSI, LBXMMASI, LBXSCK, LBXSF1SI, LBXSF2SI, LBXSF3SI, LBXSF4SI, LBXSF5SI, LBXSF6SI, LBXTBA, LBXTBM, LBXTST, URXUCR, URXUIO, URXUMA, ENXMEAN, MDIASTOLIC, MSYSTOLIC 
+    Analyzing: BMXARMC ... 7 associations, 7 unique OTUs, 21 potential pairs, 21 valid edges [done] network created
+       -> Plot stored for BMXARMC 
+    Analyzing: BMXARML ... 3 associations, 3 unique OTUs, 3 potential pairs, 3 valid edges [done] network created
+       -> Plot stored for BMXARML 
+    Analyzing: BMXBMI ... 6 associations, 6 unique OTUs, 15 potential pairs, 15 valid edges [done] network created
+       -> Plot stored for BMXBMI 
+    Analyzing: BMXHT ... 3 associations, 3 unique OTUs, 3 potential pairs, 3 valid edges [done] network created
+       -> Plot stored for BMXHT 
+    Analyzing: BMXLEG ... 2 associations, 2 unique OTUs, 1 potential pairs, 1 valid edges - insufficient edges
+    Analyzing: BMXSUB ... 0 associations - insufficient associations
+    Analyzing: BMXTRI ... 0 associations - insufficient associations
+    Analyzing: BMXWAIST ... 3 associations, 3 unique OTUs, 3 potential pairs, 3 valid edges [done] network created
+       -> Plot stored for BMXWAIST 
+    Analyzing: BMXWT ... 6 associations, 6 unique OTUs, 15 potential pairs, 15 valid edges [done] network created
+       -> Plot stored for BMXWT 
+    Analyzing: BPXPLS ... 4 associations, 4 unique OTUs, 6 potential pairs, 6 valid edges [done] network created
+       -> Plot stored for BPXPLS 
+    Analyzing: SPXNFEV1 ... 1 associations - insufficient associations
+    Analyzing: SPXNFVC ... 3 associations, 3 unique OTUs, 3 potential pairs, 3 valid edges [done] network created
+       -> Plot stored for SPXNFVC 
+    Analyzing: DXAFMRD0 ... 0 associations - insufficient associations
+    Analyzing: DXAFMRK ... 0 associations - insufficient associations
+    Analyzing: DXASPND0 ... 0 associations - insufficient associations
+    Analyzing: DXASPNK ... 0 associations - insufficient associations
+    Analyzing: DXXINA ... 0 associations - insufficient associations
+    Analyzing: DXXINBMC ... 0 associations - insufficient associations
+    Analyzing: DXXINBMD ... 0 associations - insufficient associations
+    Analyzing: DXXL1A ... 1 associations - insufficient associations
+    Analyzing: DXXL1BMC ... 0 associations - insufficient associations
+    Analyzing: DXXL1BMD ... 0 associations - insufficient associations
+    Analyzing: DXXL2A ... 0 associations - insufficient associations
+    Analyzing: DXXL2BMC ... 0 associations - insufficient associations
+    Analyzing: DXXL2BMD ... 0 associations - insufficient associations
+    Analyzing: DXXL3A ... 0 associations - insufficient associations
+    Analyzing: DXXL3BMC ... 1 associations - insufficient associations
+    Analyzing: DXXL4A ... 0 associations - insufficient associations
+    Analyzing: DXXL4BMC ... 1 associations - insufficient associations
+    Analyzing: DXXL4BMD ... 0 associations - insufficient associations
+    Analyzing: DXXNKA ... 0 associations - insufficient associations
+    Analyzing: DXXNKBMC ... 0 associations - insufficient associations
+    Analyzing: DXXNKBMD ... 0 associations - insufficient associations
+    Analyzing: DXXOFA ... 0 associations - insufficient associations
+    Analyzing: DXXOFBMC ... 0 associations - insufficient associations
+    Analyzing: DXXOFBMD ... 0 associations - insufficient associations
+    Analyzing: DXXOSA ... 0 associations - insufficient associations
+    Analyzing: DXXOSBMC ... 0 associations - insufficient associations
+    Analyzing: DXXOSBMD ... 0 associations - insufficient associations
+    Analyzing: DXXTRA ... 0 associations - insufficient associations
+    Analyzing: DXXTRBMC ... 0 associations - insufficient associations
+    Analyzing: DXXTRBMD ... 0 associations - insufficient associations
+    Analyzing: DXXWDA ... 0 associations - insufficient associations
+    Analyzing: DXXWDBMC ... 0 associations - insufficient associations
+    Analyzing: DXXWDBMD ... 0 associations - insufficient associations
+    Analyzing: LBDBANO ... 3 associations, 3 unique OTUs, 3 potential pairs, 3 valid edges [done] network created
+       -> Plot stored for LBDBANO 
+    Analyzing: LBDEONO ... 3 associations, 3 unique OTUs, 3 potential pairs, 3 valid edges [done] network created
+       -> Plot stored for LBDEONO 
+    Analyzing: LBDHDD ... 1 associations - insufficient associations
+    Analyzing: LBDLDL ... 2 associations, 2 unique OTUs, 1 potential pairs, 1 valid edges - insufficient edges
+    Analyzing: LBDLYMNO ... 10 associations, 10 unique OTUs, 45 potential pairs, 45 valid edges [done] network created
+       -> Plot stored for LBDLYMNO 
+    Analyzing: LBDMONO ... 2 associations, 2 unique OTUs, 1 potential pairs, 1 valid edges - insufficient edges
+    Analyzing: LBDNENO ... 12 associations, 12 unique OTUs, 66 potential pairs, 66 valid edges [done] network created
+       -> Plot stored for LBDNENO 
+    Analyzing: LBDP3 ... 1 associations - insufficient associations
+    Analyzing: LBDFOT ... 0 associations - insufficient associations
+    Analyzing: LBDRFO ... 0 associations - insufficient associations
+    Analyzing: LBXAPB ... 2 associations, 2 unique OTUs, 1 potential pairs, 1 valid edges - insufficient edges
+    Analyzing: LBXATG ... 0 associations - insufficient associations
+    Analyzing: LBXBAPCT ... 2 associations, 2 unique OTUs, 1 potential pairs, 1 valid edges - insufficient edges
+    Analyzing: LBXCRP ... 0 associations - insufficient associations
+    Analyzing: LBXEOPCT ... 2 associations, 2 unique OTUs, 1 potential pairs, 1 valid edges - insufficient edges
+    Analyzing: LBXFER ... 0 associations - insufficient associations
+    Analyzing: LBXFOLSI ... 0 associations - insufficient associations
+    Analyzing: LBXGH ... 4 associations, 4 unique OTUs, 6 potential pairs, 6 valid edges [done] network created
+       -> Plot stored for LBXGH 
+    Analyzing: LBXGLT ... 5 associations, 5 unique OTUs, 10 potential pairs, 10 valid edges [done] network created
+       -> Plot stored for LBXGLT 
+    Analyzing: LBXGLU ... 2 associations, 2 unique OTUs, 1 potential pairs, 1 valid edges - insufficient edges
+    Analyzing: LBXHCT ... 8 associations, 8 unique OTUs, 28 potential pairs, 28 valid edges [done] network created
+       -> Plot stored for LBXHCT 
+    Analyzing: LBXHGB ... 3 associations, 3 unique OTUs, 3 potential pairs, 3 valid edges [done] network created
+       -> Plot stored for LBXHGB 
+    Analyzing: LBXIN ... 3 associations, 3 unique OTUs, 3 potential pairs, 3 valid edges [done] network created
+       -> Plot stored for LBXIN 
+    Analyzing: LBXLYPCT ... 7 associations, 7 unique OTUs, 21 potential pairs, 21 valid edges [done] network created
+       -> Plot stored for LBXLYPCT 
+    Analyzing: LBXMC ... 2 associations, 2 unique OTUs, 1 potential pairs, 1 valid edges - insufficient edges
+    Analyzing: LBXMCHSI ... 8 associations, 8 unique OTUs, 28 potential pairs, 28 valid edges [done] network created
+       -> Plot stored for LBXMCHSI 
+    Analyzing: LBXMCVSI ... 10 associations, 10 unique OTUs, 45 potential pairs, 45 valid edges [done] network created
+       -> Plot stored for LBXMCVSI 
+    Analyzing: LBXMOPCT ... 3 associations, 3 unique OTUs, 3 potential pairs, 3 valid edges [done] network created
+       -> Plot stored for LBXMOPCT 
+    Analyzing: LBXMPSI ... 5 associations, 5 unique OTUs, 10 potential pairs, 10 valid edges [done] network created
+       -> Plot stored for LBXMPSI 
+    Analyzing: LBXNEPCT ... 8 associations, 8 unique OTUs, 28 potential pairs, 28 valid edges [done] network created
+       -> Plot stored for LBXNEPCT 
+    Analyzing: LBXP1 ... 1 associations - insufficient associations
+    Analyzing: LBXP2 ... 1 associations - insufficient associations
+    Analyzing: LBXPLTSI ... 3 associations, 3 unique OTUs, 3 potential pairs, 3 valid edges [done] network created
+       -> Plot stored for LBXPLTSI 
+    Analyzing: LBXPS4 ... 0 associations - insufficient associations
+    Analyzing: LBXRBCSI ... 5 associations, 5 unique OTUs, 10 potential pairs, 10 valid edges [done] network created
+       -> Plot stored for LBXRBCSI 
+    Analyzing: LBXRBFSI ... 0 associations - insufficient associations
+    Analyzing: LBXRDW ... 4 associations, 4 unique OTUs, 6 potential pairs, 6 valid edges [done] network created
+       -> Plot stored for LBXRDW 
+    Analyzing: LBXSAL ... 7 associations, 7 unique OTUs, 21 potential pairs, 21 valid edges [done] network created
+       -> Plot stored for LBXSAL 
+    Analyzing: LBXSAPSI ... 6 associations, 6 unique OTUs, 15 potential pairs, 15 valid edges [done] network created
+       -> Plot stored for LBXSAPSI 
+    Analyzing: LBXSASSI ... 1 associations - insufficient associations
+    Analyzing: LBXSATSI ... 4 associations, 4 unique OTUs, 6 potential pairs, 6 valid edges [done] network created
+       -> Plot stored for LBXSATSI 
+    Analyzing: LBXSBU ... 23 associations, 23 unique OTUs, 253 potential pairs, 253 valid edges [done] network created
+       -> Plot stored for LBXSBU 
+    Analyzing: LBXSC3SI ... 5 associations, 5 unique OTUs, 10 potential pairs, 10 valid edges [done] network created
+       -> Plot stored for LBXSC3SI 
+    Analyzing: LBXSCA ... 7 associations, 7 unique OTUs, 21 potential pairs, 21 valid edges [done] network created
+       -> Plot stored for LBXSCA 
+    Analyzing: LBXSCH ... 1 associations - insufficient associations
+    Analyzing: LBXSCLSI ... 6 associations, 6 unique OTUs, 15 potential pairs, 15 valid edges [done] network created
+       -> Plot stored for LBXSCLSI 
+    Analyzing: LBXSCR ... 4 associations, 4 unique OTUs, 6 potential pairs, 6 valid edges [done] network created
+       -> Plot stored for LBXSCR 
+    Analyzing: LBXSGB ... 9 associations, 9 unique OTUs, 36 potential pairs, 36 valid edges [done] network created
+       -> Plot stored for LBXSGB 
+    Analyzing: LBXSGL ... 3 associations, 3 unique OTUs, 3 potential pairs, 3 valid edges [done] network created
+       -> Plot stored for LBXSGL 
+    Analyzing: LBXSGTSI ... 6 associations, 6 unique OTUs, 15 potential pairs, 15 valid edges [done] network created
+       -> Plot stored for LBXSGTSI 
+    Analyzing: LBXSIR ... 6 associations, 6 unique OTUs, 15 potential pairs, 15 valid edges [done] network created
+       -> Plot stored for LBXSIR 
+    Analyzing: LBXSKSI ... 7 associations, 7 unique OTUs, 21 potential pairs, 21 valid edges [done] network created
+       -> Plot stored for LBXSKSI 
+    Analyzing: LBXSLDSI ... 5 associations, 5 unique OTUs, 10 potential pairs, 10 valid edges [done] network created
+       -> Plot stored for LBXSLDSI 
+    Analyzing: LBXSNASI ... 6 associations, 6 unique OTUs, 15 potential pairs, 15 valid edges [done] network created
+       -> Plot stored for LBXSNASI 
+    Analyzing: LBXSOSSI ... 5 associations, 5 unique OTUs, 10 potential pairs, 10 valid edges [done] network created
+       -> Plot stored for LBXSOSSI 
+    Analyzing: LBXSPH ... 6 associations, 6 unique OTUs, 15 potential pairs, 15 valid edges [done] network created
+       -> Plot stored for LBXSPH 
+    Analyzing: LBXSTB ... 7 associations, 7 unique OTUs, 21 potential pairs, 21 valid edges [done] network created
+       -> Plot stored for LBXSTB 
+    Analyzing: LBXSTP ... 5 associations, 5 unique OTUs, 10 potential pairs, 10 valid edges [done] network created
+       -> Plot stored for LBXSTP 
+    Analyzing: LBXSTR ... 5 associations, 5 unique OTUs, 10 potential pairs, 10 valid edges [done] network created
+       -> Plot stored for LBXSTR 
+    Analyzing: LBXSUA ... 12 associations, 12 unique OTUs, 66 potential pairs, 66 valid edges [done] network created
+       -> Plot stored for LBXSUA 
+    Analyzing: LBXT3F ... 5 associations, 5 unique OTUs, 10 potential pairs, 10 valid edges [done] network created
+       -> Plot stored for LBXT3F 
+    Analyzing: LBXT4F ... 2 associations, 2 unique OTUs, 1 potential pairs, 1 valid edges - insufficient edges
+    Analyzing: LBXTC ... 0 associations - insufficient associations
+    Analyzing: LBXTFR ... 0 associations - insufficient associations
+    Analyzing: LBXTGN ... 3 associations, 3 unique OTUs, 3 potential pairs, 3 valid edges [done] network created
+       -> Plot stored for LBXTGN 
+    Analyzing: LBXTPO ... 1 associations - insufficient associations
+    Analyzing: LBXTR ... 3 associations, 3 unique OTUs, 3 potential pairs, 3 valid edges [done] network created
+       -> Plot stored for LBXTR 
+    Analyzing: LBXTSH1 ... 3 associations, 3 unique OTUs, 3 potential pairs, 3 valid edges [done] network created
+       -> Plot stored for LBXTSH1 
+    Analyzing: LBXTT3 ... 4 associations, 4 unique OTUs, 6 potential pairs, 6 valid edges [done] network created
+       -> Plot stored for LBXTT3 
+    Analyzing: LBXTT4 ... 6 associations, 6 unique OTUs, 15 potential pairs, 15 valid edges [done] network created
+       -> Plot stored for LBXTT4 
+    Analyzing: LBXWBCSI ... 19 associations, 19 unique OTUs, 171 potential pairs, 171 valid edges [done] network created
+       -> Plot stored for LBXWBCSI 
+    Analyzing: LBXMMASI ... 0 associations - insufficient associations
+    Analyzing: LBXSCK ... 0 associations - insufficient associations
+    Analyzing: LBXSF1SI ... 0 associations - insufficient associations
+    Analyzing: LBXSF2SI ... 0 associations - insufficient associations
+    Analyzing: LBXSF3SI ... 0 associations - insufficient associations
+    Analyzing: LBXSF4SI ... 0 associations - insufficient associations
+    Analyzing: LBXSF5SI ... 0 associations - insufficient associations
+    Analyzing: LBXSF6SI ... 0 associations - insufficient associations
+    Analyzing: LBXTBA ... 0 associations - insufficient associations
+    Analyzing: LBXTBM ... 0 associations - insufficient associations
+    Analyzing: LBXTST ... 0 associations - insufficient associations
+    Analyzing: URXUCR ... 7 associations, 7 unique OTUs, 21 potential pairs, 21 valid edges [done] network created
+       -> Plot stored for URXUCR 
+    Analyzing: URXUIO ... 4 associations, 4 unique OTUs, 6 potential pairs, 6 valid edges [done] network created
+       -> Plot stored for URXUIO 
+    Analyzing: URXUMA ... 3 associations, 3 unique OTUs, 3 potential pairs, 3 valid edges [done] network created
+       -> Plot stored for URXUMA 
+    Analyzing: ENXMEAN ... 14 associations, 14 unique OTUs, 91 potential pairs, 91 valid edges [done] network created
+       -> Plot stored for ENXMEAN 
+    Analyzing: MDIASTOLIC ... 1 associations - insufficient associations
+    Analyzing: MSYSTOLIC ... 0 associations - insufficient associations
+  -> Total plots created: 58 
+  Saving 58 plots for pheWAS 
+    Saving: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/8_network_analyses_out/network_plots_final/none/pheWAS_BMXARMC_Arm_Circumference_cm_none_network.pdf 
+    Saving: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/8_network_analyses_out/network_plots_final/none/pheWAS_BMXARML_Upper_Arm_Length_cm_none_network.pdf 
+    Saving: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/8_network_analyses_out/network_plots_final/none/pheWAS_BMXBMI_Body_Mass_Index_kg_m_2_none_network.pdf 
+    Saving: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/8_network_analyses_out/network_plots_final/none/pheWAS_BMXHT_Standing_Height_cm_none_network.pdf 
+    Saving: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/8_network_analyses_out/network_plots_final/none/pheWAS_BMXWAIST_Waist_Circumference_cm_none_network.pdf 
+    Saving: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/8_network_analyses_out/network_plots_final/none/pheWAS_BMXWT_Weight_kg_none_network.pdf 
+    Saving: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/8_network_analyses_out/network_plots_final/none/pheWAS_BPXPLS_60_sec_pulse_30_sec_pulse_2_none_network.pdf 
+    Saving: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/8_network_analyses_out/network_plots_final/none/pheWAS_SPXNFVC_Baseline_1st_Test_Spirometry_Forced_Vital_Capacity_in_mL_none_network.pdf 
+    Saving: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/8_network_analyses_out/network_plots_final/none/pheWAS_LBDBANO_Basophils_number_1000_cells_uL_none_network.pdf 
+    Saving: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/8_network_analyses_out/network_plots_final/none/pheWAS_LBDEONO_Eosinophils_number_1000_cells_uL_none_network.pdf 
+    Saving: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/8_network_analyses_out/network_plots_final/none/pheWAS_LBDLYMNO_Lymphocyte_number_1000_cells_uL_none_network.pdf 
+    Saving: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/8_network_analyses_out/network_plots_final/none/pheWAS_LBDNENO_Segmented_neutrophils_num_1000_cell_uL_none_network.pdf 
+    Saving: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/8_network_analyses_out/network_plots_final/none/pheWAS_LBXGH_Glycohemoglobin_none_network.pdf 
+    Saving: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/8_network_analyses_out/network_plots_final/none/pheWAS_LBXGLT_Two_Hour_Glucose_OGTT_mg_dL_none_network.pdf 
+    Saving: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/8_network_analyses_out/network_plots_final/none/pheWAS_LBXHCT_Hematocrit_none_network.pdf 
+    Saving: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/8_network_analyses_out/network_plots_final/none/pheWAS_LBXHGB_Hemoglobin_g_dL_none_network.pdf 
+    Saving: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/8_network_analyses_out/network_plots_final/none/pheWAS_LBXIN_Insulin_uU_mL_none_network.pdf 
+    Saving: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/8_network_analyses_out/network_plots_final/none/pheWAS_LBXLYPCT_Lymphocyte_percent_none_network.pdf 
+    Saving: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/8_network_analyses_out/network_plots_final/none/pheWAS_LBXMCHSI_Mean_cell_hemoglobin_pg_none_network.pdf 
+    Saving: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/8_network_analyses_out/network_plots_final/none/pheWAS_LBXMCVSI_Mean_cell_volume_fL_none_network.pdf 
+    Saving: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/8_network_analyses_out/network_plots_final/none/pheWAS_LBXMOPCT_Monocyte_percent_none_network.pdf 
+    Saving: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/8_network_analyses_out/network_plots_final/none/pheWAS_LBXMPSI_Mean_platelet_volume_fL_none_network.pdf 
+    Saving: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/8_network_analyses_out/network_plots_final/none/pheWAS_LBXNEPCT_Segmented_neutrophils_percent_none_network.pdf 
+    Saving: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/8_network_analyses_out/network_plots_final/none/pheWAS_LBXPLTSI_Platelet_count_1000_cells_uL_none_network.pdf 
+    Saving: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/8_network_analyses_out/network_plots_final/none/pheWAS_LBXRBCSI_Red_blood_cell_count_million_cells_uL_none_network.pdf 
+    Saving: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/8_network_analyses_out/network_plots_final/none/pheWAS_LBXRDW_Red_cell_distribution_width_none_network.pdf 
+    Saving: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/8_network_analyses_out/network_plots_final/none/pheWAS_LBXSAL_Albumin_g_dL_none_network.pdf 
+    Saving: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/8_network_analyses_out/network_plots_final/none/pheWAS_LBXSAPSI_Alkaline_phosphotase_U_L_none_network.pdf 
+    Saving: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/8_network_analyses_out/network_plots_final/none/pheWAS_LBXSATSI_Alanine_aminotransferase_ALT_U_L_none_network.pdf 
+    Saving: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/8_network_analyses_out/network_plots_final/none/pheWAS_LBXSBU_Blood_urea_nitrogen_mg_dL_none_network.pdf 
+    Saving: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/8_network_analyses_out/network_plots_final/none/pheWAS_LBXSC3SI_Bicarbonate_mmol_L_none_network.pdf 
+    Saving: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/8_network_analyses_out/network_plots_final/none/pheWAS_LBXSCA_Total_calcium_mg_dL_none_network.pdf 
+    Saving: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/8_network_analyses_out/network_plots_final/none/pheWAS_LBXSCLSI_Chloride_mmol_L_none_network.pdf 
+    Saving: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/8_network_analyses_out/network_plots_final/none/pheWAS_LBXSCR_Creatinine_mg_dL_none_network.pdf 
+    Saving: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/8_network_analyses_out/network_plots_final/none/pheWAS_LBXSGB_Globulin_g_dL_none_network.pdf 
+    Saving: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/8_network_analyses_out/network_plots_final/none/pheWAS_LBXSGL_Glucose_serum_mg_dL_none_network.pdf 
+    Saving: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/8_network_analyses_out/network_plots_final/none/pheWAS_LBXSGTSI_Gamma_glutamyl_transferase_U_L_none_network.pdf 
+    Saving: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/8_network_analyses_out/network_plots_final/none/pheWAS_LBXSIR_Iron_refigerated_ug_dL_none_network.pdf 
+    Saving: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/8_network_analyses_out/network_plots_final/none/pheWAS_LBXSKSI_Potassium_mmol_L_none_network.pdf 
+    Saving: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/8_network_analyses_out/network_plots_final/none/pheWAS_LBXSLDSI_Lactate_dehydrogenase_U_L_none_network.pdf 
+    Saving: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/8_network_analyses_out/network_plots_final/none/pheWAS_LBXSNASI_Sodium_mmol_L_none_network.pdf 
+    Saving: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/8_network_analyses_out/network_plots_final/none/pheWAS_LBXSOSSI_Osmolality_mmol_Kg_none_network.pdf 
+    Saving: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/8_network_analyses_out/network_plots_final/none/pheWAS_LBXSPH_Phosphorus_mg_dL_none_network.pdf 
+    Saving: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/8_network_analyses_out/network_plots_final/none/pheWAS_LBXSTB_Total_bilirubin_mg_dL_none_network.pdf 
+    Saving: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/8_network_analyses_out/network_plots_final/none/pheWAS_LBXSTP_Total_protein_g_dL_none_network.pdf 
+    Saving: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/8_network_analyses_out/network_plots_final/none/pheWAS_LBXSTR_Triglycerides_mg_dL_none_network.pdf 
+    Saving: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/8_network_analyses_out/network_plots_final/none/pheWAS_LBXSUA_Uric_acid_mg_dL_none_network.pdf 
+    Saving: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/8_network_analyses_out/network_plots_final/none/pheWAS_LBXT3F_Triiodothyronine_T3_free_pg_mL_none_network.pdf 
+    Saving: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/8_network_analyses_out/network_plots_final/none/pheWAS_LBXTGN_Thyroglobulin_ng_mL_none_network.pdf 
+    Saving: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/8_network_analyses_out/network_plots_final/none/pheWAS_LBXTR_Triglyceride_mg_dL_none_network.pdf 
+    Saving: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/8_network_analyses_out/network_plots_final/none/pheWAS_LBXTSH1_Thyroid_stimulating_hormone_uIU_mL_none_network.pdf 
+    Saving: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/8_network_analyses_out/network_plots_final/none/pheWAS_LBXTT3_Triiodothyronine_T3_total_ng_dL_none_network.pdf 
+    Saving: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/8_network_analyses_out/network_plots_final/none/pheWAS_LBXTT4_Thyroxine_total_T4_ug_dL_none_network.pdf 
+    Saving: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/8_network_analyses_out/network_plots_final/none/pheWAS_LBXWBCSI_White_blood_cell_count_SI_none_network.pdf 
+    Saving: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/8_network_analyses_out/network_plots_final/none/pheWAS_URXUCR_Creatinine_urine_mg_dL_none_network.pdf 
+    Saving: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/8_network_analyses_out/network_plots_final/none/pheWAS_URXUIO_Iodine_urine_ug_L_none_network.pdf 
+    Saving: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/8_network_analyses_out/network_plots_final/none/pheWAS_URXUMA_Albumin_urine_ug_mL_none_network.pdf 
+    Saving: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/8_network_analyses_out/network_plots_final/none/pheWAS_ENXMEAN_Mean_of_two_reproducible_FENO_measurements_in_parts_per_billion_none_network.pdf 
+  Variables to analyze: ASTHMA, BRONCHITIS, EMPHYSEMA, ANGINA, HEART_FAILURE, HEART_ATTACK, STROKE, CHD, CVD, CANCER_BREAST, CANCER_PROSTATE, DIABETES 
+    Analyzing: ASTHMA ... 1 associations - insufficient associations
+    Analyzing: BRONCHITIS ... 4 associations, 4 unique OTUs, 6 potential pairs, 6 valid edges [done] network created
+       -> Plot stored for BRONCHITIS 
+    Analyzing: EMPHYSEMA ... 4 associations, 4 unique OTUs, 6 potential pairs, 6 valid edges [done] network created
+       -> Plot stored for EMPHYSEMA 
+    Analyzing: ANGINA ... 4 associations, 4 unique OTUs, 6 potential pairs, 6 valid edges [done] network created
+       -> Plot stored for ANGINA 
+    Analyzing: HEART_FAILURE ... 2 associations, 2 unique OTUs, 1 potential pairs, 1 valid edges - insufficient edges
+    Analyzing: HEART_ATTACK ... 6 associations, 6 unique OTUs, 15 potential pairs, 15 valid edges [done] network created
+       -> Plot stored for HEART_ATTACK 
+    Analyzing: STROKE ... 5 associations, 5 unique OTUs, 10 potential pairs, 10 valid edges [done] network created
+       -> Plot stored for STROKE 
+    Analyzing: CHD ... 3 associations, 3 unique OTUs, 3 potential pairs, 3 valid edges [done] network created
+       -> Plot stored for CHD 
+    Analyzing: CVD ... 4 associations, 4 unique OTUs, 6 potential pairs, 6 valid edges [done] network created
+       -> Plot stored for CVD 
+    Analyzing: CANCER_BREAST ... 3 associations, 3 unique OTUs, 3 potential pairs, 3 valid edges [done] network created
+       -> Plot stored for CANCER_BREAST 
+    Analyzing: CANCER_PROSTATE ... 2 associations, 2 unique OTUs, 1 potential pairs, 1 valid edges - insufficient edges
+    Analyzing: DIABETES ... 2 associations, 2 unique OTUs, 1 potential pairs, 1 valid edges - insufficient edges
+  -> Total plots created: 8 
+  Saving 8 plots for outWAS 
+    Saving: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/8_network_analyses_out/network_plots_final/none/outWAS_BRONCHITIS_BRONCHITIS_MCQ_none_network.pdf 
+    Saving: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/8_network_analyses_out/network_plots_final/none/outWAS_EMPHYSEMA_EMPHYSEMA_MCQ_none_network.pdf 
+    Saving: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/8_network_analyses_out/network_plots_final/none/outWAS_ANGINA_ANGINA_MCQ_none_network.pdf 
+    Saving: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/8_network_analyses_out/network_plots_final/none/outWAS_HEART_ATTACK_HEART_ATTACK_MCQ_none_network.pdf 
+    Saving: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/8_network_analyses_out/network_plots_final/none/outWAS_STROKE_STROKE_MCQ_none_network.pdf 
+    Saving: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/8_network_analyses_out/network_plots_final/none/outWAS_CHD_CHD_MCQ_none_network.pdf 
+    Saving: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/8_network_analyses_out/network_plots_final/none/outWAS_CVD_CVD_MCQ_none_network.pdf 
+    Saving: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/8_network_analyses_out/network_plots_final/none/outWAS_CANCER_BREAST_CANCER_BREAST_MCQ_none_network.pdf 
+Creating booklet: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/8_network_analyses_out/network_plots_final/none/ALL_none_network_booklet.pdf with 5 pages (demoWAS, exWAS, outWAS, oradWAS, pheWAS order)
+
+Processing clr transformation...
+  Variables to analyze: RIDAGEYR, AGE_SQUARED, RIAGENDR, INDFMPIR, EDUCATION_LESS9, EDUCATION_9_11, EDUCATION_AA, EDUCATION_COLLEGEGRAD, ETHNICITY_MEXICAN, ETHNICITY_OTHERHISPANIC, ETHNICITY_OTHER, ETHNICITY_NONHISPANICBLACK, BORN_INUSA 
+    Analyzing: RIDAGEYR ... 57 associations, 57 unique OTUs, 1596 potential pairs, 1596 valid edges [done] network created
+       -> Plot stored for RIDAGEYR 
+    Analyzing: AGE_SQUARED ... 61 associations, 61 unique OTUs, 1830 potential pairs, 1830 valid edges [done] network created
+       -> Plot stored for AGE_SQUARED 
+    Analyzing: RIAGENDR ... 56 associations, 56 unique OTUs, 1540 potential pairs, 1540 valid edges [done] network created
+       -> Plot stored for RIAGENDR 
+    Analyzing: INDFMPIR ... 65 associations, 65 unique OTUs, 2080 potential pairs, 2080 valid edges [done] network created
+       -> Plot stored for INDFMPIR 
+    Analyzing: EDUCATION_LESS9 ... 32 associations, 32 unique OTUs, 496 potential pairs, 496 valid edges [done] network created
+       -> Plot stored for EDUCATION_LESS9 
+    Analyzing: EDUCATION_9_11 ... 37 associations, 37 unique OTUs, 666 potential pairs, 666 valid edges [done] network created
+       -> Plot stored for EDUCATION_9_11 
+    Analyzing: EDUCATION_AA ... 5 associations, 5 unique OTUs, 10 potential pairs, 10 valid edges [done] network created
+       -> Plot stored for EDUCATION_AA 
+    Analyzing: EDUCATION_COLLEGEGRAD ... 53 associations, 53 unique OTUs, 1378 potential pairs, 1378 valid edges [done] network created
+       -> Plot stored for EDUCATION_COLLEGEGRAD 
+    Analyzing: ETHNICITY_MEXICAN ... 67 associations, 67 unique OTUs, 2211 potential pairs, 2211 valid edges [done] network created
+       -> Plot stored for ETHNICITY_MEXICAN 
+    Analyzing: ETHNICITY_OTHERHISPANIC ... 47 associations, 47 unique OTUs, 1081 potential pairs, 1081 valid edges [done] network created
+       -> Plot stored for ETHNICITY_OTHERHISPANIC 
+    Analyzing: ETHNICITY_OTHER ... 28 associations, 28 unique OTUs, 378 potential pairs, 378 valid edges [done] network created
+       -> Plot stored for ETHNICITY_OTHER 
+    Analyzing: ETHNICITY_NONHISPANICBLACK ... 70 associations, 70 unique OTUs, 2415 potential pairs, 2415 valid edges [done] network created
+       -> Plot stored for ETHNICITY_NONHISPANICBLACK 
+    Analyzing: BORN_INUSA ... 73 associations, 73 unique OTUs, 2628 potential pairs, 2628 valid edges [done] network created
+       -> Plot stored for BORN_INUSA 
+  -> Total plots created: 13 
+  Saving 13 plots for demoWAS 
+    Saving: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/8_network_analyses_out/network_plots_final/clr/demoWAS_RIDAGEYR_Best_age_in_years_of_the_sample_person_at_time_of_HH_screening_Individual_clr_network.pdf 
+    Saving: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/8_network_analyses_out/network_plots_final/clr/demoWAS_AGE_SQUARED_Age_squared_RIDAGEYR_clr_network.pdf 
+    Saving: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/8_network_analyses_out/network_plots_final/clr/demoWAS_RIAGENDR_Gender_of_the_sample_person_clr_network.pdf 
+    Saving: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/8_network_analyses_out/network_plots_final/clr/demoWAS_INDFMPIR_A_ratio_of_family_income_to_poverty_threshold_clr_network.pdf 
+    Saving: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/8_network_analyses_out/network_plots_final/clr/demoWAS_EDUCATION_LESS9_Edu_9th_grade_DMDEDUC2_1_clr_network.pdf 
+    Saving: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/8_network_analyses_out/network_plots_final/clr/demoWAS_EDUCATION_9_11_Edu_9_11th_grade_DMDEDUC2_2_clr_network.pdf 
+    Saving: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/8_network_analyses_out/network_plots_final/clr/demoWAS_EDUCATION_AA_Edu_AA_some_college_DMDEDUC2_4_clr_network.pdf 
+    Saving: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/8_network_analyses_out/network_plots_final/clr/demoWAS_EDUCATION_COLLEGEGRAD_Edu_college_grad_above_DMDEDUC2_5_clr_network.pdf 
+    Saving: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/8_network_analyses_out/network_plots_final/clr/demoWAS_ETHNICITY_MEXICAN_Mexican_American_RIDRETH1_1_clr_network.pdf 
+    Saving: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/8_network_analyses_out/network_plots_final/clr/demoWAS_ETHNICITY_OTHERHISPANIC_Other_Hispanic_RIDRETH1_2_clr_network.pdf 
+    Saving: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/8_network_analyses_out/network_plots_final/clr/demoWAS_ETHNICITY_OTHER_Other_race_multi_racial_RIDRETH1_5_clr_network.pdf 
+    Saving: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/8_network_analyses_out/network_plots_final/clr/demoWAS_ETHNICITY_NONHISPANICBLACK_Non_Hispanic_Black_RIDRETH1_4_clr_network.pdf 
+    Saving: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/8_network_analyses_out/network_plots_final/clr/demoWAS_BORN_INUSA_Born_in_USA_DMDBORN4_1_clr_network.pdf 
+  Variables to analyze: TOOTH_DECAY_OHAROCDT, GUM_DISEASE_OHAROCGP, ORAL_HYGIENE_OHAROCOH, DENTURE_OHAROCDE 
+    Analyzing: TOOTH_DECAY_OHAROCDT ... 42 associations, 42 unique OTUs, 861 potential pairs, 861 valid edges [done] network created
+       -> Plot stored for TOOTH_DECAY_OHAROCDT 
+    Analyzing: GUM_DISEASE_OHAROCGP ... 66 associations, 66 unique OTUs, 2145 potential pairs, 2145 valid edges [done] network created
+       -> Plot stored for GUM_DISEASE_OHAROCGP 
+    Analyzing: ORAL_HYGIENE_OHAROCOH ... 51 associations, 51 unique OTUs, 1275 potential pairs, 1275 valid edges [done] network created
+       -> Plot stored for ORAL_HYGIENE_OHAROCOH 
+    Analyzing: DENTURE_OHAROCDE ... 18 associations, 18 unique OTUs, 153 potential pairs, 153 valid edges [done] network created
+       -> Plot stored for DENTURE_OHAROCDE 
+  -> Total plots created: 4 
+  Saving 4 plots for oradWAS 
+    Saving: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/8_network_analyses_out/network_plots_final/clr/oradWAS_TOOTH_DECAY_OHAROCDT_Tooth_Decay_clr_network.pdf 
+    Saving: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/8_network_analyses_out/network_plots_final/clr/oradWAS_GUM_DISEASE_OHAROCGP_Gum_Disease_clr_network.pdf 
+    Saving: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/8_network_analyses_out/network_plots_final/clr/oradWAS_ORAL_HYGIENE_OHAROCOH_Oral_Hygiene_clr_network.pdf 
+    Saving: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/8_network_analyses_out/network_plots_final/clr/oradWAS_DENTURE_OHAROCDE_Denture_clr_network.pdf 
+  Variables to analyze: DR1TACAR, DR1TALCO, DR1TATOA, DR1TATOC, DR1TB12A, DR1TBCAR, DR1TCAFF, DR1TCALC, DR1TCARB, DR1TCHOL, DR1TCOPP, DR1TCRYP, DR1TFA, DR1TFDFE, DR1TFF, DR1TFIBE, DR1TFOLA, DR1TIRON, DR1TKCAL, DR1TLYCO, DR1TLZ, DR1TM161, DR1TM181, DR1TM201, DR1TM221, DR1TMAGN, DR1TMFAT, DR1TMOIS, DR1TNIAC, DR1TNUMF, DR1TP182, DR1TP183, DR1TP184, DR1TP204, DR1TP205, DR1TP225, DR1TP226, DR1TPFAT, DR1TPHOS, DR1TPOTA, DR1TPROT, DR1TRET, DR1TS040, DR1TS060, DR1TS080, DR1TS100, DR1TS120, DR1TS140, DR1TS160, DR1TS180, DR1TSELE, DR1TSFAT, DR1TSODI, DR1TSUGR, DR1TTFAT, DR1TTHEO, DR1TVARA, DR1TVB1, DR1TVB12, DR1TVB2, DR1TVB6, DR1TVC, DR1TVD, DR1TVK, DR1TZINC, DR2TACAR, DR2TALCO, DR2TATOA, DR2TATOC, DR2TB12A, DR2TBCAR, DR2TCAFF, DR2TCALC, DR2TCARB, DR2TCHL, DR2TCHOL, DR2TCOPP, DR2TCRYP, DR2TFA, DR2TFDFE, DR2TFF, DR2TFIBE, DR2TFOLA, DR2TIRON, DR2TKCAL, DR2TLYCO, DR2TLZ, DR2TM161, DR2TM181, DR2TM201, DR2TM221, DR2TMAGN, DR2TMFAT, DR2TMOIS, DR2TNIAC, DR2TNUMF, DR2TP182, DR2TP183, DR2TP184, DR2TP204, DR2TP205, DR2TP225, DR2TP226, DR2TPFAT, DR2TPHOS, DR2TPOTA, DR2TPROT, DR2TRET, DR2TS040, DR2TS060, DR2TS080, DR2TS100, DR2TS120, DR2TS140, DR2TS160, DR2TS180, DR2TSELE, DR2TSFAT, DR2TSODI, DR2TSUGR, DR2TTFAT, DR2TTHEO, DR2TVARA, DR2TVB1, DR2TVB12, DR2TVB2, DR2TVB6, DR2TVC, DR2TVD, DR2TVK, DR2TZINC, DS1DSCNT, DS1TCALC, DS1TCOPP, DS1TFA, DS1TFDFE, DS1TIRON, DS1TKCAL, DS1TMAGN, DS1TNIAC, DS1TPOTA, DS1TSELE, DS1TVB1, DS1TVB12, DS1TVB2, DS1TVB6, DS1TVC, DS1TVD, DS1TVK, DS1TZINC, DS2AN, DS2ANCNT, DS2DS, DS2DSCNT, DS2TCALC, DS2TCOPP, DS2TFA, DS2TFDFE, DS2TIRON, DS2TMAGN, DS2TNIAC, DS2TPOTA, DS2TSELE, DS2TVB1, DS2TVB12, DS2TVB2, DS2TVB6, DS2TVC, DS2TVD, DS2TVK, DS2TZINC, DS2TIODI, DS2TKCAL, DSQTCALC, DSQTCOPP, DSQTFA, DSQTFDFE, DSQTIRON, DSQTKCAL, DSQTMAGN, DSQTNIAC, DSQTPHOS, DSQTPOTA, DSQTSELE, DSQTVB1, DSQTVB12, DSQTVB2, DSQTVB6, DSQTVC, DSQTVD, DSQTVK, DSQTZINC, DSQTIODI, DSQTSUGR, LBDHBG, LBDHCV, LBDHD, LBDHEG, LBDHEM, LBDRPCR, LBDVWCGP, LBDB12SI, LBX06, LBX11, LBX16, LBX18, LBX2DF, LBX4CE, LBX4PA, LBXBCD, LBXBPB, LBXCOT, LBXEPAH, LBXHA, LBXHBC, LBXHBS, LBXHDT, LBXHE1, LBXHE2, LBXIHG, LBXMEA, LBXMPAH, LBXMUM, LBXNM, LBXOD1, LBXOD9, LBXOTT, LBXPFBS, LBXPFDE, LBXPFDO, LBXPFHP, LBXPFHS, LBXPFNA, LBXPFOA, LBXPFOS, LBXPFSA, LBXPFUA, LBXPLP, LBXRUB, LBXTHG, LBXTTG, LBXV06, LBXV1A, LBXV1D, LBXV1E, LBXV2A, LBXV2C, LBXV2E, LBXV2P, LBXV2T, LBXV3B, LBXV4C, LBXV4E, LBXVBF, LBXVBM, LBXVBZ, LBXVCB, LBXVCF, LBXVCM, LBXVCT, LBXVD2MS, LBXVD3MS, LBXVDB, LBXVDE, LBXVDM, LBXVDP, LBXVDX, LBXVE3MS, LBXVEB, LBXVFN, LBXVHE, LBXVIDMS, LBXVIPB, LBXVMC, LBXVME, LBXVNB, LBXVOX, LBXVST, LBXVTC, LBXVTE, LBXVTO, LBXVTP, LBXVXY, LBXALN, LBXAR1, LBXARA, LBXB12, LBXBGE, LBXBGM, LBXBMN, LBXBSE, LBXCAP, LBXDA1, LBXDHA, LBXDP3, LBXDP6, LBXDTA, LBXED1, LBXEN1, LBXEPA, LBXET1, LBXGLA, LBXHGL, LBXLAR, LBXLG1, LBXLNA, LBXML1, LBXMR1, LBXMRG, LBXNR1, LBXOL1, LBXPEN, LBXPL1, LBXPM1, LBXSD1, LBXST1, LBXTBN, LBXTSA, LBXVC1, URX14D, URX1TB, URX24D, URX25T, URX3TB, URX4FP, URX4TO, URXAMU, URXBP3, URXBPH, URXBUP, URXCB3, URXCNP, URXCOP, URXCPM, URXDAZ, URXDCB, URXDEA, URXDEE, URXDHD, URXDMA, URXECP, URXEPB, URXEQU, URXETD, URXETL, URXGNS, URXMAL, URXMBP, URXMC1, URXMCP, URXMEP, URXMHH, URXMHP, URXMIB, URXMNM, URXMNP, URXMOH, URXMOP, URXMPB, URXMU1, URXMU2, URXMU3, URXMU4, URXMU5, URXMU6, URXMU7, URXMX1, URXMX2, URXMX3, URXMX4, URXMX5, URXMX6, URXMX7, URXMZP, URXNAL, URXNO3, URXOPM, URXOPP, URXOXY, URXP01, URXP02, URXP03, URXP04, URXP05, URXP06, URXP07, URXP10, URXP17, URXPAR, URXPPB, URXSCN, URXTCC, URXTRS, URXUAB, URXUAC, URXUAS, URXUAS3, URXUAS5, URXUBA, URXUBE, URXUCD, URXUCL, URXUCO, URXUCS, URXUDMA, URXUHG, URXUMMA, URXUMO, URXUP8, URXUPB, URXUPT, URXUSB, URXUTL, URXUTM, URXUTU, URX1DC, URX2DC, URX2MH, URX34M, URXAAM, URXAMC, URXATC, URXBMA, URXBPM, URXCEM, URXCYM, URXDHB, URXDPM, URXGAM, URXHEM, URXHP2, URXHPM, URXMAD, URXMB1, URXMB2, URXMB3, URXMHNC, URXOP1, URXOP2, URXOP3, URXOP4, URXOP5, URXOP6, URXPHE, URXPHG, URXPMA, URXPMM, URXTCV, URXTTC, URXUMN, URXUSN, URXUSR, PAQ_recreation_moderate_met, PAQ_recreation_moderate_week, PAQ_recreation_vigorous_met, PAQ_recreation_vigorous_week, PAQ_total_met, PAQ_walk_met, PAQ_walk_week, PAQ_work_moderate_met, PAQ_work_moderate_week, PAQ_work_vigorous_met, PAQ_work_vigorous_week, SMQ710, SMQ720, SMQ725, SMQ_current_ever_never, SMQ_how_long_since_quit_years, SMD415, SMD415A, HOQ065, ORXHPV, PA_sedentary_activity_min_per_day 
+    Analyzing: DR1TACAR ... 0 associations - insufficient associations
+    Analyzing: DR1TALCO ... 4 associations, 4 unique OTUs, 6 potential pairs, 6 valid edges [done] network created
+       -> Plot stored for DR1TALCO 
+    Analyzing: DR1TATOA ... 0 associations - insufficient associations
+    Analyzing: DR1TATOC ... 1 associations - insufficient associations
+    Analyzing: DR1TB12A ... 0 associations - insufficient associations
+    Analyzing: DR1TBCAR ... 1 associations - insufficient associations
+    Analyzing: DR1TCAFF ... 6 associations, 6 unique OTUs, 15 potential pairs, 15 valid edges [done] network created
+       -> Plot stored for DR1TCAFF 
+    Analyzing: DR1TCALC ... 0 associations - insufficient associations
+    Analyzing: DR1TCARB ... 4 associations, 4 unique OTUs, 6 potential pairs, 6 valid edges [done] network created
+       -> Plot stored for DR1TCARB 
+    Analyzing: DR1TCHOL ... 0 associations - insufficient associations
+    Analyzing: DR1TCOPP ... 0 associations - insufficient associations
+    Analyzing: DR1TCRYP ... 0 associations - insufficient associations
+    Analyzing: DR1TFA ... 0 associations - insufficient associations
+    Analyzing: DR1TFDFE ... 0 associations - insufficient associations
+    Analyzing: DR1TFF ... 1 associations - insufficient associations
+    Analyzing: DR1TFIBE ... 1 associations - insufficient associations
+    Analyzing: DR1TFOLA ... 0 associations - insufficient associations
+    Analyzing: DR1TIRON ... 0 associations - insufficient associations
+    Analyzing: DR1TKCAL ... 0 associations - insufficient associations
+    Analyzing: DR1TLYCO ... 0 associations - insufficient associations
+    Analyzing: DR1TLZ ... 2 associations, 2 unique OTUs, 1 potential pairs, 1 valid edges - insufficient edges
+    Analyzing: DR1TM161 ... 0 associations - insufficient associations
+    Analyzing: DR1TM181 ... 0 associations - insufficient associations
+    Analyzing: DR1TM201 ... 0 associations - insufficient associations
+    Analyzing: DR1TM221 ... 0 associations - insufficient associations
+    Analyzing: DR1TMAGN ... 1 associations - insufficient associations
+    Analyzing: DR1TMFAT ... 0 associations - insufficient associations
+    Analyzing: DR1TMOIS ... 0 associations - insufficient associations
+    Analyzing: DR1TNIAC ... 0 associations - insufficient associations
+    Analyzing: DR1TNUMF ... 6 associations, 6 unique OTUs, 15 potential pairs, 15 valid edges [done] network created
+       -> Plot stored for DR1TNUMF 
+    Analyzing: DR1TP182 ... 0 associations - insufficient associations
+    Analyzing: DR1TP183 ... 0 associations - insufficient associations
+    Analyzing: DR1TP184 ... 0 associations - insufficient associations
+    Analyzing: DR1TP204 ... 0 associations - insufficient associations
+    Analyzing: DR1TP205 ... 0 associations - insufficient associations
+    Analyzing: DR1TP225 ... 0 associations - insufficient associations
+    Analyzing: DR1TP226 ... 0 associations - insufficient associations
+    Analyzing: DR1TPFAT ... 0 associations - insufficient associations
+    Analyzing: DR1TPHOS ... 0 associations - insufficient associations
+    Analyzing: DR1TPOTA ... 0 associations - insufficient associations
+    Analyzing: DR1TPROT ... 0 associations - insufficient associations
+    Analyzing: DR1TRET ... 1 associations - insufficient associations
+    Analyzing: DR1TS040 ... 0 associations - insufficient associations
+    Analyzing: DR1TS060 ... 0 associations - insufficient associations
+    Analyzing: DR1TS080 ... 0 associations - insufficient associations
+    Analyzing: DR1TS100 ... 0 associations - insufficient associations
+    Analyzing: DR1TS120 ... 0 associations - insufficient associations
+    Analyzing: DR1TS140 ... 0 associations - insufficient associations
+    Analyzing: DR1TS160 ... 0 associations - insufficient associations
+    Analyzing: DR1TS180 ... 0 associations - insufficient associations
+    Analyzing: DR1TSELE ... 0 associations - insufficient associations
+    Analyzing: DR1TSFAT ... 0 associations - insufficient associations
+    Analyzing: DR1TSODI ... 0 associations - insufficient associations
+    Analyzing: DR1TSUGR ... 8 associations, 8 unique OTUs, 28 potential pairs, 28 valid edges [done] network created
+       -> Plot stored for DR1TSUGR 
+    Analyzing: DR1TTFAT ... 0 associations - insufficient associations
+    Analyzing: DR1TTHEO ... 5 associations, 5 unique OTUs, 10 potential pairs, 10 valid edges [done] network created
+       -> Plot stored for DR1TTHEO 
+    Analyzing: DR1TVARA ... 0 associations - insufficient associations
+    Analyzing: DR1TVB1 ... 0 associations - insufficient associations
+    Analyzing: DR1TVB12 ... 0 associations - insufficient associations
+    Analyzing: DR1TVB2 ... 0 associations - insufficient associations
+    Analyzing: DR1TVB6 ... 0 associations - insufficient associations
+    Analyzing: DR1TVC ... 0 associations - insufficient associations
+    Analyzing: DR1TVD ... 0 associations - insufficient associations
+    Analyzing: DR1TVK ... 8 associations, 8 unique OTUs, 28 potential pairs, 28 valid edges [done] network created
+       -> Plot stored for DR1TVK 
+    Analyzing: DR1TZINC ... 0 associations - insufficient associations
+    Analyzing: DR2TACAR ... 0 associations - insufficient associations
+    Analyzing: DR2TALCO ... 1 associations - insufficient associations
+    Analyzing: DR2TATOA ... 0 associations - insufficient associations
+    Analyzing: DR2TATOC ... 0 associations - insufficient associations
+    Analyzing: DR2TB12A ... 0 associations - insufficient associations
+    Analyzing: DR2TBCAR ... 1 associations - insufficient associations
+    Analyzing: DR2TCAFF ... 1 associations - insufficient associations
+    Analyzing: DR2TCALC ... 0 associations - insufficient associations
+    Analyzing: DR2TCARB ... 0 associations - insufficient associations
+    Analyzing: DR2TCHL ... 0 associations - insufficient associations
+    Analyzing: DR2TCHOL ... 0 associations - insufficient associations
+    Analyzing: DR2TCOPP ... 0 associations - insufficient associations
+    Analyzing: DR2TCRYP ... 0 associations - insufficient associations
+    Analyzing: DR2TFA ... 0 associations - insufficient associations
+    Analyzing: DR2TFDFE ... 0 associations - insufficient associations
+    Analyzing: DR2TFF ... 0 associations - insufficient associations
+    Analyzing: DR2TFIBE ... 1 associations - insufficient associations
+    Analyzing: DR2TFOLA ... 0 associations - insufficient associations
+    Analyzing: DR2TIRON ... 0 associations - insufficient associations
+    Analyzing: DR2TKCAL ... 0 associations - insufficient associations
+    Analyzing: DR2TLYCO ... 0 associations - insufficient associations
+    Analyzing: DR2TLZ ... 1 associations - insufficient associations
+    Analyzing: DR2TM161 ... 0 associations - insufficient associations
+    Analyzing: DR2TM181 ... 0 associations - insufficient associations
+    Analyzing: DR2TM201 ... 0 associations - insufficient associations
+    Analyzing: DR2TM221 ... 2 associations, 2 unique OTUs, 1 potential pairs, 1 valid edges - insufficient edges
+    Analyzing: DR2TMAGN ... 1 associations - insufficient associations
+    Analyzing: DR2TMFAT ... 0 associations - insufficient associations
+    Analyzing: DR2TMOIS ... 0 associations - insufficient associations
+    Analyzing: DR2TNIAC ... 0 associations - insufficient associations
+    Analyzing: DR2TNUMF ... 1 associations - insufficient associations
+    Analyzing: DR2TP182 ... 0 associations - insufficient associations
+    Analyzing: DR2TP183 ... 0 associations - insufficient associations
+    Analyzing: DR2TP184 ... 0 associations - insufficient associations
+    Analyzing: DR2TP204 ... 0 associations - insufficient associations
+    Analyzing: DR2TP205 ... 1 associations - insufficient associations
+    Analyzing: DR2TP225 ... 0 associations - insufficient associations
+    Analyzing: DR2TP226 ... 1 associations - insufficient associations
+    Analyzing: DR2TPFAT ... 0 associations - insufficient associations
+    Analyzing: DR2TPHOS ... 0 associations - insufficient associations
+    Analyzing: DR2TPOTA ... 0 associations - insufficient associations
+    Analyzing: DR2TPROT ... 0 associations - insufficient associations
+    Analyzing: DR2TRET ... 1 associations - insufficient associations
+    Analyzing: DR2TS040 ... 0 associations - insufficient associations
+    Analyzing: DR2TS060 ... 0 associations - insufficient associations
+    Analyzing: DR2TS080 ... 1 associations - insufficient associations
+    Analyzing: DR2TS100 ... 0 associations - insufficient associations
+    Analyzing: DR2TS120 ... 1 associations - insufficient associations
+    Analyzing: DR2TS140 ... 0 associations - insufficient associations
+    Analyzing: DR2TS160 ... 0 associations - insufficient associations
+    Analyzing: DR2TS180 ... 0 associations - insufficient associations
+    Analyzing: DR2TSELE ... 1 associations - insufficient associations
+    Analyzing: DR2TSFAT ... 0 associations - insufficient associations
+    Analyzing: DR2TSODI ... 0 associations - insufficient associations
+    Analyzing: DR2TSUGR ... 4 associations, 4 unique OTUs, 6 potential pairs, 6 valid edges [done] network created
+       -> Plot stored for DR2TSUGR 
+    Analyzing: DR2TTFAT ... 0 associations - insufficient associations
+    Analyzing: DR2TTHEO ... 1 associations - insufficient associations
+    Analyzing: DR2TVARA ... 0 associations - insufficient associations
+    Analyzing: DR2TVB1 ... 0 associations - insufficient associations
+    Analyzing: DR2TVB12 ... 0 associations - insufficient associations
+    Analyzing: DR2TVB2 ... 1 associations - insufficient associations
+    Analyzing: DR2TVB6 ... 0 associations - insufficient associations
+    Analyzing: DR2TVC ... 0 associations - insufficient associations
+    Analyzing: DR2TVD ... 0 associations - insufficient associations
+    Analyzing: DR2TVK ... 8 associations, 8 unique OTUs, 28 potential pairs, 28 valid edges [done] network created
+       -> Plot stored for DR2TVK 
+    Analyzing: DR2TZINC ... 0 associations - insufficient associations
+    Analyzing: DS1DSCNT ... 24 associations, 24 unique OTUs, 276 potential pairs, 276 valid edges [done] network created
+       -> Plot stored for DS1DSCNT 
+    Analyzing: DS1TCALC ... 0 associations - insufficient associations
+    Analyzing: DS1TCOPP ... 0 associations - insufficient associations
+    Analyzing: DS1TFA ... 0 associations - insufficient associations
+    Analyzing: DS1TFDFE ... 0 associations - insufficient associations
+    Analyzing: DS1TIRON ... 0 associations - insufficient associations
+    Analyzing: DS1TKCAL ... 0 associations - insufficient associations
+    Analyzing: DS1TMAGN ... 2 associations, 2 unique OTUs, 1 potential pairs, 1 valid edges - insufficient edges
+    Analyzing: DS1TNIAC ... 0 associations - insufficient associations
+    Analyzing: DS1TPOTA ... 0 associations - insufficient associations
+    Analyzing: DS1TSELE ... 24 associations, 24 unique OTUs, 276 potential pairs, 276 valid edges [done] network created
+       -> Plot stored for DS1TSELE 
+    Analyzing: DS1TVB1 ... 0 associations - insufficient associations
+    Analyzing: DS1TVB12 ... 1 associations - insufficient associations
+    Analyzing: DS1TVB2 ... 0 associations - insufficient associations
+    Analyzing: DS1TVB6 ... 0 associations - insufficient associations
+    Analyzing: DS1TVC ... 0 associations - insufficient associations
+    Analyzing: DS1TVD ... 0 associations - insufficient associations
+    Analyzing: DS1TVK ... 0 associations - insufficient associations
+    Analyzing: DS1TZINC ... 0 associations - insufficient associations
+    Analyzing: DS2AN ... 1 associations - insufficient associations
+    Analyzing: DS2ANCNT ... 0 associations - insufficient associations
+    Analyzing: DS2DS ... 2 associations, 2 unique OTUs, 1 potential pairs, 1 valid edges - insufficient edges
+    Analyzing: DS2DSCNT ... 6 associations, 6 unique OTUs, 15 potential pairs, 15 valid edges [done] network created
+       -> Plot stored for DS2DSCNT 
+    Analyzing: DS2TCALC ... 0 associations - insufficient associations
+    Analyzing: DS2TCOPP ... 0 associations - insufficient associations
+    Analyzing: DS2TFA ... 0 associations - insufficient associations
+    Analyzing: DS2TFDFE ... 0 associations - insufficient associations
+    Analyzing: DS2TIRON ... 0 associations - insufficient associations
+    Analyzing: DS2TMAGN ... 0 associations - insufficient associations
+    Analyzing: DS2TNIAC ... 0 associations - insufficient associations
+    Analyzing: DS2TPOTA ... 0 associations - insufficient associations
+    Analyzing: DS2TSELE ... 12 associations, 12 unique OTUs, 66 potential pairs, 66 valid edges [done] network created
+       -> Plot stored for DS2TSELE 
+    Analyzing: DS2TVB1 ... 0 associations - insufficient associations
+    Analyzing: DS2TVB12 ... 1 associations - insufficient associations
+    Analyzing: DS2TVB2 ... 0 associations - insufficient associations
+    Analyzing: DS2TVB6 ... 1 associations - insufficient associations
+    Analyzing: DS2TVC ... 0 associations - insufficient associations
+    Analyzing: DS2TVD ... 0 associations - insufficient associations
+    Analyzing: DS2TVK ... 0 associations - insufficient associations
+    Analyzing: DS2TZINC ... 0 associations - insufficient associations
+    Analyzing: DS2TIODI ... 3 associations, 3 unique OTUs, 3 potential pairs, 3 valid edges [done] network created
+       -> Plot stored for DS2TIODI 
+    Analyzing: DS2TKCAL ... 0 associations - insufficient associations
+    Analyzing: DSQTCALC ... 0 associations - insufficient associations
+    Analyzing: DSQTCOPP ... 0 associations - insufficient associations
+    Analyzing: DSQTFA ... 0 associations - insufficient associations
+    Analyzing: DSQTFDFE ... 0 associations - insufficient associations
+    Analyzing: DSQTIRON ... 0 associations - insufficient associations
+    Analyzing: DSQTKCAL ... 2 associations, 2 unique OTUs, 1 potential pairs, 1 valid edges - insufficient edges
+    Analyzing: DSQTMAGN ... 0 associations - insufficient associations
+    Analyzing: DSQTNIAC ... 1 associations - insufficient associations
+    Analyzing: DSQTPHOS ... 1 associations - insufficient associations
+    Analyzing: DSQTPOTA ... 0 associations - insufficient associations
+    Analyzing: DSQTSELE ... 23 associations, 23 unique OTUs, 253 potential pairs, 253 valid edges [done] network created
+       -> Plot stored for DSQTSELE 
+    Analyzing: DSQTVB1 ... 0 associations - insufficient associations
+    Analyzing: DSQTVB12 ... 1 associations - insufficient associations
+    Analyzing: DSQTVB2 ... 0 associations - insufficient associations
+    Analyzing: DSQTVB6 ... 1 associations - insufficient associations
+    Analyzing: DSQTVC ... 0 associations - insufficient associations
+    Analyzing: DSQTVD ... 18 associations, 18 unique OTUs, 153 potential pairs, 153 valid edges [done] network created
+       -> Plot stored for DSQTVD 
+    Analyzing: DSQTVK ... 1 associations - insufficient associations
+    Analyzing: DSQTZINC ... 0 associations - insufficient associations
+    Analyzing: DSQTIODI ... 0 associations - insufficient associations
+    Analyzing: DSQTSUGR ... 0 associations - insufficient associations
+    Analyzing: LBDHBG ... 5 associations, 5 unique OTUs, 10 potential pairs, 10 valid edges [done] network created
+       -> Plot stored for LBDHBG 
+    Analyzing: LBDHCV ... 0 associations - insufficient associations
+    Analyzing: LBDHD ... 53 associations, 53 unique OTUs, 1378 potential pairs, 1378 valid edges [done] network created
+       -> Plot stored for LBDHD 
+    Analyzing: LBDHEG ... 0 associations - insufficient associations
+    Analyzing: LBDHEM ... 1 associations - insufficient associations
+    Analyzing: LBDRPCR ... 6 associations, 6 unique OTUs, 15 potential pairs, 15 valid edges [done] network created
+       -> Plot stored for LBDRPCR 
+    Analyzing: LBDVWCGP ... 0 associations - insufficient associations
+    Analyzing: LBDB12SI ... 0 associations - insufficient associations
+    Analyzing: LBX06 ... 0 associations - insufficient associations
+    Analyzing: LBX11 ... 0 associations - insufficient associations
+    Analyzing: LBX16 ... 0 associations - insufficient associations
+    Analyzing: LBX18 ... 0 associations - insufficient associations
+    Analyzing: LBX2DF ... 23 associations, 23 unique OTUs, 253 potential pairs, 253 valid edges [done] network created
+       -> Plot stored for LBX2DF 
+    Analyzing: LBX4CE ... 0 associations - insufficient associations
+    Analyzing: LBX4PA ... 0 associations - insufficient associations
+    Analyzing: LBXBCD ... 28 associations, 28 unique OTUs, 378 potential pairs, 378 valid edges [done] network created
+       -> Plot stored for LBXBCD 
+    Analyzing: LBXBPB ... 3 associations, 3 unique OTUs, 3 potential pairs, 3 valid edges [done] network created
+       -> Plot stored for LBXBPB 
+    Analyzing: LBXCOT ... 39 associations, 39 unique OTUs, 741 potential pairs, 741 valid edges [done] network created
+       -> Plot stored for LBXCOT 
+    Analyzing: LBXEPAH ... 13 associations, 13 unique OTUs, 78 potential pairs, 78 valid edges [done] network created
+       -> Plot stored for LBXEPAH 
+    Analyzing: LBXHA ... 26 associations, 25 unique OTUs, 300 potential pairs, 324 valid edges [done] network created
+       -> Plot stored for LBXHA 
+    Analyzing: LBXHBC ... 0 associations - insufficient associations
+    Analyzing: LBXHBS ... 0 associations - insufficient associations
+    Analyzing: LBXHDT ... 0 associations - insufficient associations
+    Analyzing: LBXHE1 ... 32 associations, 32 unique OTUs, 496 potential pairs, 496 valid edges [done] network created
+       -> Plot stored for LBXHE1 
+    Analyzing: LBXHE2 ... 12 associations, 12 unique OTUs, 66 potential pairs, 66 valid edges [done] network created
+       -> Plot stored for LBXHE2 
+    Analyzing: LBXIHG ... 0 associations - insufficient associations
+    Analyzing: LBXMEA ... 0 associations - insufficient associations
+    Analyzing: LBXMPAH ... 0 associations - insufficient associations
+    Analyzing: LBXMUM ... 0 associations - insufficient associations
+    Analyzing: LBXNM ... 0 associations - insufficient associations
+    Analyzing: LBXOD1 ... 0 associations - insufficient associations
+    Analyzing: LBXOD9 ... 0 associations - insufficient associations
+    Analyzing: LBXOTT ... 0 associations - insufficient associations
+    Analyzing: LBXPFBS ... 2 associations, 2 unique OTUs, 1 potential pairs, 1 valid edges - insufficient edges
+    Analyzing: LBXPFDE ... 0 associations - insufficient associations
+    Analyzing: LBXPFDO ... 2 associations, 2 unique OTUs, 1 potential pairs, 1 valid edges - insufficient edges
+    Analyzing: LBXPFHP ... 0 associations - insufficient associations
+    Analyzing: LBXPFHS ... 0 associations - insufficient associations
+    Analyzing: LBXPFNA ... 0 associations - insufficient associations
+    Analyzing: LBXPFOA ... 0 associations - insufficient associations
+    Analyzing: LBXPFOS ... 0 associations - insufficient associations
+    Analyzing: LBXPFSA ... 5 associations, 5 unique OTUs, 10 potential pairs, 10 valid edges [done] network created
+       -> Plot stored for LBXPFSA 
+    Analyzing: LBXPFUA ... 2 associations, 2 unique OTUs, 1 potential pairs, 1 valid edges - insufficient edges
+    Analyzing: LBXPLP ... 0 associations - insufficient associations
+    Analyzing: LBXRUB ... 0 associations - insufficient associations
+    Analyzing: LBXTHG ... 0 associations - insufficient associations
+    Analyzing: LBXTTG ... 5 associations, 5 unique OTUs, 10 potential pairs, 10 valid edges [done] network created
+       -> Plot stored for LBXTTG 
+    Analyzing: LBXV06 ... 9 associations, 9 unique OTUs, 36 potential pairs, 36 valid edges [done] network created
+       -> Plot stored for LBXV06 
+    Analyzing: LBXV1A ... 0 associations - insufficient associations
+    Analyzing: LBXV1D ... 81 associations, 81 unique OTUs, 3240 potential pairs, 3240 valid edges [done] network created
+       -> Plot stored for LBXV1D 
+    Analyzing: LBXV1E ... 0 associations - insufficient associations
+    Analyzing: LBXV2A ... 4 associations, 4 unique OTUs, 6 potential pairs, 6 valid edges [done] network created
+       -> Plot stored for LBXV2A 
+    Analyzing: LBXV2C ... 0 associations - insufficient associations
+    Analyzing: LBXV2E ... 0 associations - insufficient associations
+    Analyzing: LBXV2P ... 0 associations - insufficient associations
+    Analyzing: LBXV2T ... 12 associations, 12 unique OTUs, 66 potential pairs, 66 valid edges [done] network created
+       -> Plot stored for LBXV2T 
+    Analyzing: LBXV3B ... 16 associations, 16 unique OTUs, 120 potential pairs, 120 valid edges [done] network created
+       -> Plot stored for LBXV3B 
+    Analyzing: LBXV4C ... 0 associations - insufficient associations
+    Analyzing: LBXV4E ... 77 associations, 77 unique OTUs, 2926 potential pairs, 2926 valid edges [done] network created
+       -> Plot stored for LBXV4E 
+    Analyzing: LBXVBF ... 2 associations, 2 unique OTUs, 1 potential pairs, 1 valid edges - insufficient edges
+    Analyzing: LBXVBM ... 0 associations - insufficient associations
+    Analyzing: LBXVBZ ... 23 associations, 23 unique OTUs, 253 potential pairs, 253 valid edges [done] network created
+       -> Plot stored for LBXVBZ 
+    Analyzing: LBXVCB ... 5 associations, 5 unique OTUs, 10 potential pairs, 10 valid edges [done] network created
+       -> Plot stored for LBXVCB 
+    Analyzing: LBXVCF ... 0 associations - insufficient associations
+    Analyzing: LBXVCM ... 0 associations - insufficient associations
+    Analyzing: LBXVCT ... 59 associations, 59 unique OTUs, 1711 potential pairs, 1711 valid edges [done] network created
+       -> Plot stored for LBXVCT 
+    Analyzing: LBXVD2MS ... 0 associations - insufficient associations
+    Analyzing: LBXVD3MS ... 0 associations - insufficient associations
+    Analyzing: LBXVDB ... 0 associations - insufficient associations
+    Analyzing: LBXVDE ... 0 associations - insufficient associations
+    Analyzing: LBXVDM ... 20 associations, 20 unique OTUs, 190 potential pairs, 190 valid edges [done] network created
+       -> Plot stored for LBXVDM 
+    Analyzing: LBXVDP ... 0 associations - insufficient associations
+    Analyzing: LBXVDX ... 0 associations - insufficient associations
+    Analyzing: LBXVE3MS ... 0 associations - insufficient associations
+    Analyzing: LBXVEB ... 3 associations, 3 unique OTUs, 3 potential pairs, 3 valid edges [done] network created
+       -> Plot stored for LBXVEB 
+    Analyzing: LBXVFN ... 18 associations, 18 unique OTUs, 153 potential pairs, 153 valid edges [done] network created
+       -> Plot stored for LBXVFN 
+    Analyzing: LBXVHE ... 50 associations, 50 unique OTUs, 1225 potential pairs, 1225 valid edges [done] network created
+       -> Plot stored for LBXVHE 
+    Analyzing: LBXVIDMS ... 1 associations - insufficient associations
+    Analyzing: LBXVIPB ... 0 associations - insufficient associations
+    Analyzing: LBXVMC ... 13 associations, 13 unique OTUs, 78 potential pairs, 78 valid edges [done] network created
+       -> Plot stored for LBXVMC 
+    Analyzing: LBXVME ... 0 associations - insufficient associations
+    Analyzing: LBXVNB ... 0 associations - insufficient associations
+    Analyzing: LBXVOX ... 2 associations, 2 unique OTUs, 1 potential pairs, 1 valid edges - insufficient edges
+    Analyzing: LBXVST ... 0 associations - insufficient associations
+    Analyzing: LBXVTC ... 12 associations, 12 unique OTUs, 66 potential pairs, 66 valid edges [done] network created
+       -> Plot stored for LBXVTC 
+    Analyzing: LBXVTE ... 1 associations - insufficient associations
+    Analyzing: LBXVTO ... 0 associations - insufficient associations
+    Analyzing: LBXVTP ... 0 associations - insufficient associations
+    Analyzing: LBXVXY ... 7 associations, 7 unique OTUs, 21 potential pairs, 21 valid edges [done] network created
+       -> Plot stored for LBXVXY 
+    Analyzing: LBXALN ... 0 associations - insufficient associations
+    Analyzing: LBXAR1 ... 0 associations - insufficient associations
+    Analyzing: LBXARA ... 0 associations - insufficient associations
+    Analyzing: LBXB12 ... 0 associations - insufficient associations
+    Analyzing: LBXBGE ... 0 associations - insufficient associations
+    Analyzing: LBXBGM ... 0 associations - insufficient associations
+    Analyzing: LBXBMN ... 0 associations - insufficient associations
+    Analyzing: LBXBSE ... 0 associations - insufficient associations
+    Analyzing: LBXCAP ... 0 associations - insufficient associations
+    Analyzing: LBXDA1 ... 0 associations - insufficient associations
+    Analyzing: LBXDHA ... 0 associations - insufficient associations
+    Analyzing: LBXDP3 ... 0 associations - insufficient associations
+    Analyzing: LBXDP6 ... 0 associations - insufficient associations
+    Analyzing: LBXDTA ... 0 associations - insufficient associations
+    Analyzing: LBXED1 ... 0 associations - insufficient associations
+    Analyzing: LBXEN1 ... 0 associations - insufficient associations
+    Analyzing: LBXEPA ... 0 associations - insufficient associations
+    Analyzing: LBXET1 ... 0 associations - insufficient associations
+    Analyzing: LBXGLA ... 0 associations - insufficient associations
+    Analyzing: LBXHGL ... 0 associations - insufficient associations
+    Analyzing: LBXLAR ... 0 associations - insufficient associations
+    Analyzing: LBXLG1 ... 0 associations - insufficient associations
+    Analyzing: LBXLNA ... 0 associations - insufficient associations
+    Analyzing: LBXML1 ... 0 associations - insufficient associations
+    Analyzing: LBXMR1 ... 0 associations - insufficient associations
+    Analyzing: LBXMRG ... 0 associations - insufficient associations
+    Analyzing: LBXNR1 ... 0 associations - insufficient associations
+    Analyzing: LBXOL1 ... 0 associations - insufficient associations
+    Analyzing: LBXPEN ... 0 associations - insufficient associations
+    Analyzing: LBXPL1 ... 0 associations - insufficient associations
+    Analyzing: LBXPM1 ... 0 associations - insufficient associations
+    Analyzing: LBXSD1 ... 0 associations - insufficient associations
+    Analyzing: LBXST1 ... 0 associations - insufficient associations
+    Analyzing: LBXTBN ... 0 associations - insufficient associations
+    Analyzing: LBXTSA ... 0 associations - insufficient associations
+    Analyzing: LBXVC1 ... 0 associations - insufficient associations
+    Analyzing: URX14D ... 2 associations, 2 unique OTUs, 1 potential pairs, 1 valid edges - insufficient edges
+    Analyzing: URX1TB ... 0 associations - insufficient associations
+    Analyzing: URX24D ... 0 associations - insufficient associations
+    Analyzing: URX25T ... 0 associations - insufficient associations
+    Analyzing: URX3TB ... 0 associations - insufficient associations
+    Analyzing: URX4FP ... 2 associations, 2 unique OTUs, 1 potential pairs, 1 valid edges - insufficient edges
+    Analyzing: URX4TO ... 0 associations - insufficient associations
+    Analyzing: URXAMU ... 0 associations - insufficient associations
+    Analyzing: URXBP3 ... 1 associations - insufficient associations
+    Analyzing: URXBPH ... 0 associations - insufficient associations
+    Analyzing: URXBUP ... 1 associations - insufficient associations
+    Analyzing: URXCB3 ... 0 associations - insufficient associations
+    Analyzing: URXCNP ... 0 associations - insufficient associations
+    Analyzing: URXCOP ... 4 associations, 4 unique OTUs, 6 potential pairs, 6 valid edges [done] network created
+       -> Plot stored for URXCOP 
+    Analyzing: URXCPM ... 0 associations - insufficient associations
+    Analyzing: URXDAZ ... 0 associations - insufficient associations
+    Analyzing: URXDCB ... 4 associations, 4 unique OTUs, 6 potential pairs, 6 valid edges [done] network created
+       -> Plot stored for URXDCB 
+    Analyzing: URXDEA ... 1 associations - insufficient associations
+    Analyzing: URXDEE ... 0 associations - insufficient associations
+    Analyzing: URXDHD ... 0 associations - insufficient associations
+    Analyzing: URXDMA ... 0 associations - insufficient associations
+    Analyzing: URXECP ... 2 associations, 2 unique OTUs, 1 potential pairs, 1 valid edges - insufficient edges
+    Analyzing: URXEPB ... 0 associations - insufficient associations
+    Analyzing: URXEQU ... 0 associations - insufficient associations
+    Analyzing: URXETD ... 0 associations - insufficient associations
+    Analyzing: URXETL ... 0 associations - insufficient associations
+    Analyzing: URXGNS ... 0 associations - insufficient associations
+    Analyzing: URXMAL ... 0 associations - insufficient associations
+    Analyzing: URXMBP ... 2 associations, 2 unique OTUs, 1 potential pairs, 1 valid edges - insufficient edges
+    Analyzing: URXMC1 ... 0 associations - insufficient associations
+    Analyzing: URXMCP ... 0 associations - insufficient associations
+    Analyzing: URXMEP ... 0 associations - insufficient associations
+    Analyzing: URXMHH ... 0 associations - insufficient associations
+    Analyzing: URXMHP ... 0 associations - insufficient associations
+    Analyzing: URXMIB ... 3 associations, 3 unique OTUs, 3 potential pairs, 3 valid edges [done] network created
+       -> Plot stored for URXMIB 
+    Analyzing: URXMNM ... 11 associations, 11 unique OTUs, 55 potential pairs, 55 valid edges [done] network created
+       -> Plot stored for URXMNM 
+    Analyzing: URXMNP ... 0 associations - insufficient associations
+    Analyzing: URXMOH ... 2 associations, 2 unique OTUs, 1 potential pairs, 1 valid edges - insufficient edges
+    Analyzing: URXMOP ... 0 associations - insufficient associations
+    Analyzing: URXMPB ... 0 associations - insufficient associations
+    Analyzing: URXMU1 ... 0 associations - insufficient associations
+    Analyzing: URXMU2 ... 0 associations - insufficient associations
+    Analyzing: URXMU3 ... 0 associations - insufficient associations
+    Analyzing: URXMU4 ... 12 associations, 12 unique OTUs, 66 potential pairs, 66 valid edges [done] network created
+       -> Plot stored for URXMU4 
+    Analyzing: URXMU5 ... 0 associations - insufficient associations
+    Analyzing: URXMU6 ... 0 associations - insufficient associations
+    Analyzing: URXMU7 ... 0 associations - insufficient associations
+    Analyzing: URXMX1 ... 0 associations - insufficient associations
+    Analyzing: URXMX2 ... 0 associations - insufficient associations
+    Analyzing: URXMX3 ... 0 associations - insufficient associations
+    Analyzing: URXMX4 ... 18 associations, 18 unique OTUs, 153 potential pairs, 153 valid edges [done] network created
+       -> Plot stored for URXMX4 
+    Analyzing: URXMX5 ... 0 associations - insufficient associations
+    Analyzing: URXMX6 ... 0 associations - insufficient associations
+    Analyzing: URXMX7 ... 0 associations - insufficient associations
+    Analyzing: URXMZP ... 0 associations - insufficient associations
+    Analyzing: URXNAL ... 1 associations - insufficient associations
+    Analyzing: URXNO3 ... 1 associations - insufficient associations
+    Analyzing: URXOPM ... 0 associations - insufficient associations
+    Analyzing: URXOPP ... 0 associations - insufficient associations
+    Analyzing: URXOXY ... 0 associations - insufficient associations
+    Analyzing: URXP01 ... 18 associations, 18 unique OTUs, 153 potential pairs, 153 valid edges [done] network created
+       -> Plot stored for URXP01 
+    Analyzing: URXP02 ... 4 associations, 4 unique OTUs, 6 potential pairs, 6 valid edges [done] network created
+       -> Plot stored for URXP02 
+    Analyzing: URXP03 ... 16 associations, 16 unique OTUs, 120 potential pairs, 120 valid edges [done] network created
+       -> Plot stored for URXP03 
+    Analyzing: URXP04 ... 22 associations, 22 unique OTUs, 231 potential pairs, 231 valid edges [done] network created
+       -> Plot stored for URXP04 
+    Analyzing: URXP05 ... 10 associations, 10 unique OTUs, 45 potential pairs, 45 valid edges [done] network created
+       -> Plot stored for URXP05 
+    Analyzing: URXP06 ... 2 associations, 2 unique OTUs, 1 potential pairs, 1 valid edges - insufficient edges
+    Analyzing: URXP07 ... 4 associations, 4 unique OTUs, 6 potential pairs, 6 valid edges [done] network created
+       -> Plot stored for URXP07 
+    Analyzing: URXP10 ... 3 associations, 3 unique OTUs, 3 potential pairs, 3 valid edges [done] network created
+       -> Plot stored for URXP10 
+    Analyzing: URXP17 ... 0 associations - insufficient associations
+    Analyzing: URXPAR ... 0 associations - insufficient associations
+    Analyzing: URXPPB ... 0 associations - insufficient associations
+    Analyzing: URXSCN ... 1 associations - insufficient associations
+    Analyzing: URXTCC ... 0 associations - insufficient associations
+    Analyzing: URXTRS ... 1 associations - insufficient associations
+    Analyzing: URXUAB ... 0 associations - insufficient associations
+    Analyzing: URXUAC ... 3 associations, 3 unique OTUs, 3 potential pairs, 3 valid edges [done] network created
+       -> Plot stored for URXUAC 
+    Analyzing: URXUAS ... 1 associations - insufficient associations
+    Analyzing: URXUAS3 ... 0 associations - insufficient associations
+    Analyzing: URXUAS5 ... 0 associations - insufficient associations
+    Analyzing: URXUBA ... 17 associations, 17 unique OTUs, 136 potential pairs, 136 valid edges [done] network created
+       -> Plot stored for URXUBA 
+    Analyzing: URXUBE ... 0 associations - insufficient associations
+    Analyzing: URXUCD ... 1 associations - insufficient associations
+    Analyzing: URXUCL ... 3 associations, 3 unique OTUs, 3 potential pairs, 3 valid edges [done] network created
+       -> Plot stored for URXUCL 
+    Analyzing: URXUCO ... 1 associations - insufficient associations
+    Analyzing: URXUCS ... 0 associations - insufficient associations
+    Analyzing: URXUDMA ... 1 associations - insufficient associations
+    Analyzing: URXUHG ... 0 associations - insufficient associations
+    Analyzing: URXUMMA ... 0 associations - insufficient associations
+    Analyzing: URXUMO ... 0 associations - insufficient associations
+    Analyzing: URXUP8 ... 0 associations - insufficient associations
+    Analyzing: URXUPB ... 0 associations - insufficient associations
+    Analyzing: URXUPT ... 0 associations - insufficient associations
+    Analyzing: URXUSB ... 0 associations - insufficient associations
+    Analyzing: URXUTL ... 0 associations - insufficient associations
+    Analyzing: URXUTM ... 2 associations, 2 unique OTUs, 1 potential pairs, 1 valid edges - insufficient edges
+    Analyzing: URXUTU ... 0 associations - insufficient associations
+    Analyzing: URX1DC ... 3 associations, 3 unique OTUs, 3 potential pairs, 3 valid edges [done] network created
+       -> Plot stored for URX1DC 
+    Analyzing: URX2DC ... 0 associations - insufficient associations
+    Analyzing: URX2MH ... 0 associations - insufficient associations
+    Analyzing: URX34M ... 0 associations - insufficient associations
+    Analyzing: URXAAM ... 0 associations - insufficient associations
+    Analyzing: URXAMC ... 0 associations - insufficient associations
+    Analyzing: URXATC ... 0 associations - insufficient associations
+    Analyzing: URXBMA ... 0 associations - insufficient associations
+    Analyzing: URXBPM ... 0 associations - insufficient associations
+    Analyzing: URXCEM ... 0 associations - insufficient associations
+    Analyzing: URXCYM ... 0 associations - insufficient associations
+    Analyzing: URXDHB ... 0 associations - insufficient associations
+    Analyzing: URXDPM ... 0 associations - insufficient associations
+    Analyzing: URXGAM ... 0 associations - insufficient associations
+    Analyzing: URXHEM ... 0 associations - insufficient associations
+    Analyzing: URXHP2 ... 0 associations - insufficient associations
+    Analyzing: URXHPM ... 0 associations - insufficient associations
+    Analyzing: URXMAD ... 0 associations - insufficient associations
+    Analyzing: URXMB1 ... 0 associations - insufficient associations
+    Analyzing: URXMB2 ... 0 associations - insufficient associations
+    Analyzing: URXMB3 ... 0 associations - insufficient associations
+    Analyzing: URXMHNC ... 0 associations - insufficient associations
+    Analyzing: URXOP1 ... 0 associations - insufficient associations
+    Analyzing: URXOP2 ... 0 associations - insufficient associations
+    Analyzing: URXOP3 ... 0 associations - insufficient associations
+    Analyzing: URXOP4 ... 0 associations - insufficient associations
+    Analyzing: URXOP5 ... 0 associations - insufficient associations
+    Analyzing: URXOP6 ... 0 associations - insufficient associations
+    Analyzing: URXPHE ... 0 associations - insufficient associations
+    Analyzing: URXPHG ... 0 associations - insufficient associations
+    Analyzing: URXPMA ... 0 associations - insufficient associations
+    Analyzing: URXPMM ... 0 associations - insufficient associations
+    Analyzing: URXTCV ... 0 associations - insufficient associations
+    Analyzing: URXTTC ... 0 associations - insufficient associations
+    Analyzing: URXUMN ... 0 associations - insufficient associations
+    Analyzing: URXUSN ... 0 associations - insufficient associations
+    Analyzing: URXUSR ... 0 associations - insufficient associations
+    Analyzing: PAQ_recreation_moderate_met ... 0 associations - insufficient associations
+    Analyzing: PAQ_recreation_moderate_week ... 0 associations - insufficient associations
+    Analyzing: PAQ_recreation_vigorous_met ... 1 associations - insufficient associations
+    Analyzing: PAQ_recreation_vigorous_week ... 1 associations - insufficient associations
+    Analyzing: PAQ_total_met ... 0 associations - insufficient associations
+    Analyzing: PAQ_walk_met ... 0 associations - insufficient associations
+    Analyzing: PAQ_walk_week ... 0 associations - insufficient associations
+    Analyzing: PAQ_work_moderate_met ... 0 associations - insufficient associations
+    Analyzing: PAQ_work_moderate_week ... 0 associations - insufficient associations
+    Analyzing: PAQ_work_vigorous_met ... 0 associations - insufficient associations
+    Analyzing: PAQ_work_vigorous_week ... 0 associations - insufficient associations
+    Analyzing: SMQ710 ... 4 associations, 4 unique OTUs, 6 potential pairs, 6 valid edges [done] network created
+       -> Plot stored for SMQ710 
+    Analyzing: SMQ720 ... 0 associations - insufficient associations
+    Analyzing: SMQ725 ... 4 associations, 4 unique OTUs, 6 potential pairs, 6 valid edges [done] network created
+       -> Plot stored for SMQ725 
+    Analyzing: SMQ_current_ever_never ... 46 associations, 45 unique OTUs, 990 potential pairs, 1034 valid edges [done] network created
+       -> Plot stored for SMQ_current_ever_never 
+    Analyzing: SMQ_how_long_since_quit_years ... 0 associations - insufficient associations
+    Analyzing: SMD415 ... 0 associations - insufficient associations
+    Analyzing: SMD415A ... 0 associations - insufficient associations
+    Analyzing: HOQ065 ... 103 associations, 100 unique OTUs, 4950 potential pairs, 5250 valid edges [done] network created
+       -> Plot stored for HOQ065 
+    Analyzing: ORXHPV ... 12 associations, 12 unique OTUs, 66 potential pairs, 66 valid edges [done] network created
+       -> Plot stored for ORXHPV 
+    Analyzing: PA_sedentary_activity_min_per_day ... 0 associations - insufficient associations
+  -> Total plots created: 67 
+  Saving 67 plots for exWAS 
+    Saving: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/8_network_analyses_out/network_plots_final/clr/exWAS_DR1TALCO_Alcohol_gm_clr_network.pdf 
+    Saving: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/8_network_analyses_out/network_plots_final/clr/exWAS_DR1TCAFF_Caffeine_mg_clr_network.pdf 
+    Saving: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/8_network_analyses_out/network_plots_final/clr/exWAS_DR1TCARB_Carbohydrate_gm_clr_network.pdf 
+    Saving: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/8_network_analyses_out/network_plots_final/clr/exWAS_DR1TNUMF_Total_number_of_foods_reported_in_the_individual_foods_file_clr_network.pdf 
+    Saving: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/8_network_analyses_out/network_plots_final/clr/exWAS_DR1TSUGR_Total_sugars_gm_clr_network.pdf 
+    Saving: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/8_network_analyses_out/network_plots_final/clr/exWAS_DR1TTHEO_Theobromine_mg_clr_network.pdf 
+    Saving: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/8_network_analyses_out/network_plots_final/clr/exWAS_DR1TVK_Vitamin_K_mcg_clr_network.pdf 
+    Saving: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/8_network_analyses_out/network_plots_final/clr/exWAS_DR2TSUGR_Total_sugars_gm_clr_network.pdf 
+    Saving: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/8_network_analyses_out/network_plots_final/clr/exWAS_DR2TVK_Vitamin_K_mcg_clr_network.pdf 
+    Saving: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/8_network_analyses_out/network_plots_final/clr/exWAS_DS1DSCNT_Total_of_Dietary_Supplements_Taken_clr_network.pdf 
+    Saving: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/8_network_analyses_out/network_plots_final/clr/exWAS_DS1TSELE_Selenium_mcg_clr_network.pdf 
+    Saving: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/8_network_analyses_out/network_plots_final/clr/exWAS_DS2DSCNT_Total_of_Dietary_Supplements_Taken_clr_network.pdf 
+    Saving: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/8_network_analyses_out/network_plots_final/clr/exWAS_DS2TSELE_Selenium_mcg_clr_network.pdf 
+    Saving: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/8_network_analyses_out/network_plots_final/clr/exWAS_DS2TIODI_Iodine_mcg_clr_network.pdf 
+    Saving: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/8_network_analyses_out/network_plots_final/clr/exWAS_DSQTSELE_Selenium_mcg_clr_network.pdf 
+    Saving: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/8_network_analyses_out/network_plots_final/clr/exWAS_DSQTVD_Vitamin_D_D2_D3_mcg_clr_network.pdf 
+    Saving: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/8_network_analyses_out/network_plots_final/clr/exWAS_LBDHBG_Hepatitis_B_surface_antigen_clr_network.pdf 
+    Saving: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/8_network_analyses_out/network_plots_final/clr/exWAS_LBDHD_Hepatitis_D_anti_HDV_clr_network.pdf 
+    Saving: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/8_network_analyses_out/network_plots_final/clr/exWAS_LBDRPCR_Roche_HPV_linear_array_LA_summary_result_clr_network.pdf 
+    Saving: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/8_network_analyses_out/network_plots_final/clr/exWAS_LBX2DF_Blood_2_5_Dimethylfuran_ng_mL_clr_network.pdf 
+    Saving: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/8_network_analyses_out/network_plots_final/clr/exWAS_LBXBCD_Blood_cadmium_ug_L_clr_network.pdf 
+    Saving: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/8_network_analyses_out/network_plots_final/clr/exWAS_LBXBPB_Blood_lead_ug_dL_clr_network.pdf 
+    Saving: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/8_network_analyses_out/network_plots_final/clr/exWAS_LBXCOT_Cotinine_ng_mL_clr_network.pdf 
+    Saving: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/8_network_analyses_out/network_plots_final/clr/exWAS_LBXEPAH_2_N_Ethyl_perfluorooctane_sulfonamido_acetic_acid_clr_network.pdf 
+    Saving: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/8_network_analyses_out/network_plots_final/clr/exWAS_LBXHA_Hepatitis_A_Antibody_clr_network.pdf 
+    Saving: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/8_network_analyses_out/network_plots_final/clr/exWAS_LBXHE1_Herpes_Simplex_Virus_I_clr_network.pdf 
+    Saving: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/8_network_analyses_out/network_plots_final/clr/exWAS_LBXHE2_Herpes_Simplex_Virus_II_clr_network.pdf 
+    Saving: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/8_network_analyses_out/network_plots_final/clr/exWAS_LBXPFSA_Perfluorooctane_sulfonamide_clr_network.pdf 
+    Saving: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/8_network_analyses_out/network_plots_final/clr/exWAS_LBXTTG_Tissue_transglutaminase_IgA_TTG_clr_network.pdf 
+    Saving: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/8_network_analyses_out/network_plots_final/clr/exWAS_LBXV06_Blood_Hexane_ng_mL_clr_network.pdf 
+    Saving: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/8_network_analyses_out/network_plots_final/clr/exWAS_LBXV1D_Blood_1_2_Dichlorobenzene_ng_mL_clr_network.pdf 
+    Saving: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/8_network_analyses_out/network_plots_final/clr/exWAS_LBXV2A_Blood_1_2_Dichloroethane_ng_mL_clr_network.pdf 
+    Saving: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/8_network_analyses_out/network_plots_final/clr/exWAS_LBXV2T_Blood_trans_1_2_Dichloroethene_ng_mL_clr_network.pdf 
+    Saving: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/8_network_analyses_out/network_plots_final/clr/exWAS_LBXV3B_Blood_1_3_Dichlorobenzene_ng_mL_clr_network.pdf 
+    Saving: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/8_network_analyses_out/network_plots_final/clr/exWAS_LBXV4E_Blood_1_1_2_2_Tetrachloroethane_ng_mL_clr_network.pdf 
+    Saving: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/8_network_analyses_out/network_plots_final/clr/exWAS_LBXVBZ_Blood_Benzene_ng_mL_clr_network.pdf 
+    Saving: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/8_network_analyses_out/network_plots_final/clr/exWAS_LBXVCB_Blood_Chlorobenzene_ng_mL_clr_network.pdf 
+    Saving: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/8_network_analyses_out/network_plots_final/clr/exWAS_LBXVCT_Blood_Carbon_Tetrachloride_ng_mL_clr_network.pdf 
+    Saving: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/8_network_analyses_out/network_plots_final/clr/exWAS_LBXVDM_Blood_Dibromomethane_ng_mL_clr_network.pdf 
+    Saving: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/8_network_analyses_out/network_plots_final/clr/exWAS_LBXVEB_Blood_Ethylbenzene_ng_mL_clr_network.pdf 
+    Saving: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/8_network_analyses_out/network_plots_final/clr/exWAS_LBXVFN_Blood_Furan_ng_mL_clr_network.pdf 
+    Saving: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/8_network_analyses_out/network_plots_final/clr/exWAS_LBXVHE_Blood_Hexachloroethane_ng_mL_clr_network.pdf 
+    Saving: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/8_network_analyses_out/network_plots_final/clr/exWAS_LBXVMC_Blood_Methylene_Chloride_ng_mL_clr_network.pdf 
+    Saving: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/8_network_analyses_out/network_plots_final/clr/exWAS_LBXVTC_Blood_Trichloroethene_ng_mL_clr_network.pdf 
+    Saving: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/8_network_analyses_out/network_plots_final/clr/exWAS_LBXVXY_Blood_m_p_Xylene_ng_mL_clr_network.pdf 
+    Saving: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/8_network_analyses_out/network_plots_final/clr/exWAS_URXCOP_Mono_carboxyoctyl_Phthalate_ng_mL_clr_network.pdf 
+    Saving: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/8_network_analyses_out/network_plots_final/clr/exWAS_URXDCB_2_4_dichlorophenol_ug_L_result_clr_network.pdf 
+    Saving: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/8_network_analyses_out/network_plots_final/clr/exWAS_URXMIB_Mono_isobutyl_phthalate_clr_network.pdf 
+    Saving: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/8_network_analyses_out/network_plots_final/clr/exWAS_URXMNM_Mono_n_methyl_phthalate_clr_network.pdf 
+    Saving: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/8_network_analyses_out/network_plots_final/clr/exWAS_URXMU4_1_3_dimethyluric_acid_umol_L_clr_network.pdf 
+    Saving: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/8_network_analyses_out/network_plots_final/clr/exWAS_URXMX4_1_3_dimethylxanthine_theophylline_umol_L_clr_network.pdf 
+    Saving: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/8_network_analyses_out/network_plots_final/clr/exWAS_URXP01_1_hydroxynaphthalene_ng_L_clr_network.pdf 
+    Saving: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/8_network_analyses_out/network_plots_final/clr/exWAS_URXP02_2_hydroxynaphthalene_ng_L_clr_network.pdf 
+    Saving: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/8_network_analyses_out/network_plots_final/clr/exWAS_URXP03_3_hydroxyfluorene_ng_L_clr_network.pdf 
+    Saving: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/8_network_analyses_out/network_plots_final/clr/exWAS_URXP04_2_hydroxyfluorene_ng_L_clr_network.pdf 
+    Saving: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/8_network_analyses_out/network_plots_final/clr/exWAS_URXP05_3_hydroxyphenanthrene_ng_L_clr_network.pdf 
+    Saving: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/8_network_analyses_out/network_plots_final/clr/exWAS_URXP07_2_hydroxyphenanthrene_ng_L_clr_network.pdf 
+    Saving: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/8_network_analyses_out/network_plots_final/clr/exWAS_URXP10_1_hydroxypyrene_ng_L_clr_network.pdf 
+    Saving: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/8_network_analyses_out/network_plots_final/clr/exWAS_URXUAC_Urinary_Arsenocholine_ug_L_clr_network.pdf 
+    Saving: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/8_network_analyses_out/network_plots_final/clr/exWAS_URXUBA_Barium_urine_ug_L_clr_network.pdf 
+    Saving: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/8_network_analyses_out/network_plots_final/clr/exWAS_URXUCL_Urinary_Chlamydia_clr_network.pdf 
+    Saving: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/8_network_analyses_out/network_plots_final/clr/exWAS_URX1DC_N_Acetyl_S_1_2_dichlorovinyl_L_Cysteine_ng_mL_clr_network.pdf 
+    Saving: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/8_network_analyses_out/network_plots_final/clr/exWAS_SMQ710_During_the_past_5_days_including_today_on_how_many_days_did_you_he_she_clr_network.pdf 
+    Saving: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/8_network_analyses_out/network_plots_final/clr/exWAS_SMQ725_When_did_you_he_she_smoke_your_his_her_last_cigarette_Was_it_clr_network.pdf 
+    Saving: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/8_network_analyses_out/network_plots_final/clr/exWAS_SMQ_current_ever_never_Smoking_current_ever_never_clr_network.pdf 
+    Saving: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/8_network_analyses_out/network_plots_final/clr/exWAS_HOQ065_Is_this_mobile_home_house_apartment_owned_being_bought_rented_or_occup_clr_network.pdf 
+    Saving: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/8_network_analyses_out/network_plots_final/clr/exWAS_ORXHPV_Oral_HPV_Result_clr_network.pdf 
+  Variables to analyze: BMXARMC, BMXARML, BMXBMI, BMXHT, BMXLEG, BMXSUB, BMXTRI, BMXWAIST, BMXWT, BPXPLS, SPXNFEV1, SPXNFVC, DXAFMRD0, DXAFMRK, DXASPND0, DXASPNK, DXXINA, DXXINBMC, DXXINBMD, DXXL1A, DXXL1BMC, DXXL1BMD, DXXL2A, DXXL2BMC, DXXL2BMD, DXXL3A, DXXL3BMC, DXXL4A, DXXL4BMC, DXXL4BMD, DXXNKA, DXXNKBMC, DXXNKBMD, DXXOFA, DXXOFBMC, DXXOFBMD, DXXOSA, DXXOSBMC, DXXOSBMD, DXXTRA, DXXTRBMC, DXXTRBMD, DXXWDA, DXXWDBMC, DXXWDBMD, LBDBANO, LBDEONO, LBDHDD, LBDLDL, LBDLYMNO, LBDMONO, LBDNENO, LBDP3, LBDFOT, LBDRFO, LBXAPB, LBXATG, LBXBAPCT, LBXCRP, LBXEOPCT, LBXFER, LBXFOLSI, LBXGH, LBXGLT, LBXGLU, LBXHCT, LBXHGB, LBXIN, LBXLYPCT, LBXMC, LBXMCHSI, LBXMCVSI, LBXMOPCT, LBXMPSI, LBXNEPCT, LBXP1, LBXP2, LBXPLTSI, LBXPS4, LBXRBCSI, LBXRBFSI, LBXRDW, LBXSAL, LBXSAPSI, LBXSASSI, LBXSATSI, LBXSBU, LBXSC3SI, LBXSCA, LBXSCH, LBXSCLSI, LBXSCR, LBXSGB, LBXSGL, LBXSGTSI, LBXSIR, LBXSKSI, LBXSLDSI, LBXSNASI, LBXSOSSI, LBXSPH, LBXSTB, LBXSTP, LBXSTR, LBXSUA, LBXT3F, LBXT4F, LBXTC, LBXTFR, LBXTGN, LBXTPO, LBXTR, LBXTSH1, LBXTT3, LBXTT4, LBXWBCSI, LBXMMASI, LBXSCK, LBXSF1SI, LBXSF2SI, LBXSF3SI, LBXSF4SI, LBXSF5SI, LBXSF6SI, LBXTBA, LBXTBM, LBXTST, URXUCR, URXUIO, URXUMA, ENXMEAN, MDIASTOLIC, MSYSTOLIC 
+    Analyzing: BMXARMC ... 1 associations - insufficient associations
+    Analyzing: BMXARML ... 0 associations - insufficient associations
+    Analyzing: BMXBMI ... 1 associations - insufficient associations
+    Analyzing: BMXHT ... 0 associations - insufficient associations
+    Analyzing: BMXLEG ... 0 associations - insufficient associations
+    Analyzing: BMXSUB ... 0 associations - insufficient associations
+    Analyzing: BMXTRI ... 0 associations - insufficient associations
+    Analyzing: BMXWAIST ... 0 associations - insufficient associations
+    Analyzing: BMXWT ... 0 associations - insufficient associations
+    Analyzing: BPXPLS ... 0 associations - insufficient associations
+    Analyzing: SPXNFEV1 ... 0 associations - insufficient associations
+    Analyzing: SPXNFVC ... 0 associations - insufficient associations
+    Analyzing: DXAFMRD0 ... 0 associations - insufficient associations
+    Analyzing: DXAFMRK ... 0 associations - insufficient associations
+    Analyzing: DXASPND0 ... 0 associations - insufficient associations
+    Analyzing: DXASPNK ... 0 associations - insufficient associations
+    Analyzing: DXXINA ... 0 associations - insufficient associations
+    Analyzing: DXXINBMC ... 0 associations - insufficient associations
+    Analyzing: DXXINBMD ... 0 associations - insufficient associations
+    Analyzing: DXXL1A ... 0 associations - insufficient associations
+    Analyzing: DXXL1BMC ... 0 associations - insufficient associations
+    Analyzing: DXXL1BMD ... 0 associations - insufficient associations
+    Analyzing: DXXL2A ... 0 associations - insufficient associations
+    Analyzing: DXXL2BMC ... 0 associations - insufficient associations
+    Analyzing: DXXL2BMD ... 0 associations - insufficient associations
+    Analyzing: DXXL3A ... 0 associations - insufficient associations
+    Analyzing: DXXL3BMC ... 0 associations - insufficient associations
+    Analyzing: DXXL4A ... 0 associations - insufficient associations
+    Analyzing: DXXL4BMC ... 0 associations - insufficient associations
+    Analyzing: DXXL4BMD ... 0 associations - insufficient associations
+    Analyzing: DXXNKA ... 0 associations - insufficient associations
+    Analyzing: DXXNKBMC ... 0 associations - insufficient associations
+    Analyzing: DXXNKBMD ... 0 associations - insufficient associations
+    Analyzing: DXXOFA ... 0 associations - insufficient associations
+    Analyzing: DXXOFBMC ... 0 associations - insufficient associations
+    Analyzing: DXXOFBMD ... 0 associations - insufficient associations
+    Analyzing: DXXOSA ... 0 associations - insufficient associations
+    Analyzing: DXXOSBMC ... 0 associations - insufficient associations
+    Analyzing: DXXOSBMD ... 0 associations - insufficient associations
+    Analyzing: DXXTRA ... 0 associations - insufficient associations
+    Analyzing: DXXTRBMC ... 0 associations - insufficient associations
+    Analyzing: DXXTRBMD ... 0 associations - insufficient associations
+    Analyzing: DXXWDA ... 0 associations - insufficient associations
+    Analyzing: DXXWDBMC ... 0 associations - insufficient associations
+    Analyzing: DXXWDBMD ... 0 associations - insufficient associations
+    Analyzing: LBDBANO ... 0 associations - insufficient associations
+    Analyzing: LBDEONO ... 0 associations - insufficient associations
+    Analyzing: LBDHDD ... 0 associations - insufficient associations
+    Analyzing: LBDLDL ... 0 associations - insufficient associations
+    Analyzing: LBDLYMNO ... 0 associations - insufficient associations
+    Analyzing: LBDMONO ... 0 associations - insufficient associations
+    Analyzing: LBDNENO ... 0 associations - insufficient associations
+    Analyzing: LBDP3 ... 0 associations - insufficient associations
+    Analyzing: LBDFOT ... 0 associations - insufficient associations
+    Analyzing: LBDRFO ... 0 associations - insufficient associations
+    Analyzing: LBXAPB ... 0 associations - insufficient associations
+    Analyzing: LBXATG ... 0 associations - insufficient associations
+    Analyzing: LBXBAPCT ... 0 associations - insufficient associations
+    Analyzing: LBXCRP ... 0 associations - insufficient associations
+    Analyzing: LBXEOPCT ... 0 associations - insufficient associations
+    Analyzing: LBXFER ... 0 associations - insufficient associations
+    Analyzing: LBXFOLSI ... 0 associations - insufficient associations
+    Analyzing: LBXGH ... 0 associations - insufficient associations
+    Analyzing: LBXGLT ... 0 associations - insufficient associations
+    Analyzing: LBXGLU ... 0 associations - insufficient associations
+    Analyzing: LBXHCT ... 0 associations - insufficient associations
+    Analyzing: LBXHGB ... 0 associations - insufficient associations
+    Analyzing: LBXIN ... 0 associations - insufficient associations
+    Analyzing: LBXLYPCT ... 0 associations - insufficient associations
+    Analyzing: LBXMC ... 0 associations - insufficient associations
+    Analyzing: LBXMCHSI ... 0 associations - insufficient associations
+    Analyzing: LBXMCVSI ... 0 associations - insufficient associations
+    Analyzing: LBXMOPCT ... 0 associations - insufficient associations
+    Analyzing: LBXMPSI ... 0 associations - insufficient associations
+    Analyzing: LBXNEPCT ... 0 associations - insufficient associations
+    Analyzing: LBXP1 ... 0 associations - insufficient associations
+    Analyzing: LBXP2 ... 0 associations - insufficient associations
+    Analyzing: LBXPLTSI ... 0 associations - insufficient associations
+    Analyzing: LBXPS4 ... 0 associations - insufficient associations
+    Analyzing: LBXRBCSI ... 0 associations - insufficient associations
+    Analyzing: LBXRBFSI ... 0 associations - insufficient associations
+    Analyzing: LBXRDW ... 0 associations - insufficient associations
+    Analyzing: LBXSAL ... 0 associations - insufficient associations
+    Analyzing: LBXSAPSI ... 0 associations - insufficient associations
+    Analyzing: LBXSASSI ... 0 associations - insufficient associations
+    Analyzing: LBXSATSI ... 0 associations - insufficient associations
+    Analyzing: LBXSBU ... 1 associations - insufficient associations
+    Analyzing: LBXSC3SI ... 0 associations - insufficient associations
+    Analyzing: LBXSCA ... 0 associations - insufficient associations
+    Analyzing: LBXSCH ... 0 associations - insufficient associations
+    Analyzing: LBXSCLSI ... 0 associations - insufficient associations
+    Analyzing: LBXSCR ... 0 associations - insufficient associations
+    Analyzing: LBXSGB ... 0 associations - insufficient associations
+    Analyzing: LBXSGL ... 0 associations - insufficient associations
+    Analyzing: LBXSGTSI ... 0 associations - insufficient associations
+    Analyzing: LBXSIR ... 0 associations - insufficient associations
+    Analyzing: LBXSKSI ... 0 associations - insufficient associations
+    Analyzing: LBXSLDSI ... 0 associations - insufficient associations
+    Analyzing: LBXSNASI ... 0 associations - insufficient associations
+    Analyzing: LBXSOSSI ... 0 associations - insufficient associations
+    Analyzing: LBXSPH ... 0 associations - insufficient associations
+    Analyzing: LBXSTB ... 0 associations - insufficient associations
+    Analyzing: LBXSTP ... 0 associations - insufficient associations
+    Analyzing: LBXSTR ... 0 associations - insufficient associations
+    Analyzing: LBXSUA ... 0 associations - insufficient associations
+    Analyzing: LBXT3F ... 0 associations - insufficient associations
+    Analyzing: LBXT4F ... 0 associations - insufficient associations
+    Analyzing: LBXTC ... 0 associations - insufficient associations
+    Analyzing: LBXTFR ... 0 associations - insufficient associations
+    Analyzing: LBXTGN ... 0 associations - insufficient associations
+    Analyzing: LBXTPO ... 0 associations - insufficient associations
+    Analyzing: LBXTR ... 0 associations - insufficient associations
+    Analyzing: LBXTSH1 ... 0 associations - insufficient associations
+    Analyzing: LBXTT3 ... 0 associations - insufficient associations
+    Analyzing: LBXTT4 ... 0 associations - insufficient associations
+    Analyzing: LBXWBCSI ... 1 associations - insufficient associations
+    Analyzing: LBXMMASI ... 0 associations - insufficient associations
+    Analyzing: LBXSCK ... 0 associations - insufficient associations
+    Analyzing: LBXSF1SI ... 0 associations - insufficient associations
+    Analyzing: LBXSF2SI ... 0 associations - insufficient associations
+    Analyzing: LBXSF3SI ... 0 associations - insufficient associations
+    Analyzing: LBXSF4SI ... 0 associations - insufficient associations
+    Analyzing: LBXSF5SI ... 0 associations - insufficient associations
+    Analyzing: LBXSF6SI ... 0 associations - insufficient associations
+    Analyzing: LBXTBA ... 0 associations - insufficient associations
+    Analyzing: LBXTBM ... 0 associations - insufficient associations
+    Analyzing: LBXTST ... 0 associations - insufficient associations
+    Analyzing: URXUCR ... 0 associations - insufficient associations
+    Analyzing: URXUIO ... 0 associations - insufficient associations
+    Analyzing: URXUMA ... 0 associations - insufficient associations
+    Analyzing: ENXMEAN ... 0 associations - insufficient associations
+    Analyzing: MDIASTOLIC ... 0 associations - insufficient associations
+    Analyzing: MSYSTOLIC ... 0 associations - insufficient associations
+  -> Total plots created: 0 
+  No plots created for pheWAS ( clr )
+  Variables to analyze: ASTHMA, BRONCHITIS, EMPHYSEMA, ANGINA, HEART_FAILURE, HEART_ATTACK, STROKE, CHD, CVD, CANCER_BREAST, CANCER_PROSTATE, DIABETES 
+    Analyzing: ASTHMA ... 1 associations - insufficient associations
+    Analyzing: BRONCHITIS ... 0 associations - insufficient associations
+    Analyzing: EMPHYSEMA ... 5 associations, 5 unique OTUs, 10 potential pairs, 10 valid edges [done] network created
+       -> Plot stored for EMPHYSEMA 
+    Analyzing: ANGINA ... 0 associations - insufficient associations
+    Analyzing: HEART_FAILURE ... 0 associations - insufficient associations
+    Analyzing: HEART_ATTACK ... 1 associations - insufficient associations
+    Analyzing: STROKE ... 1 associations - insufficient associations
+    Analyzing: CHD ... 0 associations - insufficient associations
+    Analyzing: CVD ... 1 associations - insufficient associations
+    Analyzing: CANCER_BREAST ... 0 associations - insufficient associations
+    Analyzing: CANCER_PROSTATE ... 0 associations - insufficient associations
+    Analyzing: DIABETES ... 0 associations - insufficient associations
+  -> Total plots created: 1 
+  Saving 1 plots for outWAS 
+    Saving: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/8_network_analyses_out/network_plots_final/clr/outWAS_EMPHYSEMA_EMPHYSEMA_MCQ_clr_network.pdf 
+Creating booklet: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/8_network_analyses_out/network_plots_final/clr/ALL_clr_network_booklet.pdf with 5 pages (demoWAS, exWAS, outWAS, oradWAS, pheWAS order)
+
+=== NETWORK ANALYSIS COMPLETE ===
+
+=== STEP 3: 2.1_group_network.R ===
+=== GROUPED NETWORK ANALYSIS ===
+Data directory: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/8_network_analyses_out/intermediate 
+Output directory: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/8_network_analyses_out 
+
+    Analyzing: outWAS_Respiratory_diseases ... 13 associations, 13 unique OTUs, 78 potential pairs, 78 valid edges [done] network created
+    Analyzing: outWAS_Respiratory_diseases ... 6 associations, 6 unique OTUs, 15 potential pairs, 15 valid edges [done] network created
+
+════════ GROUP NETWORK SUMMARY ════════
+Files created:
+  /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/8_network_analyses_out/group_networks/none/Respiratory_diseases_none_network.pdf
+  /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/8_network_analyses_out/group_networks/clr/Respiratory_diseases_clr_network.pdf
+════════════════════════════════════
+
+=== GROUPED NETWORK ANALYSIS COMPLETE ===
+
+=== MODULE 8 BASELINE: ALL DONE ===
