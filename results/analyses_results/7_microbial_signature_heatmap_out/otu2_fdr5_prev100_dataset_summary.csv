@@ -1,0 +1,7 @@
+"Dataset","Analysis_Type","Transformation","N_Host_Variables","N_Correlations","N_Significant","Percent_Significant","Row_K","Row_Silhouette","Column_K","Column_Silhouette","Retained_Variables","FDR_Threshold","OTU_Threshold","Prevalence_Threshold"
+"demoWAS_clr","demoWAS","clr",13,78,66,84.6,5,0.547353823273925,5,0.547353823273925,13,0.05,2,0.1
+"oradWAS_clr","oradWAS","clr",4,6,6,100,2,0.533544340775853,2,0.533544340775853,4,0.05,2,0.1
+"exWAS_clr","exWAS","clr",460,105570,46598,44.1,20,0.126383598902982,20,0.126383598902982,187,0.05,2,0.1
+"pheWAS_clr","pheWAS","clr",133,8778,4235,48.2,8,0.52374489334464,8,0.52374489334464,14,0.05,2,0.1
+"outWAS_clr","outWAS","clr",16,120,62,51.7,2,0.423132081735643,2,0.423132081735643,7,0.05,2,0.1
+"allWAS_clr","allWAS","clr",613,187578,75972,40.5,20,0.121289625737173,20,0.121289625737173,212,0.05,2,0.1

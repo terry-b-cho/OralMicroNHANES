@@ -1,0 +1,25 @@
+"var_name","var_description","modality_code","modality_label","plot_order"
+"SMQ_current_ever_never","Smoking: current, ever, never","Q","Questionnaire",1
+"URXP01","1-hydroxynaphthalene (ng/L)","U-PAH","Urinary PAH metabolites",2
+"URXP03","3-hydroxyfluorene (ng/L)","U-PAH","Urinary PAH metabolites",3
+"URXP04","2-hydroxyfluorene (ng/L)","U-PAH","Urinary PAH metabolites",4
+"URXP05","3-hydroxyphenanthrene (ng/L)","U-PAH","Urinary PAH metabolites",5
+"URXUCD","Cadmium, urine (ug/L)","U-MM","Urinary metals & mercapturates",6
+"URX1DC","N-Acetyl-S-(1,2-dichlorovinyl)-L-Cysteine (ng/mL)","U-MM","Urinary metals & mercapturates",7
+"LBXCOT","Cotinine (ng/mL)","B-VOC","Blood VOCs & combustion analytes",8
+"LBX2DF","Blood 2,5-Dimethylfuran (ng/mL)","B-VOC","Blood VOCs & combustion analytes",9
+"LBXVFN","Blood Furan (ng/mL)","B-VOC","Blood VOCs & combustion analytes",10
+"LBXVBZ","Blood Benzene (ng/mL)","B-VOC","Blood VOCs & combustion analytes",11
+"LBXV06","Blood Hexane (ng/mL)","B-VOC","Blood VOCs & combustion analytes",12
+"LBXVEB","Blood Ethylbenzene (ng/mL)","B-VOC","Blood VOCs & combustion analytes",13
+"LBXVXY","Blood m-/p-Xylene (ng/mL)","B-VOC","Blood VOCs & combustion analytes",14
+"LBXVCB","Blood Chlorobenzene (ng/mL)","B-VOC","Blood VOCs & combustion analytes",15
+"LBXV1D","Blood 1,2-Dichlorobenzene (ng/mL)","B-VOC","Blood VOCs & combustion analytes",16
+"LBXV3B","Blood 1,3-Dichlorobenzene (ng/mL)","B-VOC","Blood VOCs & combustion analytes",17
+"LBXVMC","Blood Methylene Chloride (ng/mL)","B-VOC","Blood VOCs & combustion analytes",18
+"LBXVDM","Blood Dibromomethane (ng/mL)","B-VOC","Blood VOCs & combustion analytes",19
+"LBXVTC","Blood Trichloroethene (ng/mL)","B-VOC","Blood VOCs & combustion analytes",20
+"LBXV4C","Blood Tetrachloroethene (ng/mL)","B-VOC","Blood VOCs & combustion analytes",21
+"LBXV2A","Blood 1,2-Dichloroethane (ng/mL)","B-VOC","Blood VOCs & combustion analytes",22
+"LBXV2T","Blood trans-1,2-Dichloroethene","B-VOC","Blood VOCs & combustion analytes",23
+"LBXV4E","Blood 1,1,2,2-Tetrachloroethane (ng/mL)","B-VOC","Blood VOCs & combustion analytes",24

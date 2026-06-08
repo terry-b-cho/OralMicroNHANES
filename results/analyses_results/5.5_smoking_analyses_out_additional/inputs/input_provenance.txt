@@ -1,0 +1,9 @@
+role	path	exists	bytes	mtime	md5
+var_mapping_csv	/n/groups/patel/terry/nhanes_oral_mirco_cho/results/intermediate/ubiome_variable_mapping.csv	TRUE	22441	2025-12-18 22:41:41	dc95f6d63838f21841cdf266c7f3e49a
+host_meta_rds	/n/groups/patel/terry/nhanes_oral_mirco_cho/results/intermediate/ubiome_relative_none_updated.rds	TRUE	11236496	2025-12-18 22:41:42	2d6e7affecfb9787f709649cc9f6fa54
+clr_phyloseq_rds	/n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/02_preprocess_db_n_phyloseq_out/intermediate/ubiome_relative_clr.rds	TRUE	7094509	2025-12-18 22:48:20	01bcf1201c76599cb8c7ee074adecda2
+tidied_rds	/n/groups/patel/terry/nhanes_oral_mirco_cho/results/3_exWAS_out/result_clr/3_exWAS_clr_tidied_complete.rds	TRUE	524420499	2025-12-18 22:44:27	88f5ed735524560ecdd3b334469aac79
+glanced_rds	/n/groups/patel/terry/nhanes_oral_mirco_cho/results/3_exWAS_out/result_clr/3_exWAS_clr_glanced_complete.rds	TRUE	15896226	2025-12-18 22:43:56	09aabc530e49dc10a51b5a110771b51f
+rsq_rds	/n/groups/patel/terry/nhanes_oral_mirco_cho/results/3_exWAS_out/result_clr/3_exWAS_clr_rsq_complete.rds	TRUE	10629570	2025-12-18 22:43:38	3f767d5074812660cebbe8b3d7cbb6fb
+provenance_txt	/n/groups/patel/terry/nhanes_oral_mirco_cho/results/3_exWAS_out/result_clr/3_exWAS_clr_aggregation_summary.txt	TRUE	6059	2025-12-18 22:43:55	88ae8f640cb03b6b00d86df15f0873fa
+sig_corr_rds	/n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/7_microbial_signature_heatmap_out/intermediate/microbial_signature/exWAS_clr_all_results/correlation_matrix.rds	TRUE	8048803	2025-12-18 22:52:15	6639097d0da9ed7dfbc92a1c66b43e08

@@ -1,0 +1,21 @@
+analysis_type,normalization,total_tests,fdr_level,correction_method,raw_significant,fdr_significant,bonf_significant,qvalue_significant,fdr_vs_raw_ratio,bonf_vs_raw_ratio,qvalue_vs_fdr_ratio
+1_demoWAS,clr,17537,NA,Storey's q-value,NA,NA,NA,NA,NA,NA,NA
+1_demoWAS,hellinger,16479,NA,Storey's q-value,NA,NA,NA,NA,NA,NA,NA
+1_demoWAS,lognorm,17537,NA,Storey's q-value,NA,NA,NA,NA,NA,NA,NA
+1_demoWAS,none,16479,NA,Storey's q-value,NA,NA,NA,NA,NA,NA,NA
+2_oradWAS,clr,5396,NA,Storey's q-value,NA,NA,NA,NA,NA,NA,NA
+2_oradWAS,hellinger,4642,NA,Storey's q-value,NA,NA,NA,NA,NA,NA,NA
+2_oradWAS,lognorm,5396,NA,Storey's q-value,NA,NA,NA,NA,NA,NA,NA
+2_oradWAS,none,4642,NA,Storey's q-value,NA,NA,NA,NA,NA,NA,NA
+3_exWAS,clr,638077,NA,Storey's q-value,NA,NA,NA,NA,NA,NA,NA
+3_exWAS,hellinger,468080,NA,Storey's q-value,NA,NA,NA,NA,NA,NA,NA
+3_exWAS,lognorm,638077,NA,Storey's q-value,NA,NA,NA,NA,NA,NA,NA
+3_exWAS,none,468080,NA,Storey's q-value,NA,NA,NA,NA,NA,NA,NA
+4_pheWAS,clr,179417,NA,Storey's q-value,NA,NA,NA,NA,NA,NA,NA
+4_pheWAS,hellinger,146593,NA,Storey's q-value,NA,NA,NA,NA,NA,NA,NA
+4_pheWAS,lognorm,179417,NA,Storey's q-value,NA,NA,NA,NA,NA,NA,NA
+4_pheWAS,none,146593,NA,Storey's q-value,NA,NA,NA,NA,NA,NA,NA
+5_outWAS,clr,21584,NA,Storey's q-value,NA,NA,NA,NA,NA,NA,NA
+5_outWAS,hellinger,19188,NA,Storey's q-value,NA,NA,NA,NA,NA,NA,NA
+5_outWAS,lognorm,21584,NA,Storey's q-value,NA,NA,NA,NA,NA,NA,NA
+5_outWAS,none,19188,NA,Storey's q-value,NA,NA,NA,NA,NA,NA,NA

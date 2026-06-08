@@ -1,0 +1,6 @@
+"panel","criterion","reading_at_k9","chosen_k"
+"A","Silhouette: local maxima","s_bar(9) = 0.253; k=9 is a local maximum",9
+"B","Gap statistic (Tibshirani SE-rule)","decision_signal(9) = 0.011; k=9 satisfies Gap(k) >= Gap(k+1) - SE(k+1)",9
+"C","W (within-cluster dispersion) and its derivatives","W''(9) = 0.645 (eps = 0.671); k=9 is the W''->0 plateau",9
+"D","Resolution ceiling (first-touch-the-floor)","min_size(9) = 3 (= phi = 3); k=9 first touches the resolution floor",9
+"E","Stability (bootstrap consensus)","mean_jaccard(9) = 0.899 (>= 0.75); k=9 is in the stable plateau",9

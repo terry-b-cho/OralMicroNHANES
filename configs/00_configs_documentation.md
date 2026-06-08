@@ -18,17 +18,9 @@ VARIABLE3
 ```
 
 ### Variable Categories:
-   - Each file contains variables from a specific category:
-     - `6_zimWAS_vars.txt`: Zero-inflated laboratory measurements
-     - `3_exWAS_vars.txt`: Dietary and nutritional exposures
-     - `4_pheWAS_vars.txt`: Phenotypic measurements
-     - `5_outWAS_vars.txt`: Health outcomes
-     - `1_demoWAS_vars.txt`: Demographic variables
-     - `2_oradWAS_vars.txt`: Oral health variables
-
-### Usage in Parallel Processing
-This simple format is particularly useful for parallel processing because:
-1. Easy to read and parse
-2. No special formatting required
-3. Can be directly used in bash scripts with commands 
-4. Can be easily combined with Schema Structure Files for parallel analysis:
+   - Each file contains variables from a specific category, ordered as follows:
+     1. `1_demoWAS_vars.txt`: Demographic variables
+     2. `2_oradWAS_vars.txt`: Oral health variables
+     3. `3_exWAS_vars.txt`: Dietary and nutritional exposures
+     4. `4_pheWAS_vars.txt`: Phenotypic measurements
+     5. `5_outWAS_vars.txt`: Health outcomes
