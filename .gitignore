@@ -216,3 +216,11 @@ xx_private_use/**
 # Explicit log file exclusion (also covered by *.log,out,err pattern above)
 **/*.log
 *.log
+
+# Always include prediction analyses outputs (figures, models, predictions, intermediate)
+# Allow git to descend into analyses_results, then re-ignore all siblings,
+# then explicitly un-ignore the 10_prediction_analyses_out subtree.
+!results/analyses_results/
+results/analyses_results/*
+!results/analyses_results/10_prediction_analyses_out
+!results/analyses_results/10_prediction_analyses_out/**
