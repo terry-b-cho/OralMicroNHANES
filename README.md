@@ -27,12 +27,12 @@ All primary input data are publicly available. Raw NHANES participant variables,
 
 The intermediate per-dependent-variable RDS files, aggregated `*_complete.rds` tables, and supplementary CSVs produced by `scripts/0_transform_n_preprocess_ssfiles/` and `scripts/1_association_pipeline/` are **too large to host on GitHub**. The full set is deposited at https://doi.org/10.5281/zenodo.17871009.
 
-To reproduce results you have two options:
+Results may be reproduced via either of two pathways:
 
-1. **Replay:** place the input deposit into `data/` and re-run modules 0 → 1 → 2 → 3 → … → 10.
-2. **Download outputs:** unpack the regression-output deposit into `results/` and run only the downstream modules (4–10, plus 2.5).
+1. **Full re-execution from raw inputs.** Populate `data/` from the input-data deposit and re-run modules 0 → 1 → 2 → 3 → … → 10.
+2. **Use of deposited regression outputs.** Populate `results/` from the regression-output deposit and run only the downstream modules (4–10, plus 2.5).
 
-GitHub holds the **scaffold** of `results/0_ss_files/` and `results/{1_demoWAS,2_oradWAS,3_exWAS,4_pheWAS,5_outWAS}_out/{result_clr,result_hellinger,result_lognorm,result_none}/` so paths exist; the per-dependent-variable RDS files inside each `result_*/` are obtained from Zenodo.
+GitHub hosts the directory scaffold of `results/0_ss_files/` and `results/{1_demoWAS,2_oradWAS,3_exWAS,4_pheWAS,5_outWAS}_out/{result_clr,result_hellinger,result_lognorm,result_none}/` to preserve the expected layout; the per-dependent-variable RDS files within each `result_*/` are retrieved from Zenodo.
 
 ## Environment
 
@@ -49,7 +49,7 @@ On HPC (Slurm / O2) prepend `module purge && module load gcc/14.2.0 && module lo
 
 ## Modules
 
-Each module is fully documented by its own README and tool-version list. The table below is just the index.
+Each module is fully documented by its own README and tool-version list. The table below indexes them.
 
 | Module | Purpose | README |
 |---|---|---|

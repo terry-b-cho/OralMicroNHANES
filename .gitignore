@@ -1,69 +1,52 @@
-# Special tag with word "archive" in the name or path or pathname
-archive/
-archive/**
-archive_*
-archive*_*
-archive*_*_*
-archive*_*_*_*
-archive*_*_*_*_*
-archive*_*_*_*_*_*
-*archive*
-*_archive*
-*archive_*
-*archive*_*
-*archive*_*_*
-*archive*_*_*_*
-*archive*_*_*_*_*
-*archive*_*_*_*_*_*
-
 # R specific files
 .Rproj.user/
 .Rhistory
 .Ruserdata
 .Rapp.history
 .RData
+# RDS files: Large serialized R objects (can exceed 100MB, e.g., tidied_results.rds files up to 1.6GB)
+.rds
 
-# .rds files (but allow results directory)
-**/*.rds
-!results/**/*.rds
+# Data files exceeding GitHub's 100MB limit
+# SQLite databases: Large database files (2-2.4GB each) containing NHANES oral microbiome data
+# Excel files: Large spreadsheet files (e.g., goldData.xlsx ~216MB)
+# ZIP archives: Compressed data archives (e.g., goldData.xlsx.zip ~153MB)
+**/*.{tsv,xlsx,xls,db,sqlite,sqlite3,zip}
 
-# Data files
-**/*.{csv,tsv,xlsx,xls,db,sqlite,sqlite3,zip}
-# But allow results directory
-!results/**/*.{csv,tsv}
+# Output and media files exceeding GitHub's 100MB limit
+# AI files: Adobe Illustrator files (can exceed 100MB, e.g., Fig2_main_CLR.ai ~123MB)
+# PDF files: Large PDF documents (e.g., Figures 11:17.pdf ~97MB)
+# HTML files: Large generated documentation/report files
+# Image files: Large raster/vector graphics
+**/*.{ai,html,png,jpg,jpeg,tiff,bmp}
+**/*.pdf
 
-# Output and media files
-**/*.{pdf,png,jpg,jpeg,tiff,bmp}
-# But allow results directory
-!results/**/*.{pdf,png,jpg,jpeg,tiff,bmp}
+# Large text and sequence files exceeding GitHub's 100MB limit
+# TXT files: Large diversity matrix files (e.g., beta diversity matrices up to 991MB)
+# FASTA/GZ files: Large sequence alignment files (e.g., SILVA fasta.gz ~1.2GB)
+**/*.fasta.gz
+**/*beta*.txt
 
-# Adobe Illustrator files
-**/*.{ai}
+# Log files
+**/*.{log,out,err}
 
-# Figure editing files - exclude entire directory from GitHub
-figure_editing/
-figure_editing/**
+# Temporary files
+**/*.{tmp,temp}
+*~
 
-# HTML files
-**/*.{html}
-
-# Log files - all .log files are ignored repository-wide
-**/*.log
-*.log
-# Other stream output files
-**/*.{out,err}
-# Directories named "logs" - ignore contents but keep directory
-**/logs/*
-!**/logs/.gitkeep
+# OS specific files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
 
 # IDE specific files
 .idea/
 .vscode/
 **/*.{swp,swo}
-
-# macOS system files
-.DS_Store
-**/.DS_Store
 
 # R cache and temporary directories
 **/*_cache/
@@ -72,53 +55,143 @@ figure_editing/**
 # Project specific directories - ignore contents but keep directories
 data/*
 !data/.gitkeep
+ignore_legacy_figures/*
+!ignore_legacy_figures/.gitkeep
+ignore_legacy_notebooks/*
+!ignore_legacy_notebooks/.gitkeep
 logs/*
 !logs/.gitkeep
+results/*
+results_backup/*
+!results/.gitkeep
 
-# Results directory - allow structure but exclude large files
-# The results directory structure will be preserved on GitHub
-# Individual files over 50MB in results are excluded below
 
-# All files underneath /data directory are ignored but the directory itself is kept i.e. All the directories that are underneath this directory should be visible and uploaded. However, the individual files within each of the nested directories should not be transferred. I. blank directories and its subdirectories should be uploaded.
-data/*
-!data/.gitkeep  # This file ensures the data/ directory 
-# Large files (50MB+) - exclude from entire repository
-data/00_GOLDdb/goldData.xlsx
-data/00_GOLDdb/goldData.xlsx.zip
-data/00_GOLDdb/goldData_ubiome_selected.csv
-data/00_GOLDdb/goldData_ubiome_selected.xlsx
-data/00_GOLDdb/goldData_ubiome_selected_archive.csv
-data/00_GOLDdb/goldData_ubiome_subset.xlsx
-data/00_nhanes_omp_abundance_db/nhanes_031725.sqlite
-data/00_nhanes_omp_diversity_db/dada2rsv-beta-braycurtis.txt
-data/00_nhanes_omp_diversity_db/dada2rsv-beta-unwunifrac.txt
-data/00_nhanes_omp_diversity_db/dada2rsv-beta-wunifrac.txt
-data/00_nhanes_omp_diversity_db/dada2rsv-braycurtis-beta.txt
-data/00_nhanes_omp_diversity_db/dada2rsv-unwunifrac-beta.txt
-data/00_nhanes_omp_diversity_db/dada2rsv-wunifrac-beta.txt
-data/00_nhanes_omp_transformed_db/nhanes_oral_transformed.sqlite
-data/00_nhanes_omp_transformed_db/nhanes_oral_transformed_complete.sqlite
-data/00_nhanes_omp_transformed_db/nhanes_oral_transformed_complete_processed.sqlite
-data/00_silva_123.1/SILVA_123.1_SSURef_Nr99_tax_silva_full_align_trunc.fasta.gz
-data/00_silva_123.1/taxmap_slv_ssu_ref_nr_123.1.txt
-data/00x_intermediate_files_out/bc_pcoa_res.rds
-data/00x_intermediate_files_out/survey_weighted_mds_res.rds
-data/00x_intermediate_files_out/unw_unifrac_pcoa_res.rds
-data/00x_intermediate_files_out/weighted_unifrac_pcoa_res.rds
-figure_editing/DRAFT/figure2_main.ai
-figure_editing/DRAFT/figure3_main.ai
-figure_editing/Fig2_main_CLR.ai
-figure_editing/Fig3_main_CLR.ai
-figure_editing/Figures 11:17.pdf
-figure_editing/Supplementary Figures 1 OTU.ai
-figure_editing/Supplementary Figures 2 Network Blood.ai
-figure_editing/Supplementary Figures 2 Network demo.ai
-figure_editing/figure2_main_none.ai
-figure_editing/figure3_main_none.ai
-figure_editing/working/Supplementary Figures 3 Network.ai
-figure_editing/working/Supplementary Figures 4 Network.ai
-figure_editing/Figures
-figure_editing/Figures 11:18.pdf
+# Legacy project specific directories
+figures/archive_ignore/
+legacy_code/
+results_backup/
+legacy_results/
+nhanespewas/
+notebooks/
+scripts/1_association_pipeline/archive/
+scripts/1_association_pipeline/debug_Dump/
+xx_not-for-release-materials/*
+xx_supplemental_information/*
+
+#any files/folders containing the string "zimWAS" should be ignored
+*zimWAS*    
+*zimWAS_*
+*zimWAS_*_*
+*zimWAS_*_*_*
+*zimWAS_*_*_*_*
+*zimWAS_*_*_*_*_*
+*zimWAS_*_*_*_*_*_*
+*zimWAS_*_*_*_*_*_*_*
+*zimWAS_*_*_*_*_*_*_*_*
+*zimWAS_*_*_*_*_*_*_*_*_*
+*zimWAS_*_*_*_*_*_*_*_*_*_*
+*zimWAS_*_*_*_*_*_*_*_*_*_*_*
+*zimWAS_*_*_*_*_*_*_*_*_*_*_*_*
+
+#any files/folders containing the string "archive" should be ignored
+*archive*    
+*archive_*
+*archive_*_*
+*archive_*_*_*
+*archive_*_*_*_*
+*archive_*_*_*_*_*
+*archive_*_*_*_*_*_*
+*archive_*_*_*_*_*_*_*
+*archive_*_*_*_*_*_*_*_*
+*archive_*_*_*_*_*_*_*_*_*
+*archive_*_*_*_*_*_*_*_*_*_*
+*archive_*_*_*_*_*_*_*_*_*_*_*
+*archive_*_*_*_*_*_*_*_*_*_*_*_*
+
+# any files/folders containing the string "previous" should be ignored
+*previous*    
+*previous_*
+*previous_*_*
+*previous_*_*_*
+*previous_*_*_*_*
+*previous_*_*_*_*_*
+*previous_*_*_*_*_*_*
+*previous_*_*_*_*_*_*_*
+*previous_*_*_*_*_*_*_*_*
+*previous_*_*_*_*_*_*_*_*_*
+*previous_*_*_*_*_*_*_*_*_*_*
+*previous_*_*_*_*_*_*_*_*_*_*_*
+*previous_*_*_*_*_*_*_*_*_*_*_*_*
+
+#any files/folders containing the string "backup" should be ignored
+*backup*    
+*backup_*
+*backup_*_*
+*backup_*_*_*
+*backup_*_*_*_*
+*backup_*_*_*_*_*
+*backup_*_*_*_*_*_*
+*backup_*_*_*_*_*_*_*
+*backup_*_*_*_*_*_*_*_*
+*backup_*_*_*_*_*_*_*_*_*
+*backup_*_*_*_*_*_*_*_*_*_*
+*backup_*_*_*_*_*_*_*_*_*_*_*
+*backup_*_*_*_*_*_*_*_*_*_*_*_*
+
+#any files/folders containing the string "ignore" should be ignored
+*ignore*    
+*ignore_*
+*ignore_*_*
+*ignore_*_*_*
+*ignore_*_*_*_*
+*ignore_*_*_*_*_*
+*ignore_*_*_*_*_*_*
+*ignore_*_*_*_*_*_*_*
+*ignore_*_*_*_*_*_*_*_*
+*ignore_*_*_*_*_*_*_*_*_*
+*ignore_*_*_*_*_*_*_*_*_*_*
+*ignore_*_*_*_*_*_*_*_*_*_*_*
+*ignore_*_*_*_*_*_*_*_*_*_*_*_*
+
+#any files/folders containing the string "legacy" should be ignored
+*legacy*    
+*legacy_*
+*legacy_*_*
+*legacy_*_*_*
+*legacy_*_*_*_*
+*legacy_*_*_*_*_*
+*legacy_*_*_*_*_*_*
+*legacy_*_*_*_*_*_*_*
+*legacy_*_*_*_*_*_*_*_*
+*legacy_*_*_*_*_*_*_*_*_*
+*legacy_*_*_*_*_*_*_*_*_*_*
+*legacy_*_*_*_*_*_*_*_*_*_*_*
+*legacy_*_*_*_*_*_*_*_*_*_*_*_*
+
+
+# all the env files for now:
+envs/.conda/envs/nhanes-analysis/*
+envs/.conda/envs/o2-nhanes_oral_env/*
+
+
+# all the RDS files in the old_results/1_demoWAS_out/result_clr directory
+old_results/*/*.rds
+old_results/*/*/*.rds
+old_results/*/*/*/*.rds
+old_results/*/*/*/*/*.rds
+old_results/*/*/*/*/*/*.rds
+old_results/*/*/*/*/*/*/*.rds
+old_results/*/*/*/*/*/*/*/*.rds
+old_results/*/*/*/*/*/*/*/*/*.rds
+old_results/*/*/*/*/*/*/*/*/*/*.rds
+old_results/*/*/*/*/*/*/*/*/*/*/*.rds
+old_results/*/*/*/*/*/*/*/*/*/*/*/*.rds
+
+# all the sh files in the old_results/1_demoWAS_out/subset_schemas_clr directory
+old_results/*
+scripts/old_script/*
+
+figure_editing_arc/*
 
 # Large output directories under results/ - ignore all contents, keep directory via .gitkeep
 results/intermediate/**
@@ -134,55 +207,12 @@ results/4_pheWAS_out/**
 results/5_outWAS_out/**
 !results/5_outWAS_out/.gitkeep
 
-# Other large files in results directory exceeding GitHub size limits
-results/0_ss_files/3_exWAS_clr_schema_structure.csv
-results/0_ss_files/3_exWAS_hellinger_schema_structure.csv
-results/0_ss_files/3_exWAS_lognorm_schema_structure.csv
-results/0_ss_files/3_exWAS_none_schema_structure.csv
-results/analyses_results/2.5_general_summary_generation/supplementary/full_list_supplementary_host_otu_regression_res.csv
-results/analyses_results/2.5_general_summary_generation/supplementary/full_list_supplementary_host_otu_regression_res_subset_clr.csv
-results/analyses_results/4_otu_host_plot_out/intermediate/glanced_results_raw.rds
-results/analyses_results/4_otu_host_plot_out/intermediate/tidied_results_raw.rds
-results/analyses_results/4_otu_host_plot_out/intermediate/tidied_results_with_otu.rds
-results/analyses_results/4_otu_host_plot_out_additional/intermediate/glanced_results_raw.rds
-results/analyses_results/4_otu_host_plot_out_additional/intermediate/tidied_results_raw.rds
-results/analyses_results/4_otu_host_plot_out_additional/intermediate/tidied_results_with_otu.rds
-results/analyses_results/7_microbial_signature_heatmap_out/intermediate/tidied_results_clr.rds
-results/analyses_results/8_network_analyses_out/intermediate/phyloseq_objects.rds
-results/analyses_results/8_network_analyses_out_additional/intermediate/phyloseq_objects.rds
+# Private working directory - never push
+xx_private_use/
+xx_private_use/**
+**/xx_private_use/
+**/xx_private_use/**
 
-# Cursor files
-.cursor
-/.cursor
-.cursor/*
-*/.cursor
-
-# Cursor files
-.cursor
-/.cursor
-.cursor/*
-*/.cursor
-
-# Claude files  
-.claude
-/.claude
-.claude/*
-*/.claude
-
-# zenodo files
-.zenodo
-/.zenodo
-.zenodo/*
-*/.zenodo
-
-#zip files
-**/*.zip
-!results/**/*.zip
-# other zip formats like gzip rar tar bzip2 are ignored
-**/*.{gz,rar,tar,bz2}
-!results/**/*.{gz,rar,tar,bz2}
-
-# /Users/byeongyeoncho/main/github/OralMicroNHANES/xx_private_use directory is ignored
-xx_private_use/*
-!xx_private_use/.gitkeep
-**/*/xx_private_use/*
+# Explicit log file exclusion (also covered by *.log,out,err pattern above)
+**/*.log
+*.log
