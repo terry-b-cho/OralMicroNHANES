@@ -18,5 +18,3 @@
 #   auc <dbl>, brier <dbl>
 
 === STEP 3: 03_visualize_results.R ===
-
-=== STEPS 2+3 DONE ===
