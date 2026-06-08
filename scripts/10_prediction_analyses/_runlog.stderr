@@ -1,0 +1,30 @@
+Warning messages:
+1: package ‘glmnet’ was built under R version 4.5.3 
+2: package ‘dplyr’ was built under R version 4.5.3 
+3: package ‘tibble’ was built under R version 4.5.2 
+4: package ‘tidyr’ was built under R version 4.5.2 
+5: package ‘readr’ was built under R version 4.5.2 
+== Working dataset: 9349 samples
+== task=age        fs=microbiome_only            n_train=7477 n_test=1872 p=219
+== task=age        fs=microbiome_plus_basic_demo n_train=5679 n_test=1424 p=229
+== task=age_group  fs=microbiome_only            n_train=7477 n_test=1872 p=219
+  [info] task=age_group fs=microbiome_plus_basic_demo — dropping rare classes (n<10): 14-19
+== task=age_group  fs=microbiome_plus_basic_demo n_train=5681 n_test=1422 p=229
+== task=gender     fs=microbiome_only            n_train=7479 n_test=1870 p=219
+== task=gender     fs=microbiome_plus_basic_demo n_train=5682 n_test=1421 p=229
+
+== Metrics summary ==
+
+Done. Outputs under: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/10_prediction_analyses_out
+Warning messages:
+1: package ‘dplyr’ was built under R version 4.5.3 
+2: package ‘tibble’ was built under R version 4.5.2 
+3: package ‘tidyr’ was built under R version 4.5.2 
+4: package ‘readr’ was built under R version 4.5.2 
+5: package ‘ggplot2’ was built under R version 4.5.3 
+Wrote /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/10_prediction_analyses_out/figures/metrics_overview.pdf
+`geom_smooth()` using formula = 'y ~ x'
+Wrote /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/10_prediction_analyses_out/figures/age_pred_vs_true.pdf
+Wrote /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/10_prediction_analyses_out/figures/gender_roc.pdf
+Wrote /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/10_prediction_analyses_out/figures/age_group_confusion_matrix.pdf
+Done. Figures written to: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/10_prediction_analyses_out/figures

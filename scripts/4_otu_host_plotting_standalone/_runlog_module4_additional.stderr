@@ -1,0 +1,1636 @@
+### Terry Plot Intermediate Processing ###
+Base path: /n/groups/patel/terry/nhanes_oral_mirco_cho
+Output root (created if missing): /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional
+Warning messages:
+1: package ‘dplyr’ was built under R version 4.5.3 
+2: package ‘tidyr’ was built under R version 4.5.2 
+3: package ‘tibble’ was built under R version 4.5.2 
+4: package ‘purrr’ was built under R version 4.5.3 
+5: package ‘readr’ was built under R version 4.5.2 
+6: package ‘stringr’ was built under R version 4.5.2 
+7: package ‘DBI’ was built under R version 4.5.2 
+8: package ‘RSQLite’ was built under R version 4.5.2 
+Using fallback NHANES SQLite (processed DB missing or empty): /n/groups/patel/terry/nhanes_oral_mirco_cho/data/00_nhanes_omp_transformed_db/nhanes_oral_transformed_complete.sqlite
+Connecting to SQLite database...
+Gathering table metadata...
+Loading GOLD genus mapping...
+Loading phyloseq objects...
+  Loaded ubiome_counts (samples: 9847, taxa: 1349)
+  Loaded ubiome_relative (samples: 9847, taxa: 1349)
+  Loaded ubiome_relative_none (samples: 9847, taxa: 1349)
+  Loaded ubiome_relative_clr (samples: 9847, taxa: 1349)
+  Loaded ubiome_relative_hellinger (samples: 9847, taxa: 1349)
+  Loaded ubiome_relative_lognorm (samples: 9847, taxa: 1349)
+Loading association result tables...
+Deriving OTU columns for each dataset...
+Computing binary case-count filters...
+Computing OTU prevalence filters...
+Filtering significant association results...
+  demoWAS_none: 493 significant associations
+  demoWAS_clr: 1236 significant associations
+  demoWAS_hellinger: 829 significant associations
+  oradWAS_none: 196 significant associations
+  oradWAS_clr: 309 significant associations
+  oradWAS_hellinger: 296 significant associations
+  exWAS_none: 456 significant associations
+  exWAS_clr: 2996 significant associations
+  exWAS_hellinger: 1073 significant associations
+  pheWAS_none: 3193 significant associations
+  pheWAS_clr: 80 significant associations
+  pheWAS_hellinger: 1753 significant associations
+  outWAS_none: 351 significant associations
+  outWAS_clr: 57 significant associations
+  outWAS_hellinger: 376 significant associations
+Creating variable annotation mapping...
+Recording bucket definitions...
+Extracting Terry plot configurations from R Markdown...
+Warning message:
+In readLines(rmd_path) :
+  incomplete final line found on '/n/groups/patel/terry/nhanes_oral_mirco_cho/scripts/4_association_phyloseq_analyses/4_association_phyloseq_analyses.Rmd'
+Intermediate processing complete. Objects saved to /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/intermediate
+### Terry Plot Standalone Plotting ###
+Base path: /n/groups/patel/terry/nhanes_oral_mirco_cho
+Output root (created if missing): /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional
+Warning messages:
+1: package ‘dplyr’ was built under R version 4.5.3 
+2: package ‘tidyr’ was built under R version 4.5.2 
+3: package ‘tibble’ was built under R version 4.5.2 
+4: package ‘purrr’ was built under R version 4.5.3 
+5: package ‘stringr’ was built under R version 4.5.2 
+6: package ‘readr’ was built under R version 4.5.2 
+7: package ‘ggplot2’ was built under R version 4.5.3 
+8: package ‘ggrepel’ was built under R version 4.5.3 
+Loading intermediates...
+Ensuring Arial fonts are available...
+Scanning ttf files in /n/groups/patel/terry/nhanes_oral_mirco_cho/data/fonts ...
+Extracting .afm files from .ttf files...
+PDF theme base family: sans
+Generating Terry plots for none transformation...
+  Plot: figS1_host_demographics_full [comprehensive]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/comprehensive/none/figS1_host_demographics_full.pdf
+  Plot: figS1_host_demographics_full [compact]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/compact/none/figS1_host_demographics_full.pdf
+  Plot: fig1.1b_demographics_poverty_edu [comprehensive]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/comprehensive/none/fig1.1b_demographics_poverty_edu.pdf
+  Plot: fig1.1b_demographics_poverty_edu [compact]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/compact/none/fig1.1b_demographics_poverty_edu.pdf
+  Plot: fig1.1a_demographics_poverty_edu [comprehensive]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/comprehensive/none/fig1.1a_demographics_poverty_edu.pdf
+  Plot: fig1.1a_demographics_poverty_edu [compact]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/compact/none/fig1.1a_demographics_poverty_edu.pdf
+  Plot: fig1.1c_demographics_age [comprehensive]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/comprehensive/none/fig1.1c_demographics_age.pdf
+  Plot: fig1.1c_demographics_age [compact]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/compact/none/fig1.1c_demographics_age.pdf
+  Plot: figS1_otu_demographics_full [comprehensive]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/comprehensive/none/figS1_otu_demographics_full.pdf
+  Plot: figS1_otu_demographics_full [compact]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/compact/none/figS1_otu_demographics_full.pdf
+  Plot: fig2_host_demographics_age [comprehensive]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/comprehensive/none/fig2_host_demographics_age.pdf
+  Plot: fig2_host_demographics_age [compact]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/compact/none/fig2_host_demographics_age.pdf
+  Plot: fig2_host_demographics_age_squared [comprehensive]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/comprehensive/none/fig2_host_demographics_age_squared.pdf
+  Plot: fig2_host_demographics_age_squared [compact]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/compact/none/fig2_host_demographics_age_squared.pdf
+  Plot: figS2_otu_demographics_age [comprehensive]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/comprehensive/none/figS2_otu_demographics_age.pdf
+  Plot: figS2_otu_demographics_age [compact]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/compact/none/figS2_otu_demographics_age.pdf
+  Plot: fig3_host_oral_full [comprehensive]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/comprehensive/none/fig3_host_oral_full.pdf
+  Plot: fig3_host_oral_full [compact]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/compact/none/fig3_host_oral_full.pdf
+  Plot: figS3_otu_oral_full [comprehensive]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/comprehensive/none/figS3_otu_oral_full.pdf
+  Plot: figS3_otu_oral_full [compact]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/compact/none/figS3_otu_oral_full.pdf
+  Plot: figS4_host_exposome_full [comprehensive]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/comprehensive/none/figS4_host_exposome_full.pdf
+  Plot: figS4_host_exposome_full [compact]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/compact/none/figS4_host_exposome_full.pdf
+  Plot: fig4.2b_exposome_diet_macro_energy [comprehensive]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/comprehensive/none/fig4.2b_exposome_diet_macro_energy.pdf
+  Plot: fig4.2b_exposome_diet_macro_energy [compact]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/compact/none/fig4.2b_exposome_diet_macro_energy.pdf
+  Plot: fig4.2_exposome_diet_fatty_acids [comprehensive]
+  Plot: fig4.2_exposome_diet_fatty_acids [compact]
+  Plot: fig4.2a_exposome_diet_vitamins [comprehensive]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/comprehensive/none/fig4.2a_exposome_diet_vitamins.pdf
+  Plot: fig4.2a_exposome_diet_vitamins [compact]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/compact/none/fig4.2a_exposome_diet_vitamins.pdf
+  Plot: fig4.2c_exposome_diet_minerals [comprehensive]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/comprehensive/none/fig4.2c_exposome_diet_minerals.pdf
+  Plot: fig4.2c_exposome_diet_minerals [compact]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/compact/none/fig4.2c_exposome_diet_minerals.pdf
+  Plot: fig4.2d_exposome_diet_alcohol_stimulants [comprehensive]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/comprehensive/none/fig4.2d_exposome_diet_alcohol_stimulants.pdf
+  Plot: fig4.2d_exposome_diet_alcohol_stimulants [compact]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/compact/none/fig4.2d_exposome_diet_alcohol_stimulants.pdf
+  Plot: fig4.4a_exposome_smoking [comprehensive]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/comprehensive/none/fig4.4a_exposome_smoking.pdf
+  Plot: fig4.4a_exposome_smoking [compact]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/compact/none/fig4.4a_exposome_smoking.pdf
+  Plot: fig4.4c_exposome_physical_activity [comprehensive]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/comprehensive/none/fig4.4c_exposome_physical_activity.pdf
+  Plot: fig4.4c_exposome_physical_activity [compact]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/compact/none/fig4.4c_exposome_physical_activity.pdf
+  Plot: fig4_host_exposome_housing [comprehensive]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/comprehensive/none/fig4_host_exposome_housing.pdf
+  Plot: fig4_host_exposome_housing [compact]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/compact/none/fig4_host_exposome_housing.pdf
+  Plot: fig4.4b_exposome_lbd_antigens_antibody [comprehensive]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/comprehensive/none/fig4.4b_exposome_lbd_antigens_antibody.pdf
+  Plot: fig4.4b_exposome_lbd_antigens_antibody [compact]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/compact/none/fig4.4b_exposome_lbd_antigens_antibody.pdf
+  Plot: fig4.3d_exposome_urine_pesticides [comprehensive]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/comprehensive/none/fig4.3d_exposome_urine_pesticides.pdf
+  Plot: fig4.3d_exposome_urine_pesticides [compact]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/compact/none/fig4.3d_exposome_urine_pesticides.pdf
+  Plot: fig4.3c_exposome_urine_consumer_edcs [comprehensive]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/comprehensive/none/fig4.3c_exposome_urine_consumer_edcs.pdf
+  Plot: fig4.3c_exposome_urine_consumer_edcs [compact]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/compact/none/fig4.3c_exposome_urine_consumer_edcs.pdf
+  Plot: fig4.3a_exposome_urine_pah [comprehensive]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/comprehensive/none/fig4.3a_exposome_urine_pah.pdf
+  Plot: fig4.3a_exposome_urine_pah [compact]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/compact/none/fig4.3a_exposome_urine_pah.pdf
+  Plot: fig4.3b_exposome_urine_bioactive_metabolites [comprehensive]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/comprehensive/none/fig4.3b_exposome_urine_bioactive_metabolites.pdf
+  Plot: fig4.3b_exposome_urine_bioactive_metabolites [compact]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/compact/none/fig4.3b_exposome_urine_bioactive_metabolites.pdf
+  Plot: fig4.3g_exposome_urine_smoke_anion [comprehensive]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/comprehensive/none/fig4.3g_exposome_urine_smoke_anion.pdf
+  Plot: fig4.3g_exposome_urine_smoke_anion [compact]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/compact/none/fig4.3g_exposome_urine_smoke_anion.pdf
+  Plot: fig4.3f_exposome_urine_metals [comprehensive]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/comprehensive/none/fig4.3f_exposome_urine_metals.pdf
+  Plot: fig4.3f_exposome_urine_metals [compact]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/compact/none/fig4.3f_exposome_urine_metals.pdf
+  Plot: fig4.3e_exposome_urine_voc_solvents [comprehensive]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/comprehensive/none/fig4.3e_exposome_urine_voc_solvents.pdf
+  Plot: fig4.3e_exposome_urine_voc_solvents [compact]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/compact/none/fig4.3e_exposome_urine_voc_solvents.pdf
+  Plot: fig4.1_exposome_blood_hpv_dna [comprehensive]
+  Plot: fig4.1_exposome_blood_hpv_dna [compact]
+  Plot: fig4.1h_exposome_blood_infectious_serology [comprehensive]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/comprehensive/none/fig4.1h_exposome_blood_infectious_serology.pdf
+  Plot: fig4.1h_exposome_blood_infectious_serology [compact]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/compact/none/fig4.1h_exposome_blood_infectious_serology.pdf
+  Plot: fig4.1_exposome_blood_tb_igra [comprehensive]
+  Plot: fig4.1_exposome_blood_tb_igra [compact]
+  Plot: fig4.1i_exposome_blood_autoimmune_serology [comprehensive]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/comprehensive/none/fig4.1i_exposome_blood_autoimmune_serology.pdf
+  Plot: fig4.1i_exposome_blood_autoimmune_serology [compact]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/compact/none/fig4.1i_exposome_blood_autoimmune_serology.pdf
+  Plot: fig4.1_exposome_blood_vitamin_b6_b12 [comprehensive]
+  Plot: fig4.1_exposome_blood_vitamin_b6_b12 [compact]
+  Plot: fig4.1j_exposome_blood_vitamin_d [comprehensive]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/comprehensive/none/fig4.1j_exposome_blood_vitamin_d.pdf
+  Plot: fig4.1j_exposome_blood_vitamin_d [compact]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/compact/none/fig4.1j_exposome_blood_vitamin_d.pdf
+  Plot: fig4.2_exposome_blood_fatty_acids [comprehensive]
+  Plot: fig4.2_exposome_blood_fatty_acids [compact]
+  Plot: fig4.1b_exposome_blood_smoke_biomarkers [comprehensive]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/comprehensive/none/fig4.1b_exposome_blood_smoke_biomarkers.pdf
+  Plot: fig4.1b_exposome_blood_smoke_biomarkers [compact]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/compact/none/fig4.1b_exposome_blood_smoke_biomarkers.pdf
+  Plot: fig4.1d_exposome_blood_toxic_metals [comprehensive]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/comprehensive/none/fig4.1d_exposome_blood_toxic_metals.pdf
+  Plot: fig4.1d_exposome_blood_toxic_metals [compact]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/compact/none/fig4.1d_exposome_blood_toxic_metals.pdf
+  Plot: fig4.1_exposome_blood_essential_trace_metals [comprehensive]
+  Plot: fig4.1_exposome_blood_essential_trace_metals [compact]
+  Plot: fig4.1g_exposome_blood_non_halogenated_aliphatics [comprehensive]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/comprehensive/none/fig4.1g_exposome_blood_non_halogenated_aliphatics.pdf
+  Plot: fig4.1g_exposome_blood_non_halogenated_aliphatics [compact]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/compact/none/fig4.1g_exposome_blood_non_halogenated_aliphatics.pdf
+  Plot: fig4.1e_exposome_blood_mono_di_halogenated_aliphatic [comprehensive]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/comprehensive/none/fig4.1e_exposome_blood_mono_di_halogenated_aliphatic.pdf
+  Plot: fig4.1e_exposome_blood_mono_di_halogenated_aliphatic [compact]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/compact/none/fig4.1e_exposome_blood_mono_di_halogenated_aliphatic.pdf
+  Plot: fig4.1a_exposome_blood_poly_halogenated_aliphatics [comprehensive]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/comprehensive/none/fig4.1a_exposome_blood_poly_halogenated_aliphatics.pdf
+  Plot: fig4.1a_exposome_blood_poly_halogenated_aliphatics [compact]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/compact/none/fig4.1a_exposome_blood_poly_halogenated_aliphatics.pdf
+  Plot: fig4.1f_exposome_blood_halogenated_aromatic [comprehensive]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/comprehensive/none/fig4.1f_exposome_blood_halogenated_aromatic.pdf
+  Plot: fig4.1f_exposome_blood_halogenated_aromatic [compact]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/compact/none/fig4.1f_exposome_blood_halogenated_aromatic.pdf
+  Plot: fig4.1c_exposome_blood_aromatic_hydrocarbons [comprehensive]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/comprehensive/none/fig4.1c_exposome_blood_aromatic_hydrocarbons.pdf
+  Plot: fig4.1c_exposome_blood_aromatic_hydrocarbons [compact]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/compact/none/fig4.1c_exposome_blood_aromatic_hydrocarbons.pdf
+  Plot: fig4.1_exposome_blood_nitro_aromatic_voc [comprehensive]
+  Plot: fig4.1_exposome_blood_nitro_aromatic_voc [compact]
+  Plot: figS4_otu_exposome_full [comprehensive]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/comprehensive/none/figS4_otu_exposome_full.pdf
+  Plot: figS4_otu_exposome_full [compact]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/compact/none/figS4_otu_exposome_full.pdf
+  Plot: fig5_host_phenome_full [comprehensive]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/comprehensive/none/fig5_host_phenome_full.pdf
+  Plot: fig5_host_phenome_full [compact]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/compact/none/fig5_host_phenome_full.pdf
+  Plot: fig5_host_phenome_hematology_blood_rbc_mass [comprehensive]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/comprehensive/none/fig5_host_phenome_hematology_blood_rbc_mass.pdf
+  Plot: fig5_host_phenome_hematology_blood_rbc_mass [compact]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/compact/none/fig5_host_phenome_hematology_blood_rbc_mass.pdf
+  Plot: fig5.1c_phenome_blood_hematology_rbc_morphology [comprehensive]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/comprehensive/none/fig5.1c_phenome_blood_hematology_rbc_morphology.pdf
+  Plot: fig5.1c_phenome_blood_hematology_rbc_morphology [compact]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/compact/none/fig5.1c_phenome_blood_hematology_rbc_morphology.pdf
+  Plot: fig5.1b_phenome_hematology_blood_wbc_differential [comprehensive]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/comprehensive/none/fig5.1b_phenome_hematology_blood_wbc_differential.pdf
+  Plot: fig5.1b_phenome_hematology_blood_wbc_differential [compact]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/compact/none/fig5.1b_phenome_hematology_blood_wbc_differential.pdf
+  Plot: fig5.1f_host_phenome_hematology_blood_platelet_count [comprehensive]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/comprehensive/none/fig5.1f_host_phenome_hematology_blood_platelet_count.pdf
+  Plot: fig5.1f_host_phenome_hematology_blood_platelet_count [compact]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/compact/none/fig5.1f_host_phenome_hematology_blood_platelet_count.pdf
+  Plot: fig5.1e_host_phenome_hematology_blood_platelet_volume [comprehensive]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/comprehensive/none/fig5.1e_host_phenome_hematology_blood_platelet_volume.pdf
+  Plot: fig5.1e_host_phenome_hematology_blood_platelet_volume [compact]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/compact/none/fig5.1e_host_phenome_hematology_blood_platelet_volume.pdf
+  Plot: fig5.2b_phenome_endocrine_glucose_insulin_markers [comprehensive]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/comprehensive/none/fig5.2b_phenome_endocrine_glucose_insulin_markers.pdf
+  Plot: fig5.2b_phenome_endocrine_glucose_insulin_markers [compact]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/compact/none/fig5.2b_phenome_endocrine_glucose_insulin_markers.pdf
+  Plot: fig5_host_phenome_blood_endocrine_vars [comprehensive]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/comprehensive/none/fig5_host_phenome_blood_endocrine_vars.pdf
+  Plot: fig5_host_phenome_blood_endocrine_vars [compact]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/compact/none/fig5_host_phenome_blood_endocrine_vars.pdf
+  Plot: fig5.2c_phenome_endocrine_blood_onecarbon_folate_vars [comprehensive]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/comprehensive/none/fig5.2c_phenome_endocrine_blood_onecarbon_folate_vars.pdf
+  Plot: fig5.2c_phenome_endocrine_blood_onecarbon_folate_vars [compact]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/compact/none/fig5.2c_phenome_endocrine_blood_onecarbon_folate_vars.pdf
+  Plot: fig5.4d_phenome_Immune_blood_oncology_prostate_vars [comprehensive]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/comprehensive/none/fig5.4d_phenome_Immune_blood_oncology_prostate_vars.pdf
+  Plot: fig5.4d_phenome_Immune_blood_oncology_prostate_vars [compact]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/compact/none/fig5.4d_phenome_Immune_blood_oncology_prostate_vars.pdf
+  Plot: fig5.4e_phenome_Immune_blood_immune_inflammation_vars [comprehensive]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/comprehensive/none/fig5.4e_phenome_Immune_blood_immune_inflammation_vars.pdf
+  Plot: fig5.4e_phenome_Immune_blood_immune_inflammation_vars [compact]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/compact/none/fig5.4e_phenome_Immune_blood_immune_inflammation_vars.pdf
+  Plot: fig5.3a_phenome_physiology_body_composition_dxa [comprehensive]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/comprehensive/none/fig5.3a_phenome_physiology_body_composition_dxa.pdf
+  Plot: fig5.3a_phenome_physiology_body_composition_dxa [compact]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/compact/none/fig5.3a_phenome_physiology_body_composition_dxa.pdf
+  Plot: fig5.1a_phenome_hematology_blood_cell_count_vars [comprehensive]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/comprehensive/none/fig5.1a_phenome_hematology_blood_cell_count_vars.pdf
+  Plot: fig5.1a_phenome_hematology_blood_cell_count_vars [compact]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/compact/none/fig5.1a_phenome_hematology_blood_cell_count_vars.pdf
+  Plot: fig5.4c_phenome_Immune_serum_clinical_vars [comprehensive]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/comprehensive/none/fig5.4c_phenome_Immune_serum_clinical_vars.pdf
+  Plot: fig5.4c_phenome_Immune_serum_clinical_vars [compact]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/compact/none/fig5.4c_phenome_Immune_serum_clinical_vars.pdf
+  Plot: fig5.2d_phenome_endocrine_folate_status_vars [comprehensive]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/comprehensive/none/fig5.2d_phenome_endocrine_folate_status_vars.pdf
+  Plot: fig5.2d_phenome_endocrine_folate_status_vars [compact]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/compact/none/fig5.2d_phenome_endocrine_folate_status_vars.pdf
+  Plot: fig5.4b_phenome_Immune_urine_kidney_iodine_vars [comprehensive]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/comprehensive/none/fig5.4b_phenome_Immune_urine_kidney_iodine_vars.pdf
+  Plot: fig5.4b_phenome_Immune_urine_kidney_iodine_vars [compact]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/compact/none/fig5.4b_phenome_Immune_urine_kidney_iodine_vars.pdf
+  Plot: fig5.4a_phenome_Immune_airway_inflammation_var [comprehensive]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/comprehensive/none/fig5.4a_phenome_Immune_airway_inflammation_var.pdf
+  Plot: fig5.4a_phenome_Immune_airway_inflammation_var [compact]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/compact/none/fig5.4a_phenome_Immune_airway_inflammation_var.pdf
+  Plot: fig5.3b_phenome_physiology_anthropometry_blood_pressure [comprehensive]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/comprehensive/none/fig5.3b_phenome_physiology_anthropometry_blood_pressure.pdf
+  Plot: fig5.3b_phenome_physiology_anthropometry_blood_pressure [compact]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/compact/none/fig5.3b_phenome_physiology_anthropometry_blood_pressure.pdf
+  Plot: figS5_otu_phenome_full [comprehensive]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/comprehensive/none/figS5_otu_phenome_full.pdf
+  Plot: figS5_otu_phenome_full [compact]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/compact/none/figS5_otu_phenome_full.pdf
+  Plot: figS6_host_outcomes_full [comprehensive]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/comprehensive/none/figS6_host_outcomes_full.pdf
+  Plot: figS6_host_outcomes_full [compact]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/compact/none/figS6_host_outcomes_full.pdf
+  Plot: fig6.1c_outcomes_cancer [comprehensive]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/comprehensive/none/fig6.1c_outcomes_cancer.pdf
+  Plot: fig6.1c_outcomes_cancer [compact]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/compact/none/fig6.1c_outcomes_cancer.pdf
+  Plot: fig6.1a_outcomes_cardiovascular [comprehensive]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/comprehensive/none/fig6.1a_outcomes_cardiovascular.pdf
+  Plot: fig6.1a_outcomes_cardiovascular [compact]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/compact/none/fig6.1a_outcomes_cardiovascular.pdf
+  Plot: fig6.1b_outcomes_respiratory [comprehensive]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/comprehensive/none/fig6.1b_outcomes_respiratory.pdf
+  Plot: fig6.1b_outcomes_respiratory [compact]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/compact/none/fig6.1b_outcomes_respiratory.pdf
+  Plot: fig6.1d_outcomes_diabetes [comprehensive]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/comprehensive/none/fig6.1d_outcomes_diabetes.pdf
+  Plot: fig6.1d_outcomes_diabetes [compact]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/compact/none/fig6.1d_outcomes_diabetes.pdf
+  Plot: figS6_otu_outcomes_full [comprehensive]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/comprehensive/none/figS6_otu_outcomes_full.pdf
+  Plot: figS6_otu_outcomes_full [compact]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/compact/none/figS6_otu_outcomes_full.pdf
+There were 27 warnings (use warnings() to see them)
+Generating Terry plots for hellinger transformation...
+  Plot: figS1_host_demographics_full [comprehensive]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/comprehensive/hellinger/figS1_host_demographics_full.pdf
+  Plot: figS1_host_demographics_full [compact]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/compact/hellinger/figS1_host_demographics_full.pdf
+  Plot: fig1.1b_demographics_poverty_edu [comprehensive]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/comprehensive/hellinger/fig1.1b_demographics_poverty_edu.pdf
+  Plot: fig1.1b_demographics_poverty_edu [compact]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/compact/hellinger/fig1.1b_demographics_poverty_edu.pdf
+  Plot: fig1.1a_demographics_poverty_edu [comprehensive]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/comprehensive/hellinger/fig1.1a_demographics_poverty_edu.pdf
+  Plot: fig1.1a_demographics_poverty_edu [compact]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/compact/hellinger/fig1.1a_demographics_poverty_edu.pdf
+  Plot: fig1.1c_demographics_age [comprehensive]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/comprehensive/hellinger/fig1.1c_demographics_age.pdf
+  Plot: fig1.1c_demographics_age [compact]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/compact/hellinger/fig1.1c_demographics_age.pdf
+  Plot: figS1_otu_demographics_full [comprehensive]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/comprehensive/hellinger/figS1_otu_demographics_full.pdf
+  Plot: figS1_otu_demographics_full [compact]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/compact/hellinger/figS1_otu_demographics_full.pdf
+  Plot: fig2_host_demographics_age [comprehensive]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/comprehensive/hellinger/fig2_host_demographics_age.pdf
+  Plot: fig2_host_demographics_age [compact]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/compact/hellinger/fig2_host_demographics_age.pdf
+  Plot: fig2_host_demographics_age_squared [comprehensive]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/comprehensive/hellinger/fig2_host_demographics_age_squared.pdf
+  Plot: fig2_host_demographics_age_squared [compact]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/compact/hellinger/fig2_host_demographics_age_squared.pdf
+  Plot: figS2_otu_demographics_age [comprehensive]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/comprehensive/hellinger/figS2_otu_demographics_age.pdf
+  Plot: figS2_otu_demographics_age [compact]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/compact/hellinger/figS2_otu_demographics_age.pdf
+  Plot: fig3_host_oral_full [comprehensive]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/comprehensive/hellinger/fig3_host_oral_full.pdf
+  Plot: fig3_host_oral_full [compact]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/compact/hellinger/fig3_host_oral_full.pdf
+  Plot: figS3_otu_oral_full [comprehensive]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/comprehensive/hellinger/figS3_otu_oral_full.pdf
+  Plot: figS3_otu_oral_full [compact]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/compact/hellinger/figS3_otu_oral_full.pdf
+  Plot: figS4_host_exposome_full [comprehensive]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/comprehensive/hellinger/figS4_host_exposome_full.pdf
+  Plot: figS4_host_exposome_full [compact]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/compact/hellinger/figS4_host_exposome_full.pdf
+  Plot: fig4.2b_exposome_diet_macro_energy [comprehensive]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/comprehensive/hellinger/fig4.2b_exposome_diet_macro_energy.pdf
+  Plot: fig4.2b_exposome_diet_macro_energy [compact]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/compact/hellinger/fig4.2b_exposome_diet_macro_energy.pdf
+  Plot: fig4.2_exposome_diet_fatty_acids [comprehensive]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/comprehensive/hellinger/fig4.2_exposome_diet_fatty_acids.pdf
+  Plot: fig4.2_exposome_diet_fatty_acids [compact]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/compact/hellinger/fig4.2_exposome_diet_fatty_acids.pdf
+  Plot: fig4.2a_exposome_diet_vitamins [comprehensive]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/comprehensive/hellinger/fig4.2a_exposome_diet_vitamins.pdf
+  Plot: fig4.2a_exposome_diet_vitamins [compact]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/compact/hellinger/fig4.2a_exposome_diet_vitamins.pdf
+  Plot: fig4.2c_exposome_diet_minerals [comprehensive]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/comprehensive/hellinger/fig4.2c_exposome_diet_minerals.pdf
+  Plot: fig4.2c_exposome_diet_minerals [compact]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/compact/hellinger/fig4.2c_exposome_diet_minerals.pdf
+  Plot: fig4.2d_exposome_diet_alcohol_stimulants [comprehensive]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/comprehensive/hellinger/fig4.2d_exposome_diet_alcohol_stimulants.pdf
+  Plot: fig4.2d_exposome_diet_alcohol_stimulants [compact]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/compact/hellinger/fig4.2d_exposome_diet_alcohol_stimulants.pdf
+  Plot: fig4.4a_exposome_smoking [comprehensive]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/comprehensive/hellinger/fig4.4a_exposome_smoking.pdf
+  Plot: fig4.4a_exposome_smoking [compact]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/compact/hellinger/fig4.4a_exposome_smoking.pdf
+  Plot: fig4.4c_exposome_physical_activity [comprehensive]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/comprehensive/hellinger/fig4.4c_exposome_physical_activity.pdf
+  Plot: fig4.4c_exposome_physical_activity [compact]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/compact/hellinger/fig4.4c_exposome_physical_activity.pdf
+  Plot: fig4_host_exposome_housing [comprehensive]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/comprehensive/hellinger/fig4_host_exposome_housing.pdf
+  Plot: fig4_host_exposome_housing [compact]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/compact/hellinger/fig4_host_exposome_housing.pdf
+  Plot: fig4.4b_exposome_lbd_antigens_antibody [comprehensive]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/comprehensive/hellinger/fig4.4b_exposome_lbd_antigens_antibody.pdf
+  Plot: fig4.4b_exposome_lbd_antigens_antibody [compact]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/compact/hellinger/fig4.4b_exposome_lbd_antigens_antibody.pdf
+  Plot: fig4.3d_exposome_urine_pesticides [comprehensive]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/comprehensive/hellinger/fig4.3d_exposome_urine_pesticides.pdf
+  Plot: fig4.3d_exposome_urine_pesticides [compact]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/compact/hellinger/fig4.3d_exposome_urine_pesticides.pdf
+  Plot: fig4.3c_exposome_urine_consumer_edcs [comprehensive]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/comprehensive/hellinger/fig4.3c_exposome_urine_consumer_edcs.pdf
+  Plot: fig4.3c_exposome_urine_consumer_edcs [compact]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/compact/hellinger/fig4.3c_exposome_urine_consumer_edcs.pdf
+  Plot: fig4.3a_exposome_urine_pah [comprehensive]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/comprehensive/hellinger/fig4.3a_exposome_urine_pah.pdf
+  Plot: fig4.3a_exposome_urine_pah [compact]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/compact/hellinger/fig4.3a_exposome_urine_pah.pdf
+  Plot: fig4.3b_exposome_urine_bioactive_metabolites [comprehensive]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/comprehensive/hellinger/fig4.3b_exposome_urine_bioactive_metabolites.pdf
+  Plot: fig4.3b_exposome_urine_bioactive_metabolites [compact]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/compact/hellinger/fig4.3b_exposome_urine_bioactive_metabolites.pdf
+  Plot: fig4.3g_exposome_urine_smoke_anion [comprehensive]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/comprehensive/hellinger/fig4.3g_exposome_urine_smoke_anion.pdf
+  Plot: fig4.3g_exposome_urine_smoke_anion [compact]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/compact/hellinger/fig4.3g_exposome_urine_smoke_anion.pdf
+  Plot: fig4.3f_exposome_urine_metals [comprehensive]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/comprehensive/hellinger/fig4.3f_exposome_urine_metals.pdf
+  Plot: fig4.3f_exposome_urine_metals [compact]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/compact/hellinger/fig4.3f_exposome_urine_metals.pdf
+  Plot: fig4.3e_exposome_urine_voc_solvents [comprehensive]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/comprehensive/hellinger/fig4.3e_exposome_urine_voc_solvents.pdf
+  Plot: fig4.3e_exposome_urine_voc_solvents [compact]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/compact/hellinger/fig4.3e_exposome_urine_voc_solvents.pdf
+  Plot: fig4.1_exposome_blood_hpv_dna [comprehensive]
+  Plot: fig4.1_exposome_blood_hpv_dna [compact]
+  Plot: fig4.1h_exposome_blood_infectious_serology [comprehensive]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/comprehensive/hellinger/fig4.1h_exposome_blood_infectious_serology.pdf
+  Plot: fig4.1h_exposome_blood_infectious_serology [compact]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/compact/hellinger/fig4.1h_exposome_blood_infectious_serology.pdf
+  Plot: fig4.1_exposome_blood_tb_igra [comprehensive]
+  Plot: fig4.1_exposome_blood_tb_igra [compact]
+  Plot: fig4.1i_exposome_blood_autoimmune_serology [comprehensive]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/comprehensive/hellinger/fig4.1i_exposome_blood_autoimmune_serology.pdf
+  Plot: fig4.1i_exposome_blood_autoimmune_serology [compact]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/compact/hellinger/fig4.1i_exposome_blood_autoimmune_serology.pdf
+  Plot: fig4.1_exposome_blood_vitamin_b6_b12 [comprehensive]
+  Plot: fig4.1_exposome_blood_vitamin_b6_b12 [compact]
+  Plot: fig4.1j_exposome_blood_vitamin_d [comprehensive]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/comprehensive/hellinger/fig4.1j_exposome_blood_vitamin_d.pdf
+  Plot: fig4.1j_exposome_blood_vitamin_d [compact]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/compact/hellinger/fig4.1j_exposome_blood_vitamin_d.pdf
+  Plot: fig4.2_exposome_blood_fatty_acids [comprehensive]
+  Plot: fig4.2_exposome_blood_fatty_acids [compact]
+  Plot: fig4.1b_exposome_blood_smoke_biomarkers [comprehensive]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/comprehensive/hellinger/fig4.1b_exposome_blood_smoke_biomarkers.pdf
+  Plot: fig4.1b_exposome_blood_smoke_biomarkers [compact]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/compact/hellinger/fig4.1b_exposome_blood_smoke_biomarkers.pdf
+  Plot: fig4.1d_exposome_blood_toxic_metals [comprehensive]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/comprehensive/hellinger/fig4.1d_exposome_blood_toxic_metals.pdf
+  Plot: fig4.1d_exposome_blood_toxic_metals [compact]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/compact/hellinger/fig4.1d_exposome_blood_toxic_metals.pdf
+  Plot: fig4.1_exposome_blood_essential_trace_metals [comprehensive]
+  Plot: fig4.1_exposome_blood_essential_trace_metals [compact]
+  Plot: fig4.1g_exposome_blood_non_halogenated_aliphatics [comprehensive]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/comprehensive/hellinger/fig4.1g_exposome_blood_non_halogenated_aliphatics.pdf
+  Plot: fig4.1g_exposome_blood_non_halogenated_aliphatics [compact]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/compact/hellinger/fig4.1g_exposome_blood_non_halogenated_aliphatics.pdf
+  Plot: fig4.1e_exposome_blood_mono_di_halogenated_aliphatic [comprehensive]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/comprehensive/hellinger/fig4.1e_exposome_blood_mono_di_halogenated_aliphatic.pdf
+  Plot: fig4.1e_exposome_blood_mono_di_halogenated_aliphatic [compact]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/compact/hellinger/fig4.1e_exposome_blood_mono_di_halogenated_aliphatic.pdf
+  Plot: fig4.1a_exposome_blood_poly_halogenated_aliphatics [comprehensive]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/comprehensive/hellinger/fig4.1a_exposome_blood_poly_halogenated_aliphatics.pdf
+  Plot: fig4.1a_exposome_blood_poly_halogenated_aliphatics [compact]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/compact/hellinger/fig4.1a_exposome_blood_poly_halogenated_aliphatics.pdf
+  Plot: fig4.1f_exposome_blood_halogenated_aromatic [comprehensive]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/comprehensive/hellinger/fig4.1f_exposome_blood_halogenated_aromatic.pdf
+  Plot: fig4.1f_exposome_blood_halogenated_aromatic [compact]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/compact/hellinger/fig4.1f_exposome_blood_halogenated_aromatic.pdf
+  Plot: fig4.1c_exposome_blood_aromatic_hydrocarbons [comprehensive]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/comprehensive/hellinger/fig4.1c_exposome_blood_aromatic_hydrocarbons.pdf
+  Plot: fig4.1c_exposome_blood_aromatic_hydrocarbons [compact]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/compact/hellinger/fig4.1c_exposome_blood_aromatic_hydrocarbons.pdf
+  Plot: fig4.1_exposome_blood_nitro_aromatic_voc [comprehensive]
+  Plot: fig4.1_exposome_blood_nitro_aromatic_voc [compact]
+  Plot: figS4_otu_exposome_full [comprehensive]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/comprehensive/hellinger/figS4_otu_exposome_full.pdf
+  Plot: figS4_otu_exposome_full [compact]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/compact/hellinger/figS4_otu_exposome_full.pdf
+  Plot: fig5_host_phenome_full [comprehensive]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/comprehensive/hellinger/fig5_host_phenome_full.pdf
+  Plot: fig5_host_phenome_full [compact]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/compact/hellinger/fig5_host_phenome_full.pdf
+  Plot: fig5_host_phenome_hematology_blood_rbc_mass [comprehensive]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/comprehensive/hellinger/fig5_host_phenome_hematology_blood_rbc_mass.pdf
+  Plot: fig5_host_phenome_hematology_blood_rbc_mass [compact]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/compact/hellinger/fig5_host_phenome_hematology_blood_rbc_mass.pdf
+  Plot: fig5.1c_phenome_blood_hematology_rbc_morphology [comprehensive]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/comprehensive/hellinger/fig5.1c_phenome_blood_hematology_rbc_morphology.pdf
+  Plot: fig5.1c_phenome_blood_hematology_rbc_morphology [compact]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/compact/hellinger/fig5.1c_phenome_blood_hematology_rbc_morphology.pdf
+  Plot: fig5.1b_phenome_hematology_blood_wbc_differential [comprehensive]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/comprehensive/hellinger/fig5.1b_phenome_hematology_blood_wbc_differential.pdf
+  Plot: fig5.1b_phenome_hematology_blood_wbc_differential [compact]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/compact/hellinger/fig5.1b_phenome_hematology_blood_wbc_differential.pdf
+  Plot: fig5.1f_host_phenome_hematology_blood_platelet_count [comprehensive]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/comprehensive/hellinger/fig5.1f_host_phenome_hematology_blood_platelet_count.pdf
+  Plot: fig5.1f_host_phenome_hematology_blood_platelet_count [compact]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/compact/hellinger/fig5.1f_host_phenome_hematology_blood_platelet_count.pdf
+  Plot: fig5.1e_host_phenome_hematology_blood_platelet_volume [comprehensive]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/comprehensive/hellinger/fig5.1e_host_phenome_hematology_blood_platelet_volume.pdf
+  Plot: fig5.1e_host_phenome_hematology_blood_platelet_volume [compact]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/compact/hellinger/fig5.1e_host_phenome_hematology_blood_platelet_volume.pdf
+  Plot: fig5.2b_phenome_endocrine_glucose_insulin_markers [comprehensive]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/comprehensive/hellinger/fig5.2b_phenome_endocrine_glucose_insulin_markers.pdf
+  Plot: fig5.2b_phenome_endocrine_glucose_insulin_markers [compact]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/compact/hellinger/fig5.2b_phenome_endocrine_glucose_insulin_markers.pdf
+  Plot: fig5_host_phenome_blood_endocrine_vars [comprehensive]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/comprehensive/hellinger/fig5_host_phenome_blood_endocrine_vars.pdf
+  Plot: fig5_host_phenome_blood_endocrine_vars [compact]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/compact/hellinger/fig5_host_phenome_blood_endocrine_vars.pdf
+  Plot: fig5.2c_phenome_endocrine_blood_onecarbon_folate_vars [comprehensive]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/comprehensive/hellinger/fig5.2c_phenome_endocrine_blood_onecarbon_folate_vars.pdf
+  Plot: fig5.2c_phenome_endocrine_blood_onecarbon_folate_vars [compact]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/compact/hellinger/fig5.2c_phenome_endocrine_blood_onecarbon_folate_vars.pdf
+  Plot: fig5.4d_phenome_Immune_blood_oncology_prostate_vars [comprehensive]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/comprehensive/hellinger/fig5.4d_phenome_Immune_blood_oncology_prostate_vars.pdf
+  Plot: fig5.4d_phenome_Immune_blood_oncology_prostate_vars [compact]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/compact/hellinger/fig5.4d_phenome_Immune_blood_oncology_prostate_vars.pdf
+  Plot: fig5.4e_phenome_Immune_blood_immune_inflammation_vars [comprehensive]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/comprehensive/hellinger/fig5.4e_phenome_Immune_blood_immune_inflammation_vars.pdf
+  Plot: fig5.4e_phenome_Immune_blood_immune_inflammation_vars [compact]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/compact/hellinger/fig5.4e_phenome_Immune_blood_immune_inflammation_vars.pdf
+  Plot: fig5.3a_phenome_physiology_body_composition_dxa [comprehensive]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/comprehensive/hellinger/fig5.3a_phenome_physiology_body_composition_dxa.pdf
+  Plot: fig5.3a_phenome_physiology_body_composition_dxa [compact]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/compact/hellinger/fig5.3a_phenome_physiology_body_composition_dxa.pdf
+  Plot: fig5.1a_phenome_hematology_blood_cell_count_vars [comprehensive]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/comprehensive/hellinger/fig5.1a_phenome_hematology_blood_cell_count_vars.pdf
+  Plot: fig5.1a_phenome_hematology_blood_cell_count_vars [compact]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/compact/hellinger/fig5.1a_phenome_hematology_blood_cell_count_vars.pdf
+  Plot: fig5.4c_phenome_Immune_serum_clinical_vars [comprehensive]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/comprehensive/hellinger/fig5.4c_phenome_Immune_serum_clinical_vars.pdf
+  Plot: fig5.4c_phenome_Immune_serum_clinical_vars [compact]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/compact/hellinger/fig5.4c_phenome_Immune_serum_clinical_vars.pdf
+  Plot: fig5.2d_phenome_endocrine_folate_status_vars [comprehensive]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/comprehensive/hellinger/fig5.2d_phenome_endocrine_folate_status_vars.pdf
+  Plot: fig5.2d_phenome_endocrine_folate_status_vars [compact]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/compact/hellinger/fig5.2d_phenome_endocrine_folate_status_vars.pdf
+  Plot: fig5.4b_phenome_Immune_urine_kidney_iodine_vars [comprehensive]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/comprehensive/hellinger/fig5.4b_phenome_Immune_urine_kidney_iodine_vars.pdf
+  Plot: fig5.4b_phenome_Immune_urine_kidney_iodine_vars [compact]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/compact/hellinger/fig5.4b_phenome_Immune_urine_kidney_iodine_vars.pdf
+  Plot: fig5.4a_phenome_Immune_airway_inflammation_var [comprehensive]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/comprehensive/hellinger/fig5.4a_phenome_Immune_airway_inflammation_var.pdf
+  Plot: fig5.4a_phenome_Immune_airway_inflammation_var [compact]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/compact/hellinger/fig5.4a_phenome_Immune_airway_inflammation_var.pdf
+  Plot: fig5.3b_phenome_physiology_anthropometry_blood_pressure [comprehensive]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/comprehensive/hellinger/fig5.3b_phenome_physiology_anthropometry_blood_pressure.pdf
+  Plot: fig5.3b_phenome_physiology_anthropometry_blood_pressure [compact]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/compact/hellinger/fig5.3b_phenome_physiology_anthropometry_blood_pressure.pdf
+  Plot: figS5_otu_phenome_full [comprehensive]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/comprehensive/hellinger/figS5_otu_phenome_full.pdf
+  Plot: figS5_otu_phenome_full [compact]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/compact/hellinger/figS5_otu_phenome_full.pdf
+  Plot: figS6_host_outcomes_full [comprehensive]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/comprehensive/hellinger/figS6_host_outcomes_full.pdf
+  Plot: figS6_host_outcomes_full [compact]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/compact/hellinger/figS6_host_outcomes_full.pdf
+  Plot: fig6.1c_outcomes_cancer [comprehensive]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/comprehensive/hellinger/fig6.1c_outcomes_cancer.pdf
+  Plot: fig6.1c_outcomes_cancer [compact]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/compact/hellinger/fig6.1c_outcomes_cancer.pdf
+  Plot: fig6.1a_outcomes_cardiovascular [comprehensive]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/comprehensive/hellinger/fig6.1a_outcomes_cardiovascular.pdf
+  Plot: fig6.1a_outcomes_cardiovascular [compact]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/compact/hellinger/fig6.1a_outcomes_cardiovascular.pdf
+  Plot: fig6.1b_outcomes_respiratory [comprehensive]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/comprehensive/hellinger/fig6.1b_outcomes_respiratory.pdf
+  Plot: fig6.1b_outcomes_respiratory [compact]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/compact/hellinger/fig6.1b_outcomes_respiratory.pdf
+  Plot: fig6.1d_outcomes_diabetes [comprehensive]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/comprehensive/hellinger/fig6.1d_outcomes_diabetes.pdf
+  Plot: fig6.1d_outcomes_diabetes [compact]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/compact/hellinger/fig6.1d_outcomes_diabetes.pdf
+  Plot: figS6_otu_outcomes_full [comprehensive]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/comprehensive/hellinger/figS6_otu_outcomes_full.pdf
+  Plot: figS6_otu_outcomes_full [compact]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/compact/hellinger/figS6_otu_outcomes_full.pdf
+There were 28 warnings (use warnings() to see them)
+Generating Terry plots for clr transformation...
+  Plot: figS1_host_demographics_full [comprehensive]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/comprehensive/clr/figS1_host_demographics_full.pdf
+  Plot: figS1_host_demographics_full [compact]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/compact/clr/figS1_host_demographics_full.pdf
+  Plot: fig1.1b_demographics_poverty_edu [comprehensive]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/comprehensive/clr/fig1.1b_demographics_poverty_edu.pdf
+  Plot: fig1.1b_demographics_poverty_edu [compact]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/compact/clr/fig1.1b_demographics_poverty_edu.pdf
+  Plot: fig1.1a_demographics_poverty_edu [comprehensive]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/comprehensive/clr/fig1.1a_demographics_poverty_edu.pdf
+  Plot: fig1.1a_demographics_poverty_edu [compact]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/compact/clr/fig1.1a_demographics_poverty_edu.pdf
+  Plot: fig1.1c_demographics_age [comprehensive]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/comprehensive/clr/fig1.1c_demographics_age.pdf
+  Plot: fig1.1c_demographics_age [compact]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/compact/clr/fig1.1c_demographics_age.pdf
+  Plot: figS1_otu_demographics_full [comprehensive]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/comprehensive/clr/figS1_otu_demographics_full.pdf
+  Plot: figS1_otu_demographics_full [compact]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/compact/clr/figS1_otu_demographics_full.pdf
+  Plot: fig2_host_demographics_age [comprehensive]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/comprehensive/clr/fig2_host_demographics_age.pdf
+  Plot: fig2_host_demographics_age [compact]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/compact/clr/fig2_host_demographics_age.pdf
+  Plot: fig2_host_demographics_age_squared [comprehensive]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/comprehensive/clr/fig2_host_demographics_age_squared.pdf
+  Plot: fig2_host_demographics_age_squared [compact]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/compact/clr/fig2_host_demographics_age_squared.pdf
+  Plot: figS2_otu_demographics_age [comprehensive]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/comprehensive/clr/figS2_otu_demographics_age.pdf
+  Plot: figS2_otu_demographics_age [compact]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/compact/clr/figS2_otu_demographics_age.pdf
+  Plot: fig3_host_oral_full [comprehensive]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/comprehensive/clr/fig3_host_oral_full.pdf
+  Plot: fig3_host_oral_full [compact]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/compact/clr/fig3_host_oral_full.pdf
+  Plot: figS3_otu_oral_full [comprehensive]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/comprehensive/clr/figS3_otu_oral_full.pdf
+  Plot: figS3_otu_oral_full [compact]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/compact/clr/figS3_otu_oral_full.pdf
+  Plot: figS4_host_exposome_full [comprehensive]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/comprehensive/clr/figS4_host_exposome_full.pdf
+  Plot: figS4_host_exposome_full [compact]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/compact/clr/figS4_host_exposome_full.pdf
+  Plot: fig4.2b_exposome_diet_macro_energy [comprehensive]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/comprehensive/clr/fig4.2b_exposome_diet_macro_energy.pdf
+  Plot: fig4.2b_exposome_diet_macro_energy [compact]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/compact/clr/fig4.2b_exposome_diet_macro_energy.pdf
+  Plot: fig4.2_exposome_diet_fatty_acids [comprehensive]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/comprehensive/clr/fig4.2_exposome_diet_fatty_acids.pdf
+  Plot: fig4.2_exposome_diet_fatty_acids [compact]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/compact/clr/fig4.2_exposome_diet_fatty_acids.pdf
+  Plot: fig4.2a_exposome_diet_vitamins [comprehensive]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/comprehensive/clr/fig4.2a_exposome_diet_vitamins.pdf
+  Plot: fig4.2a_exposome_diet_vitamins [compact]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/compact/clr/fig4.2a_exposome_diet_vitamins.pdf
+  Plot: fig4.2c_exposome_diet_minerals [comprehensive]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/comprehensive/clr/fig4.2c_exposome_diet_minerals.pdf
+  Plot: fig4.2c_exposome_diet_minerals [compact]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/compact/clr/fig4.2c_exposome_diet_minerals.pdf
+  Plot: fig4.2d_exposome_diet_alcohol_stimulants [comprehensive]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/comprehensive/clr/fig4.2d_exposome_diet_alcohol_stimulants.pdf
+  Plot: fig4.2d_exposome_diet_alcohol_stimulants [compact]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/compact/clr/fig4.2d_exposome_diet_alcohol_stimulants.pdf
+  Plot: fig4.4a_exposome_smoking [comprehensive]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/comprehensive/clr/fig4.4a_exposome_smoking.pdf
+  Plot: fig4.4a_exposome_smoking [compact]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/compact/clr/fig4.4a_exposome_smoking.pdf
+  Plot: fig4.4c_exposome_physical_activity [comprehensive]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/comprehensive/clr/fig4.4c_exposome_physical_activity.pdf
+  Plot: fig4.4c_exposome_physical_activity [compact]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/compact/clr/fig4.4c_exposome_physical_activity.pdf
+  Plot: fig4_host_exposome_housing [comprehensive]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/comprehensive/clr/fig4_host_exposome_housing.pdf
+  Plot: fig4_host_exposome_housing [compact]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/compact/clr/fig4_host_exposome_housing.pdf
+  Plot: fig4.4b_exposome_lbd_antigens_antibody [comprehensive]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/comprehensive/clr/fig4.4b_exposome_lbd_antigens_antibody.pdf
+  Plot: fig4.4b_exposome_lbd_antigens_antibody [compact]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/compact/clr/fig4.4b_exposome_lbd_antigens_antibody.pdf
+  Plot: fig4.3d_exposome_urine_pesticides [comprehensive]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/comprehensive/clr/fig4.3d_exposome_urine_pesticides.pdf
+  Plot: fig4.3d_exposome_urine_pesticides [compact]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/compact/clr/fig4.3d_exposome_urine_pesticides.pdf
+  Plot: fig4.3c_exposome_urine_consumer_edcs [comprehensive]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/comprehensive/clr/fig4.3c_exposome_urine_consumer_edcs.pdf
+  Plot: fig4.3c_exposome_urine_consumer_edcs [compact]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/compact/clr/fig4.3c_exposome_urine_consumer_edcs.pdf
+  Plot: fig4.3a_exposome_urine_pah [comprehensive]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/comprehensive/clr/fig4.3a_exposome_urine_pah.pdf
+  Plot: fig4.3a_exposome_urine_pah [compact]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/compact/clr/fig4.3a_exposome_urine_pah.pdf
+  Plot: fig4.3b_exposome_urine_bioactive_metabolites [comprehensive]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/comprehensive/clr/fig4.3b_exposome_urine_bioactive_metabolites.pdf
+  Plot: fig4.3b_exposome_urine_bioactive_metabolites [compact]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/compact/clr/fig4.3b_exposome_urine_bioactive_metabolites.pdf
+  Plot: fig4.3g_exposome_urine_smoke_anion [comprehensive]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/comprehensive/clr/fig4.3g_exposome_urine_smoke_anion.pdf
+  Plot: fig4.3g_exposome_urine_smoke_anion [compact]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/compact/clr/fig4.3g_exposome_urine_smoke_anion.pdf
+  Plot: fig4.3f_exposome_urine_metals [comprehensive]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/comprehensive/clr/fig4.3f_exposome_urine_metals.pdf
+  Plot: fig4.3f_exposome_urine_metals [compact]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/compact/clr/fig4.3f_exposome_urine_metals.pdf
+  Plot: fig4.3e_exposome_urine_voc_solvents [comprehensive]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/comprehensive/clr/fig4.3e_exposome_urine_voc_solvents.pdf
+  Plot: fig4.3e_exposome_urine_voc_solvents [compact]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/compact/clr/fig4.3e_exposome_urine_voc_solvents.pdf
+  Plot: fig4.1_exposome_blood_hpv_dna [comprehensive]
+  Plot: fig4.1_exposome_blood_hpv_dna [compact]
+  Plot: fig4.1h_exposome_blood_infectious_serology [comprehensive]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/comprehensive/clr/fig4.1h_exposome_blood_infectious_serology.pdf
+  Plot: fig4.1h_exposome_blood_infectious_serology [compact]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/compact/clr/fig4.1h_exposome_blood_infectious_serology.pdf
+  Plot: fig4.1_exposome_blood_tb_igra [comprehensive]
+  Plot: fig4.1_exposome_blood_tb_igra [compact]
+  Plot: fig4.1i_exposome_blood_autoimmune_serology [comprehensive]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/comprehensive/clr/fig4.1i_exposome_blood_autoimmune_serology.pdf
+  Plot: fig4.1i_exposome_blood_autoimmune_serology [compact]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/compact/clr/fig4.1i_exposome_blood_autoimmune_serology.pdf
+  Plot: fig4.1_exposome_blood_vitamin_b6_b12 [comprehensive]
+  Plot: fig4.1_exposome_blood_vitamin_b6_b12 [compact]
+  Plot: fig4.1j_exposome_blood_vitamin_d [comprehensive]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/comprehensive/clr/fig4.1j_exposome_blood_vitamin_d.pdf
+  Plot: fig4.1j_exposome_blood_vitamin_d [compact]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/compact/clr/fig4.1j_exposome_blood_vitamin_d.pdf
+  Plot: fig4.2_exposome_blood_fatty_acids [comprehensive]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/comprehensive/clr/fig4.2_exposome_blood_fatty_acids.pdf
+  Plot: fig4.2_exposome_blood_fatty_acids [compact]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/compact/clr/fig4.2_exposome_blood_fatty_acids.pdf
+  Plot: fig4.1b_exposome_blood_smoke_biomarkers [comprehensive]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/comprehensive/clr/fig4.1b_exposome_blood_smoke_biomarkers.pdf
+  Plot: fig4.1b_exposome_blood_smoke_biomarkers [compact]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/compact/clr/fig4.1b_exposome_blood_smoke_biomarkers.pdf
+  Plot: fig4.1d_exposome_blood_toxic_metals [comprehensive]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/comprehensive/clr/fig4.1d_exposome_blood_toxic_metals.pdf
+  Plot: fig4.1d_exposome_blood_toxic_metals [compact]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/compact/clr/fig4.1d_exposome_blood_toxic_metals.pdf
+  Plot: fig4.1_exposome_blood_essential_trace_metals [comprehensive]
+  Plot: fig4.1_exposome_blood_essential_trace_metals [compact]
+  Plot: fig4.1g_exposome_blood_non_halogenated_aliphatics [comprehensive]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/comprehensive/clr/fig4.1g_exposome_blood_non_halogenated_aliphatics.pdf
+  Plot: fig4.1g_exposome_blood_non_halogenated_aliphatics [compact]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/compact/clr/fig4.1g_exposome_blood_non_halogenated_aliphatics.pdf
+  Plot: fig4.1e_exposome_blood_mono_di_halogenated_aliphatic [comprehensive]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/comprehensive/clr/fig4.1e_exposome_blood_mono_di_halogenated_aliphatic.pdf
+  Plot: fig4.1e_exposome_blood_mono_di_halogenated_aliphatic [compact]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/compact/clr/fig4.1e_exposome_blood_mono_di_halogenated_aliphatic.pdf
+  Plot: fig4.1a_exposome_blood_poly_halogenated_aliphatics [comprehensive]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/comprehensive/clr/fig4.1a_exposome_blood_poly_halogenated_aliphatics.pdf
+  Plot: fig4.1a_exposome_blood_poly_halogenated_aliphatics [compact]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/compact/clr/fig4.1a_exposome_blood_poly_halogenated_aliphatics.pdf
+  Plot: fig4.1f_exposome_blood_halogenated_aromatic [comprehensive]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/comprehensive/clr/fig4.1f_exposome_blood_halogenated_aromatic.pdf
+  Plot: fig4.1f_exposome_blood_halogenated_aromatic [compact]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/compact/clr/fig4.1f_exposome_blood_halogenated_aromatic.pdf
+  Plot: fig4.1c_exposome_blood_aromatic_hydrocarbons [comprehensive]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/comprehensive/clr/fig4.1c_exposome_blood_aromatic_hydrocarbons.pdf
+  Plot: fig4.1c_exposome_blood_aromatic_hydrocarbons [compact]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/compact/clr/fig4.1c_exposome_blood_aromatic_hydrocarbons.pdf
+  Plot: fig4.1_exposome_blood_nitro_aromatic_voc [comprehensive]
+  Plot: fig4.1_exposome_blood_nitro_aromatic_voc [compact]
+  Plot: figS4_otu_exposome_full [comprehensive]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/comprehensive/clr/figS4_otu_exposome_full.pdf
+  Plot: figS4_otu_exposome_full [compact]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/compact/clr/figS4_otu_exposome_full.pdf
+  Plot: fig5_host_phenome_full [comprehensive]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/comprehensive/clr/fig5_host_phenome_full.pdf
+  Plot: fig5_host_phenome_full [compact]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/compact/clr/fig5_host_phenome_full.pdf
+  Plot: fig5_host_phenome_hematology_blood_rbc_mass [comprehensive]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/comprehensive/clr/fig5_host_phenome_hematology_blood_rbc_mass.pdf
+  Plot: fig5_host_phenome_hematology_blood_rbc_mass [compact]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/compact/clr/fig5_host_phenome_hematology_blood_rbc_mass.pdf
+  Plot: fig5.1c_phenome_blood_hematology_rbc_morphology [comprehensive]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/comprehensive/clr/fig5.1c_phenome_blood_hematology_rbc_morphology.pdf
+  Plot: fig5.1c_phenome_blood_hematology_rbc_morphology [compact]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/compact/clr/fig5.1c_phenome_blood_hematology_rbc_morphology.pdf
+  Plot: fig5.1b_phenome_hematology_blood_wbc_differential [comprehensive]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/comprehensive/clr/fig5.1b_phenome_hematology_blood_wbc_differential.pdf
+  Plot: fig5.1b_phenome_hematology_blood_wbc_differential [compact]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/compact/clr/fig5.1b_phenome_hematology_blood_wbc_differential.pdf
+  Plot: fig5.1f_host_phenome_hematology_blood_platelet_count [comprehensive]
+  Plot: fig5.1f_host_phenome_hematology_blood_platelet_count [compact]
+  Plot: fig5.1e_host_phenome_hematology_blood_platelet_volume [comprehensive]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/comprehensive/clr/fig5.1e_host_phenome_hematology_blood_platelet_volume.pdf
+  Plot: fig5.1e_host_phenome_hematology_blood_platelet_volume [compact]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/compact/clr/fig5.1e_host_phenome_hematology_blood_platelet_volume.pdf
+  Plot: fig5.2b_phenome_endocrine_glucose_insulin_markers [comprehensive]
+  Plot: fig5.2b_phenome_endocrine_glucose_insulin_markers [compact]
+  Plot: fig5_host_phenome_blood_endocrine_vars [comprehensive]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/comprehensive/clr/fig5_host_phenome_blood_endocrine_vars.pdf
+  Plot: fig5_host_phenome_blood_endocrine_vars [compact]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/compact/clr/fig5_host_phenome_blood_endocrine_vars.pdf
+  Plot: fig5.2c_phenome_endocrine_blood_onecarbon_folate_vars [comprehensive]
+  Plot: fig5.2c_phenome_endocrine_blood_onecarbon_folate_vars [compact]
+  Plot: fig5.4d_phenome_Immune_blood_oncology_prostate_vars [comprehensive]
+  Plot: fig5.4d_phenome_Immune_blood_oncology_prostate_vars [compact]
+  Plot: fig5.4e_phenome_Immune_blood_immune_inflammation_vars [comprehensive]
+  Plot: fig5.4e_phenome_Immune_blood_immune_inflammation_vars [compact]
+  Plot: fig5.3a_phenome_physiology_body_composition_dxa [comprehensive]
+  Plot: fig5.3a_phenome_physiology_body_composition_dxa [compact]
+  Plot: fig5.1a_phenome_hematology_blood_cell_count_vars [comprehensive]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/comprehensive/clr/fig5.1a_phenome_hematology_blood_cell_count_vars.pdf
+  Plot: fig5.1a_phenome_hematology_blood_cell_count_vars [compact]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/compact/clr/fig5.1a_phenome_hematology_blood_cell_count_vars.pdf
+  Plot: fig5.4c_phenome_Immune_serum_clinical_vars [comprehensive]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/comprehensive/clr/fig5.4c_phenome_Immune_serum_clinical_vars.pdf
+  Plot: fig5.4c_phenome_Immune_serum_clinical_vars [compact]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/compact/clr/fig5.4c_phenome_Immune_serum_clinical_vars.pdf
+  Plot: fig5.2d_phenome_endocrine_folate_status_vars [comprehensive]
+  Plot: fig5.2d_phenome_endocrine_folate_status_vars [compact]
+  Plot: fig5.4b_phenome_Immune_urine_kidney_iodine_vars [comprehensive]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/comprehensive/clr/fig5.4b_phenome_Immune_urine_kidney_iodine_vars.pdf
+  Plot: fig5.4b_phenome_Immune_urine_kidney_iodine_vars [compact]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/compact/clr/fig5.4b_phenome_Immune_urine_kidney_iodine_vars.pdf
+  Plot: fig5.4a_phenome_Immune_airway_inflammation_var [comprehensive]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/comprehensive/clr/fig5.4a_phenome_Immune_airway_inflammation_var.pdf
+  Plot: fig5.4a_phenome_Immune_airway_inflammation_var [compact]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/compact/clr/fig5.4a_phenome_Immune_airway_inflammation_var.pdf
+  Plot: fig5.3b_phenome_physiology_anthropometry_blood_pressure [comprehensive]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/comprehensive/clr/fig5.3b_phenome_physiology_anthropometry_blood_pressure.pdf
+  Plot: fig5.3b_phenome_physiology_anthropometry_blood_pressure [compact]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/compact/clr/fig5.3b_phenome_physiology_anthropometry_blood_pressure.pdf
+  Plot: figS5_otu_phenome_full [comprehensive]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/comprehensive/clr/figS5_otu_phenome_full.pdf
+  Plot: figS5_otu_phenome_full [compact]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/compact/clr/figS5_otu_phenome_full.pdf
+  Plot: figS6_host_outcomes_full [comprehensive]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/comprehensive/clr/figS6_host_outcomes_full.pdf
+  Plot: figS6_host_outcomes_full [compact]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/compact/clr/figS6_host_outcomes_full.pdf
+  Plot: fig6.1c_outcomes_cancer [comprehensive]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/comprehensive/clr/fig6.1c_outcomes_cancer.pdf
+  Plot: fig6.1c_outcomes_cancer [compact]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/compact/clr/fig6.1c_outcomes_cancer.pdf
+  Plot: fig6.1a_outcomes_cardiovascular [comprehensive]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/comprehensive/clr/fig6.1a_outcomes_cardiovascular.pdf
+  Plot: fig6.1a_outcomes_cardiovascular [compact]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/compact/clr/fig6.1a_outcomes_cardiovascular.pdf
+  Plot: fig6.1b_outcomes_respiratory [comprehensive]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/comprehensive/clr/fig6.1b_outcomes_respiratory.pdf
+  Plot: fig6.1b_outcomes_respiratory [compact]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/compact/clr/fig6.1b_outcomes_respiratory.pdf
+  Plot: fig6.1d_outcomes_diabetes [comprehensive]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/comprehensive/clr/fig6.1d_outcomes_diabetes.pdf
+  Plot: fig6.1d_outcomes_diabetes [compact]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/compact/clr/fig6.1d_outcomes_diabetes.pdf
+  Plot: figS6_otu_outcomes_full [comprehensive]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/comprehensive/clr/figS6_otu_outcomes_full.pdf
+  Plot: figS6_otu_outcomes_full [compact]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/compact/clr/figS6_otu_outcomes_full.pdf
+There were 32 warnings (use warnings() to see them)
+Generating indices plots for none transformation...
+  Plot: figS1_host_demographics_full [comprehensive]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/comprehensive/indices/none/figS1_host_demographics_full_host_indices.pdf
+  Plot: figS1_host_demographics_full [compact]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/compact/indices/none/figS1_host_demographics_full_host_indices.pdf
+  Plot: fig1.1b_demographics_poverty_edu [comprehensive]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/comprehensive/indices/none/fig1.1b_demographics_poverty_edu_host_indices.pdf
+  Plot: fig1.1b_demographics_poverty_edu [compact]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/compact/indices/none/fig1.1b_demographics_poverty_edu_host_indices.pdf
+  Plot: fig1.1a_demographics_poverty_edu [comprehensive]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/comprehensive/indices/none/fig1.1a_demographics_poverty_edu_host_indices.pdf
+  Plot: fig1.1a_demographics_poverty_edu [compact]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/compact/indices/none/fig1.1a_demographics_poverty_edu_host_indices.pdf
+  Plot: fig1.1c_demographics_age [comprehensive]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/comprehensive/indices/none/fig1.1c_demographics_age_host_indices.pdf
+  Plot: fig1.1c_demographics_age [compact]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/compact/indices/none/fig1.1c_demographics_age_host_indices.pdf
+  Plot: figS1_otu_demographics_full [comprehensive]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/comprehensive/indices/none/figS1_otu_demographics_full_otu_indices.pdf
+  Plot: figS1_otu_demographics_full [compact]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/compact/indices/none/figS1_otu_demographics_full_otu_indices.pdf
+  Plot: fig2_host_demographics_age [comprehensive]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/comprehensive/indices/none/fig2_host_demographics_age_host_indices.pdf
+  Plot: fig2_host_demographics_age [compact]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/compact/indices/none/fig2_host_demographics_age_host_indices.pdf
+  Plot: fig2_host_demographics_age_squared [comprehensive]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/comprehensive/indices/none/fig2_host_demographics_age_squared_host_indices.pdf
+  Plot: fig2_host_demographics_age_squared [compact]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/compact/indices/none/fig2_host_demographics_age_squared_host_indices.pdf
+  Plot: figS2_otu_demographics_age [comprehensive]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/comprehensive/indices/none/figS2_otu_demographics_age_otu_indices.pdf
+  Plot: figS2_otu_demographics_age [compact]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/compact/indices/none/figS2_otu_demographics_age_otu_indices.pdf
+  Plot: fig3_host_oral_full [comprehensive]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/comprehensive/indices/none/fig3_host_oral_full_host_indices.pdf
+  Plot: fig3_host_oral_full [compact]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/compact/indices/none/fig3_host_oral_full_host_indices.pdf
+  Plot: figS3_otu_oral_full [comprehensive]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/comprehensive/indices/none/figS3_otu_oral_full_otu_indices.pdf
+  Plot: figS3_otu_oral_full [compact]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/compact/indices/none/figS3_otu_oral_full_otu_indices.pdf
+  Plot: figS4_host_exposome_full [comprehensive]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/comprehensive/indices/none/figS4_host_exposome_full_host_indices.pdf
+  Plot: figS4_host_exposome_full [compact]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/compact/indices/none/figS4_host_exposome_full_host_indices.pdf
+  Plot: fig4.2b_exposome_diet_macro_energy [comprehensive]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/comprehensive/indices/none/fig4.2b_exposome_diet_macro_energy_host_indices.pdf
+  Plot: fig4.2b_exposome_diet_macro_energy [compact]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/compact/indices/none/fig4.2b_exposome_diet_macro_energy_host_indices.pdf
+  Plot: fig4.2_exposome_diet_fatty_acids [comprehensive]
+  Plot: fig4.2_exposome_diet_fatty_acids [compact]
+  Plot: fig4.2a_exposome_diet_vitamins [comprehensive]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/comprehensive/indices/none/fig4.2a_exposome_diet_vitamins_host_indices.pdf
+  Plot: fig4.2a_exposome_diet_vitamins [compact]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/compact/indices/none/fig4.2a_exposome_diet_vitamins_host_indices.pdf
+  Plot: fig4.2c_exposome_diet_minerals [comprehensive]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/comprehensive/indices/none/fig4.2c_exposome_diet_minerals_host_indices.pdf
+  Plot: fig4.2c_exposome_diet_minerals [compact]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/compact/indices/none/fig4.2c_exposome_diet_minerals_host_indices.pdf
+  Plot: fig4.2d_exposome_diet_alcohol_stimulants [comprehensive]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/comprehensive/indices/none/fig4.2d_exposome_diet_alcohol_stimulants_host_indices.pdf
+  Plot: fig4.2d_exposome_diet_alcohol_stimulants [compact]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/compact/indices/none/fig4.2d_exposome_diet_alcohol_stimulants_host_indices.pdf
+  Plot: fig4.4a_exposome_smoking [comprehensive]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/comprehensive/indices/none/fig4.4a_exposome_smoking_host_indices.pdf
+  Plot: fig4.4a_exposome_smoking [compact]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/compact/indices/none/fig4.4a_exposome_smoking_host_indices.pdf
+  Plot: fig4.4c_exposome_physical_activity [comprehensive]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/comprehensive/indices/none/fig4.4c_exposome_physical_activity_host_indices.pdf
+  Plot: fig4.4c_exposome_physical_activity [compact]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/compact/indices/none/fig4.4c_exposome_physical_activity_host_indices.pdf
+  Plot: fig4_host_exposome_housing [comprehensive]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/comprehensive/indices/none/fig4_host_exposome_housing_host_indices.pdf
+  Plot: fig4_host_exposome_housing [compact]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/compact/indices/none/fig4_host_exposome_housing_host_indices.pdf
+  Plot: fig4.4b_exposome_lbd_antigens_antibody [comprehensive]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/comprehensive/indices/none/fig4.4b_exposome_lbd_antigens_antibody_host_indices.pdf
+  Plot: fig4.4b_exposome_lbd_antigens_antibody [compact]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/compact/indices/none/fig4.4b_exposome_lbd_antigens_antibody_host_indices.pdf
+  Plot: fig4.3d_exposome_urine_pesticides [comprehensive]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/comprehensive/indices/none/fig4.3d_exposome_urine_pesticides_host_indices.pdf
+  Plot: fig4.3d_exposome_urine_pesticides [compact]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/compact/indices/none/fig4.3d_exposome_urine_pesticides_host_indices.pdf
+  Plot: fig4.3c_exposome_urine_consumer_edcs [comprehensive]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/comprehensive/indices/none/fig4.3c_exposome_urine_consumer_edcs_host_indices.pdf
+  Plot: fig4.3c_exposome_urine_consumer_edcs [compact]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/compact/indices/none/fig4.3c_exposome_urine_consumer_edcs_host_indices.pdf
+  Plot: fig4.3a_exposome_urine_pah [comprehensive]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/comprehensive/indices/none/fig4.3a_exposome_urine_pah_host_indices.pdf
+  Plot: fig4.3a_exposome_urine_pah [compact]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/compact/indices/none/fig4.3a_exposome_urine_pah_host_indices.pdf
+  Plot: fig4.3b_exposome_urine_bioactive_metabolites [comprehensive]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/comprehensive/indices/none/fig4.3b_exposome_urine_bioactive_metabolites_host_indices.pdf
+  Plot: fig4.3b_exposome_urine_bioactive_metabolites [compact]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/compact/indices/none/fig4.3b_exposome_urine_bioactive_metabolites_host_indices.pdf
+  Plot: fig4.3g_exposome_urine_smoke_anion [comprehensive]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/comprehensive/indices/none/fig4.3g_exposome_urine_smoke_anion_host_indices.pdf
+  Plot: fig4.3g_exposome_urine_smoke_anion [compact]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/compact/indices/none/fig4.3g_exposome_urine_smoke_anion_host_indices.pdf
+  Plot: fig4.3f_exposome_urine_metals [comprehensive]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/comprehensive/indices/none/fig4.3f_exposome_urine_metals_host_indices.pdf
+  Plot: fig4.3f_exposome_urine_metals [compact]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/compact/indices/none/fig4.3f_exposome_urine_metals_host_indices.pdf
+  Plot: fig4.3e_exposome_urine_voc_solvents [comprehensive]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/comprehensive/indices/none/fig4.3e_exposome_urine_voc_solvents_host_indices.pdf
+  Plot: fig4.3e_exposome_urine_voc_solvents [compact]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/compact/indices/none/fig4.3e_exposome_urine_voc_solvents_host_indices.pdf
+  Plot: fig4.1_exposome_blood_hpv_dna [comprehensive]
+  Plot: fig4.1_exposome_blood_hpv_dna [compact]
+  Plot: fig4.1h_exposome_blood_infectious_serology [comprehensive]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/comprehensive/indices/none/fig4.1h_exposome_blood_infectious_serology_host_indices.pdf
+  Plot: fig4.1h_exposome_blood_infectious_serology [compact]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/compact/indices/none/fig4.1h_exposome_blood_infectious_serology_host_indices.pdf
+  Plot: fig4.1_exposome_blood_tb_igra [comprehensive]
+  Plot: fig4.1_exposome_blood_tb_igra [compact]
+  Plot: fig4.1i_exposome_blood_autoimmune_serology [comprehensive]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/comprehensive/indices/none/fig4.1i_exposome_blood_autoimmune_serology_host_indices.pdf
+  Plot: fig4.1i_exposome_blood_autoimmune_serology [compact]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/compact/indices/none/fig4.1i_exposome_blood_autoimmune_serology_host_indices.pdf
+  Plot: fig4.1_exposome_blood_vitamin_b6_b12 [comprehensive]
+  Plot: fig4.1_exposome_blood_vitamin_b6_b12 [compact]
+  Plot: fig4.1j_exposome_blood_vitamin_d [comprehensive]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/comprehensive/indices/none/fig4.1j_exposome_blood_vitamin_d_host_indices.pdf
+  Plot: fig4.1j_exposome_blood_vitamin_d [compact]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/compact/indices/none/fig4.1j_exposome_blood_vitamin_d_host_indices.pdf
+  Plot: fig4.2_exposome_blood_fatty_acids [comprehensive]
+  Plot: fig4.2_exposome_blood_fatty_acids [compact]
+  Plot: fig4.1b_exposome_blood_smoke_biomarkers [comprehensive]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/comprehensive/indices/none/fig4.1b_exposome_blood_smoke_biomarkers_host_indices.pdf
+  Plot: fig4.1b_exposome_blood_smoke_biomarkers [compact]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/compact/indices/none/fig4.1b_exposome_blood_smoke_biomarkers_host_indices.pdf
+  Plot: fig4.1d_exposome_blood_toxic_metals [comprehensive]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/comprehensive/indices/none/fig4.1d_exposome_blood_toxic_metals_host_indices.pdf
+  Plot: fig4.1d_exposome_blood_toxic_metals [compact]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/compact/indices/none/fig4.1d_exposome_blood_toxic_metals_host_indices.pdf
+  Plot: fig4.1_exposome_blood_essential_trace_metals [comprehensive]
+  Plot: fig4.1_exposome_blood_essential_trace_metals [compact]
+  Plot: fig4.1g_exposome_blood_non_halogenated_aliphatics [comprehensive]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/comprehensive/indices/none/fig4.1g_exposome_blood_non_halogenated_aliphatics_host_indices.pdf
+  Plot: fig4.1g_exposome_blood_non_halogenated_aliphatics [compact]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/compact/indices/none/fig4.1g_exposome_blood_non_halogenated_aliphatics_host_indices.pdf
+  Plot: fig4.1e_exposome_blood_mono_di_halogenated_aliphatic [comprehensive]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/comprehensive/indices/none/fig4.1e_exposome_blood_mono_di_halogenated_aliphatic_host_indices.pdf
+  Plot: fig4.1e_exposome_blood_mono_di_halogenated_aliphatic [compact]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/compact/indices/none/fig4.1e_exposome_blood_mono_di_halogenated_aliphatic_host_indices.pdf
+  Plot: fig4.1a_exposome_blood_poly_halogenated_aliphatics [comprehensive]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/comprehensive/indices/none/fig4.1a_exposome_blood_poly_halogenated_aliphatics_host_indices.pdf
+  Plot: fig4.1a_exposome_blood_poly_halogenated_aliphatics [compact]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/compact/indices/none/fig4.1a_exposome_blood_poly_halogenated_aliphatics_host_indices.pdf
+  Plot: fig4.1f_exposome_blood_halogenated_aromatic [comprehensive]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/comprehensive/indices/none/fig4.1f_exposome_blood_halogenated_aromatic_host_indices.pdf
+  Plot: fig4.1f_exposome_blood_halogenated_aromatic [compact]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/compact/indices/none/fig4.1f_exposome_blood_halogenated_aromatic_host_indices.pdf
+  Plot: fig4.1c_exposome_blood_aromatic_hydrocarbons [comprehensive]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/comprehensive/indices/none/fig4.1c_exposome_blood_aromatic_hydrocarbons_host_indices.pdf
+  Plot: fig4.1c_exposome_blood_aromatic_hydrocarbons [compact]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/compact/indices/none/fig4.1c_exposome_blood_aromatic_hydrocarbons_host_indices.pdf
+  Plot: fig4.1_exposome_blood_nitro_aromatic_voc [comprehensive]
+  Plot: fig4.1_exposome_blood_nitro_aromatic_voc [compact]
+  Plot: figS4_otu_exposome_full [comprehensive]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/comprehensive/indices/none/figS4_otu_exposome_full_otu_indices.pdf
+  Plot: figS4_otu_exposome_full [compact]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/compact/indices/none/figS4_otu_exposome_full_otu_indices.pdf
+  Plot: fig5_host_phenome_full [comprehensive]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/comprehensive/indices/none/fig5_host_phenome_full_host_indices.pdf
+  Plot: fig5_host_phenome_full [compact]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/compact/indices/none/fig5_host_phenome_full_host_indices.pdf
+  Plot: fig5.1d_phenome_hematology_blood_rbc_mass_indices [comprehensive]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/comprehensive/indices/none/fig5.1d_phenome_hematology_blood_rbc_mass_indices_host_indices.pdf
+  Plot: fig5.1d_phenome_hematology_blood_rbc_mass_indices [compact]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/compact/indices/none/fig5.1d_phenome_hematology_blood_rbc_mass_indices_host_indices.pdf
+  Plot: fig5.1c_phenome_blood_hematology_rbc_morphology_indices [comprehensive]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/comprehensive/indices/none/fig5.1c_phenome_blood_hematology_rbc_morphology_indices_host_indices.pdf
+  Plot: fig5.1c_phenome_blood_hematology_rbc_morphology_indices [compact]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/compact/indices/none/fig5.1c_phenome_blood_hematology_rbc_morphology_indices_host_indices.pdf
+  Plot: fig5.1b_phenome_hematology_blood_wbc_differential_indices [comprehensive]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/comprehensive/indices/none/fig5.1b_phenome_hematology_blood_wbc_differential_indices_host_indices.pdf
+  Plot: fig5.1b_phenome_hematology_blood_wbc_differential_indices [compact]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/compact/indices/none/fig5.1b_phenome_hematology_blood_wbc_differential_indices_host_indices.pdf
+  Plot: fig5.1f_host_phenome_hematology_blood_platelet_count [comprehensive]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/comprehensive/indices/none/fig5.1f_host_phenome_hematology_blood_platelet_count_host_indices.pdf
+  Plot: fig5.1f_host_phenome_hematology_blood_platelet_count [compact]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/compact/indices/none/fig5.1f_host_phenome_hematology_blood_platelet_count_host_indices.pdf
+  Plot: fig5.1e_host_phenome_hematology_blood_platelet_volume [comprehensive]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/comprehensive/indices/none/fig5.1e_host_phenome_hematology_blood_platelet_volume_host_indices.pdf
+  Plot: fig5.1e_host_phenome_hematology_blood_platelet_volume [compact]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/compact/indices/none/fig5.1e_host_phenome_hematology_blood_platelet_volume_host_indices.pdf
+  Plot: fig5.2b_phenome_endocrine_glucose_insulin_markers [comprehensive]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/comprehensive/indices/none/fig5.2b_phenome_endocrine_glucose_insulin_markers_host_indices.pdf
+  Plot: fig5.2b_phenome_endocrine_glucose_insulin_markers [compact]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/compact/indices/none/fig5.2b_phenome_endocrine_glucose_insulin_markers_host_indices.pdf
+  Plot: fig5.2a_phenome_endocrine_blood_endocrine_vars [comprehensive]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/comprehensive/indices/none/fig5.2a_phenome_endocrine_blood_endocrine_vars_host_indices.pdf
+  Plot: fig5.2a_phenome_endocrine_blood_endocrine_vars [compact]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/compact/indices/none/fig5.2a_phenome_endocrine_blood_endocrine_vars_host_indices.pdf
+  Plot: fig5.2c_phenome_endocrine_blood_onecarbon_folate_vars [comprehensive]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/comprehensive/indices/none/fig5.2c_phenome_endocrine_blood_onecarbon_folate_vars_host_indices.pdf
+  Plot: fig5.2c_phenome_endocrine_blood_onecarbon_folate_vars [compact]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/compact/indices/none/fig5.2c_phenome_endocrine_blood_onecarbon_folate_vars_host_indices.pdf
+  Plot: fig5.4d_phenome_Immune_blood_oncology_prostate_vars [comprehensive]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/comprehensive/indices/none/fig5.4d_phenome_Immune_blood_oncology_prostate_vars_host_indices.pdf
+  Plot: fig5.4d_phenome_Immune_blood_oncology_prostate_vars [compact]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/compact/indices/none/fig5.4d_phenome_Immune_blood_oncology_prostate_vars_host_indices.pdf
+  Plot: fig5.4e_phenome_Immune_blood_immune_inflammation_vars [comprehensive]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/comprehensive/indices/none/fig5.4e_phenome_Immune_blood_immune_inflammation_vars_host_indices.pdf
+  Plot: fig5.4e_phenome_Immune_blood_immune_inflammation_vars [compact]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/compact/indices/none/fig5.4e_phenome_Immune_blood_immune_inflammation_vars_host_indices.pdf
+  Plot: fig5.3a_phenome_physiology_body_composition_dxa [comprehensive]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/comprehensive/indices/none/fig5.3a_phenome_physiology_body_composition_dxa_host_indices.pdf
+  Plot: fig5.3a_phenome_physiology_body_composition_dxa [compact]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/compact/indices/none/fig5.3a_phenome_physiology_body_composition_dxa_host_indices.pdf
+  Plot: fig5.1a_phenome_hematology_blood_cell_count_vars [comprehensive]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/comprehensive/indices/none/fig5.1a_phenome_hematology_blood_cell_count_vars_host_indices.pdf
+  Plot: fig5.1a_phenome_hematology_blood_cell_count_vars [compact]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/compact/indices/none/fig5.1a_phenome_hematology_blood_cell_count_vars_host_indices.pdf
+  Plot: fig5.4c_phenome_Immune_serum_clinical_vars [comprehensive]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/comprehensive/indices/none/fig5.4c_phenome_Immune_serum_clinical_vars_host_indices.pdf
+  Plot: fig5.4c_phenome_Immune_serum_clinical_vars [compact]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/compact/indices/none/fig5.4c_phenome_Immune_serum_clinical_vars_host_indices.pdf
+  Plot: fig5.2d_phenome_endocrine_folate_status_vars [comprehensive]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/comprehensive/indices/none/fig5.2d_phenome_endocrine_folate_status_vars_host_indices.pdf
+  Plot: fig5.2d_phenome_endocrine_folate_status_vars [compact]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/compact/indices/none/fig5.2d_phenome_endocrine_folate_status_vars_host_indices.pdf
+  Plot: fig5.4b_phenome_Immune_urine_kidney_iodine_vars [comprehensive]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/comprehensive/indices/none/fig5.4b_phenome_Immune_urine_kidney_iodine_vars_host_indices.pdf
+  Plot: fig5.4b_phenome_Immune_urine_kidney_iodine_vars [compact]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/compact/indices/none/fig5.4b_phenome_Immune_urine_kidney_iodine_vars_host_indices.pdf
+  Plot: fig5.4a_phenome_Immune_airway_inflammation_var [comprehensive]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/comprehensive/indices/none/fig5.4a_phenome_Immune_airway_inflammation_var_host_indices.pdf
+  Plot: fig5.4a_phenome_Immune_airway_inflammation_var [compact]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/compact/indices/none/fig5.4a_phenome_Immune_airway_inflammation_var_host_indices.pdf
+  Plot: fig5.3b_phenome_physiology_anthropometry_blood_pressure [comprehensive]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/comprehensive/indices/none/fig5.3b_phenome_physiology_anthropometry_blood_pressure_host_indices.pdf
+  Plot: fig5.3b_phenome_physiology_anthropometry_blood_pressure [compact]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/compact/indices/none/fig5.3b_phenome_physiology_anthropometry_blood_pressure_host_indices.pdf
+  Plot: figS5_otu_phenome_full [comprehensive]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/comprehensive/indices/none/figS5_otu_phenome_full_otu_indices.pdf
+  Plot: figS5_otu_phenome_full [compact]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/compact/indices/none/figS5_otu_phenome_full_otu_indices.pdf
+  Plot: figS6_host_outcomes_full [comprehensive]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/comprehensive/indices/none/figS6_host_outcomes_full_host_indices.pdf
+  Plot: figS6_host_outcomes_full [compact]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/compact/indices/none/figS6_host_outcomes_full_host_indices.pdf
+  Plot: fig6.1c_outcomes_cancer [comprehensive]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/comprehensive/indices/none/fig6.1c_outcomes_cancer_host_indices.pdf
+  Plot: fig6.1c_outcomes_cancer [compact]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/compact/indices/none/fig6.1c_outcomes_cancer_host_indices.pdf
+  Plot: fig6.1a_outcomes_cardiovascular [comprehensive]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/comprehensive/indices/none/fig6.1a_outcomes_cardiovascular_host_indices.pdf
+  Plot: fig6.1a_outcomes_cardiovascular [compact]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/compact/indices/none/fig6.1a_outcomes_cardiovascular_host_indices.pdf
+  Plot: fig6.1b_outcomes_respiratory [comprehensive]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/comprehensive/indices/none/fig6.1b_outcomes_respiratory_host_indices.pdf
+  Plot: fig6.1b_outcomes_respiratory [compact]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/compact/indices/none/fig6.1b_outcomes_respiratory_host_indices.pdf
+  Plot: fig6.1d_outcomes_diabetes [comprehensive]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/comprehensive/indices/none/fig6.1d_outcomes_diabetes_host_indices.pdf
+  Plot: fig6.1d_outcomes_diabetes [compact]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/compact/indices/none/fig6.1d_outcomes_diabetes_host_indices.pdf
+  Plot: figS6_otu_outcomes_full [comprehensive]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/comprehensive/indices/none/figS6_otu_outcomes_full_otu_indices.pdf
+  Plot: figS6_otu_outcomes_full [compact]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/compact/indices/none/figS6_otu_outcomes_full_otu_indices.pdf
+There were 50 or more warnings (use warnings() to see the first 50)
+Generating indices plots for hellinger transformation...
+  Plot: figS1_host_demographics_full [comprehensive]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/comprehensive/indices/hellinger/figS1_host_demographics_full_host_indices.pdf
+  Plot: figS1_host_demographics_full [compact]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/compact/indices/hellinger/figS1_host_demographics_full_host_indices.pdf
+  Plot: fig1.1b_demographics_poverty_edu [comprehensive]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/comprehensive/indices/hellinger/fig1.1b_demographics_poverty_edu_host_indices.pdf
+  Plot: fig1.1b_demographics_poverty_edu [compact]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/compact/indices/hellinger/fig1.1b_demographics_poverty_edu_host_indices.pdf
+  Plot: fig1.1a_demographics_poverty_edu [comprehensive]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/comprehensive/indices/hellinger/fig1.1a_demographics_poverty_edu_host_indices.pdf
+  Plot: fig1.1a_demographics_poverty_edu [compact]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/compact/indices/hellinger/fig1.1a_demographics_poverty_edu_host_indices.pdf
+  Plot: fig1.1c_demographics_age [comprehensive]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/comprehensive/indices/hellinger/fig1.1c_demographics_age_host_indices.pdf
+  Plot: fig1.1c_demographics_age [compact]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/compact/indices/hellinger/fig1.1c_demographics_age_host_indices.pdf
+  Plot: figS1_otu_demographics_full [comprehensive]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/comprehensive/indices/hellinger/figS1_otu_demographics_full_otu_indices.pdf
+  Plot: figS1_otu_demographics_full [compact]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/compact/indices/hellinger/figS1_otu_demographics_full_otu_indices.pdf
+  Plot: fig2_host_demographics_age [comprehensive]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/comprehensive/indices/hellinger/fig2_host_demographics_age_host_indices.pdf
+  Plot: fig2_host_demographics_age [compact]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/compact/indices/hellinger/fig2_host_demographics_age_host_indices.pdf
+  Plot: fig2_host_demographics_age_squared [comprehensive]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/comprehensive/indices/hellinger/fig2_host_demographics_age_squared_host_indices.pdf
+  Plot: fig2_host_demographics_age_squared [compact]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/compact/indices/hellinger/fig2_host_demographics_age_squared_host_indices.pdf
+  Plot: figS2_otu_demographics_age [comprehensive]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/comprehensive/indices/hellinger/figS2_otu_demographics_age_otu_indices.pdf
+  Plot: figS2_otu_demographics_age [compact]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/compact/indices/hellinger/figS2_otu_demographics_age_otu_indices.pdf
+  Plot: fig3_host_oral_full [comprehensive]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/comprehensive/indices/hellinger/fig3_host_oral_full_host_indices.pdf
+  Plot: fig3_host_oral_full [compact]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/compact/indices/hellinger/fig3_host_oral_full_host_indices.pdf
+  Plot: figS3_otu_oral_full [comprehensive]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/comprehensive/indices/hellinger/figS3_otu_oral_full_otu_indices.pdf
+  Plot: figS3_otu_oral_full [compact]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/compact/indices/hellinger/figS3_otu_oral_full_otu_indices.pdf
+  Plot: figS4_host_exposome_full [comprehensive]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/comprehensive/indices/hellinger/figS4_host_exposome_full_host_indices.pdf
+  Plot: figS4_host_exposome_full [compact]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/compact/indices/hellinger/figS4_host_exposome_full_host_indices.pdf
+  Plot: fig4.2b_exposome_diet_macro_energy [comprehensive]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/comprehensive/indices/hellinger/fig4.2b_exposome_diet_macro_energy_host_indices.pdf
+  Plot: fig4.2b_exposome_diet_macro_energy [compact]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/compact/indices/hellinger/fig4.2b_exposome_diet_macro_energy_host_indices.pdf
+  Plot: fig4.2_exposome_diet_fatty_acids [comprehensive]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/comprehensive/indices/hellinger/fig4.2_exposome_diet_fatty_acids_host_indices.pdf
+  Plot: fig4.2_exposome_diet_fatty_acids [compact]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/compact/indices/hellinger/fig4.2_exposome_diet_fatty_acids_host_indices.pdf
+  Plot: fig4.2a_exposome_diet_vitamins [comprehensive]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/comprehensive/indices/hellinger/fig4.2a_exposome_diet_vitamins_host_indices.pdf
+  Plot: fig4.2a_exposome_diet_vitamins [compact]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/compact/indices/hellinger/fig4.2a_exposome_diet_vitamins_host_indices.pdf
+  Plot: fig4.2c_exposome_diet_minerals [comprehensive]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/comprehensive/indices/hellinger/fig4.2c_exposome_diet_minerals_host_indices.pdf
+  Plot: fig4.2c_exposome_diet_minerals [compact]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/compact/indices/hellinger/fig4.2c_exposome_diet_minerals_host_indices.pdf
+  Plot: fig4.2d_exposome_diet_alcohol_stimulants [comprehensive]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/comprehensive/indices/hellinger/fig4.2d_exposome_diet_alcohol_stimulants_host_indices.pdf
+  Plot: fig4.2d_exposome_diet_alcohol_stimulants [compact]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/compact/indices/hellinger/fig4.2d_exposome_diet_alcohol_stimulants_host_indices.pdf
+  Plot: fig4.4a_exposome_smoking [comprehensive]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/comprehensive/indices/hellinger/fig4.4a_exposome_smoking_host_indices.pdf
+  Plot: fig4.4a_exposome_smoking [compact]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/compact/indices/hellinger/fig4.4a_exposome_smoking_host_indices.pdf
+  Plot: fig4.4c_exposome_physical_activity [comprehensive]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/comprehensive/indices/hellinger/fig4.4c_exposome_physical_activity_host_indices.pdf
+  Plot: fig4.4c_exposome_physical_activity [compact]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/compact/indices/hellinger/fig4.4c_exposome_physical_activity_host_indices.pdf
+  Plot: fig4_host_exposome_housing [comprehensive]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/comprehensive/indices/hellinger/fig4_host_exposome_housing_host_indices.pdf
+  Plot: fig4_host_exposome_housing [compact]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/compact/indices/hellinger/fig4_host_exposome_housing_host_indices.pdf
+  Plot: fig4.4b_exposome_lbd_antigens_antibody [comprehensive]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/comprehensive/indices/hellinger/fig4.4b_exposome_lbd_antigens_antibody_host_indices.pdf
+  Plot: fig4.4b_exposome_lbd_antigens_antibody [compact]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/compact/indices/hellinger/fig4.4b_exposome_lbd_antigens_antibody_host_indices.pdf
+  Plot: fig4.3d_exposome_urine_pesticides [comprehensive]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/comprehensive/indices/hellinger/fig4.3d_exposome_urine_pesticides_host_indices.pdf
+  Plot: fig4.3d_exposome_urine_pesticides [compact]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/compact/indices/hellinger/fig4.3d_exposome_urine_pesticides_host_indices.pdf
+  Plot: fig4.3c_exposome_urine_consumer_edcs [comprehensive]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/comprehensive/indices/hellinger/fig4.3c_exposome_urine_consumer_edcs_host_indices.pdf
+  Plot: fig4.3c_exposome_urine_consumer_edcs [compact]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/compact/indices/hellinger/fig4.3c_exposome_urine_consumer_edcs_host_indices.pdf
+  Plot: fig4.3a_exposome_urine_pah [comprehensive]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/comprehensive/indices/hellinger/fig4.3a_exposome_urine_pah_host_indices.pdf
+  Plot: fig4.3a_exposome_urine_pah [compact]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/compact/indices/hellinger/fig4.3a_exposome_urine_pah_host_indices.pdf
+  Plot: fig4.3b_exposome_urine_bioactive_metabolites [comprehensive]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/comprehensive/indices/hellinger/fig4.3b_exposome_urine_bioactive_metabolites_host_indices.pdf
+  Plot: fig4.3b_exposome_urine_bioactive_metabolites [compact]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/compact/indices/hellinger/fig4.3b_exposome_urine_bioactive_metabolites_host_indices.pdf
+  Plot: fig4.3g_exposome_urine_smoke_anion [comprehensive]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/comprehensive/indices/hellinger/fig4.3g_exposome_urine_smoke_anion_host_indices.pdf
+  Plot: fig4.3g_exposome_urine_smoke_anion [compact]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/compact/indices/hellinger/fig4.3g_exposome_urine_smoke_anion_host_indices.pdf
+  Plot: fig4.3f_exposome_urine_metals [comprehensive]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/comprehensive/indices/hellinger/fig4.3f_exposome_urine_metals_host_indices.pdf
+  Plot: fig4.3f_exposome_urine_metals [compact]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/compact/indices/hellinger/fig4.3f_exposome_urine_metals_host_indices.pdf
+  Plot: fig4.3e_exposome_urine_voc_solvents [comprehensive]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/comprehensive/indices/hellinger/fig4.3e_exposome_urine_voc_solvents_host_indices.pdf
+  Plot: fig4.3e_exposome_urine_voc_solvents [compact]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/compact/indices/hellinger/fig4.3e_exposome_urine_voc_solvents_host_indices.pdf
+  Plot: fig4.1_exposome_blood_hpv_dna [comprehensive]
+  Plot: fig4.1_exposome_blood_hpv_dna [compact]
+  Plot: fig4.1h_exposome_blood_infectious_serology [comprehensive]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/comprehensive/indices/hellinger/fig4.1h_exposome_blood_infectious_serology_host_indices.pdf
+  Plot: fig4.1h_exposome_blood_infectious_serology [compact]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/compact/indices/hellinger/fig4.1h_exposome_blood_infectious_serology_host_indices.pdf
+  Plot: fig4.1_exposome_blood_tb_igra [comprehensive]
+  Plot: fig4.1_exposome_blood_tb_igra [compact]
+  Plot: fig4.1i_exposome_blood_autoimmune_serology [comprehensive]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/comprehensive/indices/hellinger/fig4.1i_exposome_blood_autoimmune_serology_host_indices.pdf
+  Plot: fig4.1i_exposome_blood_autoimmune_serology [compact]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/compact/indices/hellinger/fig4.1i_exposome_blood_autoimmune_serology_host_indices.pdf
+  Plot: fig4.1_exposome_blood_vitamin_b6_b12 [comprehensive]
+  Plot: fig4.1_exposome_blood_vitamin_b6_b12 [compact]
+  Plot: fig4.1j_exposome_blood_vitamin_d [comprehensive]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/comprehensive/indices/hellinger/fig4.1j_exposome_blood_vitamin_d_host_indices.pdf
+  Plot: fig4.1j_exposome_blood_vitamin_d [compact]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/compact/indices/hellinger/fig4.1j_exposome_blood_vitamin_d_host_indices.pdf
+  Plot: fig4.2_exposome_blood_fatty_acids [comprehensive]
+  Plot: fig4.2_exposome_blood_fatty_acids [compact]
+  Plot: fig4.1b_exposome_blood_smoke_biomarkers [comprehensive]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/comprehensive/indices/hellinger/fig4.1b_exposome_blood_smoke_biomarkers_host_indices.pdf
+  Plot: fig4.1b_exposome_blood_smoke_biomarkers [compact]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/compact/indices/hellinger/fig4.1b_exposome_blood_smoke_biomarkers_host_indices.pdf
+  Plot: fig4.1d_exposome_blood_toxic_metals [comprehensive]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/comprehensive/indices/hellinger/fig4.1d_exposome_blood_toxic_metals_host_indices.pdf
+  Plot: fig4.1d_exposome_blood_toxic_metals [compact]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/compact/indices/hellinger/fig4.1d_exposome_blood_toxic_metals_host_indices.pdf
+  Plot: fig4.1_exposome_blood_essential_trace_metals [comprehensive]
+  Plot: fig4.1_exposome_blood_essential_trace_metals [compact]
+  Plot: fig4.1g_exposome_blood_non_halogenated_aliphatics [comprehensive]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/comprehensive/indices/hellinger/fig4.1g_exposome_blood_non_halogenated_aliphatics_host_indices.pdf
+  Plot: fig4.1g_exposome_blood_non_halogenated_aliphatics [compact]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/compact/indices/hellinger/fig4.1g_exposome_blood_non_halogenated_aliphatics_host_indices.pdf
+  Plot: fig4.1e_exposome_blood_mono_di_halogenated_aliphatic [comprehensive]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/comprehensive/indices/hellinger/fig4.1e_exposome_blood_mono_di_halogenated_aliphatic_host_indices.pdf
+  Plot: fig4.1e_exposome_blood_mono_di_halogenated_aliphatic [compact]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/compact/indices/hellinger/fig4.1e_exposome_blood_mono_di_halogenated_aliphatic_host_indices.pdf
+  Plot: fig4.1a_exposome_blood_poly_halogenated_aliphatics [comprehensive]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/comprehensive/indices/hellinger/fig4.1a_exposome_blood_poly_halogenated_aliphatics_host_indices.pdf
+  Plot: fig4.1a_exposome_blood_poly_halogenated_aliphatics [compact]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/compact/indices/hellinger/fig4.1a_exposome_blood_poly_halogenated_aliphatics_host_indices.pdf
+  Plot: fig4.1f_exposome_blood_halogenated_aromatic [comprehensive]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/comprehensive/indices/hellinger/fig4.1f_exposome_blood_halogenated_aromatic_host_indices.pdf
+  Plot: fig4.1f_exposome_blood_halogenated_aromatic [compact]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/compact/indices/hellinger/fig4.1f_exposome_blood_halogenated_aromatic_host_indices.pdf
+  Plot: fig4.1c_exposome_blood_aromatic_hydrocarbons [comprehensive]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/comprehensive/indices/hellinger/fig4.1c_exposome_blood_aromatic_hydrocarbons_host_indices.pdf
+  Plot: fig4.1c_exposome_blood_aromatic_hydrocarbons [compact]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/compact/indices/hellinger/fig4.1c_exposome_blood_aromatic_hydrocarbons_host_indices.pdf
+  Plot: fig4.1_exposome_blood_nitro_aromatic_voc [comprehensive]
+  Plot: fig4.1_exposome_blood_nitro_aromatic_voc [compact]
+  Plot: figS4_otu_exposome_full [comprehensive]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/comprehensive/indices/hellinger/figS4_otu_exposome_full_otu_indices.pdf
+  Plot: figS4_otu_exposome_full [compact]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/compact/indices/hellinger/figS4_otu_exposome_full_otu_indices.pdf
+  Plot: fig5_host_phenome_full [comprehensive]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/comprehensive/indices/hellinger/fig5_host_phenome_full_host_indices.pdf
+  Plot: fig5_host_phenome_full [compact]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/compact/indices/hellinger/fig5_host_phenome_full_host_indices.pdf
+  Plot: fig5.1d_phenome_hematology_blood_rbc_mass_indices [comprehensive]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/comprehensive/indices/hellinger/fig5.1d_phenome_hematology_blood_rbc_mass_indices_host_indices.pdf
+  Plot: fig5.1d_phenome_hematology_blood_rbc_mass_indices [compact]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/compact/indices/hellinger/fig5.1d_phenome_hematology_blood_rbc_mass_indices_host_indices.pdf
+  Plot: fig5.1c_phenome_blood_hematology_rbc_morphology_indices [comprehensive]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/comprehensive/indices/hellinger/fig5.1c_phenome_blood_hematology_rbc_morphology_indices_host_indices.pdf
+  Plot: fig5.1c_phenome_blood_hematology_rbc_morphology_indices [compact]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/compact/indices/hellinger/fig5.1c_phenome_blood_hematology_rbc_morphology_indices_host_indices.pdf
+  Plot: fig5.1b_phenome_hematology_blood_wbc_differential_indices [comprehensive]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/comprehensive/indices/hellinger/fig5.1b_phenome_hematology_blood_wbc_differential_indices_host_indices.pdf
+  Plot: fig5.1b_phenome_hematology_blood_wbc_differential_indices [compact]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/compact/indices/hellinger/fig5.1b_phenome_hematology_blood_wbc_differential_indices_host_indices.pdf
+  Plot: fig5.1f_host_phenome_hematology_blood_platelet_count [comprehensive]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/comprehensive/indices/hellinger/fig5.1f_host_phenome_hematology_blood_platelet_count_host_indices.pdf
+  Plot: fig5.1f_host_phenome_hematology_blood_platelet_count [compact]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/compact/indices/hellinger/fig5.1f_host_phenome_hematology_blood_platelet_count_host_indices.pdf
+  Plot: fig5.1e_host_phenome_hematology_blood_platelet_volume [comprehensive]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/comprehensive/indices/hellinger/fig5.1e_host_phenome_hematology_blood_platelet_volume_host_indices.pdf
+  Plot: fig5.1e_host_phenome_hematology_blood_platelet_volume [compact]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/compact/indices/hellinger/fig5.1e_host_phenome_hematology_blood_platelet_volume_host_indices.pdf
+  Plot: fig5.2b_phenome_endocrine_glucose_insulin_markers [comprehensive]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/comprehensive/indices/hellinger/fig5.2b_phenome_endocrine_glucose_insulin_markers_host_indices.pdf
+  Plot: fig5.2b_phenome_endocrine_glucose_insulin_markers [compact]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/compact/indices/hellinger/fig5.2b_phenome_endocrine_glucose_insulin_markers_host_indices.pdf
+  Plot: fig5.2a_phenome_endocrine_blood_endocrine_vars [comprehensive]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/comprehensive/indices/hellinger/fig5.2a_phenome_endocrine_blood_endocrine_vars_host_indices.pdf
+  Plot: fig5.2a_phenome_endocrine_blood_endocrine_vars [compact]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/compact/indices/hellinger/fig5.2a_phenome_endocrine_blood_endocrine_vars_host_indices.pdf
+  Plot: fig5.2c_phenome_endocrine_blood_onecarbon_folate_vars [comprehensive]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/comprehensive/indices/hellinger/fig5.2c_phenome_endocrine_blood_onecarbon_folate_vars_host_indices.pdf
+  Plot: fig5.2c_phenome_endocrine_blood_onecarbon_folate_vars [compact]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/compact/indices/hellinger/fig5.2c_phenome_endocrine_blood_onecarbon_folate_vars_host_indices.pdf
+  Plot: fig5.4d_phenome_Immune_blood_oncology_prostate_vars [comprehensive]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/comprehensive/indices/hellinger/fig5.4d_phenome_Immune_blood_oncology_prostate_vars_host_indices.pdf
+  Plot: fig5.4d_phenome_Immune_blood_oncology_prostate_vars [compact]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/compact/indices/hellinger/fig5.4d_phenome_Immune_blood_oncology_prostate_vars_host_indices.pdf
+  Plot: fig5.4e_phenome_Immune_blood_immune_inflammation_vars [comprehensive]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/comprehensive/indices/hellinger/fig5.4e_phenome_Immune_blood_immune_inflammation_vars_host_indices.pdf
+  Plot: fig5.4e_phenome_Immune_blood_immune_inflammation_vars [compact]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/compact/indices/hellinger/fig5.4e_phenome_Immune_blood_immune_inflammation_vars_host_indices.pdf
+  Plot: fig5.3a_phenome_physiology_body_composition_dxa [comprehensive]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/comprehensive/indices/hellinger/fig5.3a_phenome_physiology_body_composition_dxa_host_indices.pdf
+  Plot: fig5.3a_phenome_physiology_body_composition_dxa [compact]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/compact/indices/hellinger/fig5.3a_phenome_physiology_body_composition_dxa_host_indices.pdf
+  Plot: fig5.1a_phenome_hematology_blood_cell_count_vars [comprehensive]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/comprehensive/indices/hellinger/fig5.1a_phenome_hematology_blood_cell_count_vars_host_indices.pdf
+  Plot: fig5.1a_phenome_hematology_blood_cell_count_vars [compact]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/compact/indices/hellinger/fig5.1a_phenome_hematology_blood_cell_count_vars_host_indices.pdf
+  Plot: fig5.4c_phenome_Immune_serum_clinical_vars [comprehensive]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/comprehensive/indices/hellinger/fig5.4c_phenome_Immune_serum_clinical_vars_host_indices.pdf
+  Plot: fig5.4c_phenome_Immune_serum_clinical_vars [compact]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/compact/indices/hellinger/fig5.4c_phenome_Immune_serum_clinical_vars_host_indices.pdf
+  Plot: fig5.2d_phenome_endocrine_folate_status_vars [comprehensive]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/comprehensive/indices/hellinger/fig5.2d_phenome_endocrine_folate_status_vars_host_indices.pdf
+  Plot: fig5.2d_phenome_endocrine_folate_status_vars [compact]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/compact/indices/hellinger/fig5.2d_phenome_endocrine_folate_status_vars_host_indices.pdf
+  Plot: fig5.4b_phenome_Immune_urine_kidney_iodine_vars [comprehensive]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/comprehensive/indices/hellinger/fig5.4b_phenome_Immune_urine_kidney_iodine_vars_host_indices.pdf
+  Plot: fig5.4b_phenome_Immune_urine_kidney_iodine_vars [compact]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/compact/indices/hellinger/fig5.4b_phenome_Immune_urine_kidney_iodine_vars_host_indices.pdf
+  Plot: fig5.4a_phenome_Immune_airway_inflammation_var [comprehensive]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/comprehensive/indices/hellinger/fig5.4a_phenome_Immune_airway_inflammation_var_host_indices.pdf
+  Plot: fig5.4a_phenome_Immune_airway_inflammation_var [compact]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/compact/indices/hellinger/fig5.4a_phenome_Immune_airway_inflammation_var_host_indices.pdf
+  Plot: fig5.3b_phenome_physiology_anthropometry_blood_pressure [comprehensive]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/comprehensive/indices/hellinger/fig5.3b_phenome_physiology_anthropometry_blood_pressure_host_indices.pdf
+  Plot: fig5.3b_phenome_physiology_anthropometry_blood_pressure [compact]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/compact/indices/hellinger/fig5.3b_phenome_physiology_anthropometry_blood_pressure_host_indices.pdf
+  Plot: figS5_otu_phenome_full [comprehensive]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/comprehensive/indices/hellinger/figS5_otu_phenome_full_otu_indices.pdf
+  Plot: figS5_otu_phenome_full [compact]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/compact/indices/hellinger/figS5_otu_phenome_full_otu_indices.pdf
+  Plot: figS6_host_outcomes_full [comprehensive]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/comprehensive/indices/hellinger/figS6_host_outcomes_full_host_indices.pdf
+  Plot: figS6_host_outcomes_full [compact]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/compact/indices/hellinger/figS6_host_outcomes_full_host_indices.pdf
+  Plot: fig6.1c_outcomes_cancer [comprehensive]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/comprehensive/indices/hellinger/fig6.1c_outcomes_cancer_host_indices.pdf
+  Plot: fig6.1c_outcomes_cancer [compact]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/compact/indices/hellinger/fig6.1c_outcomes_cancer_host_indices.pdf
+  Plot: fig6.1a_outcomes_cardiovascular [comprehensive]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/comprehensive/indices/hellinger/fig6.1a_outcomes_cardiovascular_host_indices.pdf
+  Plot: fig6.1a_outcomes_cardiovascular [compact]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/compact/indices/hellinger/fig6.1a_outcomes_cardiovascular_host_indices.pdf
+  Plot: fig6.1b_outcomes_respiratory [comprehensive]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/comprehensive/indices/hellinger/fig6.1b_outcomes_respiratory_host_indices.pdf
+  Plot: fig6.1b_outcomes_respiratory [compact]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/compact/indices/hellinger/fig6.1b_outcomes_respiratory_host_indices.pdf
+  Plot: fig6.1d_outcomes_diabetes [comprehensive]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/comprehensive/indices/hellinger/fig6.1d_outcomes_diabetes_host_indices.pdf
+  Plot: fig6.1d_outcomes_diabetes [compact]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/compact/indices/hellinger/fig6.1d_outcomes_diabetes_host_indices.pdf
+  Plot: figS6_otu_outcomes_full [comprehensive]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/comprehensive/indices/hellinger/figS6_otu_outcomes_full_otu_indices.pdf
+  Plot: figS6_otu_outcomes_full [compact]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/compact/indices/hellinger/figS6_otu_outcomes_full_otu_indices.pdf
+There were 50 or more warnings (use warnings() to see the first 50)
+Generating indices plots for clr transformation...
+  Plot: figS1_host_demographics_full [comprehensive]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/comprehensive/indices/clr/figS1_host_demographics_full_host_indices.pdf
+  Plot: figS1_host_demographics_full [compact]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/compact/indices/clr/figS1_host_demographics_full_host_indices.pdf
+  Plot: fig1.1b_demographics_poverty_edu [comprehensive]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/comprehensive/indices/clr/fig1.1b_demographics_poverty_edu_host_indices.pdf
+  Plot: fig1.1b_demographics_poverty_edu [compact]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/compact/indices/clr/fig1.1b_demographics_poverty_edu_host_indices.pdf
+  Plot: fig1.1a_demographics_poverty_edu [comprehensive]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/comprehensive/indices/clr/fig1.1a_demographics_poverty_edu_host_indices.pdf
+  Plot: fig1.1a_demographics_poverty_edu [compact]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/compact/indices/clr/fig1.1a_demographics_poverty_edu_host_indices.pdf
+  Plot: fig1.1c_demographics_age [comprehensive]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/comprehensive/indices/clr/fig1.1c_demographics_age_host_indices.pdf
+  Plot: fig1.1c_demographics_age [compact]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/compact/indices/clr/fig1.1c_demographics_age_host_indices.pdf
+  Plot: figS1_otu_demographics_full [comprehensive]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/comprehensive/indices/clr/figS1_otu_demographics_full_otu_indices.pdf
+  Plot: figS1_otu_demographics_full [compact]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/compact/indices/clr/figS1_otu_demographics_full_otu_indices.pdf
+  Plot: fig2_host_demographics_age [comprehensive]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/comprehensive/indices/clr/fig2_host_demographics_age_host_indices.pdf
+  Plot: fig2_host_demographics_age [compact]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/compact/indices/clr/fig2_host_demographics_age_host_indices.pdf
+  Plot: fig2_host_demographics_age_squared [comprehensive]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/comprehensive/indices/clr/fig2_host_demographics_age_squared_host_indices.pdf
+  Plot: fig2_host_demographics_age_squared [compact]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/compact/indices/clr/fig2_host_demographics_age_squared_host_indices.pdf
+  Plot: figS2_otu_demographics_age [comprehensive]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/comprehensive/indices/clr/figS2_otu_demographics_age_otu_indices.pdf
+  Plot: figS2_otu_demographics_age [compact]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/compact/indices/clr/figS2_otu_demographics_age_otu_indices.pdf
+  Plot: fig3_host_oral_full [comprehensive]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/comprehensive/indices/clr/fig3_host_oral_full_host_indices.pdf
+  Plot: fig3_host_oral_full [compact]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/compact/indices/clr/fig3_host_oral_full_host_indices.pdf
+  Plot: figS3_otu_oral_full [comprehensive]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/comprehensive/indices/clr/figS3_otu_oral_full_otu_indices.pdf
+  Plot: figS3_otu_oral_full [compact]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/compact/indices/clr/figS3_otu_oral_full_otu_indices.pdf
+  Plot: figS4_host_exposome_full [comprehensive]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/comprehensive/indices/clr/figS4_host_exposome_full_host_indices.pdf
+  Plot: figS4_host_exposome_full [compact]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/compact/indices/clr/figS4_host_exposome_full_host_indices.pdf
+  Plot: fig4.2b_exposome_diet_macro_energy [comprehensive]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/comprehensive/indices/clr/fig4.2b_exposome_diet_macro_energy_host_indices.pdf
+  Plot: fig4.2b_exposome_diet_macro_energy [compact]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/compact/indices/clr/fig4.2b_exposome_diet_macro_energy_host_indices.pdf
+  Plot: fig4.2_exposome_diet_fatty_acids [comprehensive]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/comprehensive/indices/clr/fig4.2_exposome_diet_fatty_acids_host_indices.pdf
+  Plot: fig4.2_exposome_diet_fatty_acids [compact]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/compact/indices/clr/fig4.2_exposome_diet_fatty_acids_host_indices.pdf
+  Plot: fig4.2a_exposome_diet_vitamins [comprehensive]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/comprehensive/indices/clr/fig4.2a_exposome_diet_vitamins_host_indices.pdf
+  Plot: fig4.2a_exposome_diet_vitamins [compact]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/compact/indices/clr/fig4.2a_exposome_diet_vitamins_host_indices.pdf
+  Plot: fig4.2c_exposome_diet_minerals [comprehensive]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/comprehensive/indices/clr/fig4.2c_exposome_diet_minerals_host_indices.pdf
+  Plot: fig4.2c_exposome_diet_minerals [compact]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/compact/indices/clr/fig4.2c_exposome_diet_minerals_host_indices.pdf
+  Plot: fig4.2d_exposome_diet_alcohol_stimulants [comprehensive]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/comprehensive/indices/clr/fig4.2d_exposome_diet_alcohol_stimulants_host_indices.pdf
+  Plot: fig4.2d_exposome_diet_alcohol_stimulants [compact]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/compact/indices/clr/fig4.2d_exposome_diet_alcohol_stimulants_host_indices.pdf
+  Plot: fig4.4a_exposome_smoking [comprehensive]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/comprehensive/indices/clr/fig4.4a_exposome_smoking_host_indices.pdf
+  Plot: fig4.4a_exposome_smoking [compact]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/compact/indices/clr/fig4.4a_exposome_smoking_host_indices.pdf
+  Plot: fig4.4c_exposome_physical_activity [comprehensive]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/comprehensive/indices/clr/fig4.4c_exposome_physical_activity_host_indices.pdf
+  Plot: fig4.4c_exposome_physical_activity [compact]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/compact/indices/clr/fig4.4c_exposome_physical_activity_host_indices.pdf
+  Plot: fig4_host_exposome_housing [comprehensive]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/comprehensive/indices/clr/fig4_host_exposome_housing_host_indices.pdf
+  Plot: fig4_host_exposome_housing [compact]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/compact/indices/clr/fig4_host_exposome_housing_host_indices.pdf
+  Plot: fig4.4b_exposome_lbd_antigens_antibody [comprehensive]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/comprehensive/indices/clr/fig4.4b_exposome_lbd_antigens_antibody_host_indices.pdf
+  Plot: fig4.4b_exposome_lbd_antigens_antibody [compact]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/compact/indices/clr/fig4.4b_exposome_lbd_antigens_antibody_host_indices.pdf
+  Plot: fig4.3d_exposome_urine_pesticides [comprehensive]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/comprehensive/indices/clr/fig4.3d_exposome_urine_pesticides_host_indices.pdf
+  Plot: fig4.3d_exposome_urine_pesticides [compact]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/compact/indices/clr/fig4.3d_exposome_urine_pesticides_host_indices.pdf
+  Plot: fig4.3c_exposome_urine_consumer_edcs [comprehensive]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/comprehensive/indices/clr/fig4.3c_exposome_urine_consumer_edcs_host_indices.pdf
+  Plot: fig4.3c_exposome_urine_consumer_edcs [compact]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/compact/indices/clr/fig4.3c_exposome_urine_consumer_edcs_host_indices.pdf
+  Plot: fig4.3a_exposome_urine_pah [comprehensive]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/comprehensive/indices/clr/fig4.3a_exposome_urine_pah_host_indices.pdf
+  Plot: fig4.3a_exposome_urine_pah [compact]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/compact/indices/clr/fig4.3a_exposome_urine_pah_host_indices.pdf
+  Plot: fig4.3b_exposome_urine_bioactive_metabolites [comprehensive]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/comprehensive/indices/clr/fig4.3b_exposome_urine_bioactive_metabolites_host_indices.pdf
+  Plot: fig4.3b_exposome_urine_bioactive_metabolites [compact]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/compact/indices/clr/fig4.3b_exposome_urine_bioactive_metabolites_host_indices.pdf
+  Plot: fig4.3g_exposome_urine_smoke_anion [comprehensive]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/comprehensive/indices/clr/fig4.3g_exposome_urine_smoke_anion_host_indices.pdf
+  Plot: fig4.3g_exposome_urine_smoke_anion [compact]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/compact/indices/clr/fig4.3g_exposome_urine_smoke_anion_host_indices.pdf
+  Plot: fig4.3f_exposome_urine_metals [comprehensive]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/comprehensive/indices/clr/fig4.3f_exposome_urine_metals_host_indices.pdf
+  Plot: fig4.3f_exposome_urine_metals [compact]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/compact/indices/clr/fig4.3f_exposome_urine_metals_host_indices.pdf
+  Plot: fig4.3e_exposome_urine_voc_solvents [comprehensive]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/comprehensive/indices/clr/fig4.3e_exposome_urine_voc_solvents_host_indices.pdf
+  Plot: fig4.3e_exposome_urine_voc_solvents [compact]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/compact/indices/clr/fig4.3e_exposome_urine_voc_solvents_host_indices.pdf
+  Plot: fig4.1_exposome_blood_hpv_dna [comprehensive]
+  Plot: fig4.1_exposome_blood_hpv_dna [compact]
+  Plot: fig4.1h_exposome_blood_infectious_serology [comprehensive]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/comprehensive/indices/clr/fig4.1h_exposome_blood_infectious_serology_host_indices.pdf
+  Plot: fig4.1h_exposome_blood_infectious_serology [compact]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/compact/indices/clr/fig4.1h_exposome_blood_infectious_serology_host_indices.pdf
+  Plot: fig4.1_exposome_blood_tb_igra [comprehensive]
+  Plot: fig4.1_exposome_blood_tb_igra [compact]
+  Plot: fig4.1i_exposome_blood_autoimmune_serology [comprehensive]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/comprehensive/indices/clr/fig4.1i_exposome_blood_autoimmune_serology_host_indices.pdf
+  Plot: fig4.1i_exposome_blood_autoimmune_serology [compact]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/compact/indices/clr/fig4.1i_exposome_blood_autoimmune_serology_host_indices.pdf
+  Plot: fig4.1_exposome_blood_vitamin_b6_b12 [comprehensive]
+  Plot: fig4.1_exposome_blood_vitamin_b6_b12 [compact]
+  Plot: fig4.1j_exposome_blood_vitamin_d [comprehensive]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/comprehensive/indices/clr/fig4.1j_exposome_blood_vitamin_d_host_indices.pdf
+  Plot: fig4.1j_exposome_blood_vitamin_d [compact]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/compact/indices/clr/fig4.1j_exposome_blood_vitamin_d_host_indices.pdf
+  Plot: fig4.2_exposome_blood_fatty_acids [comprehensive]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/comprehensive/indices/clr/fig4.2_exposome_blood_fatty_acids_host_indices.pdf
+  Plot: fig4.2_exposome_blood_fatty_acids [compact]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/compact/indices/clr/fig4.2_exposome_blood_fatty_acids_host_indices.pdf
+  Plot: fig4.1b_exposome_blood_smoke_biomarkers [comprehensive]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/comprehensive/indices/clr/fig4.1b_exposome_blood_smoke_biomarkers_host_indices.pdf
+  Plot: fig4.1b_exposome_blood_smoke_biomarkers [compact]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/compact/indices/clr/fig4.1b_exposome_blood_smoke_biomarkers_host_indices.pdf
+  Plot: fig4.1d_exposome_blood_toxic_metals [comprehensive]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/comprehensive/indices/clr/fig4.1d_exposome_blood_toxic_metals_host_indices.pdf
+  Plot: fig4.1d_exposome_blood_toxic_metals [compact]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/compact/indices/clr/fig4.1d_exposome_blood_toxic_metals_host_indices.pdf
+  Plot: fig4.1_exposome_blood_essential_trace_metals [comprehensive]
+  Plot: fig4.1_exposome_blood_essential_trace_metals [compact]
+  Plot: fig4.1g_exposome_blood_non_halogenated_aliphatics [comprehensive]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/comprehensive/indices/clr/fig4.1g_exposome_blood_non_halogenated_aliphatics_host_indices.pdf
+  Plot: fig4.1g_exposome_blood_non_halogenated_aliphatics [compact]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/compact/indices/clr/fig4.1g_exposome_blood_non_halogenated_aliphatics_host_indices.pdf
+  Plot: fig4.1e_exposome_blood_mono_di_halogenated_aliphatic [comprehensive]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/comprehensive/indices/clr/fig4.1e_exposome_blood_mono_di_halogenated_aliphatic_host_indices.pdf
+  Plot: fig4.1e_exposome_blood_mono_di_halogenated_aliphatic [compact]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/compact/indices/clr/fig4.1e_exposome_blood_mono_di_halogenated_aliphatic_host_indices.pdf
+  Plot: fig4.1a_exposome_blood_poly_halogenated_aliphatics [comprehensive]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/comprehensive/indices/clr/fig4.1a_exposome_blood_poly_halogenated_aliphatics_host_indices.pdf
+  Plot: fig4.1a_exposome_blood_poly_halogenated_aliphatics [compact]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/compact/indices/clr/fig4.1a_exposome_blood_poly_halogenated_aliphatics_host_indices.pdf
+  Plot: fig4.1f_exposome_blood_halogenated_aromatic [comprehensive]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/comprehensive/indices/clr/fig4.1f_exposome_blood_halogenated_aromatic_host_indices.pdf
+  Plot: fig4.1f_exposome_blood_halogenated_aromatic [compact]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/compact/indices/clr/fig4.1f_exposome_blood_halogenated_aromatic_host_indices.pdf
+  Plot: fig4.1c_exposome_blood_aromatic_hydrocarbons [comprehensive]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/comprehensive/indices/clr/fig4.1c_exposome_blood_aromatic_hydrocarbons_host_indices.pdf
+  Plot: fig4.1c_exposome_blood_aromatic_hydrocarbons [compact]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/compact/indices/clr/fig4.1c_exposome_blood_aromatic_hydrocarbons_host_indices.pdf
+  Plot: fig4.1_exposome_blood_nitro_aromatic_voc [comprehensive]
+  Plot: fig4.1_exposome_blood_nitro_aromatic_voc [compact]
+  Plot: figS4_otu_exposome_full [comprehensive]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/comprehensive/indices/clr/figS4_otu_exposome_full_otu_indices.pdf
+  Plot: figS4_otu_exposome_full [compact]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/compact/indices/clr/figS4_otu_exposome_full_otu_indices.pdf
+  Plot: fig5_host_phenome_full [comprehensive]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/comprehensive/indices/clr/fig5_host_phenome_full_host_indices.pdf
+  Plot: fig5_host_phenome_full [compact]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/compact/indices/clr/fig5_host_phenome_full_host_indices.pdf
+  Plot: fig5.1d_phenome_hematology_blood_rbc_mass_indices [comprehensive]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/comprehensive/indices/clr/fig5.1d_phenome_hematology_blood_rbc_mass_indices_host_indices.pdf
+  Plot: fig5.1d_phenome_hematology_blood_rbc_mass_indices [compact]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/compact/indices/clr/fig5.1d_phenome_hematology_blood_rbc_mass_indices_host_indices.pdf
+  Plot: fig5.1c_phenome_blood_hematology_rbc_morphology_indices [comprehensive]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/comprehensive/indices/clr/fig5.1c_phenome_blood_hematology_rbc_morphology_indices_host_indices.pdf
+  Plot: fig5.1c_phenome_blood_hematology_rbc_morphology_indices [compact]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/compact/indices/clr/fig5.1c_phenome_blood_hematology_rbc_morphology_indices_host_indices.pdf
+  Plot: fig5.1b_phenome_hematology_blood_wbc_differential_indices [comprehensive]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/comprehensive/indices/clr/fig5.1b_phenome_hematology_blood_wbc_differential_indices_host_indices.pdf
+  Plot: fig5.1b_phenome_hematology_blood_wbc_differential_indices [compact]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/compact/indices/clr/fig5.1b_phenome_hematology_blood_wbc_differential_indices_host_indices.pdf
+  Plot: fig5.1f_host_phenome_hematology_blood_platelet_count [comprehensive]
+  Plot: fig5.1f_host_phenome_hematology_blood_platelet_count [compact]
+  Plot: fig5.1e_host_phenome_hematology_blood_platelet_volume [comprehensive]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/comprehensive/indices/clr/fig5.1e_host_phenome_hematology_blood_platelet_volume_host_indices.pdf
+  Plot: fig5.1e_host_phenome_hematology_blood_platelet_volume [compact]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/compact/indices/clr/fig5.1e_host_phenome_hematology_blood_platelet_volume_host_indices.pdf
+  Plot: fig5.2b_phenome_endocrine_glucose_insulin_markers [comprehensive]
+  Plot: fig5.2b_phenome_endocrine_glucose_insulin_markers [compact]
+  Plot: fig5.2a_phenome_endocrine_blood_endocrine_vars [comprehensive]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/comprehensive/indices/clr/fig5.2a_phenome_endocrine_blood_endocrine_vars_host_indices.pdf
+  Plot: fig5.2a_phenome_endocrine_blood_endocrine_vars [compact]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/compact/indices/clr/fig5.2a_phenome_endocrine_blood_endocrine_vars_host_indices.pdf
+  Plot: fig5.2c_phenome_endocrine_blood_onecarbon_folate_vars [comprehensive]
+  Plot: fig5.2c_phenome_endocrine_blood_onecarbon_folate_vars [compact]
+  Plot: fig5.4d_phenome_Immune_blood_oncology_prostate_vars [comprehensive]
+  Plot: fig5.4d_phenome_Immune_blood_oncology_prostate_vars [compact]
+  Plot: fig5.4e_phenome_Immune_blood_immune_inflammation_vars [comprehensive]
+  Plot: fig5.4e_phenome_Immune_blood_immune_inflammation_vars [compact]
+  Plot: fig5.3a_phenome_physiology_body_composition_dxa [comprehensive]
+  Plot: fig5.3a_phenome_physiology_body_composition_dxa [compact]
+  Plot: fig5.1a_phenome_hematology_blood_cell_count_vars [comprehensive]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/comprehensive/indices/clr/fig5.1a_phenome_hematology_blood_cell_count_vars_host_indices.pdf
+  Plot: fig5.1a_phenome_hematology_blood_cell_count_vars [compact]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/compact/indices/clr/fig5.1a_phenome_hematology_blood_cell_count_vars_host_indices.pdf
+  Plot: fig5.4c_phenome_Immune_serum_clinical_vars [comprehensive]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/comprehensive/indices/clr/fig5.4c_phenome_Immune_serum_clinical_vars_host_indices.pdf
+  Plot: fig5.4c_phenome_Immune_serum_clinical_vars [compact]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/compact/indices/clr/fig5.4c_phenome_Immune_serum_clinical_vars_host_indices.pdf
+  Plot: fig5.2d_phenome_endocrine_folate_status_vars [comprehensive]
+  Plot: fig5.2d_phenome_endocrine_folate_status_vars [compact]
+  Plot: fig5.4b_phenome_Immune_urine_kidney_iodine_vars [comprehensive]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/comprehensive/indices/clr/fig5.4b_phenome_Immune_urine_kidney_iodine_vars_host_indices.pdf
+  Plot: fig5.4b_phenome_Immune_urine_kidney_iodine_vars [compact]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/compact/indices/clr/fig5.4b_phenome_Immune_urine_kidney_iodine_vars_host_indices.pdf
+  Plot: fig5.4a_phenome_Immune_airway_inflammation_var [comprehensive]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/comprehensive/indices/clr/fig5.4a_phenome_Immune_airway_inflammation_var_host_indices.pdf
+  Plot: fig5.4a_phenome_Immune_airway_inflammation_var [compact]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/compact/indices/clr/fig5.4a_phenome_Immune_airway_inflammation_var_host_indices.pdf
+  Plot: fig5.3b_phenome_physiology_anthropometry_blood_pressure [comprehensive]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/comprehensive/indices/clr/fig5.3b_phenome_physiology_anthropometry_blood_pressure_host_indices.pdf
+  Plot: fig5.3b_phenome_physiology_anthropometry_blood_pressure [compact]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/compact/indices/clr/fig5.3b_phenome_physiology_anthropometry_blood_pressure_host_indices.pdf
+  Plot: figS5_otu_phenome_full [comprehensive]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/comprehensive/indices/clr/figS5_otu_phenome_full_otu_indices.pdf
+  Plot: figS5_otu_phenome_full [compact]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/compact/indices/clr/figS5_otu_phenome_full_otu_indices.pdf
+  Plot: figS6_host_outcomes_full [comprehensive]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/comprehensive/indices/clr/figS6_host_outcomes_full_host_indices.pdf
+  Plot: figS6_host_outcomes_full [compact]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/compact/indices/clr/figS6_host_outcomes_full_host_indices.pdf
+  Plot: fig6.1c_outcomes_cancer [comprehensive]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/comprehensive/indices/clr/fig6.1c_outcomes_cancer_host_indices.pdf
+  Plot: fig6.1c_outcomes_cancer [compact]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/compact/indices/clr/fig6.1c_outcomes_cancer_host_indices.pdf
+  Plot: fig6.1a_outcomes_cardiovascular [comprehensive]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/comprehensive/indices/clr/fig6.1a_outcomes_cardiovascular_host_indices.pdf
+  Plot: fig6.1a_outcomes_cardiovascular [compact]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/compact/indices/clr/fig6.1a_outcomes_cardiovascular_host_indices.pdf
+  Plot: fig6.1b_outcomes_respiratory [comprehensive]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/comprehensive/indices/clr/fig6.1b_outcomes_respiratory_host_indices.pdf
+  Plot: fig6.1b_outcomes_respiratory [compact]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/compact/indices/clr/fig6.1b_outcomes_respiratory_host_indices.pdf
+  Plot: fig6.1d_outcomes_diabetes [comprehensive]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/comprehensive/indices/clr/fig6.1d_outcomes_diabetes_host_indices.pdf
+  Plot: fig6.1d_outcomes_diabetes [compact]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/compact/indices/clr/fig6.1d_outcomes_diabetes_host_indices.pdf
+  Plot: figS6_otu_outcomes_full [comprehensive]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/comprehensive/indices/clr/figS6_otu_outcomes_full_otu_indices.pdf
+  Plot: figS6_otu_outcomes_full [compact]
+  ↳ Saving PDF: /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out/compact/indices/clr/figS6_otu_outcomes_full_otu_indices.pdf
+There were 50 or more warnings (use warnings() to see the first 50)
+All Terry plots and indices plots have been generated in /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_additional/figures_out

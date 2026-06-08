@@ -1,0 +1,6 @@
+was_analysis,Total Variables,Variables Available (>=50%),Variables Available (>=75%),Variables Available (>=90%),Mean Availability (%),Median Availability (%),Continuous Variables,Binary Variables,Categorical Variables,Ordinal Variables
+1_demoWAS,13,13,13,13,99.3,100,3,10,0,0
+2_oradWAS,4,4,4,0,86,85.9,0,4,0,0
+4_pheWAS,133,61,61,59,65,46.7,132,0,1,0
+3_exWAS,473,172,170,98,50.5,37.8,418,14,39,2
+5_outWAS,16,0,0,0,0,0,0,0,0,0

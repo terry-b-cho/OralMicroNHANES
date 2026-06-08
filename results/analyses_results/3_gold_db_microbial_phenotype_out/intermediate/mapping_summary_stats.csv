@@ -1,0 +1,9 @@
+metric,value
+total_otus,1349
+unique_original_genera,964
+unique_parsed_genera,957
+annotated_otus,820
+unclassified_otus,385
+unannotated_otus,529
+annotation_coverage_percent,60.79
+annotation_coverage_excl_unclassified_percent,85.06

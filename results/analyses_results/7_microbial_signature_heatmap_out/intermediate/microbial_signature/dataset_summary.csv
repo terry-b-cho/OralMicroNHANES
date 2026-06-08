@@ -1,0 +1,7 @@
+"Dataset","Analysis_Type","Transformation","N_Signature_Rows","N_Host_Variables","N_Valid_Correlations","N_Significant_FDR_005","N_Significant_FDR_001","Output_Dir"
+"demoWAS_clr_all_results","demoWAS","clr",2847,13,78,66,63,"/Users/byeongyeoncho/main/github/nhanes_oral_mirco_cho/results/analyses_results/7_microbial_signature_heatmap_out/intermediate/microbial_signature/demoWAS_clr_all_results"
+"oradWAS_clr_all_results","oradWAS","clr",876,4,6,6,5,"/Users/byeongyeoncho/main/github/nhanes_oral_mirco_cho/results/analyses_results/7_microbial_signature_heatmap_out/intermediate/microbial_signature/oradWAS_clr_all_results"
+"exWAS_clr_all_results","exWAS","clr",104244,460,105570,46598,35587,"/Users/byeongyeoncho/main/github/nhanes_oral_mirco_cho/results/analyses_results/7_microbial_signature_heatmap_out/intermediate/microbial_signature/exWAS_clr_all_results"
+"pheWAS_clr_all_results","pheWAS","clr",29127,133,8778,4235,3272,"/Users/byeongyeoncho/main/github/nhanes_oral_mirco_cho/results/analyses_results/7_microbial_signature_heatmap_out/intermediate/microbial_signature/pheWAS_clr_all_results"
+"outWAS_clr_all_results","outWAS","clr",3504,16,120,62,55,"/Users/byeongyeoncho/main/github/nhanes_oral_mirco_cho/results/analyses_results/7_microbial_signature_heatmap_out/intermediate/microbial_signature/outWAS_clr_all_results"
+"allWAS_clr_all_results","allWAS","clr",137751,613,187578,75972,56884,"/Users/byeongyeoncho/main/github/nhanes_oral_mirco_cho/results/analyses_results/7_microbial_signature_heatmap_out/intermediate/microbial_signature/merged_clr_data"

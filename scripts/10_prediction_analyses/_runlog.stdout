@@ -1,0 +1,22 @@
+=== STEP 2: 02_run_prediction_tasks.R ===
+# A tibble: 12 × 14
+   task      feature_set    model weighting     n  rmse   mae     r2 cor_pearson
+   <chr>     <chr>          <chr> <chr>     <int> <dbl> <dbl>  <dbl>       <dbl>
+ 1 age       microbiome_on… glmn… unweight…  1872  12.7 10.4   0.407       0.638
+ 2 age       microbiome_on… glmn… survey_w…  1872  12.2  9.88  0.385       0.638
+ 3 age       microbiome_pl… glmn… unweight…  1424  11.0  8.97  0.406       0.638
+ 4 age       microbiome_pl… glmn… survey_w…  1424  10.9  8.76  0.376       0.638
+ 5 age_group microbiome_on… glmn… unweight…  1872  NA   NA    NA          NA    
+ 6 age_group microbiome_on… glmn… survey_w…  1872  NA   NA    NA          NA    
+ 7 age_group microbiome_pl… glmn… unweight…  1422  NA   NA    NA          NA    
+ 8 age_group microbiome_pl… glmn… survey_w…  1422  NA   NA    NA          NA    
+ 9 gender    microbiome_on… glmn… unweight…  1870  NA   NA    NA          NA    
+10 gender    microbiome_on… glmn… survey_w…  1870  NA   NA    NA          NA    
+11 gender    microbiome_pl… glmn… unweight…  1421  NA   NA    NA          NA    
+12 gender    microbiome_pl… glmn… survey_w…  1421  NA   NA    NA          NA    
+# ℹ 5 more variables: accuracy <dbl>, macro_auc <dbl>, n_classes <int>,
+#   auc <dbl>, brier <dbl>
+
+=== STEP 3: 03_visualize_results.R ===
+
+=== STEPS 2+3 DONE ===

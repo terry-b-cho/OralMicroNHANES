@@ -1,0 +1,6 @@
+### Terry Plot Intermediate Processing (REVIEWER_EDIT) ###
+Base path: /n/groups/patel/terry/nhanes_oral_mirco_cho
+Output root (created if missing): /n/groups/patel/terry/nhanes_oral_mirco_cho/results/analyses_results/4_otu_host_plot_out_REVIEWER_EDIT
+Error in library(phyloseq) : there is no package called ‘phyloseq’
+Calls: suppressPackageStartupMessages -> withCallingHandlers -> library
+Execution halted
