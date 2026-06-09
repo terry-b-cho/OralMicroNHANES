@@ -127,7 +127,7 @@ OralMicroNHANES/
 │       ├── 2.5_general_summary_generation/
 │       ├── 3_gold_db_microbial_phenotype_out/
 │       ├── 4_otu_host_plot_out/  (+ _additional/)
-│       ├── 5_age_analyses_out/   (+ _additional/)
+│       ├── 5_age_analyses_out/   (+ _additional/, _additional_k_choices/)
 │       ├── 5.5_smoking_analyses_out_additional/
 │       ├── 6_alpha_beta_analyses_out/
 │       ├── 7_microbial_signature_heatmap_out/
