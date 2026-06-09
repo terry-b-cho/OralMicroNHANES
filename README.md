@@ -7,6 +7,7 @@
   [![R Version](https://img.shields.io/badge/R-4.5.1-blue.svg)](https://www.r-project.org/)
   [![Conda](https://img.shields.io/badge/conda--miniforge3-24.11.3--0-green.svg)](https://github.com/conda-forge/miniforge)
   [![SLURM](https://img.shields.io/badge/SLURM-Compatible-orange.svg)](https://slurm.schedmd.com/)
+  [![Manuscript DOI](https://img.shields.io/badge/Manuscript%20DOI-10.64898%2F2026.02.23.707541-1682D4.svg)](https://doi.org/10.64898/2026.02.23.707541)
   [![Input DOI](https://img.shields.io/badge/Input%20DOI-zenodo.17849473-1682D4.svg)](https://doi.org/10.5281/zenodo.17849473)
   [![Regression Outputs DOI](https://img.shields.io/badge/Regression%20Outputs%20DOI-zenodo.17871009-1682D4.svg)](https://doi.org/10.5281/zenodo.17871009)
 </div>
