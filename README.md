@@ -12,7 +12,7 @@
   [![Regression Outputs DOI](https://img.shields.io/badge/Regression%20Outputs%20DOI-zenodo.17871009-1682D4.svg)](https://doi.org/10.5281/zenodo.17871009)
 </div>
 
-Pipeline accompanying the manuscript **"The Oral Microbiome Is a Population-Scale Readout of the Exposome, Age, and Systemic Health"** (Cho, Kostic, Tierney, Patel; 2026). It runs the **Oral MAS** framework — survey-weighted Microbiome-Wide Association Studies — on NHANES 2009–2012 oral microbiome data, integrates JGI-GOLD microbial phenotype annotations, and produces all tables and figures in the manuscript.
+Pipeline accompanying the manuscript **"The Oral Microbiome Is a Population-Scale Readout of the Exposome, Age, and Systemic Health"** (Cho, Kostic, Tierney, Patel; 2026). It runs the **Oral MWAS** framework — survey-weighted Microbiome-Wide Association Studies — on NHANES 2009–2012 oral microbiome data, integrates JGI-GOLD microbial phenotype annotations, and produces all tables and figures in the manuscript.
 
 ## Citation
 
@@ -82,7 +82,7 @@ Before running any module, open the target script(s) and set `PROJECT_ROOT` (top
 
 ## Analysis types
 
-The Oral MAS pipeline runs the **five MAS schemas** from Table 1 of the manuscript. Each schema is pre-specified across four normalization scenarios for robustness (20 model fits total); manuscript primary results use the **CLR** specification.
+The Oral MWAS pipeline runs the **five MWAS schemas** from Table 1 of the manuscript. Each schema is pre-specified across four normalization scenarios for robustness (20 model fits total); manuscript primary results use the **CLR** specification.
 
 | Code | Schema (manuscript Table 1) | Link |
 |---|---|---|
@@ -103,7 +103,7 @@ OralMicroNHANES/
 ├── envs/
 │   ├── nhanes-analysis_for_reviewers.yml         # conda spec (the only env)
 │   └── README.md
-├── configs/                                       # host-variable lists per MAS schema
+├── configs/                                       # host-variable lists per MWAS schema
 │   ├── 1_demoWAS_vars.txt
 │   ├── 2_oradWAS_vars.txt
 │   ├── 3_exWAS_vars.txt
@@ -158,9 +158,9 @@ OralMicroNHANES/
 | `0` | Compositional transforms of genus abundance — `none` (P), `hellinger` (√P), `clr` (centred log-ratio, pseudocount δ = 1), `lognorm`. Schema-structure CSVs for each (host variable × genus) pair. |
 | `1` | Survey-weighted GLMs (`survey::svyglm` v4.4-2) per (host var × genus) pair under NHANES MEC design (`SDMVSTRA` / `SDMVPSU` / `WTMEC2YR`–`WTMEC4YR`); Taylor-linearized SE; 13-variable demographic covariate block C_i; `quasibinomial()` for binary outcomes. Scheme-wise BH-FDR + Storey q-values; manuscript joint rule BH-FDR ≤ 0.05 AND q ≤ 0.05. |
 | `2` | Derive ~50 demographic variables from NHANES `DEMO_F/G` (factors, quartiles, dummies); build six normalization-specific phyloseq objects. |
-| `2.5` | MAS variable summaries; binary-variable distributions with Wilson 95 % CIs; alpha-diversity stratification by demographic group. |
+| `2.5` | MWAS variable summaries; binary-variable distributions with Wilson 95 % CIs; alpha-diversity stratification by demographic group. |
 | `3` | JGI-GOLD phenotype mapping at genus level: oxygen index (ordinal 0–1), Gram / motility / sporulation indices (binary, averaged within genus); within-genus species concordance reported as high/medium/low. |
-| `4` | "Terry" effect-size scatter plots of MAS coefficients with discrete FDR-tiered point sizing and phylum colouring; baseline + dual-threshold (BH-FDR ≤ 0.05 AND q ≤ 0.05) variants. |
+| `4` | "Terry" effect-size scatter plots of MWAS coefficients with discrete FDR-tiered point sizing and phylum colouring; baseline + dual-threshold (BH-FDR ≤ 0.05 AND q ≤ 0.05) variants. |
 | `5` | Hierarchical clustering on z-scored age-binned mean abundances (Ward.D2 / Euclidean); silhouette + gap statistic for k selection; 100-bootstrap Jaccard stability; Kruskal–Wallis + BH per-genus age-group tests; PCA / t-SNE / PERMANOVA (9,999 permutations) for validity. |
 | `5.5` | Multicollinearity diagnostics for the 24-variable smoking/combustion set across four modalities (questionnaire, U-PAH, U-MM, B-VOC): 24 × 24 Spearman covariance, per-modality PCA, 4 × 4 Jaccard similarity of FDR-significant taxa sets. |
 | `6` | Alpha (Observed OTUs / Shannon / Inverse Simpson) + beta (Bray–Curtis, weighted / unweighted UniFrac) diversity; PCoA; centroid-distance distributions; Kruskal–Wallis + pairwise Wilcoxon per categorical variable with BH adjustment. |
