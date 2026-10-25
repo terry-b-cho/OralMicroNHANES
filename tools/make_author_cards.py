@@ -39,6 +39,35 @@ def data_uri(url, fallback=None):
         b, t = fetch(fallback)
     return f"data:{t};base64,{base64.b64encode(b).decode()}"
 
+def circle_png(url, fallback=None, size=128):
+    """Fetch a photo and return it as a circular PNG (transparent corners) data URI.
+    Cropping here, rather than with an SVG clip-path, keeps the card renderable by
+    every image pipeline that displays README images."""
+    try:
+        b, _ = fetch(url)
+    except Exception:
+        if not fallback: raise
+        b, _ = fetch(fallback)
+    try:
+        from PIL import Image, ImageDraw
+        im = Image.open(io.BytesIO(b)).convert("RGBA")
+        w, h = im.size; m = min(w, h)
+        im = im.crop(((w - m) // 2, (h - m) // 2, (w - m) // 2 + m, (h - m) // 2 + m)).resize((size, size), Image.LANCZOS)
+        mask = Image.new("L", (size * 4, size * 4), 0)
+        ImageDraw.Draw(mask).ellipse((0, 0, size * 4 - 1, size * 4 - 1), fill=255)
+        im.putalpha(mask.resize((size, size), Image.LANCZOS))
+        out = io.BytesIO(); im.save(out, "PNG", optimize=True); png = out.getvalue()
+    except ImportError:
+        import subprocess, tempfile
+        with tempfile.TemporaryDirectory() as d:
+            src = os.path.join(d, "in"); dst = os.path.join(d, "out.png")
+            open(src, "wb").write(b)
+            subprocess.run(["magick", src, "-resize", f"{size}x{size}^", "-gravity", "center", "-extent", f"{size}x{size}",
+                            "(", "+clone", "-threshold", "101%", "-fill", "white", "-draw", f"circle {size//2},{size//2} {size//2},0", ")",
+                            "-alpha", "off", "-compose", "copy_opacity", "-composite", dst], check=True)
+            png = open(dst, "rb").read()
+    return "data:image/png;base64," + base64.b64encode(png).decode()
+
 def text_width(t, px):   # average advances of a system UI semibold; textLength pins the real width to this
     w = 0.0
     for ch in t:
@@ -52,16 +81,15 @@ def main():
     orcid = data_uri(ORCID_ICON)
     for gh, name, role, oid, photo in PEOPLE:
         src = photo or f"https://github.com/{gh}.png?size=128"
-        img = data_uri(src, X_PHOTO_FALLBACK if photo else None)
+        img = circle_png(src, X_PHOTO_FALLBACK if photo else None)
         nw = text_width(name, NAME_PX); block = nw + 4 + 11; x0 = (W - block) / 2
         for theme, c in THEMES.items():
             svg = (
-                f'<svg xmlns="http://www.w3.org/2000/svg" width="{W}" height="{H}" viewBox="0 0 {W} {H}" font-family="{FONT}">'
-                f'<defs><clipPath id="c"><circle cx="{W/2}" cy="{14+6+R}" r="{R}"/></clipPath></defs>'
+                f'<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="{W}" height="{H}" viewBox="0 0 {W} {H}" font-family="{FONT}">'
                 f'<text x="{W/2}" y="14" text-anchor="middle" font-size="{SMALL_PX}" fill="{c["muted"]}">@{gh}</text>'
-                f'<image href="{img}" x="{W/2-R}" y="{14+6}" width="{2*R}" height="{2*R}" clip-path="url(#c)" preserveAspectRatio="xMidYMid slice"/>'
+                f'<image href="{img}" xlink:href="{img}" x="{W/2-R}" y="{14+6}" width="{2*R}" height="{2*R}"/>'
                 f'<text x="{x0:.1f}" y="{14+6+2*R+22}" font-size="{NAME_PX}" font-weight="600" fill="{c["name"]}" textLength="{nw}" lengthAdjust="spacing">{html.escape(name)}</text>'
-                f'<image href="{orcid}" x="{x0+nw+4:.1f}" y="{14+6+2*R+12}" width="11" height="11"/>'
+                f'<image href="{orcid}" xlink:href="{orcid}" x="{x0+nw+4:.1f}" y="{14+6+2*R+12}" width="11" height="11"/>'
                 f'<text x="{W/2}" y="{14+6+2*R+40}" text-anchor="middle" font-size="{SMALL_PX}" fill="{c["muted"]}">{role}</text>'
                 f'</svg>')
             path = os.path.join(OUT, f"{gh}-{theme}.svg")
