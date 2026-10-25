@@ -1,7 +1,7 @@
 # OralMicroNHANES
 
 <div align="center">
-  <img src="assets/logo/oral_micro_logo.svg" alt="OralMicroNHANES logo" width="600"/>
+  <img src="assets/logo/oral_micro_logo_rotating.svg" alt="OralMicroNHANES graphical abstract: microbiome, phenome and exposome rotating around the chronome (age) axis" width="600"/>
 
   [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
   [![R Version](https://img.shields.io/badge/R-4.5.1-blue.svg)](https://www.r-project.org/)
