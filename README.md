@@ -42,7 +42,7 @@ Pipeline accompanying the manuscript **"The Oral Microbiome Is a Population-Scal
       <sub><a href="https://orcid.org/0000-0002-7533-8802">0000-0002-7533-8802</a></sub>
     </td>
     <td align="center" valign="top" width="50%">
-      <a href="https://github.com/chiragjp"><img src="https://images.weserv.nl/?url=github.com/chiragjp.png&w=176&h=176&fit=cover&mask=circle&maxage=1d" width="88" height="88" alt="Chirag J. Patel"/></a><br/>
+      <a href="https://github.com/chiragjp"><img src="https://images.weserv.nl/?url=unavatar.io/x/chiragjp&default=https%3A%2F%2Fimages.weserv.nl%2F%3Furl%3Dhttps%3A%2F%2Fpbs.twimg.com%2Fprofile_images%2F706108150315929600%2FcfsnuY7O_400x400.jpg%26w%3D176%26h%3D176%26fit%3Dcover%26mask%3Dcircle%26maxage%3D1d&w=176&h=176&fit=cover&mask=circle&maxage=1d" width="88" height="88" alt="Chirag J. Patel"/></a><br/>
       <sub><b>Chirag J. Patel</b></sub><br/>
       <sub>Principal investigator</sub><br/>
       <a href="https://orcid.org/0000-0002-8756-8525"><img src="https://orcid.org/sites/default/files/images/orcid_16x16.png" width="14" height="14" alt="ORCID iD"/></a>
