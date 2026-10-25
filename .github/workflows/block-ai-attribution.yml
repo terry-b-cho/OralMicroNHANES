@@ -1,0 +1,46 @@
+name: Block AI attribution
+
+# Fails loudly (red X + notification email) if any pushed commit carries an AI
+# self-attribution trailer or has an AI agent as author/committer. GitHub Free
+# cannot reject the push itself for personal repos, so this is the earliest
+# possible server-side detection.
+on:
+  push:
+    branches: ["**"]
+  pull_request:
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Scan commits for AI attribution
+        shell: bash
+        run: |
+          set -euo pipefail
+          if [ "${{ github.event_name }}" = "pull_request" ]; then
+            range="${{ github.event.pull_request.base.sha }}..${{ github.event.pull_request.head.sha }}"
+          elif [ "${{ github.event.before }}" != "0000000000000000000000000000000000000000" ]; then
+            range="${{ github.event.before }}..${{ github.sha }}"
+          else
+            range="${{ github.sha }}"
+          fi
+          echo "Scanning: $range"
+          bad=$(git log --format='%H%x1f%an <%ae>%x1f%cn <%ce>%x1f%B%x1e' $range \
+            | tr -d '\r' \
+            | awk 'BEGIN{RS="\x1e"; FS="\x1f"} NF>=4 {
+                m=tolower($4); a=tolower($2); c=tolower($3)
+                if (m ~ /co-authored-by:[^\n]*(claude|cursor|anthropic|copilot)/ ||
+                    m ~ /claude-session:/ ||
+                    m ~ /made-with:[ \t]*(cursor|claude)/ ||
+                    a ~ /cursoragent@cursor\.com|@anthropic\.com/ ||
+                    c ~ /cursoragent@cursor\.com|@anthropic\.com/) { sub(/^[[:space:]]+/, "", $1); print $1 } }')
+          if [ -n "$bad" ]; then
+            echo "::error::AI attribution found in commit(s):"
+            echo "$bad"
+            exit 1
+          fi
+          echo "Clean."
