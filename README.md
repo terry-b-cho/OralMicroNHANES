@@ -16,34 +16,19 @@ Pipeline accompanying the manuscript **"The Oral Microbiome Is a Population-Scal
 
 ## Authors & Contributors
 
-<table align="center">
-  <tr>
-    <td align="center" valign="top" width="25%">
-      <a href="https://github.com/terry-b-cho"><img src="https://images.weserv.nl/?url=github.com/terry-b-cho.png&w=160&h=160&fit=cover&mask=circle&maxage=1d" width="80" height="80" alt="Byeongyeon (Terry) Cho"/></a><br/>
-      <sub><b>Byeongyeon (Terry) Cho</b></sub><br/>
-      <sub>Lead developer</sub><br/>
-      <sub><a href="https://orcid.org/0000-0003-1370-2629"><img src="https://orcid.org/sites/default/files/images/orcid_16x16.png" width="14" height="14" alt="ORCID"/></a>&ensp;<a href="https://github.com/terry-b-cho">@terry-b-cho</a></sub>
-    </td>
-    <td align="center" valign="top" width="25%">
-      <a href="https://github.com/adkostic"><img src="https://images.weserv.nl/?url=github.com/adkostic.png&w=160&h=160&fit=cover&mask=circle&maxage=1d" width="80" height="80" alt="Aleksandar D. Kostic"/></a><br/>
-      <sub><b>Aleksandar D. Kostic</b></sub><br/>
-      <sub>Principal investigator</sub><br/>
-      <sub><a href="https://orcid.org/0000-0002-0837-4360"><img src="https://orcid.org/sites/default/files/images/orcid_16x16.png" width="14" height="14" alt="ORCID"/></a>&ensp;<a href="https://github.com/adkostic">@adkostic</a></sub>
-    </td>
-    <td align="center" valign="top" width="25%">
-      <a href="https://github.com/b-tierney"><img src="https://images.weserv.nl/?url=github.com/b-tierney.png&w=160&h=160&fit=cover&mask=circle&maxage=1d" width="80" height="80" alt="Braden Tierney"/></a><br/>
-      <sub><b>Braden Tierney</b></sub><br/>
-      <sub>Supervisor</sub><br/>
-      <sub><a href="https://orcid.org/0000-0002-7533-8802"><img src="https://orcid.org/sites/default/files/images/orcid_16x16.png" width="14" height="14" alt="ORCID"/></a>&ensp;<a href="https://github.com/b-tierney">@b-tierney</a></sub>
-    </td>
-    <td align="center" valign="top" width="25%">
-      <a href="https://github.com/chiragjp"><img src="https://images.weserv.nl/?url=unavatar.io/x/chiragjp&default=https%3A%2F%2Fimages.weserv.nl%2F%3Furl%3Dhttps%3A%2F%2Fpbs.twimg.com%2Fprofile_images%2F706108150315929600%2FcfsnuY7O_400x400.jpg%26w%3D160%26h%3D160%26fit%3Dcover%26mask%3Dcircle%26maxage%3D1d&w=160&h=160&fit=cover&mask=circle&maxage=1d" width="80" height="80" alt="Chirag J. Patel"/></a><br/>
-      <sub><b>Chirag J. Patel</b></sub><br/>
-      <sub>Principal investigator</sub><br/>
-      <sub><a href="https://orcid.org/0000-0002-8756-8525"><img src="https://orcid.org/sites/default/files/images/orcid_16x16.png" width="14" height="14" alt="ORCID"/></a>&ensp;<a href="https://github.com/chiragjp">@chiragjp</a></sub>
-    </td>
-  </tr>
-</table>
+<p align="center">
+  <a href="https://github.com/terry-b-cho" title="Byeongyeon (Terry) Cho"><img src="https://images.weserv.nl/?url=github.com/terry-b-cho.png&w=160&h=160&fit=cover&mask=circle&maxage=1d" width="72" height="72" alt="Byeongyeon (Terry) Cho"/></a>&emsp;
+  <a href="https://github.com/adkostic" title="Aleksandar D. Kostic"><img src="https://images.weserv.nl/?url=github.com/adkostic.png&w=160&h=160&fit=cover&mask=circle&maxage=1d" width="72" height="72" alt="Aleksandar D. Kostic"/></a>&emsp;
+  <a href="https://github.com/b-tierney" title="Braden Tierney"><img src="https://images.weserv.nl/?url=github.com/b-tierney.png&w=160&h=160&fit=cover&mask=circle&maxage=1d" width="72" height="72" alt="Braden Tierney"/></a>&emsp;
+  <a href="https://github.com/chiragjp" title="Chirag J. Patel"><img src="https://images.weserv.nl/?url=unavatar.io/x/chiragjp&default=https%3A%2F%2Fimages.weserv.nl%2F%3Furl%3Dhttps%3A%2F%2Fpbs.twimg.com%2Fprofile_images%2F706108150315929600%2FcfsnuY7O_400x400.jpg%26w%3D160%26h%3D160%26fit%3Dcover%26mask%3Dcircle%26maxage%3D1d&w=160&h=160&fit=cover&mask=circle&maxage=1d" width="72" height="72" alt="Chirag J. Patel"/></a>
+</p>
+
+<p align="center">
+  <b>Byeongyeon (Terry) Cho</b> &middot; Lead developer &middot; <a href="https://orcid.org/0000-0003-1370-2629" title="ORCID 0000-0003-1370-2629"><img src="https://orcid.org/sites/default/files/images/orcid_16x16.png" width="14" height="14" alt="ORCID iD"/></a> <a href="https://github.com/terry-b-cho">@terry-b-cho</a><br/>
+  <b>Aleksandar D. Kostic</b> &middot; Principal investigator &middot; <a href="https://orcid.org/0000-0002-0837-4360" title="ORCID 0000-0002-0837-4360"><img src="https://orcid.org/sites/default/files/images/orcid_16x16.png" width="14" height="14" alt="ORCID iD"/></a> <a href="https://github.com/adkostic">@adkostic</a><br/>
+  <b>Braden Tierney</b> &middot; Supervisor &middot; <a href="https://orcid.org/0000-0002-7533-8802" title="ORCID 0000-0002-7533-8802"><img src="https://orcid.org/sites/default/files/images/orcid_16x16.png" width="14" height="14" alt="ORCID iD"/></a> <a href="https://github.com/b-tierney">@b-tierney</a><br/>
+  <b>Chirag J. Patel</b> &middot; Principal investigator &middot; <a href="https://orcid.org/0000-0002-8756-8525" title="ORCID 0000-0002-8756-8525"><img src="https://orcid.org/sites/default/files/images/orcid_16x16.png" width="14" height="14" alt="ORCID iD"/></a> <a href="https://github.com/chiragjp">@chiragjp</a>
+</p>
 
 ## Citation
 
