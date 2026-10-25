@@ -238,3 +238,6 @@ results/intermediate/*
 **/*_venv/
 **/__pycache__/
 **/*.pyc
+
+# GitHub Actions workflows are private tooling; never publish them
+.github/workflows/
