@@ -19,14 +19,14 @@ Pipeline accompanying the manuscript **"The Oral Microbiome Is a Population-Scal
 <table align="center">
   <tr>
     <td align="center" valign="top" width="50%">
-      <a href="https://github.com/terry-b-cho"><img src="https://images.weserv.nl/?url=github.com/terry-b-cho.png&w=176&h=176&fit=cover&mask=circle" width="88" height="88" alt="Byeongyeon (Terry) Cho"/></a><br/>
+      <a href="https://github.com/terry-b-cho"><img src="https://images.weserv.nl/?url=github.com/terry-b-cho.png&w=176&h=176&fit=cover&mask=circle&maxage=1d" width="88" height="88" alt="Byeongyeon (Terry) Cho"/></a><br/>
       <sub><b>Byeongyeon (Terry) Cho</b></sub><br/>
       <sub>Lead developer</sub><br/>
       <a href="https://orcid.org/0000-0003-1370-2629"><img src="https://orcid.org/sites/default/files/images/orcid_16x16.png" width="14" height="14" alt="ORCID iD"/></a>
       <sub><a href="https://orcid.org/0000-0003-1370-2629">0000-0003-1370-2629</a></sub>
     </td>
     <td align="center" valign="top" width="50%">
-      <a href="https://github.com/adkostic"><img src="https://images.weserv.nl/?url=github.com/adkostic.png&w=176&h=176&fit=cover&mask=circle" width="88" height="88" alt="Aleksandar D. Kostic"/></a><br/>
+      <a href="https://github.com/adkostic"><img src="https://images.weserv.nl/?url=github.com/adkostic.png&w=176&h=176&fit=cover&mask=circle&maxage=1d" width="88" height="88" alt="Aleksandar D. Kostic"/></a><br/>
       <sub><b>Aleksandar D. Kostic</b></sub><br/>
       <sub>Principal investigator</sub><br/>
       <a href="https://orcid.org/0000-0002-0837-4360"><img src="https://orcid.org/sites/default/files/images/orcid_16x16.png" width="14" height="14" alt="ORCID iD"/></a>
@@ -35,14 +35,14 @@ Pipeline accompanying the manuscript **"The Oral Microbiome Is a Population-Scal
   </tr>
   <tr>
     <td align="center" valign="top" width="50%">
-      <a href="https://github.com/b-tierney"><img src="https://images.weserv.nl/?url=github.com/b-tierney.png&w=176&h=176&fit=cover&mask=circle" width="88" height="88" alt="Braden Tierney"/></a><br/>
+      <a href="https://github.com/b-tierney"><img src="https://images.weserv.nl/?url=github.com/b-tierney.png&w=176&h=176&fit=cover&mask=circle&maxage=1d" width="88" height="88" alt="Braden Tierney"/></a><br/>
       <sub><b>Braden Tierney</b></sub><br/>
       <sub>Supervisor</sub><br/>
       <a href="https://orcid.org/0000-0002-7533-8802"><img src="https://orcid.org/sites/default/files/images/orcid_16x16.png" width="14" height="14" alt="ORCID iD"/></a>
       <sub><a href="https://orcid.org/0000-0002-7533-8802">0000-0002-7533-8802</a></sub>
     </td>
     <td align="center" valign="top" width="50%">
-      <a href="https://github.com/chiragjp"><img src="https://images.weserv.nl/?url=github.com/chiragjp.png&w=176&h=176&fit=cover&mask=circle" width="88" height="88" alt="Chirag J. Patel"/></a><br/>
+      <a href="https://github.com/chiragjp"><img src="https://images.weserv.nl/?url=github.com/chiragjp.png&w=176&h=176&fit=cover&mask=circle&maxage=1d" width="88" height="88" alt="Chirag J. Patel"/></a><br/>
       <sub><b>Chirag J. Patel</b></sub><br/>
       <sub>Principal investigator</sub><br/>
       <a href="https://orcid.org/0000-0002-8756-8525"><img src="https://orcid.org/sites/default/files/images/orcid_16x16.png" width="14" height="14" alt="ORCID iD"/></a>
