@@ -1,0 +1,141 @@
+# =============================================================================
+# Module 12 — dataset configuration
+# WillisJR_2022_SacaLaLengua2  (Spain citizen-science oral microbiome, SLL2)
+# Provisional until Wave-1 agents confirm.
+# =============================================================================
+dataset_id: WillisJR_2022_SacaLaLengua2
+# Validation disposition (controlled vocabulary; single source of truth).
+#   retained                 = contributed evidence to the external validation
+#   excluded_context_only    = acquired, contributed no validation evidence
+#   excluded_reference_only  = acquired, kept only as a taxonomic reference
+validation_disposition: retained
+validation_disposition_reason: >
+  Tier B: published directional targets for age and smoking, plus phylum and alpha-diversity rows.
+doi: "10.1038/s41522-022-00279-y"
+year: 2022
+first_author: "Willis, Jesse R."
+title: "Citizen-science reveals changes in the oral microbiome in Spain through age and lifestyle factors"
+journal: "npj Biofilms and Microbiomes"
+code_repository: "https://github.com/Gabaldonlab/ngs_public"
+priority_variables: [age, smoking]
+
+flat_metadata:
+  file: "06_raw_metadata/SLL2.metadata.tsv"   # derived from SLL2.metadata.xlsx (original untouched)
+  sample_id: "sample_id"                      # workbook's unnamed first column: S_1, S_2, ...
+  study_id: "seqGroup"                        # One (n=1083) / Two (n=565) sequencing batches
+  # No subject id exists; the study states one sample per participant.
+  variables:
+    age_years:      {tag: "Age", type: numeric, units: years}
+    sex:            {tag: "Gender", type: categorical}
+    smoking_status: {tag: "Smoker", type: categorical}
+    bmi:            {tag: "BMI", type: numeric}
+    age_group_paper: {tag: "Age_groups", type: categorical}
+    gingivitis_periodontitis: {tag: "Gingivitis_periodontitis", type: categorical}
+    brushing:       {tag: "Brushing", type: categorical}
+    floss:          {tag: "Floss", type: categorical}
+    last_dental_visit: {tag: "Last_dental_visit", type: categorical}
+    lost_teeth:     {tag: "Dental.Lost_teeth", type: categorical}
+    fillings:       {tag: "Dental.Fillings", type: categorical}
+    smokers_at_home: {tag: "Number_smokers_home", type: categorical}
+    celiac:         {tag: "Celiac", type: categorical}
+    asthma:         {tag: "Asthma", type: categorical}
+    city:           {tag: "City", type: categorical}
+
+smoking_harmonization:
+  study_definition: >
+    SLL2 questionnaire item `Smoker` (Yes/No). Self-reported current smoking
+    only - the questionnaire does not distinguish former from never smokers,
+    so `former` is NOT recoverable and "No" conflates never with former.
+  mapping:
+    "no": never          # NOTE: conflates never + former; see study_definition
+    "yes": current
+
+# --- Microbiome: NOT PUBLISHED ------------------------------------------------
+# Verified against the full GitHub tree: SLL2/ contains only metadata, MALDI
+# results and two R scripts. The analysis script readRDS()s objects that are not
+# committed at HEAD or in any release. No ASV/OTU/genus table exists publicly.
+microbiome:
+  tier: 3
+  abundance_table_available: false
+  evidence: "GitHub tree lists 4 files in SLL2/; referenced .rds objects absent from HEAD and releases"
+  raw_reads:
+    accession: PRJNA667146             # verified: 1,672 runs = 1,648 samples + 24 controls
+    study: SRP286599
+    total_fastq_bytes: "46433716135"   # 46.43 GB (quoted: exceeds R integer range)
+    region: "V3-V4"
+    platform: "Illumina MiSeq"
+    controls: "HM-782D x6, HM-783D x6, First NTC x6, Second NTC x6 (no host_* attributes)"
+  # If Tier 3 is approved, the pipeline is fully specified by the companion papers
+  # (PMC7782466, PMC8143623) that SLL2 defers to:
+  reprocessing_recipe:
+    denoiser: "dada2 v1.10.1"
+    filter: "filterAndTrim(truncLen=c(275,230), trimLeft=c(10,10), maxEE=c(5,5))"
+    taxonomy: "SILVA v132 dada2 training set"
+    tree: "DECIPHER 2.10.2 + phangorn 2.5.5"
+    glom: 'tax_glom(taxrank="Genus")'
+    unresolved: "the two companion papers state different read thresholds (>=5000 vs >=1000) yet both report n=1648"
+
+# Independent second phenotype source, verified: ENA BioSamples carry host_age
+# (decimal years), host_sex, host_body_mass_index, host_height, host_tot_mass,
+# geo_loc_name, lat_lon, collection_date for all 1,648 real samples.
+# NO smoking attribute exists at ENA - smoking is GitHub-only.
+# Join verified EXACT: metadata row names == ENA sample_alias ^S_\d+$, 1648/1648.
+ena_biosample_phenotype:
+  available: true
+  variables: [host_age, host_sex, host_body_mass_index, host_height, host_tot_mass,
+              geo_loc_name, lat_lon, collection_date]
+  smoking_present: false
+  join_to_metadata: "sample_alias == metadata row name (S_n), 1648/1648 exact"
+  blocker: "individual-level abundances require Tier-3 reprocessing (explicit go-ahead required)"
+
+nhanes_comparability:
+  oral_site: >
+    HIGH - whole-mouth oral rinse (1 min, 15 mL sterile PBS). Same sampled
+    compartment as the NHANES 10 mL Scope 30 s rinse; only the rinse medium differs.
+  region_16S: >
+    MISMATCH - V3-V4 (341F/805R) vs NHANES V4 (515F/806R).
+  population: >
+    Spanish citizen-science cohort recruited through schools; ~80% adolescent,
+    with a thin older tail. Not population-representative, and family/classmate
+    clustering is present but unmodelled.
+
+# --- Replication targets ------------------------------------------------------
+# Extracted from main-text Tables 1 and 2 via the Europe PMC XML, then normalized.
+# These are the primary value of this dataset.
+replication_targets_summary:
+  age:     {file: "02_supplementary/derived/replication_age_genera.tsv",
+            n_genera: 12, n_in_nhanes: 12, direction: true, effect_sizes: false}
+  smoking: {file: "02_supplementary/derived/replication_smoking_genera.tsv",
+            n_genera: 12, n_in_nhanes: 11, direction: true, effect_sizes: false}
+  caveat: >
+    Direction + mean FDR-adjusted p across 100 balanced subsamples only; no
+    effect sizes are published. Replication must be sign-and-significance
+    concordance, not effect-size correlation.
+
+critical_caveats:
+  - id: no_public_abundance_table
+    detail: "No ASV/OTU/genus table published for SLL2; individual-level analysis needs 46 GB Tier-3 reprocessing"
+    action: "use as a replication-target dataset, or seek explicit approval for Tier 3"
+  - id: smoking_binary_only
+    detail: "`Smoker` Yes/No conflates never with former; former not recoverable"
+    action: "do not pool with 3-level smoking cohorts without accounting for the definition difference"
+  - id: adolescent_skew_and_clustering
+    detail: "~80% adolescent; 311 samples have family ties plus classmate clusters, unmodelled by the authors"
+    action: "interpret the age contrast as within-adolescence plus a thin older tail"
+
+count_reconciliation:
+  analysed_in_paper: 1648
+  explanations:
+    paper_analysed_vs_phenotype_table: "No difference expected; both are the full 1,648-participant set."
+    # The 24-sample gap is the ENA sequencing CONTROLS, verified individually:
+    # HM-782D x6, HM-783D x6, First NTC x6, Second NTC x6. They carry no host_*
+    # attributes and a `replicate` tag instead, so they separate cleanly and are
+    # correctly absent from the participant phenotype layer.
+    paper_analysed_vs_repository_runs: >
+      1,672 runs at ENA = 1,648 real participant samples + 24 sequencing controls
+      (6 each of HM-782D, HM-783D, First NTC, Second NTC). The paper analysed the
+      1,648 participants. The controls are retained in the repository metadata for
+      provenance and QC but are deliberately excluded from the phenotype layer.
+    phenotype_table_vs_repository_runs: >
+      Same 24 controls; see above. Our phenotype table covers exactly the 1,648
+      participant samples, which is the intended scope.

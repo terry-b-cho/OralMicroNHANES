@@ -30,8 +30,8 @@ The intermediate per-dependent-variable RDS files, aggregated `*_complete.rds` t
 
 Results may be reproduced via either of two pathways:
 
-1. **Full re-execution from raw inputs.** Populate `data/` from the input-data deposit and re-run modules 0 → 1 → 2 → 3 → … → 10.
-2. **Use of deposited regression outputs.** Populate `results/` from the regression-output deposit and run only the downstream modules (4–10, plus 2.5).
+1. **Full re-execution from raw inputs.** Populate `data/` from the input-data deposit and re-run modules 0 → 1 → 2 → 3 → … → 12.
+2. **Use of deposited regression outputs.** Populate `results/` from the regression-output deposit and run only the downstream modules (4–12, plus 2.5).
 
 GitHub hosts the directory scaffold of `results/0_ss_files/` and `results/{1_demoWAS,2_oradWAS,3_exWAS,4_pheWAS,5_outWAS}_out/{result_clr,result_hellinger,result_lognorm,result_none}/` to preserve the expected layout; the per-dependent-variable RDS files within each `result_*/` are retrieved from Zenodo.
 
@@ -60,23 +60,25 @@ Each module is fully documented by its own README and tool-version list. The tab
 | `2.5_general_summary_generation` | WAS variable summaries, binary-variable distributions, alpha-diversity stratification | [module2.5_README.md](scripts/2.5_general_summary_generation/module2.5_README.md) |
 | `3_gold_db_microbial_phenotype` | Aggregate GOLD-DB by genus; produce the OTU-to-GOLD mapping used by downstream modules | [module3_README.md](scripts/3_gold_db_microbial_phenotype/module3_README.md) |
 | `4_otu_host_plotting_standalone` | OTU × host effect-size scatter plots and diversity-index plots | [module4_README.md](scripts/4_otu_host_plotting_standalone/module4_README.md) |
-| `5_age_analyses` | Age-stratified clustering (Ward.D2 + silhouette/gap), ecology-by-cluster, nativity composition | [module5_README.md](scripts/5_age_analyses/module5_README.md) |
+| `5_age_analyses` | Age-stratified clustering (Ward.D2 + silhouette/gap), ecology-by-cluster, nativity composition, cross-k robustness of the ecology figures | [module5_README.md](scripts/5_age_analyses/module5_README.md) |
 | `5.5_smoking_analyses` | Smoking-exposure multicollinearity diagnostics across four measurement modalities | [module5.5_README.md](scripts/5.5_smoking_analyses/module5.5_README.md) |
 | `6_alpha_beta_analyses` | Alpha/beta diversity, PCoA, centroid distances, KW/pairwise Wilcoxon, integrated panels | [module6_README.md](scripts/6_alpha_beta_analyses/module6_README.md) |
 | `7_microbial_signature_heatmap` | Inverse-variance-weighted host-host signature correlation heatmaps | [module7_README.md](scripts/7_microbial_signature_heatmap/module7_README.md) |
 | `8_network_analyses` | Host-microbe association networks (per-variable + grouped umbrella) | [module8_README.md](scripts/8_network_analyses/module8_README.md) |
 | `9_biplot_n_categories_heatmap_fixed_kw_wilcoxon` | Abundance/prevalence biplot + categorical KW-Wilcoxon heatmaps | [module9_README.md](scripts/9_biplot_n_categories_heatmap_fixed_kw_wilcoxon/module9_README.md) |
 | `10_prediction_analyses` | Elastic-net (glmnet) prediction of age, age group, and gender from CLR genus features (*exploratory; not included in the manuscript*) | [module10_README.md](scripts/10_prediction_analyses/module10_README.md) |
+| `11_per_year_association` | Per-cycle re-estimation of the pooled CLR associations; cross-cycle direction concordance and replication FDR | [module11_README.md](scripts/11_per_year_association/module11_README.md) |
+| `12_external_data_validation` | External validation of the NHANES genus associations in independent oral microbiome cohorts | [module12_README.md](scripts/12_external_data_validation/module12_README.md) |
 
 ## Run order
 
 Modules `0` and `1` produce the canonical preprocessed databases and regression tables that everything downstream reads:
 
 ```
-0 -> 1 -> 2 -> 3 -> {2.5, 4, 5, 5.5, 6, 7, 8, 9, 10}
+0 -> 1 -> 2 -> 3 -> {2.5, 4, 5, 5.5, 6, 7, 8, 9, 10} -> {11, 12}
 ```
 
-Downstream modules (2.5, 4–10) read the outputs of 0–3 and are otherwise independent of each other; run any in any order. Within each downstream module, follow the per-module README's run order.
+Downstream modules (2.5, 4–10) read the outputs of 0–3 and are otherwise independent of each other; run any in any order. The two validation modules (11, 12) additionally read outputs of modules 6 and 10, so run them last. Within each downstream module, follow the per-module README's run order.
 
 Before running any module, open the target script(s) and set `PROJECT_ROOT` (top of file) to the absolute path of your local clone of this repository.
 
@@ -123,7 +125,7 @@ OralMicroNHANES/
 │   │       └── <scheme>_{tidied,glanced,rsq}_complete.rds
 │   ├── intermediate/                              # updated phyloseq objects used by some downstream modules
 │   ├── supplementary_tables/                      # module 1 aggregation summaries (s_table_*.csv)
-│   └── analyses_results/                          # outputs of modules 2, 2.5, 3, 4-10
+│   └── analyses_results/                          # outputs of modules 2, 2.5, 3, 4-12
 │       ├── 2_preprocess_db_n_phyloseq_out/
 │       ├── 2.5_general_summary_generation/
 │       ├── 3_gold_db_microbial_phenotype_out/
@@ -134,7 +136,11 @@ OralMicroNHANES/
 │       ├── 7_microbial_signature_heatmap_out/
 │       ├── 8_network_analyses_out/ (+ _additional/)
 │       ├── 9_biplot_n_categories_heatmap_fixed_kw_wilcoxon_out/
-│       └── 10_prediction_analyses_out/
+│       ├── 10_prediction_analyses_out/
+│       ├── 11_per_year_association/
+│       └── 12_external_data_validation/
+├── tools/                                         # accessory helper used by module 5
+│   └── extract_historical_tsne.py
 └── scripts/
     ├── 0_transform_n_preprocess_ssfiles/
     ├── 1_association_pipeline/
@@ -148,7 +154,9 @@ OralMicroNHANES/
     ├── 7_microbial_signature_heatmap/
     ├── 8_network_analyses/
     ├── 9_biplot_n_categories_heatmap_fixed_kw_wilcoxon/
-    └── 10_prediction_analyses/
+    ├── 10_prediction_analyses/
+    ├── 11_per_year_association/
+    └── 12_external_data_validation/
 ```
 
 ## Methods by module
@@ -168,6 +176,8 @@ OralMicroNHANES/
 | `8` | Host–microbe association networks (`igraph` + `ggraph`): edge weight w_{ij} = \|β_{m_i,h} · β_{m_j,h}\|, direction-concordance edge colour, compact node selection (top 15 positive + 15 negative by \|β\|). |
 | `9` | Top-15 taxa biplot per taxonomic rank (abundance × prevalence); per-MAS-factor Kruskal–Wallis (≥3 levels) or Wilcoxon (binary) with BH-FDR; top-30 ranked taxa pheatmap with phylum row annotations. |
 | `10` | Elastic-net (`glmnet`, α = 0.5) prediction of age / age-group / gender from CLR genus features; 5-fold CV; unweighted and survey-weighted (`WTMEC2YR`) test-set metrics. *Exploratory; not in manuscript.* |
+| `11` | Re-estimation of every pooled CLR association independently within cycle F (2009–10) and cycle G (2011–12) under single-cycle NCHS designs (unscaled `WTMEC2YR`, `SDMVSTRA` / `SDMVPSU`; design-df t, df = 16/17); each pooled BH-FDR ≤ 0.05 association validated across both cycles by direction concordance and replication FDR. |
+| `12` | Harmonization of external-cohort metadata and genus tables; refit of the matching association models; direction agreement, rank agreement, and coverage reported per phenotype and cohort (non-comparable pairs reported with the reason). |
 
 ## **Authors & Contributors**
 <table align="center">

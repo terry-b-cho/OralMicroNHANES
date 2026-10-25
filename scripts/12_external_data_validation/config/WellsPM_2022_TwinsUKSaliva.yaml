@@ -1,0 +1,59 @@
+# =============================================================================
+# Module 12 — dataset configuration
+# WellsPM_2022_TwinsUKSaliva
+# EXPECTED OUTCOME: NOT_USABLE (no accession, no supplement, managed access).
+# Processed anyway to VERIFY that and capture the one extractable result.
+# =============================================================================
+dataset_id: WellsPM_2022_TwinsUKSaliva
+# Validation disposition (controlled vocabulary; single source of truth).
+#   retained                 = contributed evidence to the external validation
+#   excluded_context_only    = acquired, contributed no validation evidence
+#   excluded_reference_only  = acquired, kept only as a taxonomic reference
+validation_disposition: retained
+validation_disposition_reason: >
+  Tier B: six published genus-level age directions.
+doi: "10.1038/s41598-022-23266-x"
+year: 2022
+first_author: "Wells, Philippa M."
+title: "Influential factors of saliva microbiota composition"
+journal: "Scientific Reports"
+priority_variables: [age]
+sequence_accession: null
+code_repository: null
+
+critical_caveats:
+  - id: no_accession_exists
+    detail: >
+      No SRA/ENA/EGA/dbGaP identifier appears anywhere in the article. Data
+      availability reads only "available upon reasonable request to TwinsUK".
+    action: "managed-access application required; months of turnaround"
+  - id: zero_supplementary_files
+    detail: >
+      VERIFIED: the Europe PMC supplementary bundle contains only 10 main-text
+      figure renders (Fig1-Fig5 as .gif and .jpg). There is no MOESM file.
+    action: "do not search for supplementary tables; there are none"
+  - id: smoking_never_analysed
+    detail: "the authors explicitly list smoking among omitted variables"
+    action: "cannot contribute to smoking validation under any circumstances"
+  - id: only_result_is_a_figure
+    detail: >
+      The paper's sole taxon-level output is Figure 5, a dot plot. Six genera
+      transcribed by reading the image; direction only, magnitudes not recoverable.
+    action: "treat as lower-provenance than machine-parsed targets"
+
+replication_targets_summary:
+  age:
+    file: "02_supplementary/derived/replication_age_genera_from_figure.tsv"
+    source: "main-text Figure 5 (dot plot)"
+    n_genera: 6
+    n_in_nhanes: 6
+    direction: true
+    effect_sizes: false
+    provenance: manual_transcription_from_figure
+    note: "5/5 direction agreement with WillisJR_2022_SacaLaLengua2 - the module's strongest pair"
+
+nhanes_comparability:
+  rating: high_on_assay_unobtainable_in_practice
+  region_16S: "V4 515F/806R - the BEST primer match in the roster"
+  oral_site: saliva
+  population: "TwinsUK twin registry; 92% female, median age 66; non-independent by construction"
