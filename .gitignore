@@ -224,3 +224,17 @@ xx_private_use/**
 results/analyses_results/*
 !results/analyses_results/10_prediction_analyses_out
 !results/analyses_results/10_prediction_analyses_out/**
+# t-SNE coordinate fixture required by scripts/5_age_analyses.
+# Allow git to descend into results/intermediate, re-ignore all siblings,
+# then explicitly un-ignore the fixture.
+!results/intermediate/
+results/intermediate/*
+!results/intermediate/.gitkeep
+!results/intermediate/historical_tsne_coords_k9.csv
+
+# Python virtual environments and bytecode
+**/.venv/
+**/venv/
+**/*_venv/
+**/__pycache__/
+**/*.pyc

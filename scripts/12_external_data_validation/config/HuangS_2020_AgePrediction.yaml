@@ -1,0 +1,202 @@
+# =============================================================================
+# Module 12 — dataset configuration
+# HuangS_2020_AgePrediction
+# Fields are provisional until confirmed by the Wave-1 agents + repository pull.
+# =============================================================================
+dataset_id: HuangS_2020_AgePrediction
+# Validation disposition (controlled vocabulary; single source of truth).
+#   retained                 = contributed evidence to the external validation
+#   excluded_context_only    = acquired, contributed no validation evidence
+#   excluded_reference_only  = acquired, kept only as a taxonomic reference
+validation_disposition: retained
+validation_disposition_reason: >
+  Tier A: per-sample abundances + linkable phenotypes; the only cohort permitting independent model refitting.
+doi: "10.1128/mSystems.00630-19"
+year: 2020
+first_author: "Huang, Shi"
+title: "Human Skin, Oral, and Gut Microbiomes Predict Chronological Age"
+journal: "mSystems"
+paper_type: methods_ml
+code_repository: "https://github.com/shihuang047/age-prediction"
+priority_variables: [age]
+
+# --- Flat metadata source ----------------------------------------------------
+# This dataset ships a QIIME-style mapping file (1,067 columns, American Gut
+# superset schema) rather than per-sample BioSample attributes.
+flat_metadata:
+  file: "06_raw_metadata/oral_2550_map.txt"
+  sample_id: "SampleID"          # file header is "#SampleID"; the leading # is stripped on read
+  subject_id: "host_subject_id"
+  # VERIFIED: host_subject_id is NOT globally unique. Seven short numeric ids
+  # (3,5,7,9,13,15,25) recur in BOTH study 2010 (infants) and study 10052
+  # (Yanomami) as different people. Keying on it alone gives 724 subjects; the
+  # correct composite key gives 731.
+  subject_key_composite: true
+  study_id: "qiita_study_id"        # 9 constituent Qiita studies
+  variables:
+    age_years:      {tag: "qiita_host_age", type: numeric, units: years}
+    sex:            {tag: "qiita_host_sex", type: categorical}
+    smoking_status: {tag: "smoking_frequency", type: categorical}
+    bmi:            {tag: "bmi", type: numeric}
+    country:        {tag: "country", type: categorical}
+    body_site:      {tag: "body_site", type: categorical}
+    sample_type:    {tag: "sample_type", type: categorical}
+    race:           {tag: "race", type: categorical}
+    education:      {tag: "level_of_education", type: categorical}
+
+# GOTCHA: use `qiita_host_age`, NOT `age`. The harmonized `qiita_host_age` field
+# is complete for all 2,550 samples; the raw `age` column is empty for the
+# American Gut subset (2,003/2,550).
+smoking_harmonization:
+  study_definition: >
+    American Gut `smoking_frequency` self-report, present for only 505 of 2,550
+    samples (AGP subset only) and almost entirely "Never". NOT usable as a
+    smoking phenotype - retained for completeness only.
+  mapping:
+    never: never
+    rarely: unknown
+    occasionally: unknown
+    regularly: current
+    daily: current
+
+# =============================================================================
+# CRITICAL CAVEAT — SEVERE PSEUDOREPLICATION
+# =============================================================================
+# 2,550 samples come from only 724 distinct host_subject_id values.
+# FOUR individuals contribute 971 samples (38% of the dataset):
+#   M3 = 373, DonorA = 285, M03 = 178, F4 = 135
+# True subject count is 731 (composite study:subject key), not 724.
+# Only 8 subjects have more than one distinct age, so repeated sampling adds
+# essentially ZERO age information - the extra rows are pure inflation.
+# These are dense longitudinal time series (Moving Pictures, MIT daily), not
+# independent observations. Treating the 2,550 rows as independent inflates n
+# ~3.5x and lets four people dominate any age model.
+# ACTION: `is_subject_representative` flags one sample per subject. Use it, or
+# use clustered/grouped CV keyed on subject_id.
+# =============================================================================
+critical_caveats:
+  - id: severe_pseudoreplication
+    n_samples: 2550
+    n_subjects: 724
+    detail: "4 subjects contribute 971 samples (38%); dense time series mixed with cross-sectional studies"
+    action: "filter is_subject_representative == TRUE, or use subject-grouped CV"
+  - id: body_site_mismatch
+    detail: >
+      VERIFIED per constituent study: 73.5% tongue-dorsum swab, 11.2% PBS oral
+      rinse, 12.5% true saliva, 2.8% oral mucosa. The paper's "2,550 saliva
+      samples" is incorrect - "saliva" is Qiita's body_product tag, applied even
+      to tongue swabs. NHANES used a 10 mL Scope oral rinse. Only ONE study used
+      a comparable rinse, and it is a single 26-year-old man (285 samples).
+    action: "treat as a tongue-swab cohort; disclose site mismatch in every figure"
+  - id: young_age_skew
+    detail: >
+      Age 18-85 but mean 32.1; only 269 samples >=50 and 156 >=60 BEFORE subject
+      deduplication. Statistical power is concentrated where NHANES is weakest.
+    action: "report age distribution alongside any age-association result"
+
+# --- Microbiome data ---------------------------------------------------------
+microbiome:
+  tier: 1
+  repo_default_branch: master        # NOT main
+  repo_size_warning: "864 MB total - NEVER clone; fetch individual files over raw.githubusercontent"
+  abundance_file: "oral_2550.norm.filtered_prev0.005.tsv"
+  value_type: relative               # normalized, prevalence-filtered at 0.005
+  dimensions: [2550, 1070]
+  # Features are 100-nt Deblur ASV sequences; taxonomy is keyed by that sequence,
+  # so this is a FEATURE-ID join, not a positional one.
+  taxonomy_key_file: "oral_taxonomy.txt"
+  taxonomy_join_mode: by_feature_id
+  taxonomy_feature_id_column: "Feature ID"
+  taxonomy_lineage_column: "Taxon"
+  genus_derivable: true
+  genus_derivation: "extract g__ field from the QIIME-style lineage string, then apply parse_genus()"
+  reference_db: "Greengenes (via Qiita/Deblur 100nt)"
+  pipeline: "Deblur 100 nt ASVs, 16S V4 515F/806R (Earth Microbiome Project protocol)"
+  files_to_skip:
+    - {path: "oral_2550.biom0", reason: "14 MB unfiltered pre-filter version"}
+    - {path: "oral_2550.qza", reason: "QIIME2 artifact duplicating the tsv"}
+
+# --- Join keys ---------------------------------------------------------------
+# Abundance rownames and the mapping file share the same QIIME sample name,
+# so the join is direct (no repository crosswalk needed for this dataset).
+join:
+  microbiome_key: sample_id
+  phenotype_key: sample_id
+  expected_cardinality: "1 sample : 1 row"
+
+# --- NHANES comparability ----------------------------------------------------
+nhanes_comparability:
+  rating: medium_low
+  region_16S: "V4 515F/806R - MATCHES NHANES exactly"
+  oral_site: >
+    MISMATCH. 85% tongue-dorsum swab (UBERON:tongue), 15% UBERON:mouth.
+    NHANES 2009-2012 used a 10 mL Scope oral RINSE. Tongue dorsum is a distinct
+    ecological niche with different community composition.
+  population: >
+    Heterogeneous convenience sample of 9 public studies spanning American Gut
+    citizen scientists, a student cohort, Tanzanian pregnancy, Yanomami, infant
+    and dense adult time series. Not population-representative.
+  strengths: ["identical 16S region and primers to NHANES",
+              "continuous age at 100% coverage",
+              "87.9% genus overlap with the NHANES universe"]
+
+# --- Sample-count reconciliation ---------------------------------------------
+count_reconciliation:
+  analysed_in_paper: 2550
+  explanations:
+    paper_analysed_vs_phenotype_table: "No difference expected; both are the published 2,550-sample oral set."
+    paper_analysed_vs_microbiome_table: "No difference expected."
+    paper_analysed_vs_final_join: "No difference expected; the join matched all 2,550 rows with zero orphans."
+    microbiome_table_vs_phenotype_table: "No difference expected."
+    final_join_vs_phenotype_table: "No difference expected."
+    final_join_vs_microbiome_table: "No difference expected."
+
+# --- Replication targets ------------------------------------------------------
+# Published per-taxon association statistics we can compare NHANES results
+# against WITHOUT needing individual-level data. These encode the original
+# authors' own analysis and are the highest-value artifact for validation.
+replication_targets:
+  - name: young_vs_old_differential_abundance
+    file: "05_processed_microbiome/BetweenGroupTest_out_all.xls"   # TSV despite the .xls extension
+    lineage_style: qiime
+    columns:
+      lineage: "Taxon"
+      stratum: "dataset"            # female / male - the analysis was sex-stratified
+      effect: "mean_logfc"          # old vs young log fold-change: DIRECTION + magnitude
+      p_value: "Wilcoxon.test_p"
+      q_value: "Wilcoxon.test_p.adj"
+      direction: "Enr"              # which age group the taxon is enriched in
+      significant: "IfSig"
+    significance_rule: q_value
+    q_threshold: 0.05
+    comparison_mode: effect_direction_and_magnitude
+    caveat: >
+      Age was DICHOTOMIZED at 40 years (old vs young), not modelled continuously,
+      so effect sizes are not comparable to a continuous-age coefficient - compare
+      DIRECTION and rank. Critically, these statistics were computed on the full
+      2,550 samples WITHOUT subject deduplication, so p-values are inflated by
+      pseudoreplication (1,992 of 2,550 samples come from repeat subjects).
+      Treat direction as informative and p-values as anticonservative.
+
+  - name: rf_feature_importance_by_sex
+    file: "05_processed_microbiome/feature_imps_all.xls"
+    lineage_style: qiime
+    columns:
+      lineage: "Taxon"
+      effect: "female"              # raw RF importance, female model
+    comparison_mode: rank_overlap_only
+    caveat: >
+      Random-forest importances are unsigned - they indicate that a taxon matters
+      for age prediction, never whether it increases or decreases. Rank/overlap
+      comparisons only. The `male` column holds the corresponding male-model values.
+
+  - name: figS3_oral_importance_ranks
+    file: "02_supplementary/derived/FIGS3_oral_feature_importance_rank.tsv"
+    lineage_style: qiime
+    columns:
+      lineage: "taxonomy_greengenes"
+      effect: "Women_rank"
+    comparison_mode: rank_overlap_only
+    caveat: >
+      Reconstructed from the live PostScript text of Supplementary FIG S3. Cells
+      are integer RANKS (1-63), not effect sizes, and carry no direction.

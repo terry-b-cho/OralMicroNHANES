@@ -1,0 +1,110 @@
+# =============================================================================
+# Module 12 — dataset configuration
+# GhensiP_2020_ImplantDisease
+# =============================================================================
+dataset_id: GhensiP_2020_ImplantDisease
+# Validation disposition (controlled vocabulary; single source of truth).
+#   retained                 = contributed evidence to the external validation
+#   excluded_context_only    = acquired, contributed no validation evidence
+#   excluded_reference_only  = acquired, kept only as a taxonomic reference
+validation_disposition: retained
+validation_disposition_reason: >
+  Tier B: published peri-implant disease differential abundance, rolled up to genus.
+doi: "10.1038/s41522-020-00155-7"
+pmid: "33127901"
+year: 2020
+first_author: "Ghensi, Paolo"
+title: "Strong oral plaque microbiome signatures for dental implant diseases identified by strain-resolution metagenomics"
+journal: "npj Biofilms and Microbiomes"
+code_repository: null
+priority_variables: [disease, smoking]
+assay_type: shotgun_metagenomics
+
+# =============================================================================
+# CRITICAL: the BioProject now holds TWO tranches. Only 113 runs belong to this
+# paper; a 2023 addition of 207 more runs (SRR2563xxxx / SAMN369479xx) is NOT
+# part of it. Filtering to SRR92* gives 72.5 GB instead of 174.4 GB.
+# =============================================================================
+sequence_accession: "PRJNA547717"
+critical_caveats:
+  - id: bioproject_contains_two_studies
+    detail: "PRJNA547717 holds 320 runs; only 113 (SRR92*) belong to Ghensi 2020"
+    action: "filter to the 113 paper runs; never treat the project as one cohort"
+  - id: age_not_public
+    detail: >
+      Per-sample age is NA in EVERY public source - curatedMetagenomicData cMD3,
+      Supplementary Data 3 (MOESM4), and cMD4 (which substitutes a placeholder
+      age_min=18/age_max=65 inconsistent with the paper's ~62 mean). The paper
+      reports age only as group means in Table 1.
+    action: "this dataset CANNOT validate the age axis"
+  - id: repeated_measures
+    detail: "113 samples from 72 subjects; subgingival plaque only"
+    action: "model subject as a random effect or restrict to one sample per subject"
+
+nhanes_comparability:
+  rating: low
+  oral_site: "subgingival plaque - a distinct niche from NHANES oral rinse"
+  assay: "shotgun MetaPhlAn3 species vs NHANES 16S V4 genus; cross-platform profiler bias"
+
+flat_metadata:
+  file: "06_raw_metadata/GhensiP_2019_metadata.tsv"
+  sample_id: "sample_id"
+  subject_id: "subject_id"          # 72 distinct across 113 samples - repeated measures
+  variables:
+    # NOTE: `age` exists as a COLUMN but is empty for all 113 rows. It is mapped
+    # here deliberately so the data dictionary records it as availability=absent
+    # rather than silently omitting it.
+    age_years:       {tag: "age", type: numeric, units: years}
+    smoking_status:  {tag: "smoker", type: categorical}
+    ever_smoker:     {tag: "ever_smoker", type: categorical}
+    study_condition: {tag: "study_condition", type: categorical}
+    disease:         {tag: "disease", type: categorical}
+    body_subsite:    {tag: "body_subsite", type: categorical}
+    dental_sample_type: {tag: "dental_sample_type", type: categorical}
+    history_of_periodontitis: {tag: "history_of_periodontitis", type: categorical}
+    antibiotics_current_use: {tag: "antibiotics_current_use", type: categorical}
+    ncbi_accession:  {tag: "NCBI_accession", type: categorical}
+    number_reads:    {tag: "number_reads", type: numeric}
+
+smoking_harmonization:
+  study_definition: >
+    curatedMetagenomicData cMD3 `smoker` (yes/no = current smoking) with a
+    separate `ever_smoker` (yes/no). Combining the two recovers a three-level
+    variable: ever=no -> never; ever=yes & smoker=no -> former; smoker=yes -> current.
+    The underlying questionnaire wording is not stated in the curation.
+  mapping:
+    "no": never          # provisional; refined to never/former below
+    "yes": current
+  refine_with_ever_smoker:
+    ever_column: ever_smoker
+
+microbiome:
+  tier: 1
+  abundance_table_available: false
+  intended_route: "curatedMetagenomicData::GhensiP_2019.relative_abundance (MetaPhlAn3)"
+  blocker: >
+    curatedMetagenomicData is not installed in the project conda env, and
+    ExperimentHub cannot reach its server from this node (falls back to
+    localHub=TRUE with an empty cache). Profiles were not retrieved.
+  alternatives:
+    - "install curatedMetagenomicData + give ExperimentHub network access (cheap)"
+    - "Tier 3: 113 SRR92* runs = 72.5 GB, then MetaPhlAn (expensive, adds profiler bias)"
+
+replication_targets_summary:
+  disease:
+    file: "02_supplementary/derived/replication_disease_species.tsv"
+    source: "Supplementary Data 4 (MOESM5)"
+    n_species: 259
+    n_significant_q05: 42
+    direction: true          # derived from the published class means
+    n_genera: 24
+    n_genera_in_nhanes: 23
+    caveat: >
+      Peri-implant disease vs health in subgingival plaque, profiled by shotgun
+      MetaPhlAn. Not an NHANES oral-health phenotype and not the NHANES niche -
+      concordance is informative, discordance is not evidence against NHANES.
+
+count_reconciliation:
+  analysed_in_paper: 113
+  explanations:
+    paper_analysed_vs_phenotype_table: "No difference expected; both are the 113 paper samples."
