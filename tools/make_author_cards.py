@@ -85,11 +85,11 @@ def main():
         nw = text_width(name, NAME_PX); block = nw + 4 + 11; x0 = (W - block) / 2
         for theme, c in THEMES.items():
             svg = (
-                f'<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="{W}" height="{H}" viewBox="0 0 {W} {H}" font-family="{FONT}">'
+                f'<svg xmlns="http://www.w3.org/2000/svg" width="{W}" height="{H}" viewBox="0 0 {W} {H}" font-family="{FONT}">'
                 f'<text x="{W/2}" y="14" text-anchor="middle" font-size="{SMALL_PX}" fill="{c["muted"]}">@{gh}</text>'
-                f'<image href="{img}" xlink:href="{img}" x="{W/2-R}" y="{14+6}" width="{2*R}" height="{2*R}"/>'
+                f'<image href="{img}" x="{W/2-R}" y="{14+6}" width="{2*R}" height="{2*R}"/>'
                 f'<text x="{x0:.1f}" y="{14+6+2*R+22}" font-size="{NAME_PX}" font-weight="600" fill="{c["name"]}" textLength="{nw}" lengthAdjust="spacing">{html.escape(name)}</text>'
-                f'<image href="{orcid}" xlink:href="{orcid}" x="{x0+nw+4:.1f}" y="{14+6+2*R+12}" width="11" height="11"/>'
+                f'<image href="{orcid}" x="{x0+nw+4:.1f}" y="{14+6+2*R+12}" width="11" height="11"/>'
                 f'<text x="{W/2}" y="{14+6+2*R+40}" text-anchor="middle" font-size="{SMALL_PX}" fill="{c["muted"]}">{role}</text>'
                 f'</svg>')
             path = os.path.join(OUT, f"{gh}-{theme}.svg")
